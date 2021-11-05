@@ -29,7 +29,7 @@
                         <img src="../assets/image/texnomart.png" alt="">
                     </div>
                     <div class="brand__text">
-                        <h5>Товары из категории Акции и скидки Товары из категории....</h5>
+                        <h5>Zafar Товары из категории Акции и скидки Товары из категории....</h5>
                     </div>
                     <div class="brand__images">
                         <div class="brand__one">
