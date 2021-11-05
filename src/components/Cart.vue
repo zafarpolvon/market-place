@@ -2,7 +2,7 @@
     <div class="cart__box shadow-xl">
         <div class="cart__image" @mouseover="listOne = true" @mouseleave="listOne = false">
             <img :src="cart.img" alt="">
-            <span v-if="listOne" @click="listOne = false" class="fast__review">Быстрый просмотр</span>
+            <span v-if="listOne" @click="listOne = false" class="fast__review">просмотр</span>
             <button>
                 <i class="far fa-heart"></i>
             </button>
@@ -149,7 +149,7 @@ export default {
         cursor: pointer;
         background: #F8F8FA;
         border-radius: 25px;
-        width: 60%;
+        width: 50%;
         padding: 5px 0;
         text-align: center;
     }

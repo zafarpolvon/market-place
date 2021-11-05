@@ -2,8 +2,8 @@
     <div class="back">
         <Navbar />
         <div class="container mx-auto px-12 pages">
-            <span>Главная страница / </span>
-            <span> Контакты</span>
+            <a href="#">Главная страница / </a>
+            <a href="#"> Контакты</a>
         </div>
         <div class="container mx-auto px-12">
             <div class="contacts__title">Контакты</div>
@@ -11,10 +11,41 @@
                 <div class="box">
                     <img src="../assets/image/Screenshot_1 1.png" class="map" alt="not found">
                     <div class="boxes">
-                        <div class="box"></div>
+                        <div class="contact__box">
+                            <h1>Телефон номер:</h1>
+                            <h3>+7 237 181 181</h3>
+                            <h3>+7 210 181 191</h3>
+                        </div>
+                        <div class="contact__box">
+                            <h1>Юридический адрес:</h1>
+                            <h3>Россия , Петербург</h3>
+                        </div>
+                        <div class="contact__box">
+                            <h1>E-mail:</h1>
+                            <h3>info@tujjor.uz</h3>
+                        </div>
+                        <div class="contact__box">
+                            <h1>Партнерам</h1>
+                            <h3>Узнайте подробные условия для сотрудничества</h3>
+                        </div>
                     </div>
                 </div>
-                <div class="r__box"></div>
+                <div class="r__box">
+                    <div class="title">Отпавте нам сообщение</div>
+                    <div class="input">
+                        <input type="text" placeholder="Ваше имя">
+                    </div>
+                    <div class="input">
+                        <input type="email" placeholder="Ваш e-mail"/>
+                    </div>
+                    <div class="input">
+                        <input type="number" placeholder="Ваш номер"/>
+                    </div>
+                    <textarea placeholder="Оставьте отзыв" class="textarea"></textarea>
+                    <div class="r__box-button">
+                        <button type="submit" class="mx-auto">Отправить сообщение</button>
+                    </div>
+                </div>
             </div>
         </div>
         <Footer />

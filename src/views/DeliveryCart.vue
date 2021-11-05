@@ -3,8 +3,8 @@
         <Navbar :black="gray" />
         <second-navbar />
         <div class="container mx-auto px-12 pages">
-            <span>Главная страница / </span>
-            <span> Мои заказы</span>
+            <a href="#">Главная страница / </a>
+            <a href="#"> Мои заказы</a>
         </div>
         <div class="container mx-auto px-12 delivery-carts">
             <div class="delivery-cart__title">Мои заказы</div>

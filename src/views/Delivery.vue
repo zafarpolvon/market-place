@@ -25,15 +25,15 @@
                     <div class="box_title">Быстро доставим любой Ваш заказ по всей России</div>
                     <div class="d__boxes">
                         <div class="d__box">
-                            <img src="../assets/image/Vector (1).png" alt="not found">
+                            <img src="../assets/image/Vector (16).png" alt="not found">
                             <p>Бесплатная доставка</p>
                         </div>
                         <div class="d__box">
-                            <img src="../assets/image/Vector (2).png" alt="not found">
+                            <img src="../assets/image/Vector (17).png" alt="not found">
                             <p>Доставка круглый год в России</p>
                         </div>
                         <div class="d__box">
-                            <img src="../assets/image/Vector (3).png" alt="not found">
+                            <img src="../assets/image/Vector (18).png" alt="not found">
                             <p>Возврат товара при примерке</p>
                         </div>
                     </div>

@@ -2,7 +2,7 @@
     <div class="back">
         <Navbar />
         <second-navbar :active="active" />
-        <div class="container mx-auto px-12 mb-12">
+        <div class="container mx-auto px-12 pb-12">
             <div class="info__boxes">
                 <div class="box">
                     <div class="user">
@@ -12,12 +12,11 @@
                     <div class="email">Э-маил: <span>mironshohnasimov@gmail.com</span></div>
                     <div class="b__user">
                         <div class="phone">Телефон: <span>+99899 739 3538</span></div>
-                        <span id="back">Выйти</span>
                     </div>
                 </div>
                 <div class="box">
                     <div class="delivery">
-                        <img src="../assets/image/Vector (4).png" alt="not found">
+                        <img src="../assets/image/Vector (21).png" alt="not found">
                         <div class="delivery__title">Доставка</div>
                     </div>
                     <p><span>Ближайшая</span> не ожидается</p>
@@ -45,7 +44,7 @@
                 </div>
                 <div class="box">
                     <div class="box__title">Уведомления</div>
-                    <p><img src="../assets/svg/Group (1).svg" alt="not found"> 0 шт</p>
+                    <p> 0 шт</p>
                 </div>
             </div>
         </div>

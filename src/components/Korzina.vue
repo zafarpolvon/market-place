@@ -39,8 +39,8 @@ export default {
         flex-direction: row;
     }
     .basket__image {
-        width: 124px;
-        height: 124px;
+        width: 150px;
+        height: 150px;
         display: flex;
     }
     .basket__item {
@@ -50,7 +50,8 @@ export default {
         background: #FFFFFF;
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
         border-radius: 8px;
-        padding: 15px 20px 15px 5px;
+        padding: 15px;
+        margin-bottom: 1rem;
     }
     .basket__box {
         margin-left: 20px;

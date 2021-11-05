@@ -6,57 +6,57 @@
         <div class="grid grid-cols-9 gap-4">
             <div class="col-span-3">
                 <div class="brand__box">
-                    <div class="brand__logo">
+                    <a href="#" class="brand__logo">
                         <img src="../assets/image/radius.png" alt="">
-                    </div>
+                    </a>
                     <div class="brand__text">
                         <h5>Товары из категории Акции и скидки Товары из категории....</h5>
                     </div>
                     <div class="brand__images">
-                        <div class="brand__one">
+                        <a href="#" class="brand__one">
                             <img src="../assets/image/bfarsace_201106_4269_012 1.png" alt="">
-                        </div>
-                        <div class="flex flex-col justify-between brand__second">
-                            <img src="../assets/image/gh-best-tv-brands-1587581394 1.png" alt="">
-                            <img src="../assets/image/lg-lfcs25426d-refrigerator-product-photos-7 1.png" alt="">
+                        </a>
+                        <div href="#" class="flex flex-col justify-between brand__second">
+                            <a href="#"><img src="../assets/image/gh-best-tv-brands-1587581394 1.png" alt="img"></a>
+                            <a href="#"><img src="../assets/image/lg-lfcs25426d-refrigerator-product-photos-7 1.png" alt="img"></a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-span-3">
                 <div class="brand__box">
-                    <div class="brand__logo">
+                    <a href="#" class="brand__logo">
                         <img src="../assets/image/texnomart.png" alt="">
-                    </div>
-                    <div class="brand__text">
-                        <h5>Zafar 1 Товары из категории Акции и скидки Товары из категории....</h5>
-                    </div>
-                    <div class="brand__images">
-                        <div class="brand__one">
-                            <img src="../assets/image/Mask Group.png" alt="">
-                        </div>
-                        <div class="flex flex-col justify-between brand__second">
-                            <img src="../assets/image/microwave-wattage-what-to-look-for-before-buying-1554472332 1.png" alt="">
-                            <img src="../assets/image/GdcaWSadcCWbt3am8Typ3E 1.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-span-3">
-                <div class="brand__box">
-                    <div class="brand__logo">
-                        <img src="../assets/image/clozzone.png" alt="">
-                    </div>
+                    </a>
                     <div class="brand__text">
                         <h5>Товары из категории Акции и скидки Товары из категории....</h5>
                     </div>
                     <div class="brand__images">
-                        <div class="brand__one">
-                            <img src="../assets/image/11092_1592550220_0535 1.png" alt="">
+                        <a href="#" class="brand__one">
+                            <img src="../assets/image/Mask Group.png" alt="">
+                        </a>
+                        <div href="#" class="flex flex-col justify-between brand__second">
+                            <a href="#"><img src="../assets/image/microwave-wattage-what-to-look-for-before-buying-1554472332 1.png" alt="img"></a>
+                            <a href="#"><img src="../assets/image/GdcaWSadcCWbt3am8Typ3E 1.png" alt="img"></a>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-3">
+                <div class="brand__box">
+                    <a href="#" class="brand__logo">
+                        <img src="../assets/image/clozzone.png" alt="">
+                    </a>
+                    <div class="brand__text">
+                        <h5>Товары из категории Акции и скидки Товары из категории....</h5>
+                    </div>
+                    <div class="brand__images">
+                        <a href="#" class="brand__one">
+                            <img src="../assets/image/11092_1592550220_0535 1.png" alt="">
+                        </a>
                         <div class="flex flex-col justify-between brand__second">
-                            <img src="../assets/image/Rectangle 649.png" alt="">
-                            <img src="../assets/image/50 1.png" alt="">
+                            <a href="#"><img src="../assets/image/Rectangle 649.png" alt="img"></a>
+                            <a href="#"><img src="../assets/image/50 1.png" alt="img"></a>
                         </div>
                     </div>
                 </div>

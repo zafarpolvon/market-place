@@ -1,4 +1,5 @@
 <template>
+
     <div class="back">
         <Navbar />
         <second-navbar />
@@ -10,28 +11,28 @@
                         <i class="fa fa-plus"></i>
                     </div>
                     <div class="user__name">Javohir Akramjonov</div>
-                    <i class="fas fa-pen"></i>
+                    <img src="../assets/image/Vector (19).png" alt="not found">
                 </div>
                 <div class="info__box">
                     <div class="info__user">
                     <div class="title">Э-маил</div>
                     <div class="change">
                         <p>mironshohnasimov@gmail.com</p>
-                        <i class="fas fa-pen"></i>
+                        <img src="../assets/image/Vector (19).png" alt="not found">
                     </div>
                 </div>
                 <div class="info__user">
                     <div class="title">Телефон</div>
                     <div class="change">
                         <p>+99899 739 3538</p>
-                        <i class="fas fa-pen"></i>
+                        <img src="../assets/image/Vector (19).png" alt="not found">
                     </div>
                 </div>
                 <div class="info__user">
                     <div class="title">Дата рождения</div>
                     <div class="change">
                         <p>11.12.2000</p>
-                        <i class="fas fa-pen"></i>
+                        <img src="../assets/image/Vector (19).png" alt="not found">
                     </div>
                 </div>
                 <div class="info__user">
@@ -63,11 +64,11 @@
                 <div class="box">
                     <div class="title">Удаление личново кабинета</div>
                     <p>Как только Ваш личный кабинет будет удален</p>
-                    <span>Удаление личново кабинета</span>
+                    <a href="#">Удаление личново кабинета</a>
                 </div>
                 <div class="box">
                     <div class="title">Восстановления пароля</div>
-                    <span>Данные для восстановления пароля и sms</span>
+                    <a href="#">Данные для восстановления пароля и sms</a>
                 </div>
             </div>
         </div>

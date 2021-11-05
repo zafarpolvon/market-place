@@ -3,7 +3,7 @@
         <td>№ {{ order.id }}</td>
         <td>{{ order.date }}</td>
         <td>{{ order.price }} ₽</td>
-        <td><img src="../assets/image/visa-card-png-4 1.png" alt="not found"></td>
+        <td><a href="#"><img src="../assets/image/visa-card-png-4 1.png" alt="not found"></a></td>
         <td>{{ order.price }}</td>
     </tr>
 </template>

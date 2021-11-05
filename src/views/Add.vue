@@ -9,7 +9,7 @@
                     <div class="stars">
                         <star-rating :rating="5" />
                     </div>
-                    <div class="comment"><span>545</span>отзывов</div>
+                    <div class="comment"><a href="#">545 отзывов</a></div>
                 </div>
             </div>
             <div class="container mx-auto px-12">
@@ -23,6 +23,7 @@
                         </div>
                         <div class="image">
                             <img src="../assets/image/outdoors-3176153_1920 1 (1).png" alt="not found">
+                            <i class="far fa-heart"></i>
                         </div>
                     </div>
                     <div class="product__information">
@@ -47,16 +48,19 @@
                         </div>
                         <div class="payment">
                             Цена при оплате:
-                            <img src="../assets/image/image 29.png" alt="not found">
+                            <a href="#"><img src="../assets/image/image 29.png" alt="not found"></a>
                         </div>
                         <div class="delivery">Доставка: 27-29 сентября</div>
                         <div class="sales">Продавец: <span>ВАЙЛДБЕРРИЗ ООО</span></div>
                         <div class="warehouse">Склад отгрузки: склад Logoname</div>
-                        <div class="brend"><img src="../assets/image/image 38.png" alt="not found"></div>
+                        <div class="brend">
+                            <a href="#"><img src="../assets/image/image 38.png" alt="not found"></a>
+                            <a href="#"><img src="../assets/image/image 38.png" alt="not found"></a>
+                            <a href="#"><img src="../assets/image/image 38.png" alt="not found"></a>
+                        </div>
                         <div class="product__buttons">
                             <div>
                                 <button type="submit" id="korzina__button">В корзину</button>
-                                <i class="far fa-heart"></i>
                             </div>
                         </div>
                     </div>
@@ -208,9 +212,45 @@
                             <p>Качество ткани хорошее, но если вы предпочитаете оверсайз, выбирайте размер меньше вашего, например, слишком свободные рукава.</p>
                             <div class="date__sale">
                                 <div class="date">30.04.2021</div>
-                                <!-- <img src="../assets/image/Vektor.png" alt="not found"> -->
+                                <div class="saled">
+                                    <img src="../assets/image/Vector (22).png" alt="not found">
+                                    <div class="p__saled">Я купил товар</div>
+                                </div>
                             </div>
                         </div>
+                        <div class="user__comment">
+                            <div class="user">
+                                <div class="user__name">Ахмад Собиров</div>
+                                <div class="stars">
+                                    <star-rating :rating="5" />
+                                </div>
+                            </div>
+                            <p>Ткань по своей фактуре - это не ткань, которая создает очень мелкие морщинки, занимает все ваше тело, качество проявляется в любом виде.</p>
+                            <div class="date__sale">
+                                <div class="date">21.04.2021</div>
+                                <div class="saled">
+                                    <img src="../assets/image/Vector (22).png" alt="not found">
+                                    <div class="p__saled">Я купил товар</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user__comment">
+                            <div class="user">
+                                <div class="user__name">Улугбек Мустаков</div>
+                                <div class="stars">
+                                    <star-rating :rating="4" />
+                                </div>
+                            </div>
+                            <p>Полноразмерное качество красивое</p>
+                            <div class="date__sale">
+                                <div class="date">26.04.2021</div>
+                                <div class="saled">
+                                    <img src="../assets/image/Vector (22).png" alt="not found">
+                                    <div class="p__saled">Я купил товар</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="comment__btn">Показать больше комментариев</button>
                     </div>
                     <div class="c__box">
                         <div class="box__title">Оставьте ваш отзыв</div>
@@ -221,7 +261,6 @@
                     </div>
                 </div>
             </div>
-            <!-- last -->
             <div class="container mx-auto px-12 mb-12">
                 <div class="recently-products">
                     <div class="recently__title">Вы недавно смотрели</div>
@@ -319,6 +358,9 @@ export default {
     .product-list .product__img .image{
         height: 458px !important;
         position: relative;
+    }
+    .product-list .product__img .image img{
+        height: 100%;
     }
     .product-list .product__img .image .far.fa-heart{
         position: absolute;

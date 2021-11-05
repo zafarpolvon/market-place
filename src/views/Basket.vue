@@ -1,15 +1,16 @@
 <template>
     <div class="back">
-        <Navbar />
-        <div class="container mx-auto px-12 mb-10">
+        <!-- <Navbar /> -->
+        <div class="container mx-auto px-12 mb-10 pages">
             <div class="basket__href mt-5">
-                <a href="#">Главная страница /  Корзина</a>
+                <a href="#">Главная страница / </a>
+                <a href="#">Корзина</a>
             </div>
             <div class="basket__title mt-5">
                 <h4>Корзина</h4>
             </div>
             <div class="grid grid-cols-10 gap-4">
-                <div class="col-span-7 mt-8">
+                <div class="col-span-7">
                     <Korzina />
                     <div class="basket__delivery mt-8">
                         <h5>Способ доставки</h5>
@@ -30,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <Footer />
+        <!-- <Footer /> -->
     </div>
 </template>
 
@@ -73,6 +74,12 @@ export default {
     .back {
         background-color: #E5E5E5;
     }
+    .pages a{
+        color: #023047;
+    }
+    .pages a:hover{
+        color: #023999;
+    }
     .basket__href a {
         font-weight: normal;
         font-size: 15px;
@@ -84,6 +91,7 @@ export default {
         font-size: 48px;
         line-height: 130%;
         color: #023047;
+        margin-bottom: 1rem;
     }
     .basket__delivery {
         padding: 39px 20px;
@@ -115,4 +123,57 @@ export default {
         line-height: 100%;
         color: #023047;
     }
+
+    @media (min-width: 769px) and (max-width: 1025px){
+        .grid-cols-10 {
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+        }
+    }
+
+    @media (min-width: 600px) and (max-width: 769px){
+        .grid-cols-10 {
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+        }
+        .col-span-3 {
+            grid-column: span 7 / span 7;
+        }
+    }
+
+    @media (max-width: 600px){
+        .px-12{
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .grid-cols-10{
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+        }
+        .grid-cols-2{
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+        .col-span-3{
+            grid-column: span 7 / span 7;
+        }
+    }
+
+    @media (max-width: 415px){
+        .basket__title h4{
+            font-size: 24px !important;
+        }
+    }
+
+    @media (max-width: 376px){
+        .basket__title h4{
+            font-size: 24px !important;
+        }
+        .basket__delivery{
+            padding: 20px 10px;
+        }
+        .basket__delivery h5{
+            font-size: 20px;
+        }
+        .payment__item{
+            padding: 20px 10px;
+        }
+    }
+
 </style>

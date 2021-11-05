@@ -2,8 +2,8 @@
     <div class="back">
         <Navbar />
         <div class="container mx-auto px-12 pages">
-            <span>Главная страница / </span>
-            <span>Новости подробно</span>
+            <a href="#">Главная страница / </a>
+            <a href="#">Новости подробно</a>
         </div>
         <div class="container mx-auto px-12">
             <div class="mnews__title">Российская компания Wildberries планирует <br> выход на рынок Узбекистана</div>

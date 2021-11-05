@@ -2,8 +2,8 @@
     <div class="back">
         <Navbar />
         <div class="container mx-auto px-12 pages">
-            <span>Главная страница / </span>
-            <span>Новости</span>
+            <a href="#">Главная страница / </a>
+            <a href="#">Новости</a>
         </div>
         <div class="container mx-auto px-12">
             <div class="news__title">Новости</div>
@@ -50,14 +50,16 @@
         </div>
         <div class="container mx-auto px-12">
             <div class="n-video">
-                <div class="video__box">
-                    <div class="video__box-img">
-                         <img src="../assets/image/image 3.png" alt="not found">
-                         <i class="fa fa-play"></i>
+                <div class="videos">
+                    <div class="video__box">
+                        <div class="video__box-img">
+                            <img src="../assets/image/image 3.png" alt="not found">
+                            <i class="fa fa-play"></i>
+                        </div>
+                        <div class="box__title">Российская компания NameLogo планирует выход на рынок Узбекистана</div>
+                        <p>Стороны обсудили возможное сотрудничество в сфере экспортных интернет-продаж текстильной и швейно-трикотажной промышленности с производителями Узбекистана.</p>
+                        <a href="#">Подробно</a>
                     </div>
-                    <div class="box__title">Российская компания NameLogo планирует выход на рынок Узбекистана</div>
-                    <p>Стороны обсудили возможное сотрудничество в сфере экспортных интернет-продаж текстильной и швейно-трикотажной промышленности с производителями Узбекистана.</p>
-                    <a href="#">Подробно</a>
                 </div>
                 <div class="video__boxes">
                     <div class="box">
@@ -75,13 +77,15 @@
                         </div>
                     </div>
                     <div class="box">
-                        <img src="../assets/image/image 9.png" alt="not found" class="box__img">
+                        <div class="box__image">
+                            <img src="../assets/image/image 9.png" alt="not found">
+                        </div>
                         <div class="box__text">
-                            <div class="text__title">Глава китайского Alibaba обсудил с Трампом создание рабочих мест в США</div>
-                            <p>Глава китайской компании Alibaba обсудил с Дональдом Трампом создание миллиона новых рабочих мест, ранее китайский интернет-рынок TaoBao был внесен в черный список за поддельные товары на своем сайте</p>
+                            <div class="text__title">В топ-10 российских онлайн-магазинов впервые вошла интернет-аптека</div>
+                            <p>OВ десятку крупнейших интернет-магазинов России по версии аналитического агентства Data Insight впервые вошла онлайн-аптека – apteka.ru. По итогам 2019 г. она поднялась с 13-го на 7-е место.</p>
                             <div class="n__date">
                                 <a href="#">Подробно</a>
-                                <span>12.04.2021</span>
+                                <span>30.04.2021</span>
                             </div>
                         </div>
                     </div>
@@ -195,7 +199,7 @@ export default {
         width: 100% !important;
     }
     .n-video .video__box{
-        width: 45%;
+        width: 98%;
         padding-bottom: 20px;
     }
     .n-video .video__boxes{

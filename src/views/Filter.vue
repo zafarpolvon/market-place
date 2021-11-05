@@ -2,10 +2,10 @@
     <div class="back">
         <Navbar />
         <div class="container mx-auto px-12 pages">
-            <span>Главная страница / </span>
-            <span>Мужчинам / </span>
-            <span>Одежда / </span>
-            <span>Свитшоты </span>
+            <a href="#">Главная страница / </a>
+            <a href="#">Мужчинам / </a>
+            <a href="#">Одежда / </a>
+            <a href="#">Свитшоты </a>
         </div>
         <div class="container mx-auto px-12">
             <div class="filter__title">Мужские свитшоты</div>
@@ -238,10 +238,13 @@ export default {
 
 <style scoped>
     .pages{
-        padding: 2.5rem 1.25rem;
+        padding: 2.5rem 3rem;
     }
-    .pages span{
+    .pages a{
         color: #023047;
+    }
+    .pages a:hover{
+        color: #023999;
     }
     .filter__title{
         font-size: 42px;
@@ -511,12 +514,12 @@ export default {
         cursor: pointer;
     }
     .filter .all__products .products__menu ul :nth-child(2){
-        color: #C211A7;
-        border-bottom: 1px solid #C211A7;
+        color: #0052FF;
+        border-bottom: 1px solid #0052FF;
     }
     .filter .all__products .products__menu ul li:hover{
-        color: #C211A7;
-        border-bottom: 1px solid #C211A7;
+        color: #0052FF;
+        border-bottom: 1px solid #0052FF;
     }
     .filter .all__products .products__menu ul *{
         margin-right: 2rem;
@@ -531,4 +534,17 @@ export default {
         margin-top: 12px;
         margin-bottom: 12px;
     }
+
+    @media (min-width: 769px) and (max-width: 1025px){
+        .grid-cols-4 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    @media (min-width: 600px) and (max-width: 769px){
+        .grid-cols-4 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
 </style>

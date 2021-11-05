@@ -2,8 +2,8 @@
     <div class="back">
         <Navbar />
         <div class="container mx-auto px-12 pages">
-            <span>Главная страница / </span>
-            <span> FAQ</span>
+            <a href="#">Главная страница / </a>
+            <a href="#"> FAQ</a>
         </div>
         <div class="container mx-auto px-12">
             <div class="questions__title">Часто задаемевый вопросы</div>

@@ -14,17 +14,17 @@
                 <button class="show__all">Показать еще</button>
             </div>
         </div>
-        <div class="container mx-auto px-12 mt-12">
+        <div class="container mx-auto px-12 mt-12 banner">
             <div class="grid grid-cols-4 gap-4">
-                <div class="col-span-2">
+                <a href="#" class="col-span-2">
                     <img class="w-full h-64" src="../assets/image/image 25.png" alt="">
-                </div>
-                <div class="col-span-1">
+                </a>
+                <a href="#" class="col-span-1">
                     <img class="w-full h-64" src="../assets/image/image 26.png" alt="">
-                </div>
-                <div class="col-span-1">
+                </a>
+                <a href="#" class="col-span-1">
                     <img class="w-full h-64" src="../assets/image/image 27.png" alt="">
-                </div>
+                </a>
             </div>
         </div>
         <div class="container mx-auto mt-12 px-12">
@@ -97,7 +97,7 @@ export default {
             grid-template-columns: repeat(3, minmax(0, 1fr));
         }
         .grid-cols-4 {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         }
     }
 
@@ -117,6 +117,12 @@ export default {
         }
         .banner img.h-64{
             height: auto;
+        }
+    }
+
+    @media (min-width: 376px) and (max-width: 415px){
+        .banner .grid-cols-4{
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         }
     }
 

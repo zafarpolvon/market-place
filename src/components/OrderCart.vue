@@ -17,7 +17,7 @@
             <p>Количество: <span>1 шт</span></p>
             <div class="payment">
                 <p>Цена при оплате:</p>
-                <img src="../assets/image/image 29.png" alt="not found">
+                <a href="#"><img src="../assets/image/image 29.png" alt="not found"></a>
             </div>
         </div>
         <div class="price">

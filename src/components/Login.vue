@@ -56,6 +56,11 @@ export default {
         color: #0052FF;
         padding: 8px 12px;
     }
+    .login__title button:hover{
+        border: 1px solid #0052FF;
+        background: #5E8CE2;
+        color: #FFF;
+    }
     .login__box {
         background: #FFFFFF;
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
@@ -87,4 +92,14 @@ export default {
         line-height: 24px;
         color: #898989;
     }
+
+    @media (max-width: 376px){
+        .login__box{
+            padding: 20px 10px;
+        }
+        .login__title h4{
+            font-size: 20px;
+        }
+    }
+
 </style>

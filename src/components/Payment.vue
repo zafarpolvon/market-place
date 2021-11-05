@@ -35,4 +35,17 @@ export default {
         color: #898989;
         margin-top: 20px;
     }
+
+    @media (max-width: 600px){
+        .payment__item{
+            height: auto;
+        }
+    }
+
+    @media (max-width: 376px){
+        .payment__box h5{
+            font-size: 20px !important;
+        }
+    }
+
 </style>

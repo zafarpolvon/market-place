@@ -93,10 +93,27 @@ export default {
         border-radius: 5.8px;
         padding: 10px 0;
     }
+    .total__button:hover{
+        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #384F81 -2.67%, #729EDB 56.03%, #49679F 99.79%);
+    }
     .total__agree h5 {
         font-weight: normal;
         font-size: 13px;
         line-height: 100%;
         color: #898989;
     }
+
+    @media (min-width: 600px) and (max-width: 769px){
+        .total__box{
+            width: 500px;
+            margin: 0 auto;
+        }
+    }
+
+    @media (max-width: 376px){
+        .total__box{
+            padding: 20px 10px;
+        }
+    }
+
 </style>
