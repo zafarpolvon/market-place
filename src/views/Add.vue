@@ -517,5 +517,34 @@ export default {
         color: white;
         border: 1px solid rgb(12, 11, 11);
     }
+
+    @media (min-width: 769px) and (max-width: 1025px){
+        .grid-cols-5 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
+
+    @media (min-width: 600px) and (max-width: 769px){
+        .grid-cols-5 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    @media (min-width: 376px) and (max-width: 600px){
+        .px-12{
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .grid-cols-5 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 376px){
+        .grid-cols-5 {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+    }
+
 </style>
 

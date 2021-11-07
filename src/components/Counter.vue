@@ -52,6 +52,12 @@ export default {
         text-align: center;
         border: 1px solid #C4C4C4;
     }
+    .add-product .product__information .product__about .product__order .product__increment{
+      font-size: 28px;
+    }
+    .add-product .product__information .product__about .product__order .product__decrement{
+      font-size: 28px;
+    }
 
   @media (min-width: 415px) and (max-width: 769px){
     .product__order p{
@@ -61,7 +67,13 @@ export default {
     .product__order .product__decrement{
       font-size: 24px;
     }
+    .add-product .product__information .product__about .product__order .product__decrement{
+      font-size: 24px;
+    }
     .product__order .product__increment{
+      font-size: 24px;
+    }
+    .add-product .product__information .product__about .product__order .product__increment{
       font-size: 24px;
     }
   }
@@ -74,7 +86,13 @@ export default {
     .product__order .product__decrement{
       font-size: 20px;
     }
+    .add-product .product__information .product__about .product__order .product__decrement{
+      font-size: 20px;
+    }
     .product__order .product__increment{
+      font-size: 20px;
+    }
+    .add-product .product__information .product__about .product__order .product__increment{
       font-size: 20px;
     }
   }

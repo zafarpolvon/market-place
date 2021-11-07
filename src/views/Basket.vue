@@ -1,6 +1,6 @@
 <template>
     <div class="back">
-        <!-- <Navbar /> -->
+        <Navbar />
         <div class="container mx-auto px-12 mb-10 pages">
             <div class="basket__href mt-5">
                 <a href="#">Главная страница / </a>
@@ -31,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <!-- <Footer /> -->
+        <Footer />
     </div>
 </template>
 
