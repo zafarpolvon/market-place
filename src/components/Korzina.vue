@@ -52,6 +52,7 @@ export default {
         border-radius: 8px;
         padding: 15px;
         margin-bottom: 1rem;
+        position: relative;
     }
     .basket__box {
         margin-left: 20px;
@@ -105,4 +106,91 @@ export default {
         line-height: 17px;
         color: #898989;
     }
+
+    @media (min-width: 600px) and (max-width: 769px){
+        .basket__item{
+            flex-direction: column;
+        }
+        .basket__price{
+            text-align: left;
+            position: absolute;
+            right: 15px;
+            bottom: 23px;
+        }
+        .basket__count{
+            margin: 1rem 0;
+            width: 70%;
+        }
+    }
+
+    @media (min-width: 415px) and (max-width: 600px){
+        .basket__item{
+            flex-direction: column;
+        }
+        .basket__price{
+            text-align: left;
+            position: absolute;
+            right: 15px;
+            bottom: 23px;
+        }
+        .basket__count{
+            margin: 1rem 0;
+            width: 70%;
+        }
+        .basket__image{
+            width: 130px;
+            height: 130px;
+        }
+    }
+
+    @media (max-width: 415px){
+        .basket__item{
+            flex-direction: column;
+        }
+        .basket__box{
+            margin-left: 0;
+        }
+        .basket__box h5{
+            margin: 0.5rem 0;
+        }
+        .basket__box h4{
+            text-align: center;
+            margin-top: 10px;
+        }
+        .basket__left{
+            flex-direction: column;
+        }
+        .basket__image{
+            width: 70%;
+            height: auto;
+            margin: auto;
+        }
+        .basket__count{
+            margin: 1rem 0;
+        }
+        .basket__price{
+            position: absolute;
+            bottom: 28px;
+            right: 15px;
+        }
+        .basket__price h3{
+            font-size: 24px;
+        }
+        .basket__price h4{
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 300px){
+        .basket__price{
+            position: relative;
+            bottom: unset;
+            right: unset;
+            text-align: left;
+        }
+        .basket__box h5{
+            margin: 0.2rem 0;
+        }
+    }
+
 </style>

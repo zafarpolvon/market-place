@@ -9,7 +9,7 @@
             <div class="basket__title mt-5">
                 <h4>Корзина</h4>
             </div>
-            <div class="grid grid-cols-10 gap-4">
+            <div class="grid grid-cols-10 gap-4 pb-6">
                 <div class="col-span-7">
                     <Korzina />
                     <div class="basket__delivery mt-8">

@@ -31,19 +31,19 @@ export default {
         background: #EDE9E9;
         color: #000;
         cursor: pointer;
-        font-size: 28px !important;
-        font-weight: bold !important;
+        font-size: 28px;
+        font-weight: bold;
         padding: 0 10px;
-        border-radius: 0 !important;
+        border-radius: 0;
     }
     .product__order .product__decrement{
         background: linear-gradient(92.98deg, rgba(190, 217, 255, 0) 0.15%, #729EDB 0.15%, #274784 100.17%) !important;
         color: #FFF;
         cursor: pointer;
-        font-size: 28px !important;
-        font-weight: bold !important;
+        font-size: 28px;
+        font-weight: bold;
         padding: 0 10px;
-        border-radius: 0 !important;
+        border-radius: 0;
     }
     .product__order p{
         width: 70px;
@@ -52,4 +52,31 @@ export default {
         text-align: center;
         border: 1px solid #C4C4C4;
     }
+
+  @media (min-width: 415px) and (max-width: 769px){
+    .product__order p{
+      width: 55px;
+      padding: 5px;
+    }
+    .product__order .product__decrement{
+      font-size: 24px;
+    }
+    .product__order .product__increment{
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: 415px){
+    .product__order p{
+      width: 45px;
+      padding: 2px 5px;
+    }
+    .product__order .product__decrement{
+      font-size: 20px;
+    }
+    .product__order .product__increment{
+      font-size: 20px;
+    }
+  }
+
 </style>
