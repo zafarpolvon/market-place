@@ -34,7 +34,7 @@ export default {
         font-size: 28px;
         font-weight: bold;
         padding: 0 10px;
-        border-radius: 0;
+        border-radius: 0 !important;
     }
     .product__order .product__decrement{
         background: linear-gradient(92.98deg, rgba(190, 217, 255, 0) 0.15%, #729EDB 0.15%, #274784 100.17%) !important;
@@ -43,7 +43,7 @@ export default {
         font-size: 28px;
         font-weight: bold;
         padding: 0 10px;
-        border-radius: 0;
+        border-radius: 0 !important;
     }
     .product__order p{
         width: 70px;
@@ -54,9 +54,11 @@ export default {
     }
     .add-product .product__information .product__about .product__order .product__increment{
       font-size: 28px;
+      border-radius: 0 !important;
     }
     .add-product .product__information .product__about .product__order .product__decrement{
       font-size: 28px;
+      border-radius: 0 !important;
     }
 
   @media (min-width: 415px) and (max-width: 769px){
@@ -81,19 +83,24 @@ export default {
   @media (max-width: 415px){
     .product__order p{
       width: 45px;
-      padding: 2px 5px;
+      padding: 0px 5px;
+      height: 29px;
     }
     .product__order .product__decrement{
       font-size: 20px;
+      height: 29px;
     }
     .add-product .product__information .product__about .product__order .product__decrement{
       font-size: 20px;
+      height: 29px;
     }
     .product__order .product__increment{
       font-size: 20px;
+      height: 29px;
     }
     .add-product .product__information .product__about .product__order .product__increment{
       font-size: 20px;
+      height: 29px;
     }
   }
 
