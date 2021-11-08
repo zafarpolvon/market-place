@@ -1,8 +1,8 @@
 <template>
-    <div class="container mx-auto px-12">
-        <span>Главная страница / </span>
-        <span>Рубашки / </span>
-        <span>{{ name }}</span>
+    <div class="container mx-auto px-12 pages">
+        <a href="#">Главная страница / </a>
+        <a href="#">Рубашки / </a>
+        <a href="#">{{ name }}</a>
     </div>
 </template>
 
@@ -14,5 +14,11 @@ export default {
 </script>
 
 <style>
+  .pages a{
+    color: #023047;
+  }
+  .pages a:hover{
+    color: #023999;
+  }
 
 </style>

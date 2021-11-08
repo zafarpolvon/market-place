@@ -88,6 +88,9 @@ export default {
         background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
         color: #ffffff;
     }
+    .cart__add button:hover span{
+        color: #FFF !important;
+    }
     .cart__add button:hover svg path {
         fill: #ffffff;
     }
