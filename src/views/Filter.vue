@@ -164,7 +164,7 @@
                     </div>
                     <div class="products">
                         <div class="grid grid-cols-4 gap-4">
-                            <div v-for="cart in filterProducts" :key="cart.id">
+                            <div v-for="cart in tovar" :key="cart.id">
                                 <Cart :cart="cart" />
                             </div>
                         </div>
@@ -186,11 +186,16 @@ export default {
   data: () => ({
     sortedProducts: [],
     min: 50,
-    max: 10000
-
+    max: 10000,
+    tovar: []
   }),
-  mounted () {
-
+  async mounted () {
+    this.tovar = await this.$store.dispatch('loadData')
+    this.setupPagination(this.tovar.map(person => {
+      return {
+        ...person
+      }
+    }))
   },
   computed: {
     carts () {
