@@ -12,6 +12,7 @@
     "@splidejs/vue-splide": "^0.3.5",
     "@tailwindcss/postcss7-compat": "^2.2.16",
     "autoprefixer": "^9.8.8",
+    "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "easy-circular-progress": "^1.0.4",
     "k-progress": "^1.5.0",

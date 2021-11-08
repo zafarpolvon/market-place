@@ -6,7 +6,7 @@
         <div class="container mx-auto mt-8 px-12">
             <Title />
             <div class="grid grid-cols-5 gap-3" >
-                <div v-for="cart in carts.slice(0, 5)" :key="cart.id">
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
                     <Cart :cart="cart" />
                 </div>
             </div>
@@ -29,7 +29,7 @@
         </div>
         <div class="container mx-auto mt-12 px-12">
             <div class="grid grid-cols-5 gap-3">
-                <div v-for="cart in carts" :key="cart.id">
+                <div v-for="cart in tovar" :key="cart.id">
                     <Cart :cart="cart" />
                 </div>
             </div>
@@ -52,15 +52,20 @@ import Title from '../components/Title.vue'
 export default {
   name: 'Home',
   data: () => ({
-
+    tovar: []
   }),
+  async mounted () {
+    this.tovar = await this.$store.dispatch('loadData')
+    this.setupPagination(this.tovar.map(person => {
+      return {
+        ...person
+      }
+    }))
+  },
   methods: {
 
   },
   computed: {
-    carts () {
-      return this.$store.getters.CARTS
-    }
   },
   components: {
     Navbar,

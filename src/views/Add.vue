@@ -4,7 +4,7 @@
         <div class="add-product">
             <location-navbar :name="'Базовая рубашка'" />
             <div class="container mx-auto px-12">
-                <h1>Базовая рубашка</h1>
+                <h1>{{ cart.name }}</h1>
                 <div class="product-action">
                     <div class="stars">
                         <star-rating :rating="5" />
@@ -83,7 +83,7 @@
                     <div class="r__box">
                         <div class="box__title">Рекомендуется</div>
                         <div class="grid grid-cols-2 gap-3" >
-                            <div v-for="cart in carts.slice(0, 2)" :key="cart.id">
+                            <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
                                 <Cart :cart="cart" />
                             </div>
                         </div>
@@ -93,7 +93,7 @@
             <div class="container mx-auto px-12 c-products">
                 <div class="advertising__title">Рекламный блок</div>
                 <div class="grid grid-cols-5 gap-3" >
-                    <div v-for="cart in carts.slice(0, 5)" :key="cart.id">
+                    <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
                         <Cart :cart="cart" />
                     </div>
                 </div>
@@ -104,7 +104,7 @@
             <div class="container mx-auto px-12 c-products">
                 <div class="advertising__title">Похожие товары</div>
                 <div class="grid grid-cols-5 gap-3" >
-                    <div v-for="cart in carts.slice(0, 5)" :key="cart.id">
+                    <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
                         <Cart :cart="cart" />
                     </div>
                 </div>
@@ -265,7 +265,7 @@
                 <div class="recently-products">
                     <div class="recently__title">Вы недавно смотрели</div>
                 <div class="grid grid-cols-5 gap-3" >
-                    <div v-for="cart in carts.slice(0, 2)" :key="cart.id">
+                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
                         <Cart :cart="cart" />
                     </div>
                 </div>
@@ -290,18 +290,25 @@ export default {
   name: 'Home',
   data: () => ({
     prot: 80,
-    sizes: [42, 46, 48, 50, 52, 54]
+    sizes: [42, 46, 48, 50, 52, 54],
+    cart: {},
+    tovar: []
   }),
-  async mounted() {
+  async mounted () {
     const id = this.$route.params.id
+    this.cart = await this.$store.dispatch('loadDataById', id)
+    this.tovar = await this.$store.dispatch('loadData')
+    this.setupPagination(this.tovar.map(person => {
+      return {
+        ...person
+      }
+    }))
   },
   methods: {
 
   },
   computed: {
-    carts () {
-      return this.$store.getters.CARTS
-    }
+
   },
   components: {
     Navbar,
@@ -518,4 +525,3 @@ export default {
         border: 1px solid rgb(12, 11, 11);
     }
 </style>
-
