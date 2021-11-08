@@ -3,7 +3,7 @@
         <div class="container mx-auto px-8">
             <div class="footer__box">
                 <div class="footer__logo">
-                    <a href="#">LOGO</a>
+                    <a href="#">NovaMarket</a>
                 </div>
                 <div>
                    <div class="footer__title">
@@ -121,4 +121,11 @@ export default {
         font-size: 24px;
         color: #fff;
     }
+
+    @media (max-width: 1000px){
+        .footer__box{
+            flex-direction: column !important;
+        }
+    }
+
 </style>

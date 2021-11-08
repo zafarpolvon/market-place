@@ -131,6 +131,7 @@ export default {
 <style scoped>
     .back {
         background-color: #E5E5E5;
+        height: 16000px;
     }
     .show__all {
         background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
