@@ -1,6 +1,6 @@
 <template>
     <div class="">
-        <!-- <Navbar /> -->
+        <Navbar />
         <div class="add-product">
             <location-navbar :name="'Базовая рубашка'" />
             <div class="container mx-auto px-12">
@@ -24,6 +24,8 @@
                         <div class="image">
                             <img src="../assets/image/outdoors-3176153_1920 1 (1).png" alt="not found">
                             <i class="far fa-heart"></i>
+                            <i class="fa fa-chevron-left"></i>
+                            <i class="fa fa-chevron-right"></i>
                         </div>
                     </div>
                     <div class="product__information">
@@ -272,7 +274,7 @@
                 </div>
             </div>
         </div>
-        <!-- <Footer /> -->
+        <Footer />
     </div>
 </template>
 
@@ -366,6 +368,10 @@ export default {
         height: 458px !important;
         position: relative;
     }
+    .product-list .product__img .image .fa.fa-chevron-left,
+    .product-list .product__img .image .fa.fa-chevron-right{
+        display: none;
+    }
     .product-list .product__img .image img{
         height: 100%;
     }
@@ -388,6 +394,9 @@ export default {
     }
     .add-product .product-list .product__img .images img{
         margin-top: 8px;
+    }
+    .add-product .container:nth-child(2) h1{
+        line-height: 1;
     }
     .q__comments a{
         margin-left: auto;
@@ -433,9 +442,6 @@ export default {
     .customer .user__comment{
         margin: 1.5rem 0;
     }
-    .customer .user__comment .user .user__name{
-        font-size: 19px;
-    }
     .customer .user__comment p{
         font-size: 16px;
     }
@@ -450,6 +456,8 @@ export default {
     }
     .customer .user__comment .user .user__name{
         width: 30%;
+        font-size: 19px;
+        line-height: 1;
     }
     .comment__btn{
         border: 1px solid #666666;
@@ -477,6 +485,9 @@ export default {
         padding: 1rem 2rem;
         width: 30%;
         margin-left: 4rem;
+    }
+    .customer .c__box:first-child .c__box-title{
+        line-height: 1;
     }
     .c__box:last-child .box__title{
         color: #023047;
@@ -537,7 +548,7 @@ export default {
     }
     .add-product .product__information .color__boxes .color__box{
         margin-bottom: 15px;
-        width: 73px;
+        width: 76px;
     }
 
     @media (min-width: 769px) and (max-width: 1025px){
@@ -578,6 +589,33 @@ export default {
         }
         .add-product .recommended .r__box:nth-child(2){
             width: 54%;
+        }
+        .question .q__box:first-child{
+            width: 49%;
+            padding: 1rem;
+        }
+        .q__comments{
+            width: 95%;
+        }
+        .question .q__box .comment p {
+            line-height: 1;
+        }
+        .question .q__box .box{
+            width: 130px;
+            height: 120px;
+        }
+        .p-customer .customer .c__box .user__comment .date__sale .date{
+            width: 45%;
+        }
+        .p-customer .customer .c__box .user__comment .date__sale .saled{
+            padding-left: 0;
+        }
+        .customer .user__comment .user .user__name{
+            width: 45%;
+        }
+        .c__box:last-child{
+            width: 38%;
+            margin-left: 0;
         }
     }
 
@@ -627,6 +665,50 @@ export default {
         .add-product .product__information .product__buttons{
             width: auto;
         }
+        .add-product .container:nth-child(2) h1{
+            font-size: 32px;
+        }
+        .question{
+            display: block;
+        }
+        .question .q__box{
+            width: 100% !important;
+        }
+        .question .q__box:nth-child(2){
+            width: 100% !important;
+        }
+        .q__comments{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .q__comments p{
+            margin: 1rem auto;
+        }
+        .question .q__box:first-child{
+            margin: 0;
+        }
+        .customer{
+            display: block;
+        }
+        .p-customer .customer .c__box .user__comment .date__sale .date{
+            width: 45%;
+        }
+        .p-customer .customer .c__box .user__comment .date__sale .saled{
+            padding-left: 0;
+        }
+        .customer .user__comment .user .user__name{
+            width: 45%;
+        }
+        .customer .c__box:first-child{
+            width: 100%;
+        }
+        .c__box:last-child{
+            width: 60%;
+            margin-left: 0;
+            margin: auto;
+            margin-bottom: 2rem;
+        }
     }
 
     @media (min-width: 376px) and (max-width: 600px){
@@ -675,7 +757,9 @@ export default {
             justify-content: space-between;
         }
         .add-product .product__information .product__buttons{
-            width: auto;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
         .add-product .product__information .product__about .product__price{
             display: grid;
@@ -685,11 +769,201 @@ export default {
             padding-top: 0;
         }
         .add-product .product__information .color__boxes .color__box{
-            height: 67px;
+            height: 66px !important;
+            width: 73px;
         }
         .add-product .product__information .color__title{
             margin: 0.5rem 0;
-        
+        }
+        .add-product .container:nth-child(2) h1{
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .add-product .product__information .brend a{
+            width: 30%;
+        }
+        .question{
+            display: block;
+        }
+        .question .q__box{
+            width: 100% !important;
+        }
+        .question .q__box:nth-child(2){
+            width: 100% !important;
+        }
+        .q__comments{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .q__comments p{
+            margin: 1rem auto;
+        }
+        .question .q__box:first-child{
+            margin: 0;
+            padding: 1rem;
+        }
+        .question .q__box .comment p{
+            line-height: 1;
+        }
+        .customer{
+            display: block;
+        }
+        .p-customer .customer .c__box .user__comment .date__sale .date{
+            width: 60%;
+        }
+        .p-customer .customer .c__box .user__comment .date__sale .saled{
+            padding-left: 0;
+        }
+        .customer .user__comment .user .user__name{
+            width: 60%;
+        }
+        .customer .c__box:first-child{
+            width: 100%;
+        }
+        .c__box:last-child{
+            width: 80%;
+            margin-left: 0;
+            margin: auto;
+            margin-bottom: 2rem;
+        }
+    }
+
+    @media (max-width: 415px){
+        .px-12{
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+        .add-product .product-list .product__img{
+            display: block !important;
+        }
+        .add-product .product-list .product__img .images{
+            /* display: flex !important;
+            flex-direction: row !important;
+            height: auto !important;
+            margin-right: 0 !important; */
+            display: none;
+        }
+        .add-product .product-list .product__img .images img{
+            width: 24% !important;
+            height: auto !important;
+            margin: 0 2px !important;
+        }
+        .product-list .product__img .image{
+            height: auto !important;
+            display: flex;
+        }
+        .product-list .product__img .image img{
+            width: 100%;
+            height: auto !important;
+            margin-right: 15px !important;
+        }
+        .product-list .product__img .image .fa.fa-chevron-left,
+        .product-list .product__img .image .fa.fa-chevron-right{
+            display: block !important;
+            color: #023999 !important;
+            font-size: 28px !important;
+            position: absolute;
+        }
+        .product-list .product__img .image .fa.fa-chevron-left{
+            top: 50%;
+            left: 15px;
+        }
+        .product-list .product__img .image .fa.fa-chevron-right{
+            top: 50%;
+            right: 15px;
+        }
+        .add-product .product__information .product__size-title{
+            margin: 0.5rem 0;
+        }
+        .add-product .product__information{
+            padding-left: 0 !important;
+        }
+        .add-product .product__information .product__about .product__price{
+            flex-direction: column !important;
+            line-height: 1 !important;
+            font-size: 28px !important;
+        }
+        .add-product .product__information .product__about .product__price span{
+            margin-left: 0;
+            padding-top: 5px;
+        }
+        .add-product .product__information .product__about{
+            justify-content: space-between !important;
+            margin-top: 1rem !important;
+        }
+        .add-product .product__information .color__boxes .color__box{
+            width: 70px !important;
+            height: 63px !important;
+        }
+        .add-product .product__information .brend a{
+            width: 30%;
+            margin: 3px 5px;
+            margin-right: 0 !important;
+        }
+        .q__comments span{
+            margin-right: 20px !important;
+        }
+        .question .q__box:nth-child(2){
+            flex-direction: column;
+        }
+        .question .q__box .box {
+            margin: 10px 0;
+        }
+        .question .q__box:first-child{
+            display: block;
+        }
+        .question .q__box .comment{
+            width: 100%;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .question .q__box .comment p{
+            padding-bottom: 0;
+        }
+        .question .q__box .place{
+            width: 100%;
+        }
+        .question .q__box:first-child {
+            padding: 0 1rem 1rem 1rem;
+        }
+        .add-product .advertising__title {
+            font-size: 32px;
+            line-height: 1;
+        }
+        .recently-products .recently__title{
+            font-size: 32px;
+            line-height: 1;
+        }
+        .question__title{
+            font-size: 32px;
+            line-height: 1;
+        }
+        .add-product .recommended .r__box .box__title{
+            font-size: 32px;
+            line-height: 1;
+            margin-bottom: 2rem;
+        }
+        .customer{
+            display: block;
+        }
+        .p-customer .customer .c__box .user__comment .date__sale .date{
+            width: 65%;
+        }
+        .p-customer .customer .c__box .user__comment .date__sale .saled{
+            padding-left: 0;
+        }
+        .customer .user__comment .user .user__name{
+            width: 65%;
+        }
+        .customer .c__box:first-child{
+            width: 100%;
+        }
+        .c__box:last-child{
+            width: 100%;
+            margin-left: 0;
+            margin: auto;
+            margin-bottom: 2rem;
         }
     }
 
@@ -722,7 +996,7 @@ export default {
             display: block;
         }
         .product-list .product__img .image{
-            height: 400px !important;
+            height: auto !important;
         }
         .add-product .product-list .product__img .images{
             height: 400px;
@@ -741,10 +1015,148 @@ export default {
             justify-content: space-around;
         }
         .add-product .product__information .product__buttons{
-            width: auto;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
         .add-product .product__information .color__title{
             margin: 0.5rem 0;
+        }
+        .add-product .container:nth-child(2) h1{
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .q__comments{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .q__comments span{
+            margin-right: 20px !important;
+        }
+        .q__comments p{
+            margin-left: unset;
+            text-align: center;
+            font-size: 14px;
+            margin: 1rem 0;
+        }
+        .question{
+            display: block;
+        }
+        .question .q__box:nth-child(2){
+            flex-direction: column;
+        }
+        .question .q__box .box {
+            margin: 10px 0;
+        }
+        .question .q__box:first-child{
+            display: block;
+            margin: 0;
+        }
+        .question .q__box .comment{
+            width: 100%;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .question .q__box .comment p{
+            padding-bottom: 0;
+        }
+        .question .q__box .place{
+            width: 100%;
+        }
+        .question .q__box:first-child {
+            padding: 0 1rem 1rem 1rem;
+        }
+        .question .q__box{
+            width: 100% !important;
+        }
+        .p-customer .customer .c__box .user__comment .date__sale .date{
+            width: 62%;
+        }
+        .p-customer .customer .c__box .user__comment .date__sale .saled{
+            padding-left: 0;
+        }
+        .customer .user__comment .user .user__name{
+            width: 62%;
+        }
+        .c__box:last-child {
+            padding: 1rem;
+        }
+    }
+
+    @media (max-width: 360px){
+        .add-product .product__information .color__boxes .color__box{
+            margin: 6px !important;
+        }
+        .radioContainer{
+            margin: 4px !important;
+        }
+        .q__comments{
+            flex-direction: column;
+        }
+        .add-product .advertising__title {
+            font-size: 24px;
+            line-height: 1;
+        }
+        .recently-products .recently__title{
+            font-size: 24px;
+            line-height: 1;
+        }
+        .question__title{
+            font-size: 24px;
+            line-height: 1;
+        }
+        .add-product .recommended .r__box .box__title{
+            font-size: 24px;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        .p-customer .customer .c__box .user__comment .date__sale .date{
+            width: 60%;
+        }
+        .p-customer .customer .c__box .user__comment .date__sale .saled{
+            padding-left: 0;
+        }
+        .customer .user__comment .user .user__name{
+            width: 60%;
+        }
+    }
+
+    @media (max-width: 300px){
+        .radioContainer{
+            margin: 2px !important;
+        }
+        .add-product .product__information .payment{
+            display: block;
+            text-align: center;
+        }
+        .product__information .sales{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        .add-product .product__information .warehouse{
+            text-align: center;
+        }
+        .customer .user__comment .user{
+            display: block;
+        }
+        .customer .user__comment .user .user__name{
+            width: 100%;
+        }
+        .p-customer .customer .c__box .user__comment .date__sale .date{
+            width: 45%;
+        }
+        .p-customer > span{
+            width: 100% !important;
+            margin-right: 5rem !important;
+        }
+        .customer .c__box:first-child .c__box-title{
+            margin-top: 1rem;
+        }
+        .comment__btn{
+            padding: 6px 10px;
+            font-size: 12px;
         }
     }
 
