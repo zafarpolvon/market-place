@@ -16,10 +16,10 @@
                 <div class="product-list">
                     <div class="product__img">
                         <div class="images">
-                            <img :src="cart.img" alt="not found">
-                            <img :src="cart.second" alt="not found">
-                            <img :src="cart.third" alt="not found">
-                            <img :src="cart.fourth" alt="not found">
+                            <img :src="cart.img" alt="">
+                            <img :src="cart.second" alt="">
+                            <img :src="cart.third" alt="">
+                            <img :src="cart.fourth" alt="">
                         </div>
                         <div class="image">
                             <img :src="cart.img" alt="not found">
