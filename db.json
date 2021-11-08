@@ -66,6 +66,9 @@
         {
            "id":2,
            "img":"https://firebasestorage.googleapis.com/v0/b/crm-react-school.appspot.com/o/boy-1031527_1920%201.png?alt=media&token=1ace5d38-3a17-4475-9cab-91ec5df67782",
+           "second":"https://firebasestorage.googleapis.com/v0/b/vue-store-1.appspot.com/o/shoes%2Fblazer-mid-77-vintage-mens-shoes-nw30B2.png?alt=media&token=0f2f76ba-1519-4a23-bab0-b4dd4ac5cc0a",
+           "third":"https://firebasestorage.googleapis.com/v0/b/vue-store-1.appspot.com/o/shoes%2Fblazer-mid-77-vintage-mens-shoes-nw30B2%20(1).png?alt=media&token=2ac795c7-ce84-49c6-addd-c3b4d532a1e0",
+           "fourth":"https://firebasestorage.googleapis.com/v0/b/vue-store-1.appspot.com/o/shoes%2Fblazer-mid-77-vintage-mens-shoes-nw30B2%20(1).png?alt=media&token=2ac795c7-ce84-49c6-addd-c3b4d532a1e0",
            "price":7000,
            "discount":21,
            "oldprice":null,
@@ -76,6 +79,26 @@
            "info":"Информация о технических характеристиках, комплекте поставки,стране изготовления и внешнем виде товара носит справочный характер и основывается на последних доступных сведениях от продавца",
            "category":"Костюмы",
            "brand":"Adidas",
+           "colors":{
+              "img1":{
+                 "img":"https://firebasestorage.googleapis.com/v0/b/vue-store-1.appspot.com/o/shoes%2Fblazer-mid-77-vintage-mens-shoes-nw30B2%20(2).jpg?alt=media&token=da773683-2194-48b0-abdf-f6cd175b60f1",
+                 "second":"https://firebasestorage.googleapis.com/v0/b/vue-store-1.appspot.com/o/shoes%2Fblazer-mid-77-vintage-mens-shoes-nw30B2.png?alt=media&token=0f2f76ba-1519-4a23-bab0-b4dd4ac5cc0a",
+                 "third":"https://firebasestorage.googleapis.com/v0/b/vue-store-1.appspot.com/o/shoes%2Fblazer-mid-77-vintage-mens-shoes-nw30B2%20(9).png?alt=media&token=1b1bb983-9561-40d9-97f5-75e2143a60d3",
+                 "fourth":"https://firebasestorage.googleapis.com/v0/b/vue-store-1.appspot.com/o/shoes%2Fblazer-mid-77-vintage-mens-shoes-nw30B2%20(2).png?alt=media&token=fddfe95f-822b-4d51-8b73-5afd9358bb35"
+              },
+              "img2":{
+                 "img":"https://firebasestorage.googleapis.com/v0/b/vue-store-1.appspot.com/o/shoes%2Fblazer-mid-77-vintage-mens-shoes-nw30B2%20(1).jpg?alt=media&token=ae86549e-a055-49f2-a967-a98a4769c6a6",
+                 "second":"https://firebasestorage.googleapis.com/v0/b/vue-store-1.appspot.com/o/shoes%2Fblazer-mid-77-vintage-mens-shoes-nw30B2%20(3).png?alt=media&token=7efb6830-7784-4bfa-9c70-f23eac1357ad",
+                 "third":"https://firebasestorage.googleapis.com/v0/b/vue-store-1.appspot.com/o/shoes%2Fblazer-mid-77-vintage-mens-shoes-nw30B2%20(4).png?alt=media&token=d73d3949-490a-4de9-a54b-9f40a5b3ac6a",
+                 "fourth":"https://firebasestorage.googleapis.com/v0/b/vue-store-1.appspot.com/o/shoes%2Fblazer-mid-77-vintage-mens-shoes-nw30B2%20(5).png?alt=media&token=3d8a15fd-a7db-42dd-9f9e-528181917950"
+              },
+              "img3":{
+                 "img":"https://firebasestorage.googleapis.com/v0/b/vue-store-1.appspot.com/o/shoes%2Fblazer-mid-77-vintage-mens-shoes-nw30B2.jpg?alt=media&token=563b0194-7296-4a10-bc62-26172e81f539",
+                 "second":"https://firebasestorage.googleapis.com/v0/b/vue-store-1.appspot.com/o/shoes%2Fblazer-mid-77-vintage-mens-shoes-nw30B2.png?alt=media&token=0f2f76ba-1519-4a23-bab0-b4dd4ac5cc0a",
+                 "third":"https://firebasestorage.googleapis.com/v0/b/vue-store-1.appspot.com/o/shoes%2Fblazer-mid-77-vintage-mens-shoes-nw30B2%20(7).png?alt=media&token=ad20be60-7aef-408f-9ac0-919c8ba88282",
+                 "fourth":"https://firebasestorage.googleapis.com/v0/b/vue-store-1.appspot.com/o/shoes%2Fblazer-mid-77-vintage-mens-shoes-nw30B2%20(8).png?alt=media&token=b8e02cb3-b1da-43e0-b012-a5aadf9400de"
+              }
+           },
            "comments":{
               "id1":{
                  "name":"Турсунов Асрор",
