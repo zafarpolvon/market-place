@@ -1,6 +1,6 @@
 <template>
     <div class="">
-        <!-- <Navbar /> -->
+        <Navbar />
         <div class="add-product">
             <location-navbar :name="'Базовая рубашка'" />
             <div class="container mx-auto px-12">
@@ -16,13 +16,13 @@
                 <div class="product-list">
                     <div class="product__img">
                         <div class="images">
-                            <img src="../assets/image/unnamed 7.png" alt="not found">
-                            <img src="../assets/image/outdoors-3176145_1920 1.png" alt="not found">
-                            <img src="../assets/image/outdoors-3179821_1920 3.png" alt="not found">
-                            <img src="../assets/image/outdoors-3176153_1920 1.png" alt="not found">
+                            <img :src="cart.img" alt="not found">
+                            <img :src="cart.second" alt="not found">
+                            <img :src="cart.third" alt="not found">
+                            <img :src="cart.fourth" alt="not found">
                         </div>
                         <div class="image">
-                            <img src="../assets/image/outdoors-3176153_1920 1 (1).png" alt="not found">
+                            <img :src="cart.img" alt="not found">
                             <i class="far fa-heart"></i>
                         </div>
                     </div>
@@ -33,11 +33,9 @@
                         </div>
                         <div class="color__title">Цвет</div>
                         <div class="color__boxes">
-                            <div class="color__box"><img src="../assets/image/6d6d202a7b1173e28f43c02b7daf816e 1.png" alt="photo"></div>
-                            <div class="color__box"></div>
-                            <div class="color__box"></div>
-                            <div class="color__box"></div>
-                            <div class="color__box"></div>
+                            <div class="color__box" v-for="col in cart.colors" :key="col.id">
+                                <img class="cursor-pointer" :src="col.img" alt="photo">
+                            </div>
                         </div>
                         <div class="product__size-title">Размер</div>
                         <div class="product__size">
@@ -272,7 +270,7 @@
                 </div>
             </div>
         </div>
-        <!-- <Footer /> -->
+        <Footer />
     </div>
 </template>
 
@@ -363,11 +361,14 @@ export default {
         background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #2267C7 86.59%, #377AF9 99.79%);
     }
     .product-list .product__img .image{
+        width: 458px !important;
         height: 458px !important;
         position: relative;
     }
     .product-list .product__img .image img{
+        width: 100%;
         height: 100%;
+        object-fit: cover;
     }
     .product-list .product__img .image .far.fa-heart{
         position: absolute;
@@ -388,6 +389,9 @@ export default {
     }
     .add-product .product-list .product__img .images img{
         margin-top: 8px;
+        width: 106px;
+        height: 106px;
+        object-fit: cover;
     }
     .q__comments a{
         margin-left: auto;
@@ -566,6 +570,9 @@ export default {
         }
         .add-product .product-list .product__img .images img{
             margin-top: 4px;
+        }
+        .images img {
+            width: 106px;
         }
         .product-list .product__img .image{
             height: 382px !important;
