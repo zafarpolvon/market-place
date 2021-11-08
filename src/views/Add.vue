@@ -1,6 +1,6 @@
 <template>
     <div class="">
-        <Navbar />
+        <!-- <Navbar /> -->
         <div class="add-product">
             <location-navbar :name="'Базовая рубашка'" />
             <div class="container mx-auto px-12">
@@ -33,7 +33,7 @@
                         </div>
                         <div class="color__title">Цвет</div>
                         <div class="color__boxes">
-                            <div class="color__box"><img src="../assets/image/6d6d202a7b1173e28f43c02b7daf816e 1.png" alt=""></div>
+                            <div class="color__box"><img src="../assets/image/6d6d202a7b1173e28f43c02b7daf816e 1.png" alt="photo"></div>
                             <div class="color__box"></div>
                             <div class="color__box"></div>
                             <div class="color__box"></div>
@@ -272,7 +272,7 @@
                 </div>
             </div>
         </div>
-        <Footer />
+        <!-- <Footer /> -->
     </div>
 </template>
 
@@ -369,6 +369,12 @@ export default {
         color: #FC7D00;
         font-size: 25px;
         cursor: pointer;
+    }
+    .add-product .product__information .product__size{
+        margin-top: 1rem;
+        margin-bottom: 0;
+        display: flex;
+        flex-wrap: wrap;
     }
     .add-product .product-list .product__img .images{
         justify-content: unset !important;
@@ -495,6 +501,7 @@ export default {
         position: relative;
         cursor: pointer;
         margin-right: 10px;
+        margin-bottom: 10px;
     }
     .radioContainer input {
         display: none;
@@ -517,16 +524,101 @@ export default {
         color: white;
         border: 1px solid rgb(12, 11, 11);
     }
+    .add-product .product__information .color__boxes {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .add-product .product__information .color__boxes .color__box{
+        margin-bottom: 15px;
+        width: 73px;
+    }
 
     @media (min-width: 769px) and (max-width: 1025px){
         .grid-cols-5 {
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        }
+        .add-product .product__information .product__about .product__price{
+            display: grid;
+        }
+        .add-product .product__information .product__about .product__price span{
+            margin-left: 0;
+            padding-top: 0;
+        }
+        .add-product .product__information .brend a{
+            width: 30%;
+        }
+        .add-product .product__information .color__boxes img{
+            width: 100%;
+            height: auto;
+        }
+        .add-product .product__information .color__boxes .color__box{
+            height: 63px;
+        }
+        .product-list .product__img .image img{
+            height: unset !important;
+        }
+        .add-product .product-list .product__img .images img{
+            margin-top: 4px;
+        }
+        .product-list .product__img .image{
+            height: 382px !important;
+        }
+        .add-product .product-list .product__img .images{
+            height: 382px !important;
+        }
+        .add-product .recommended .r__box{
+            width: 50%;
+        }
+        .add-product .recommended .r__box:nth-child(2){
+            width: 54%;
         }
     }
 
     @media (min-width: 600px) and (max-width: 769px){
         .grid-cols-5 {
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        }
+        .add-product .recommended{
+            display: block;
+        }
+        .add-product .recommended .r__box{
+            width: 100%;
+        }
+        .add-product .recommended .r__box:nth-child(2){
+            width: 100%;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+        .r__box .grid.grid-cols-2.gap-3{
             grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .add-product .product-list .product__img{
+            justify-content: center;
+        }
+        .add-product .product-list{
+            display: block;
+        }
+        .product-list .product__img .image{
+            height: 400px !important;
+        }
+        .add-product .product-list .product__img .images{
+            height: 400px;
+        }
+        .add-product .product-list .product__img .images img{
+            height: 23%;
+        }
+        .add-product .product__information{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .add-product .product__information .product__about{
+            width: 100%;
+            justify-content: space-around;
+        }
+        .add-product .product__information .product__buttons{
+            width: auto;
         }
     }
 
@@ -536,13 +628,116 @@ export default {
             padding-right: 1rem;
         }
         .grid-cols-5 {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        }
+        .add-product .recommended{
+            display: block;
+        }
+        .add-product .recommended .r__box{
+            width: 100%;
+        }
+        .add-product .recommended .r__box:nth-child(2){
+            width: 100%;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+        .r__box .grid.grid-cols-2.gap-3{
             grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .add-product .product-list .product__img{
+            justify-content: center;
+        }
+        .add-product .product-list{
+            display: block;
+        }
+        .product-list .product__img .image{
+            height: 350px !important;
+        }
+        .add-product .product-list .product__img .images{
+            height: 350px;
+        }
+        .add-product .product-list .product__img .images img{
+            height: 22.7%;
+        }
+        .add-product .product__information{
+            width: 100%;
+            padding-left: 0;
+        }
+        .add-product .product__information .product__about{
+            width: 100%;
+            justify-content: space-between;
+        }
+        .add-product .product__information .product__buttons{
+            width: auto;
+        }
+        .add-product .product__information .product__about .product__price{
+            display: grid;
+        }
+        .add-product .product__information .product__about .product__price span{
+            margin-left: 0;
+            padding-top: 0;
+        }
+        .add-product .product__information .color__boxes .color__box{
+            height: 67px;
+        }
+        .add-product .product__information .color__title{
+            margin: 0.5rem 0;
+        
         }
     }
 
     @media (max-width: 376px){
+        .px-12{
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
         .grid-cols-5 {
+            grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+        }
+        .add-product .recommended{
+            display: block;
+        }
+        .add-product .recommended .r__box{
+            width: 100%;
+        }
+        .add-product .recommended .r__box:nth-child(2){
+            width: 100%;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+        .r__box .grid.grid-cols-2.gap-3{
             grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+        .add-product .product-list .product__img{
+            justify-content: center;
+        }
+        .add-product .product-list{
+            display: block;
+        }
+        .product-list .product__img .image{
+            height: 400px !important;
+        }
+        .add-product .product-list .product__img .images{
+            height: 400px;
+        }
+        .add-product .product-list .product__img .images img{
+            height: 23%;
+        }
+        .add-product .product__information{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .add-product .product__information .product__about{
+            width: 100%;
+            justify-content: space-around;
+        }
+        .add-product .product__information .product__buttons{
+            width: auto;
+        }
+        .add-product .product__information .color__title{
+            margin: 0.5rem 0;
         }
     }
 
