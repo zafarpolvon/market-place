@@ -1,5 +1,5 @@
 <template>
-    <div class="back">
+    <div class="back" style="height: 6000px">
         <Navbar />
         <div class="container mx-auto px-12 pages">
             <a href="#">Главная страница / </a>
@@ -289,6 +289,10 @@ export default {
     .filter .sidebar__filter .price__inputs input::placeholder{
         color: #000;
     }
+    .price__range1{
+        padding-top: 2rem;
+        padding-bottom: 10px;
+    }
     .filter .sidebar__filter .price__range{
         width: 90%;
     }
@@ -379,8 +383,8 @@ export default {
         padding: 10px 0;
     }
     .filter .sidebar__filter .colors .box{
-        height: 40px;
-        width: 40px;
+        height: 38px;
+        width: 38px;
         border-radius: 50%;
         margin: 7px 13px 7px 0;
         background: #C211A7;
@@ -440,8 +444,8 @@ export default {
         padding: 10px 0;
     }
     .filter .sidebar__filter .size__boxes .box{
-        height: 40px;
-        width: 40px;
+        height: 38px;
+        width: 38px;
         border: 1px solid #898989;
         border-radius: 8px;
         color: #898989;
@@ -478,7 +482,7 @@ export default {
         height: 18px;
     }
     .filter .sidebar__filter .filter{
-        background: linear-gradient(281.2deg, #15626B 8.26%, #1B7F8C 94.42%);
+        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
         border-radius: 5px;
         color: #FFF;
         width: 160px;
@@ -489,8 +493,11 @@ export default {
         margin: 16px 0;
         cursor: pointer;
     }
+    .filter .sidebar__filter .filter:hover{
+        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #2267C7 86.59%, #377AF9 99.79%);
+    }
     .filter .sidebar__filter .reset{
-        background: linear-gradient(90deg, #C311A7 3.86%, #A91BA5 100.16%);
+        background: #FF1B1B;
         border-radius: 5px;
         color: #FFF;
         width: 160px;
@@ -500,6 +507,9 @@ export default {
         justify-content: center;
         margin: 16px 0;
         cursor: pointer;
+    }
+    .filter .sidebar__filter .reset:hover{
+        background: #FF0000;
     }
     .filter .all__products{
         width: 80%;
@@ -538,13 +548,37 @@ export default {
 
     @media (min-width: 769px) and (max-width: 1025px){
         .grid-cols-4 {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .filter .sidebar__filter{
+            width: 33%;
+            margin-right: 4rem;
         }
     }
 
     @media (min-width: 600px) and (max-width: 769px){
         .grid-cols-4 {
             grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        /* .filter{
+            display: block;
+        }
+        .filter .sidebar__filter{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        } */
+    }
+
+    @media (min-width: 415px) and (max-width: 600px){
+        .grid-cols-4 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 415px) {
+        .grid-cols-4 {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
         }
     }
 

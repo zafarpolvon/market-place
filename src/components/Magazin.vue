@@ -119,9 +119,14 @@ export default {
         .brand__box{
             padding: 0;
             margin: 0;
+            height: auto !important;
+            min-height: auto !important;
+        }
+        .brand__second a{
+            height: 48%;
         }
         .brand__second img{
-            height: 48%;
+            height: 100%;
         }
     }
 
@@ -145,8 +150,11 @@ export default {
             display: flex !important;
             flex-direction: inherit;
         }
+        .brand__second a{
+            margin-top: 5px;
+        }
         .brand__second img{
-            width: 50%;
+            width: 96%;
         }
         .gap{
             gap: 10px;

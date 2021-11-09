@@ -37,6 +37,56 @@
                 <button class="show__all">Показать еще</button>
             </div>
         </div>
+        <div class="container mx-auto px-12 mb-12">
+                <div class="recently-products">
+                    <div class="recently__title">Вы недавно смотрели</div>
+                <div class="grid grid-cols-5 gap-3" >
+                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
+                        <Cart :cart="cart" />
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="container mx-auto px-12">
+            <div class="news__title">Новости</div>
+        </div>
+        <div class="container mx-auto px-12">
+            <div class="news__boxes">
+                <div class="box">
+                    <img src="../assets/image/image 5 (4).png" alt="not found">
+                    <div class="box__text">
+                        <div class="box__title">В AliExpress представили портрет типичного покупателя в регионах</div>
+                        <p>Петербуржцы закупаются пляжными сабо, омички — теплыми тапочками, а в Нижнем Новгороде заказывают жилеты с подогревом.</p>
+                        <div class="n__date">
+                            <a href="#">Подробно</a>
+                            <span>24.04.2021</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="../assets/image/image 5 (4).png" alt="not found">
+                    <div class="box__text">
+                        <div class="box__title">В AliExpress представили портрет типичного покупателя в регионах</div>
+                        <p>Петербуржцы закупаются пляжными сабо, омички — теплыми тапочками, а в Нижнем Новгороде заказывают жилеты с подогревом.</p>
+                        <div class="n__date">
+                            <a href="#">Подробно</a>
+                            <span>24.04.2021</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="../assets/image/image 5 (4).png" alt="not found">
+                    <div class="box__text">
+                        <div class="box__title">В AliExpress представили портрет типичного покупателя в регионах</div>
+                        <p>Петербуржцы закупаются пляжными сабо, омички — теплыми тапочками, а в Нижнем Новгороде заказывают жилеты с подогревом.</p>
+                        <div class="n__date">
+                            <a href="#">Подробно</a>
+                            <span>24.04.2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <Footer />
     </div>
 </template>
@@ -81,6 +131,7 @@ export default {
 <style scoped>
     .back {
         background-color: #E5E5E5;
+        height: 16000px;
     }
     .show__all {
         background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
@@ -90,10 +141,73 @@ export default {
         color: #FFFFFF;
         padding: 12px 80px;
     }
+    .news__title{
+        font-size: 42px;
+        color: #023047;
+        margin-bottom: 20px;
+    }
+    .news__boxes{
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 3rem;
+    }
+    .news__boxes .box{
+        width: 31%;
+        margin: 16px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+    }
+    .news__boxes .box img{
+        width: 100%;
+        object-fit: cover;
+        cursor: pointer;
+        transition: 0.2s linear;
+    }
+    .news__boxes .box img:hover{
+        transform: scale(1.01);
+    }
+    .news__boxes .box .box__text{
+        padding: 15px 10px 10px 10px;
+    }
+    .news__boxes .box .box__text .box__title{
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 1rem;
+    }
+    .news__boxes .box .box__text p{
+        color: #666666;
+        margin-bottom: 20px;
+    }
+    .news__boxes .box .box__text .n__date{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .news__boxes .box .box__text .n__date a{
+        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        padding: 10px 15px;
+        color: #FCF6F6;
+    }
+    .news__boxes .box .box__text .n__date a:hover{
+        box-shadow: unset !important;
+        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #2267C7 86.59%, #377AF9 99.79%);
+    }
+    .news__boxes .box .box__text .n__date span{
+        color: #999999;
+    }
+    .recently-products .recently__title{
+        margin-bottom: 20px;
+    }
 
     @media (min-width: 769px) and (max-width: 1025px){
         .grid-cols-5 {
             grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        .news__boxes .box{
+            width: 48% !important;
+            margin: 6px;
         }
     }
 
@@ -103,6 +217,10 @@ export default {
         }
         .grid-cols-4 {
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        }
+        .news__boxes .box{
+            width: 70% !important;
+            margin: 1rem auto;
         }
     }
 
@@ -123,11 +241,23 @@ export default {
         .banner img.h-64{
             height: auto;
         }
+        .news__boxes .box{
+            width: 70% !important;
+            margin: 1rem auto !important;
+        }
     }
 
     @media (min-width: 376px) and (max-width: 415px){
         .banner .grid-cols-4{
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        }
+        .news__boxes .box{
+            width: 100% !important;
+            margin: 10px 0 !important;
+        }
+        .news__title{
+            font-size: 32px !important;
+            margin-bottom: 0rem !important;
         }
     }
 
@@ -135,6 +265,17 @@ export default {
         .px-12{
             padding-left: 1rem;
             padding-right: 1rem;
+        }
+        .news__boxes .box .box__text .n__date a{
+            padding: 7px 15px !important;
+        }
+        .news__boxes .box{
+            width: 100% !important;
+            margin: 10px 0 !important;
+        }
+        .news__title{
+            font-size: 32px !important;
+            margin-bottom: 0rem !important;
         }
         .grid-cols-5 {
             grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -157,6 +298,25 @@ export default {
     @media (max-width: 300px){
         .show__all{
             padding: 12px 55px;
+        }
+        .news__boxes .box .box__text .n__date a{
+            padding: 5px 10px !important;
+            font-size: 12px !important;
+        }
+        .px-5{
+            padding-left: 5px !important;
+            padding-right: 5px !important;
+        }
+        .news__boxes .box .box__text .box__title{
+            font-size: 15px !important;
+            margin-bottom: 10px !important;
+        }
+        .news__boxes .box .box__text p{
+            font-size: 14px !important;
+            margin-bottom: 10px !important;
+        }
+        .news__boxes .box .box__text .n__date span{
+            font-size: 12px !important;
         }
     }
 

@@ -114,6 +114,7 @@
                 <div class="hover__circle"></div>
             </div>
         </div>
+        <i class="fa fa-bars navbar__menu"></i>
     </div>
 </template>
 <script>
@@ -142,6 +143,9 @@ export default {
         font-size: 14px;
         line-height: 25px;
         color: #D9D9D9;
+    }
+    .navbar__text a img{
+        margin-right: 5px;
     }
     .search__input input {
         background: rgba(255, 255, 255, 0.15);
@@ -257,4 +261,110 @@ export default {
         margin: -50px auto 0 auto;
         z-index: 0;
     }
+    .fa.fa-bars.navbar__menu{
+        display: none;
+    }
+
+    @media (min-width: 769px) and (max-width: 1025px){
+        .navbar__icons{
+            padding-left: 0;
+        }
+        .category__button.ml-12{
+            margin-left: 1.5rem;
+        }
+    }
+
+    @media (max-width: 769px){
+        .navbar__icons a:first-child,
+        .navbar__icons a:nth-child(2),
+        .navbar__icons a:nth-child(3){
+            display: none;
+        }
+        .navbar__category{
+            display: none;
+        }
+        .grid.grid-cols-7.gap-4.mt-3.pb-5 .col-span-3{
+            display: none;
+        }
+        .navbar__icons{
+            padding-left: 0;
+            justify-content: end;
+            padding-right: 65px;
+        }
+        .flex.navbar__text:first-child{
+            display: none;
+        } 
+        .flex.navbar__text:last-child a:first-child{
+            display: none;
+        }
+        .flex.navbar__text .ml-4{
+            margin-left: 0;
+        }
+        .grid.grid-cols-7.gap-4.mt-3.pb-5{
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            margin-top: 0;
+            padding-bottom: 0;
+            padding: 1rem 0;
+        }
+        .navbar__back .container{
+            position: relative !important;
+        }
+        .flex.justify-between.py-2{
+            position: absolute;
+            padding: 0;
+            right: 50px;
+            top: 20px;
+        }
+        .fa.fa-bars.navbar__menu{
+            display: block;
+            color: #FFF;
+            font-size: 28px;
+            position: absolute;
+            top: 18px;
+            left: 50px;
+        }
+    }
+
+    @media (min-width: 415px) and (max-width: 600px){
+        .fa.fa-bars.navbar__menu{
+            font-size: 28px;
+            top: 18px;
+            left: 1rem;
+        }
+        .flex.justify-between.py-2{
+            right: 1rem;
+        }
+        .navbar__icons{
+            padding-right: 10px;
+        }
+    }
+
+    @media (max-width: 415px){
+        .fa.fa-bars.navbar__menu{
+            font-size: 28px;
+            top: 18px;
+            left: 20px;
+        }
+        .flex.justify-between.py-2{
+            right: 20px;
+        }
+        .navbar__icons{
+            padding-right: 40px;
+        }
+    }
+
+    @media (max-width: 376px){
+        .fa.fa-bars.navbar__menu{
+            font-size: 28px;
+            top: 18px;
+            left: 15px;
+        }
+        .flex.justify-between.py-2{
+            right: 15px;
+        }
+        .navbar__icons{
+            padding-right: 40px;
+        }
+    }
+
 </style>
