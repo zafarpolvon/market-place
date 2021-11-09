@@ -150,8 +150,10 @@
                             <p>лето (62)</p>
                         </div>
                     </form>
-                    <button type="submit" @click="check()" class="filter">Фильтр</button>
-                    <button type="submit" class="reset">Сбросить</button>
+                    <div class="filter__buttons">
+                        <button type="submit" @click="check()" class="filter">Фильтр</button>
+                        <button type="submit" class="reset">Сбросить</button>
+                    </div>
                 </div>
                 <div class="all__products">
                     <div class="products__menu">
@@ -253,7 +255,7 @@ export default {
     }
     .filter__title{
         font-size: 42px;
-        color: #005964;
+        color: #023047;
         margin-bottom: 2rem;
     }
     .filter{
@@ -564,14 +566,18 @@ export default {
         .grid-cols-4 {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
-        /* .filter{
+        .filter{
             display: block;
         }
         .filter .sidebar__filter{
             width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-        } */
+        }
+        .filter .all__products{
+            width: 100%;
+        }
+        .grid-cols-4{
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
     }
 
     @media (min-width: 415px) and (max-width: 600px){
