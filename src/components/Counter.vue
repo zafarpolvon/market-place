@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
     .product__order {
         display: flex;
         align-items: center;
@@ -45,12 +45,14 @@ export default {
         padding: 0 10px;
         border-radius: 0 !important;
     }
-    .product__order p{
+    .product__order {
+      p {
         width: 70px;
         padding: 8px 10px;
         outline: none;
         text-align: center;
         border: 1px solid #C4C4C4;
+      }
     }
     .add-product .product__information .product__about .product__order .product__increment{
       font-size: 28px;

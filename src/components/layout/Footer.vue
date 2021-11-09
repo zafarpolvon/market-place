@@ -17,7 +17,7 @@
                             <a href="#">Способы оплаты</a>
                         </li>
                         <li class="footer__li">
-                            <a href="#">Доставка</a>
+                            <router-link to="/delivery" tag="a" href="#">Доставка</router-link>
                         </li>
                         <li class="footer__li">
                             <a href="#">Возврат товара</a>
