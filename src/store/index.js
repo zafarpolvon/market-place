@@ -24,6 +24,14 @@ export default new Vuex.Store({
         throw e
       }
     },
+    async loadData1 () {
+      try {
+        const info = await axios.get(test)
+        return info.data
+      } catch (e) {
+        throw e
+      }
+    },
     async loadDataById ({ commit }, id) {
       try {
         const { data } = await axios.get(URL + '/' + id)

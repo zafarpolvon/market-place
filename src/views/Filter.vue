@@ -189,15 +189,11 @@ export default {
     sortedProducts: [],
     min: 50,
     max: 10000,
-    tovar: []
+    tovar: [],
+    test: []
   }),
   async mounted () {
     this.tovar = await this.$store.dispatch('loadData')
-    this.setupPagination(this.tovar.map(person => {
-      return {
-        ...person
-      }
-    }))
   },
   computed: {
     carts () {

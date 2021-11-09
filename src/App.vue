@@ -269,7 +269,7 @@
     }
     .recently-products .recently__title{
         font-size: 42px;
-        color: #005964;
+        color: #023047;
         margin-bottom: 2rem;
     }
     .recently-products .products{
@@ -282,7 +282,7 @@
     }
     .question__title{
         font-size: 42px;
-        color: #005964;
+        color: #023047;
         margin-bottom: 1.5rem;
     }
     .q__comments{

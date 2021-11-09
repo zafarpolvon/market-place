@@ -50,11 +50,11 @@
                             <img class="h-5 flex flex-row items-center" src="../../assets/svg/saved.svg" alt="">
                             <span>Избранные</span>
                         </a>
-                        <a href="#" class="flex flex-col justify-between">
+                        <router-link tag="a" to="/basket" class="flex flex-col justify-between">
                             <span class="count__navbar2">2</span>
                             <img class="h-7 flex flex-row items-center" src="../../assets/svg/cart.svg" alt="">
                             <span>Корзина</span>
-                        </a>
+                        </router-link>
                         <a @mouseover="listOne = true"  href="#" class="flex flex-col justify-between">
                             <img class="h-5 flex flex-row items-center" src="../../assets/svg/user.svg" alt="">
                             <span>Войти</span>

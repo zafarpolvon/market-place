@@ -2,7 +2,7 @@
     <div class="">
         <Navbar />
         <div class="add-product">
-            <location-navbar :name="'Базовая рубашка'" />
+            <location-navbar :name="'Базовая рубашка1'" />
             <div class="container mx-auto px-12">
                 <h1>{{ cart.name }}</h1>
                 <div class="product-action">
@@ -14,7 +14,7 @@
             </div>
             <div class="container mx-auto px-12">
                 <div class="product-list">
-                    <div class="product__img">
+                    <div class="product__img relative">
                         <div class="images">
                             <img :src="cart.img" alt="">
                             <img :src="cart.second" alt="">
@@ -27,16 +27,19 @@
                             <i class="fa fa-chevron-left"></i>
                             <i class="fa fa-chevron-right"></i>
                         </div>
+                        <div class="absolute inset-0">
+                            <Loader />
+                        </div>
                     </div>
                     <div class="product__information">
                         <div class="product__about">
-                            <div class="product__price">500 ₽ <span>2000 рубл</span></div>
+                            <div class="product__price">{{ cart.price }} ₽ <span>2000 рубл</span></div>
                             <Counter />
                         </div>
                         <div class="color__title">Цвет</div>
                         <div class="color__boxes">
                             <div class="color__box" v-for="col in cart.colors" :key="col.id">
-                                <img class="cursor-pointer" :src="col.img" alt="photo">
+                                <img class="cursor-pointer" @click="updateImage(col.img, col.second, col.third, col.fourth)" :src="col.img" alt="photo">
                             </div>
                         </div>
                         <div class="product__size-title">Размер</div>
@@ -285,6 +288,7 @@ import Counter from '../components/Counter.vue'
 import Progress from '../components/progress/Progress.vue'
 import StarRating from '../components/StarRating.vue'
 import ProgressLine from '../components/progress/ProgressLine.vue'
+import Loader from '../components/Loader.vue'
 
 export default {
   name: 'Home',
@@ -292,20 +296,31 @@ export default {
     prot: 80,
     sizes: [42, 46, 48, 50, 52, 54],
     cart: {},
-    tovar: []
+    tovar: [],
+    picked: '',
+    quantity: 1
   }),
   async mounted () {
     const id = this.$route.params.id
     this.cart = await this.$store.dispatch('loadDataById', id)
     this.tovar = await this.$store.dispatch('loadData')
-    this.setupPagination(this.tovar.map(person => {
-      return {
-        ...person
-      }
-    }))
+    for (let i = 1; i <= 10; i++) {
+      this.quantityArray.push(i);
+    }
+    if (this.$props.basket.quantity > 1) {
+      this.selected = this.$props.basket.quantity
+    }
   },
   methods: {
-
+    updateImage (first, second, third, fourth) {
+      this.cart.img = first
+      this.cart.second = second
+      this.cart.third = third
+      this.cart.fourth = fourth
+    },
+    temp (index) {
+      console.log(index)
+    }
   },
   computed: {
 
@@ -318,7 +333,8 @@ export default {
     StarRating,
     Progress,
     ProgressLine,
-    LocationNavbar
+    LocationNavbar,
+    Loader
   }
 }
 
