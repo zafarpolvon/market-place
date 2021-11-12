@@ -305,7 +305,7 @@ export default {
     this.cart = await this.$store.dispatch('loadDataById', id)
     this.tovar = await this.$store.dispatch('loadData')
     for (let i = 1; i <= 10; i++) {
-      this.quantityArray.push(i);
+      this.quantityArray.push(i)
     }
     if (this.$props.basket.quantity > 1) {
       this.selected = this.$props.basket.quantity
