@@ -37,17 +37,7 @@
                 <button class="show__all">Показать еще</button>
             </div>
         </div>
-        <div class="container mx-auto px-12 mb-12">
-                <div class="recently-products">
-                    <div class="recently__title">Вы недавно смотрели</div>
-                <div class="grid grid-cols-5 gap-3" >
-                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
-                        <Cart :cart="cart" />
-                    </div>
-                </div>
-                </div>
-            </div>
-            <div class="container mx-auto px-12">
+        <div class="container mx-auto px-12">
             <div class="news__title">Новости</div>
         </div>
         <div class="container mx-auto px-12">
@@ -86,6 +76,16 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container mx-auto px-12 mb-12">
+                <div class="recently-products">
+                    <div class="recently__title">Вы недавно смотрели</div>
+                <div class="grid grid-cols-5 gap-3" >
+                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
+                        <Cart :cart="cart" />
+                    </div>
+                </div>
+                </div>
         </div>
         <Footer />
     </div>
@@ -131,7 +131,6 @@ export default {
 <style scoped>
     .back {
         background-color: #E5E5E5;
-        height: 16000px;
     }
     .show__all {
         background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
@@ -199,6 +198,7 @@ export default {
     }
     .recently-products .recently__title{
         margin-bottom: 20px;
+        color: #023047;
     }
 
     @media (min-width: 769px) and (max-width: 1025px){
