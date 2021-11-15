@@ -16,19 +16,21 @@
                 <div class="product-list">
                     <div class="product__img relative">
                         <div class="images">
-                            <img :src="cart.img" alt="">
-                            <img :src="cart.second" alt="">
-                            <img :src="cart.third" alt="">
-                            <img :src="cart.fourth" alt="">
+                            <img @load="onImgLoad" :src="cart.img" alt="">
+                            <img @load="onImgLoad" :src="cart.second" alt="">
+                            <img @load="onImgLoad" :src="cart.third" alt="">
+                            <img @load="onImgLoad" :src="cart.fourth" alt="">
                         </div>
                         <div class="image">
-                            <img :src="cart.img" alt="not found">
+                            <img @load="onImgLoad" :src="cart.img" alt="not found">
                             <i class="far fa-heart"></i>
                             <i class="fa fa-chevron-left"></i>
                             <i class="fa fa-chevron-right"></i>
                         </div>
-                        <div class="absolute inset-0">
-                            <Loader />
+                        <div v-if="imageLoader" class="loader__blur">
+                            <div class="loader__into">
+                                <Loader />
+                            </div>
                         </div>
                     </div>
                     <div class="product__information">
@@ -298,14 +300,16 @@ export default {
     cart: {},
     tovar: [],
     picked: '',
-    quantity: 1
+    quantity: 1,
+    imageLoader: true
   }),
   async mounted () {
     const id = this.$route.params.id
     this.cart = await this.$store.dispatch('loadDataById', id)
     this.tovar = await this.$store.dispatch('loadData')
+
     for (let i = 1; i <= 10; i++) {
-      this.quantityArray.push(i);
+      this.quantityArray.push(i)
     }
     if (this.$props.basket.quantity > 1) {
       this.selected = this.$props.basket.quantity
@@ -313,6 +317,7 @@ export default {
   },
   methods: {
     updateImage (first, second, third, fourth) {
+      this.imageLoader = true
       this.cart.img = first
       this.cart.second = second
       this.cart.third = third
@@ -320,6 +325,9 @@ export default {
     },
     temp (index) {
       console.log(index)
+    },
+    onImgLoad () {
+      this.imageLoader = false
     }
   },
   computed: {
@@ -342,6 +350,20 @@ export default {
 <style>
     .back {
         background-color: #fff;
+    }
+    .loader__blur {
+        backdrop-filter: blur(15px);
+        background: #ebebeb7a;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .loader__into {
+        position: absolute;
+        top: 38%;
+        left: 43%;
+
     }
     .pages a{
         color: #023047;
