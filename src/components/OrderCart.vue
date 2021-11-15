@@ -43,6 +43,7 @@ export default {
     .delivery-cart__title{
         font-size: 42px;
         color: #023047;
+        line-height: 1;
     }
     .delivery-carts h1{
         color: #023047;
@@ -53,6 +54,7 @@ export default {
     }
     .delivery-carts .cart.delivery__cart{
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         width: 100%;
         padding: 1.5rem;
@@ -72,7 +74,7 @@ export default {
         justify-content: center;
         background: #ffffff;
         border-radius: 5px;
-        margin-right: 2.5rem;
+        margin: auto 2.5rem auto 0;
     }
     .delivery-carts .cart.delivery__cart .cart__img .image img{
         width: 100%;
@@ -87,17 +89,21 @@ export default {
         color: #000;
         font-size: 24px;
         font-weight: bold;
+        line-height: 1;
     }
     .delivery-carts .cart.delivery__cart .cart__info p{
         color: #000;
+        line-height: 1;
     }
     .delivery-carts .cart.delivery__cart .cart__info p:last-child{
         color: #023047;
         margin-bottom: 10px;
+        line-height: 1;
     }
     .delivery-carts .cart.delivery__cart .cart__info p:last-child span{
         margin-top: auto !important;
         color: #023047;
+        line-height: 1;
     }
     .delivery-carts .cart.delivery__cart .order{
         display: flex;
@@ -156,4 +162,117 @@ export default {
         margin-left: 0.5rem;
         font-weight: bold;
     }
+
+    @media (min-width: 769px) and (max-width: 1025px){
+        .delivery-carts .cart.delivery__cart .cart__img{
+            width: 100%;
+        }
+        .delivery-carts .cart.delivery__cart .order{
+            width: 50%;
+            margin-left: 0;
+        }
+        .delivery-carts .cart.delivery__cart .price{
+            width: 50%;
+        }
+        .delivery-carts .cart.delivery__cart .price p{
+            text-align: end;
+        }
+    }
+
+    @media (min-width: 600px) and (max-width: 769px){
+        .delivery-carts .cart.delivery__cart .cart__img{
+            width: 100%;
+        }
+        .delivery-carts .cart.delivery__cart .order{
+            width: 50%;
+            margin-left: 0;
+        }
+        .delivery-carts .cart.delivery__cart .price{
+            width: 50%;
+        }
+        .delivery-carts .cart.delivery__cart .price p{
+            text-align: end;
+        }
+    }
+
+    @media (max-width: 600px){
+        .delivery-carts .cart.delivery__cart .cart__img{
+            width: 100%;
+            flex-direction: column;
+        }
+        .delivery-carts .cart.delivery__cart .order{
+            width: 100%;
+            margin-left: 0;
+        }
+        .delivery-carts .cart.delivery__cart .price{
+            width: 100%;
+        }
+        .delivery-carts .cart.delivery__cart .price #price{
+            align-self: flex-start;
+        }
+        .delivery-carts .cart.delivery__cart .cart__img .image{
+            width: 75%;
+            margin: auto;
+            height: 250px;
+        }
+        .delivery-carts .cart.delivery__cart .cart__info .title{
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .delivery-carts .cart.delivery__cart .cart__info p:last-child{
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+        .delivery-carts .cart.delivery__cart .order{
+            padding-top: 0;
+            margin-top: 10px;
+        }
+        .delivery-carts .cart.delivery__cart .order .payment{
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+        .delivery-carts .cart.delivery__cart .price p{
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+        .delivery-carts .cart.delivery__cart .price #price{
+            line-height: 1;
+        }
+        .delivery-carts .cart.delivery__cart .cart__info p{
+            font-size: 18px;
+        }
+        .delivery-carts .cart.delivery__cart .order p{
+            line-height: 1;
+        }
+    }
+
+    @media (max-width: 376px){
+        .delivery-carts .cart.delivery__cart{
+            padding: 10px !important;
+            margin: 1rem 0 !important;
+        }
+    }
+
+    @media (max-width: 300px){
+        .delivery-carts .cart.delivery__cart .cart__info p{
+            font-size: 15px;
+        }
+        .delivery-carts .cart.delivery__cart .order p{
+            font-size: 15px;
+        }
+        .delivery-carts .cart.delivery__cart .cart__img .image{
+            height: 200px;
+            width: 100%;
+        }
+        .delivery-carts .cart.delivery__cart .cart__info .title{
+            font-size: 20px;
+        }
+        .delivery-carts .cart.delivery__cart .price p{
+            font-size: 15px;
+        }
+        .delivery-carts .cart.delivery__cart .order .payment img{
+            margin-left: 0;
+        }
+    }
+
 </style>

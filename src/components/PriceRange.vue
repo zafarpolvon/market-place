@@ -246,4 +246,13 @@ export default {
       background: #0052FF;
   }
 
+  @media (max-width: 769px){
+    .price__range1{
+      width: 100%;
+    }
+    .track-container{
+      width: 100%;
+    }
+  }
+
 </style>

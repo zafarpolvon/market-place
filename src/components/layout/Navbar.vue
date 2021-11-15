@@ -113,8 +113,24 @@
                 </div>
                 <div class="hover__circle"></div>
             </div>
+            <div class="menu__mobile">
+                <div class="menu__logo">
+                    <svg class="pre-logo-svg" height="60px" width="60px" fill="#111" viewBox="0 0 69 32">
+                        <path d="M68.56 4L18.4 25.36Q12.16 28 7.92 28q-4.8 0-6.96-3.36-1.36-2.16-.8-5.48t2.96-7.08q2-3.04 6.56-8-1.6 2.56-2.24 5.28-1.2 5.12 2.16 7.52Q11.2 18 14 18q2.24 0 5.04-.72z"></path>
+                    </svg>
+                </div>
+                <div class="navbar__menu">
+                    <svg width="24px" height="24px" fill="#111" viewBox="0 0 24 24">
+                        <path d="M16 7a1 1 0 0 1-1-1V3H9v3a1 1 0 0 1-2 0V3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3a1 1 0 0 1-1 1z"></path>
+                        <path d="M20 5H4a2 2 0 0 0-2 2v13a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a2 2 0 0 0-2-2zm0 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7h16z"></path>
+                    </svg>
+                    <svg class="pre-search-input-icon" fill="#111" height="30px" width="30px" viewBox="0 0 24 24">
+                        <path d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.39zM11 18a7 7 0 1 1 7-7 7 7 0 0 1-7 7z"></path>
+                    </svg>
+                    <div class="fa fa-bars"></div>
+                </div>
+            </div>
         </div>
-        <i class="fa fa-bars navbar__menu"></i>
     </div>
 </template>
 <script>
@@ -264,6 +280,9 @@ export default {
     .fa.fa-bars.navbar__menu{
         display: none;
     }
+    .menu__mobile{
+        display: none;
+    }
 
     @media (min-width: 769px) and (max-width: 1025px){
         .navbar__icons{
@@ -275,9 +294,7 @@ export default {
     }
 
     @media (max-width: 769px){
-        .navbar__icons a:first-child,
-        .navbar__icons a:nth-child(2),
-        .navbar__icons a:nth-child(3){
+        .navbar__icons a{
             display: none;
         }
         .navbar__category{
@@ -298,13 +315,10 @@ export default {
             display: none;
         }
         .flex.navbar__text .ml-4{
-            margin-left: 0;
+            display: none;
         }
         .grid.grid-cols-7.gap-4.mt-3.pb-5{
-            grid-template-columns: repeat(1, minmax(0, 1fr));
-            margin-top: 0;
-            padding-bottom: 0;
-            padding: 1rem 0;
+            display: none;
         }
         .navbar__back .container{
             position: relative !important;
@@ -315,13 +329,30 @@ export default {
             right: 50px;
             top: 20px;
         }
-        .fa.fa-bars.navbar__menu{
+        .menu__mobile .fa.fa-bars{
             display: block;
             color: #FFF;
             font-size: 28px;
-            position: absolute;
-            top: 18px;
-            left: 50px;
+        }
+        .menu__mobile{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            display: block;
+        }
+        .menu__mobile .navbar__menu{
+            display: flex;
+            align-items: center;
+        }
+        .menu__mobile .navbar__menu .fa.fa-bars{
+            margin-left: 1rem;
+        }
+        .menu__mobile .navbar__menu svg{
+            fill: #FFF;
+            margin-left: 1rem;
+        }
+        .menu__mobile .menu__logo svg{
+            fill: #FFF;
         }
     }
 

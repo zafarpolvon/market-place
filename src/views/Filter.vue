@@ -253,6 +253,7 @@ export default {
         font-size: 42px;
         color: #023047;
         margin-bottom: 2rem;
+        line-height: 1;
     }
     .filter{
         display: flex;
@@ -574,17 +575,71 @@ export default {
         .grid-cols-4{
             grid-template-columns: repeat(3, minmax(0, 1fr));
         }
+        .filter__buttons{
+            display: flex;
+        }
+        .filter__buttons button{
+            margin: 16px 1rem 16px 0 !important;
+        }
     }
 
     @media (min-width: 415px) and (max-width: 600px){
+        .filter{
+            display: block;
+        }
+        .filter .sidebar__filter{
+            width: 100%;
+        }
+        .filter .all__products{
+            width: 100%;
+        }
+        .filter__buttons{
+            display: flex;
+        }
+        .filter__buttons button{
+            margin: 16px 1rem 16px 0 !important;
+        }
         .grid-cols-4 {
             grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .filter .all__products .products__menu ul{
+            justify-content: space-between;
+        }
+        .filter .all__products .products__menu ul *{
+            margin-right: 0;
+            font-size: 14px;
         }
     }
 
     @media (max-width: 415px) {
+        .filter{
+            display: block;
+        }
+        .filter .sidebar__filter{
+            width: 100%;
+        }
+        .filter .all__products{
+            width: 100%;
+        }
+        .filter__buttons{
+            display: flex;
+        }
+        .filter__buttons button{
+            margin: 16px 1rem 16px 0 !important;
+        }
         .grid-cols-4 {
             grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+        .filter .all__products .products__menu ul{
+            flex-direction: column;
+            align-items: flex-start !important;
+        }
+        .filter .all__products .products__menu ul *{
+            margin-right: 0;
+            font-size: 18px;
+        }
+        .filter__title{
+            font-size: 32px;
         }
     }
 
