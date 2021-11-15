@@ -113,7 +113,6 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
             <div v-if="listOne" @mouseleave="listOne = false" @click="listOne = false" class="profile__dropdown">
                 <a href="#" class="profile__header">
                     <div class="profile__image">
@@ -182,8 +181,6 @@
                     <div class="fa fa-bars"></div>
                 </div>
             </div>
-=======
->>>>>>> e524dd7042f345369d9a8e0ecbb7a9667a89a5fa
         </div>
     </div>
 </template>
@@ -347,13 +344,13 @@ export default {
 
     @media (max-width: 769px){
         .navbar__icons a{
-            display: none;
+            display: none !important;
         }
         .navbar__category{
-            display: none;
+            display: none !important;
         }
         .grid.grid-cols-7.gap-4.mt-3.pb-5 .col-span-3{
-            display: none;
+            display: none !important;
         }
         .navbar__icons{
             padding-left: 0;
@@ -361,16 +358,19 @@ export default {
             padding-right: 65px;
         }
         .flex.navbar__text:first-child{
-            display: none;
+            display: none !important;
         } 
+        .grid.grid-cols-7.gap-4.mt-3{
+            display: none !important;
+        }
         .flex.navbar__text:last-child a:first-child{
-            display: none;
+            display: none !important;
         }
         .flex.navbar__text .ml-4{
-            display: none;
+            display: none !important;
         }
         .grid.grid-cols-7.gap-4.mt-3.pb-5{
-            display: none;
+            display: none !important;
         }
         .navbar__back .container{
             position: relative !important;
@@ -390,7 +390,6 @@ export default {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            display: block;
         }
         .menu__mobile .navbar__menu{
             display: flex;

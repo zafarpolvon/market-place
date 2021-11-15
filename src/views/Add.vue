@@ -786,6 +786,10 @@ export default {
         }
         .product-list .product__img .image{
             height: 350px !important;
+            width: auto !important;
+        }
+        .product-list .product__img .image img{
+            margin-right: 0 !important;
         }
         .add-product .product-list .product__img .images{
             height: 350px;
@@ -896,12 +900,13 @@ export default {
         }
         .product-list .product__img .image{
             height: auto !important;
+            width: auto !important;
             display: flex;
         }
         .product-list .product__img .image img{
             width: 100%;
             height: auto !important;
-            margin-right: 15px !important;
+            margin-right: 0 !important;
         }
         .product-list .product__img .image .fa.fa-chevron-left,
         .product-list .product__img .image .fa.fa-chevron-right{

@@ -98,6 +98,7 @@ export default {
         font-size: 42px;
         color: #023047;
         margin-bottom: 2rem;
+        line-height: 1;
     }
     .questions__box{
         display: flex;
@@ -227,7 +228,7 @@ export default {
         }
         .questions__box .c__box{
             width: 80%;
-            margin: 2rem auto;
+            margin: 2rem auto !important;
         }
     }
 
