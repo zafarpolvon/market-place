@@ -1,7 +1,7 @@
 <template>
     <div class="navbar__back">
         <div class="container mx-auto px-12">
-            <div class="flex justify-between py-2">
+            <div class="flex justify-between py-2 relative">
                 <div class="flex navbar__text ">
                     <a href="#" class="flex">
                         <img src="../../assets/svg/location.svg" alt="">
@@ -16,7 +16,7 @@
                     <a class="ml-4" href="#">Ру</a>
                 </div>
             </div>
-            <div class="grid grid-cols-7 gap-4 mt-3 pb-5">
+            <div class="grid grid-cols-7 gap-4 mt-3">
                 <div class="col-span-2 flex navbar__category">
                     <div class="navbar__logo">
                         <a href="/">LOGO</a>
@@ -55,63 +55,63 @@
                             <img class="h-7 flex flex-row items-center" src="../../assets/svg/cart.svg" alt="">
                             <span>Корзина</span>
                         </router-link>
-                        <a @mouseover="listOne = true"  href="#" class="flex flex-col justify-between">
+                        <a @mouseover="listOne = true" @mouseleave="listOne = false"  href="#" class="flex flex-col justify-between">
                             <img class="h-5 flex flex-row items-center" src="../../assets/svg/user.svg" alt="">
-                            <span>Войти</span>
+                            <span class="margin__hover">Войти</span>
+                            <div v-if="listOne" @mouseleave="listOne = false" @click="listOne = false" class="profile__dropdown">
+                                <a href="#" class="profile__header">
+                                    <div class="profile__image">
+                                        <img src="../../assets/image/carbon_user-avatar-filled-alt.png" alt="">
+                                    </div>
+                                    <div class="profile__title">
+                                        <h5>Mironshoh Nasimov</h5>
+                                    </div>
+                                </a>
+                                <div class="profile__bottom">
+                                    <ul class="profile__ul">
+                                        <li class="profile__item">
+                                            <a href="#">
+                                                <i class="fas fa-chevron-right"></i>
+                                                Мои заказы
+                                            </a>
+                                        </li>
+                                        <li class="profile__item">
+                                            <router-link tag="a" to="/payments">
+                                                <i class="fas fa-chevron-right"></i>
+                                                Мои платежи
+                                            </router-link>
+                                        </li>
+                                        <li class="profile__item">
+                                            <router-link tag="a" to="/message">
+                                                <i class="fas fa-chevron-right"></i>
+                                                Мои сообщения
+                                            </router-link>
+                                        </li>
+                                        <li class="profile__item">
+                                            <a href="#">
+                                                <i class="fas fa-chevron-right"></i>
+                                                Избранные товара
+                                            </a>
+                                        </li>
+                                        <li class="profile__item">
+                                            <router-link tag="a" to="/info">
+                                                <i class="fas fa-chevron-right"></i>
+                                                Мои данные
+                                            </router-link>
+                                        </li>
+                                        <li class="profile__item">
+                                            <a href="#">
+                                                <i class="fas fa-chevron-right"></i>
+                                                Выйти
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="hover__circle"></div>
+                            </div>
                         </a>
                     </div>
                 </div>
-            </div>
-            <div v-if="listOne" @mouseleave="listOne = false" @click="listOne = false" class="profile__dropdown">
-                <a href="#" class="profile__header">
-                    <div class="profile__image">
-                        <img src="../../assets/image/carbon_user-avatar-filled-alt.png" alt="">
-                    </div>
-                    <div class="profile__title">
-                        <h5>Mironshoh Nasimov</h5>
-                    </div>
-                </a>
-                <div class="profile__bottom">
-                    <ul class="profile__ul">
-                        <li class="profile__item">
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i>
-                                Мои заказы
-                            </a>
-                        </li>
-                        <li class="profile__item">
-                            <router-link tag="a" to="/payments">
-                                <i class="fas fa-chevron-right"></i>
-                                Мои платежи
-                            </router-link>
-                        </li>
-                        <li class="profile__item">
-                            <router-link tag="a" to="/message">
-                                <i class="fas fa-chevron-right"></i>
-                                Мои сообщения
-                            </router-link>
-                        </li>
-                        <li class="profile__item">
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i>
-                                Избранные товара
-                            </a>
-                        </li>
-                        <li class="profile__item">
-                            <router-link tag="a" to="/info">
-                                <i class="fas fa-chevron-right"></i>
-                                Мои данные
-                            </router-link>
-                        </li>
-                        <li class="profile__item">
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i>
-                                Выйти
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="hover__circle"></div>
             </div>
         </div>
         <i class="fa fa-bars navbar__menu"></i>
@@ -128,7 +128,7 @@ export default {
       this.toShowOnHover = !this.toShowOnHover
     },
     mouseLeave () {
-      this.toShowOnHover = false
+      this.toShowOnHover = !this.toShowOnHover
     }
   },
   components: {
@@ -164,6 +164,7 @@ export default {
         font-size: 12px;
         line-height: 15px;
         color: #FFFFFF;
+        margin-bottom: 17px;
     }
     .category__button button {
         border: 1px solid #D9D9D9;
@@ -209,8 +210,8 @@ export default {
         position: absolute;
         background: #ffffff;
         z-index: 9999;
-        right: 0;
-        margin-top: 0px;
+        margin-top: 60px;
+        margin-left: -160px;
     }
     .profile__header {
         display: flex;

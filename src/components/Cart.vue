@@ -3,9 +3,7 @@
         <div class="cart__image" @mouseover="listOne = true" @mouseleave="listOne = false">
             <img :src="cart.img" alt="">
             <span v-if="listOne" @click="listOne = false" class="fast__review">просмотр</span>
-            <button>
-                <i class="far fa-heart"></i>
-            </button>
+            <icon-love :love="cart.love" />
         </div>
         <div class="cart__info">
             <div class="flex justify-between mt-3">
@@ -20,7 +18,7 @@
                 </div>
             </div>
             <div class="cart__add">
-                <router-link tag="button" :key="cart.id" :to="{ name: 'Add', params: { id: cart.id }, }">
+                <router-link tag="button" @click.native="$router.go()" :key="cart.id" :to="{ name: 'Add', params: { id: cart.id }, }">
                     <span>В корзину</span>
                     <svg width="30" height="28" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M26.35 8.56208C26.134 8.23689 25.8247 7.96589 25.4523 7.77553C25.0799 7.58516 24.657 7.48192 24.225 7.47587H8.225L7.5 5.02104C7.42675 4.78408 7.26333 4.57564 7.03635 4.42968C6.80937 4.28373 6.5322 4.20885 6.25 4.21725H3.75C3.41848 4.21725 3.10054 4.33169 2.86612 4.53539C2.6317 4.7391 2.5 5.01538 2.5 5.30346C2.5 5.59154 2.6317 5.86782 2.86612 6.07152C3.10054 6.27523 3.41848 6.38966 3.75 6.38966H5.3L8.75 17.5341C8.82325 17.7711 8.98667 17.9796 9.21365 18.1255C9.44063 18.2715 9.7178 18.3463 10 18.3379H21.25C21.4808 18.3373 21.707 18.2812 21.9033 18.1757C22.0997 18.0703 22.2586 17.9197 22.3625 17.7405L26.4625 10.615C26.6402 10.2913 26.7229 9.93447 26.7033 9.57625C26.6837 9.21804 26.5623 8.86961 26.35 8.56208Z" fill="white"/>
@@ -34,11 +32,17 @@
     </div>
 </template>
 <script>
+import IconLove from './IconLove.vue'
+
 export default {
   props: ['cart'],
   data: () => ({
-    listOne: false
-  })
+    listOne: false,
+    love: true
+  }),
+  components: {
+    IconLove
+  }
 }
 </script>
 <style scoped>
@@ -50,17 +54,6 @@ export default {
         height: 227px;
         object-fit: cover;
         border-radius: 10px 10px 0 0;
-    }
-    .cart__image button {
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin-right: 10px;
-        margin-top: 10px;
-    }
-    .cart__image button i {
-        color: #FC7D00;
-        font-size: 25px;
     }
     .cart__box {
         background: #FFFFFF;
