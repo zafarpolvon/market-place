@@ -111,22 +111,6 @@
                             </div>
                         </a>
                     </div>
-                    <div class="menu__responsive">
-                        <Menu :closeOnNavigation="true" right>
-                            <a class="cursor-pointer" id="home" @click="openModal">
-                                <span>test</span>
-                            </a>
-                            <router-link to="/" id="home">
-                                <span>test</span>
-                            </router-link>
-                            <router-link to="/" id="home">
-                                <span>test</span>
-                            </router-link>
-                            <router-link to="/" id="home">
-                                <span>test</span>
-                            </router-link>
-                        </Menu>
-                    </div>
                 </div>
             </div>
             <div v-if="listOne" @mouseleave="listOne = false" @click="listOne = false" class="profile__dropdown">
@@ -194,7 +178,22 @@
                     <svg class="pre-search-input-icon" fill="#111" height="30px" width="30px" viewBox="0 0 24 24">
                         <path d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.39zM11 18a7 7 0 1 1 7-7 7 7 0 0 1-7 7z"></path>
                     </svg>
-                    <div class="fa fa-bars"></div>
+                    <div class="menu__responsive">
+                        <Menu :closeOnNavigation="true" right>
+                            <a class="cursor-pointer" id="home" @click="openModal">
+                                <span>test</span>
+                            </a>
+                            <router-link to="/" id="home">
+                                <span>test</span>
+                            </router-link>
+                            <router-link to="/" id="home">
+                                <span>test</span>
+                            </router-link>
+                            <router-link to="/" id="home">
+                                <span>test</span>
+                            </router-link>
+                        </Menu>
+                    </div>
                 </div>
             </div>
         </div>
@@ -419,9 +418,13 @@ export default {
         .menu__mobile .navbar__menu .fa.fa-bars{
             margin-left: 1rem;
         }
-        .menu__mobile .navbar__menu svg{
+        .menu__mobile .navbar__menu svg:first-child{
             fill: #FFF;
-            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+        .menu__mobile .navbar__menu svg:nth-child(2){
+            fill: #FFF;
+            margin-right: 50px;
         }
         .menu__mobile .menu__logo svg{
             fill: #FFF;
@@ -429,9 +432,25 @@ export default {
         .menu__responsive {
             display: block;
         }
+        .md\:mt-3{
+            margin-top: 0 !important;
+        }
+        .menu__responsive{
+            width: 0 !important;
+        }
+        .navbar__back{
+            position: relative !important;
+        }
+        .grid.grid-cols-7.gap-4.mt-0 .col-span-3{
+            display: none;
+        }
     }
 
     @media (min-width: 415px) and (max-width: 600px){
+        .px-12{
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
         .fa.fa-bars.navbar__menu{
             font-size: 28px;
             top: 18px;

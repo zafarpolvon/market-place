@@ -203,8 +203,8 @@ export default {
   .bm-burger-button {
     position: relative;
     width: 34px;
-    height: 28px;
-    margin-top: 10px;
+    height: 26px;
+    margin-top: 11px;
     margin-bottom: 10px;
     cursor: pointer;
   }
