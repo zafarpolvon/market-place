@@ -72,9 +72,6 @@ export default {
 
     @media (max-width: 600px){
         .info__menu{
-            padding: 0.8rem 0;
-        }
-        .info__menu ul{
             display: none;
         }
         .info__menu .fa.fa-bars{

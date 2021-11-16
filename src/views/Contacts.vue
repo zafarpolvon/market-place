@@ -139,6 +139,7 @@ export default {
         color: #023047;
         font-size: 28px;
         font-weight: bold;
+        line-height: 1;
     }
     .contacts__boxes .r__box .input{
         margin: 1.5rem 0;
@@ -293,4 +294,12 @@ export default {
             padding-bottom: 3rem !important;
         }
     }
+
+    @media (max-width: 300px){
+        .contacts__boxes .r__box{
+            width: 100% !important;
+            padding: 10px !important;
+        }
+    }
+
 </style>

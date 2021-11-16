@@ -102,17 +102,20 @@ export default {
         font-size: 42px;
         color: #023047;
         margin-bottom: 2rem;
+        line-height: 1;
     }
     .r-product .product__title{
         font-size: 30px;
         color: #023047;
         margin-bottom: 2rem;
+        line-height: 1;
     }
     .r-product h1{
         font-size: 22px;
         color: #023047;
         margin-bottom: 1.7rem;
         font-weight: bold;
+        line-height: 1;
     }
     .r-product p{
         color: #023047;

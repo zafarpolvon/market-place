@@ -161,7 +161,7 @@ export default {
             flex-direction: column;
         }
         .basket__image{
-            width: 70%;
+            width: 100%;
             height: auto;
             margin: auto;
         }

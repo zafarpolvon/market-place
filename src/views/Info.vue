@@ -208,6 +208,7 @@ export default {
         }
         .info__boxes .box{
             width: 100%;
+            margin-bottom: 1rem;
         }
         .info__boxes2{
             margin: 2rem 0 0;

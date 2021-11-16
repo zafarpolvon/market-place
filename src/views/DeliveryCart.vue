@@ -60,6 +60,7 @@ export default {
     .delivery-cart__title{
         font-size: 42px;
         color: #023047;
+        line-height: 1;
     }
     .delivery-carts h1{
         color: #023047;
@@ -170,6 +171,26 @@ export default {
         color: #0052FF;
         font-size: 30px;
         margin-left: 0.5rem;
+        line-height: 1;
         font-weight: bold;
     }
+
+    @media (max-width: 600px){
+        .delivery-carts h1{
+            font-size: 24px;
+            margin: 0 0 1rem 0;
+        }
+        .delivery-carts .total{
+            font-size: 24px;
+            padding-top: 0;
+            padding-bottom: 1rem;
+        }
+    }
+
+    @media (max-width: 300px){
+        .delivery-cart__title{
+            font-size: 32px;
+        }
+    }
+
 </style>
