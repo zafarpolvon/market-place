@@ -2,8 +2,8 @@
     <button>
         <i @mouseover="love = false"
             @mouseout="love = true"
-            v-bind:class="[love ? 'fas' : 'far', 'far']"
-            class="far fa-heart"
+            :class="[love ? 'far' : 'fas', 'far']"
+            class="fa-heart"
         ></i>
     </button>
 </template>

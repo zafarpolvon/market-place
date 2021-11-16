@@ -5,7 +5,7 @@
                 <div class="flex navbar__text ">
                     <a href="#" class="flex">
                         <img src="../../assets/svg/location.svg" alt="">
-                        <span>Москва</span>
+                        <span class="">Москва</span>
                     </a>
                     <a class="ml-4" href="#">Бесплатная доставка</a>
                 </div>
@@ -13,10 +13,10 @@
                     <a href="#">
                         Продавайте на LogoName
                     </a>
-                    <a class="ml-4" href="#">Ру</a>
+                    <a class="ml-4 navbar__category" href="#">Ру</a>
                 </div>
             </div>
-            <div class="grid grid-cols-7 gap-4 mt-3">
+            <div class="grid grid-cols-7 gap-4 mt-0 xl:mt-3 md:mt-3">
                 <div class="col-span-2 flex navbar__category">
                     <div class="navbar__logo">
                         <a href="/">LOGO</a>
@@ -55,7 +55,7 @@
                             <img class="h-7 flex flex-row items-center" src="../../assets/svg/cart.svg" alt="">
                             <span>Корзина</span>
                         </router-link>
-                        <a @mouseover="listOne = true" @mouseleave="listOne = false"  href="#" class="flex flex-col justify-between">
+                        <a @mouseover="listOne = true" @mouseleave="listOne = false"  href="#" class="flex flex-col justify-between navbar__category">
                             <img class="h-5 flex flex-row items-center" src="../../assets/svg/user.svg" alt="">
                             <span class="margin__hover">Войти</span>
                             <div v-if="listOne" @mouseleave="listOne = false" @click="listOne = false" class="profile__dropdown">
@@ -111,13 +111,29 @@
                             </div>
                         </a>
                     </div>
+                    <div class="menu__responsive">
+                        <Menu :closeOnNavigation="true" right>
+                            <a class="cursor-pointer" id="home" @click="openModal">
+                                <span>test</span>
+                            </a>
+                            <router-link to="/" id="home">
+                                <span>test</span>
+                            </router-link>
+                            <router-link to="/" id="home">
+                                <span>test</span>
+                            </router-link>
+                            <router-link to="/" id="home">
+                                <span>test</span>
+                            </router-link>
+                        </Menu>
+                    </div>
                 </div>
             </div>
         </div>
-        <i class="fa fa-bars navbar__menu"></i>
     </div>
 </template>
 <script>
+import Menu from './Menu.vue'
 export default {
   name: 'Home',
   data: () => ({
@@ -132,6 +148,7 @@ export default {
     }
   },
   components: {
+    Menu
   }
 }
 </script>
@@ -265,6 +282,9 @@ export default {
     .fa.fa-bars.navbar__menu{
         display: none;
     }
+    .menu__responsive {
+        display: none;
+    }
 
     @media (min-width: 769px) and (max-width: 1025px){
         .navbar__icons{
@@ -323,6 +343,9 @@ export default {
             position: absolute;
             top: 18px;
             left: 50px;
+        }
+        .menu__responsive {
+            display: block;
         }
     }
 

@@ -38,7 +38,7 @@ export default {
   props: ['cart'],
   data: () => ({
     listOne: false,
-    love: true
+    love: false
   }),
   components: {
     IconLove
