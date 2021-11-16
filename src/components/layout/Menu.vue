@@ -246,20 +246,24 @@ export default {
     z-index: 1000; /* Stay on top */
     top: 0;
     left: 0;
-    background-color: #181818; /* Black*/
+    background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #1C55C0 56.03%, #0A3168 99.79%); /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
+    /* padding-top: 60px; Place content 60px from the top */
     transition: 0.5s; /*0.5 second transition effect to slide in the sidenav*/
   }
   .bm-item-list {
     color: #b8b7ad;
-    margin-left: 5%;
     font-size: 20px;
   }
   .bm-item-list > * {
     display: flex;
     text-decoration: none;
     padding: 0.7em;
+    padding-left: 5%;
+    color: #FFF;
+  }
+  .bm-item-list > *:hover{
+    background: rgba(196, 196, 196, 0.1);
   }
   .bm-item-list > * > span {
     margin-left: 10px;
