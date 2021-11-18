@@ -20,16 +20,16 @@
                             <router-link to="/delivery" tag="a" href="#">Доставка</router-link>
                         </li>
                         <li class="footer__li">
-                            <a href="#">Возврат товара</a>
+                            <router-link tag="a" to="/returnproduct">Возврат товара</router-link>
                         </li>
                         <li class="footer__li">
                             <a href="#">Откройте пункт выдачи</a>
                         </li>
                         <li class="footer__li">
-                            <a href="#">Правила продажи</a>
+                            <router-link tag="a" to="/returnproduct">Правила продажи</router-link>
                         </li>
                         <li class="footer__li">
-                            <a href="#">Вопросы и ответы</a>
+                            <router-link tag="a" to="/questions">Вопросы и ответы</router-link>
                         </li>
                     </ul>
                 </div>
@@ -42,10 +42,10 @@
                             <a href="#">О нас</a>
                         </li>
                         <li class="footer__li">
-                            <a href="#">Реквизиты</a>
+                            <router-link to="/requisites" href="#">Реквизиты</router-link>
                         </li>
                         <li class="footer__li">
-                            <a href="#">Контакты</a>
+                            <router-link tag="a" to="/contacts" href="#">Контакты</router-link>
                         </li>
                         <li class="footer__li">
                             <a href="#">FAQ</a>

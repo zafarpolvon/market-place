@@ -202,10 +202,10 @@ export default {
   }
   .bm-burger-button {
     position: relative;
-    width: 34px;
+    width: 30px;
     height: 26px;
-    margin-top: 11px;
-    margin-bottom: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     cursor: pointer;
   }
   .bm-burger-button.hidden {
@@ -213,7 +213,7 @@ export default {
   }
   .bm-burger-bars {
     background-color: #fff;
-    height: 4px !important;
+    height: 3.8px !important;
   }
   .line-style {
     position: absolute;

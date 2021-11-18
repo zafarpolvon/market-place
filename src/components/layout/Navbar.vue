@@ -19,7 +19,7 @@
             <div class="grid grid-cols-7 gap-4 mt-0 xl:mt-3 md:mt-3">
                 <div class="col-span-2 flex navbar__category">
                     <div class="navbar__logo">
-                        <a href="/">LOGO</a>
+                        <a href="/"><img class="navbar__logo" src="../../assets/image/logo.png" alt=""></a>
                     </div>
                     <div class="category__button ml-12">
                         <button class="flex items-center">
@@ -41,21 +41,21 @@
                 </div>
                 <div class="col-span-2">
                     <div class="flex navbar__icons">
-                        <a href="#" class="flex flex-col justify-between">
+                        <router-link to="/delivery" tag="a" class="flex flex-col justify-between">
                             <img class="h-6 flex flex-row items-center" src="../../assets/svg/delivery.svg" alt="">
                             <span>Доставка</span>
-                        </a>
-                        <a href="#" class="flex flex-col justify-between">
+                        </router-link>
+                        <router-link to="/" tag="a" class="flex flex-col justify-between">
                             <span class="count__navbar1">2</span>
                             <img class="h-5 flex flex-row items-center" src="../../assets/svg/saved.svg" alt="">
                             <span>Избранные</span>
-                        </a>
+                        </router-link>
                         <router-link tag="a" to="/basket" class="flex flex-col justify-between">
                             <span class="count__navbar2">2</span>
                             <img class="h-7 flex flex-row items-center" src="../../assets/svg/cart.svg" alt="">
                             <span>Корзина</span>
                         </router-link>
-                        <a @mouseover="listOne = true" @mouseleave="listOne = false"  href="#" class="flex flex-col justify-between navbar__category">
+                        <router-link @click.native="$router.go()" tag="a" to="/info" @mouseover="listOne = true" @mouseleave="listOne = false" class="flex flex-col justify-between navbar__category">
                             <img class="h-5 flex flex-row items-center" src="../../assets/svg/user.svg" alt="">
                             <span class="margin__hover">Войти</span>
                             <div v-if="listOne" @mouseleave="listOne = false" @click="listOne = false" class="profile__dropdown">
@@ -109,60 +109,9 @@
                                 </div>
                                 <div class="hover__circle"></div>
                             </div>
-                        </a>
+                        </router-link>
                     </div>
                 </div>
-            </div>
-            <div v-if="listOne" @mouseleave="listOne = false" @click="listOne = false" class="profile__dropdown">
-                <a href="#" class="profile__header">
-                    <div class="profile__image">
-                        <img src="../../assets/image/carbon_user-avatar-filled-alt.png" alt="">
-                    </div>
-                    <div class="profile__title">
-                        <h5>Mironshoh Nasimov</h5>
-                    </div>
-                </a>
-                <div class="profile__bottom">
-                    <ul class="profile__ul">
-                        <li class="profile__item">
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i>
-                                Мои заказы
-                            </a>
-                        </li>
-                        <li class="profile__item">
-                            <router-link tag="a" to="/payments">
-                                <i class="fas fa-chevron-right"></i>
-                                Мои платежи
-                            </router-link>
-                        </li>
-                        <li class="profile__item">
-                            <router-link tag="a" to="/message">
-                                <i class="fas fa-chevron-right"></i>
-                                Мои сообщения
-                            </router-link>
-                        </li>
-                        <li class="profile__item">
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i>
-                                Избранные товара
-                            </a>
-                        </li>
-                        <li class="profile__item">
-                            <router-link tag="a" to="/info">
-                                <i class="fas fa-chevron-right"></i>
-                                Мои данные
-                            </router-link>
-                        </li>
-                        <li class="profile__item">
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i>
-                                Выйти
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="hover__circle"></div>
             </div>
             <div class="menu__mobile">
                 <div class="menu__logo">
@@ -175,7 +124,7 @@
                         <path d="M16 7a1 1 0 0 1-1-1V3H9v3a1 1 0 0 1-2 0V3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3a1 1 0 0 1-1 1z"></path>
                         <path d="M20 5H4a2 2 0 0 0-2 2v13a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a2 2 0 0 0-2-2zm0 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7h16z"></path>
                     </svg>
-                    <svg class="pre-search-input-icon" fill="#111" height="30px" width="30px" viewBox="0 0 24 24">
+                    <svg @click="showSearch" class="pre-search-input-icon" fill="#111" height="30px" width="30px" viewBox="0 0 24 24">
                         <path d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.39zM11 18a7 7 0 1 1 7-7 7 7 0 0 1-7 7z"></path>
                     </svg>
                     <div class="menu__responsive">
@@ -315,14 +264,19 @@
                 </div>
             </div>
         </div>
+        <Search />
+        <Category />
     </div>
 </template>
 <script>
 import Menu from './Menu.vue'
+import Search from '../modal/Search.vue'
+import Category from '../Category.vue'
 export default {
   name: 'Home',
   data: () => ({
-    listOne: false
+    listOne: false,
+    search: true
   }),
   methods: {
     mouseEnter () {
@@ -330,10 +284,15 @@ export default {
     },
     mouseLeave () {
       this.toShowOnHover = !this.toShowOnHover
+    },
+    showSearch () {
+      this.$modal.show('Modal-Search')
     }
   },
   components: {
-    Menu
+    Menu,
+    Search,
+    Category
   }
 }
 </script>
@@ -351,7 +310,8 @@ export default {
     }
     .search__input input {
         background: rgba(255, 255, 255, 0.15);
-        border-radius: 8px
+        border-radius: 8px;
+        border: 1px solid #fff;
     }
     .search__input input:focus {
         outline: none !important;
@@ -380,7 +340,7 @@ export default {
     .navbar__logo {
         font-size: 20px;
         color: #ffffff;
-        padding: 4px 0;
+        padding: 0;
     }
     .count__navbar1 {
         position: absolute;
@@ -469,6 +429,9 @@ export default {
     }
     .menu__responsive {
         display: none;
+    }
+    .navbar__logo {
+        height: 40px;
     }
 
     @media (min-width: 769px) and (max-width: 1025px){
