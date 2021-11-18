@@ -1023,7 +1023,7 @@ export default {
             padding-right: 15px !important;
         }
         .grid-cols-5 {
-            grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         }
         .add-product .recommended{
             display: block;
@@ -1207,6 +1207,9 @@ export default {
         .comment__btn{
             padding: 6px 10px;
             font-size: 12px;
+        }
+        .grid-cols-5 {
+            grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
         }
     }
 

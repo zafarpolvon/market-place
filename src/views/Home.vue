@@ -278,7 +278,7 @@ export default {
             margin-bottom: 0rem !important;
         }
         .grid-cols-5 {
-            grid-template-columns: repeat(1, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
         .brand__name{
             font-size: 28px;
@@ -317,6 +317,9 @@ export default {
         }
         .news__boxes .box .box__text .n__date span{
             font-size: 12px !important;
+        }
+        .grid-cols-5 {
+            grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
         }
     }
 

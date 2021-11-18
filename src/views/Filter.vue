@@ -628,7 +628,7 @@ export default {
             margin: 16px 1rem 16px 0 !important;
         }
         .grid-cols-4 {
-            grid-template-columns: repeat(1, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
         .filter .all__products .products__menu ul{
             flex-direction: column;
@@ -640,6 +640,12 @@ export default {
         }
         .filter__title{
             font-size: 32px;
+        }
+    }
+
+    @media (max-width: 300px){
+        .grid-cols-4 {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
         }
     }
 
