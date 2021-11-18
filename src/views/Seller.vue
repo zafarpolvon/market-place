@@ -35,11 +35,13 @@
                 </div>
             </div>
         </div>
+        <Footer />
     </div>
 </template>
 
 <script>
 import Navbar from '../components/layout/Navbar.vue'
+import Footer from '../components/layout/Footer.vue'
 
 export default {
   name: 'Home',
@@ -50,7 +52,8 @@ export default {
 
   },
   components: {
-    Navbar
+    Navbar,
+    Footer
   }
 }
 </script>
@@ -58,7 +61,8 @@ export default {
 <style scoped>
     .seller .header{
         background: url("../assets/image/image 37.png") no-repeat;
-        background-size: contain;
+        background-position: cover;
+        background-size: cover;
         margin-top: 1rem;
         height: 460px;
         width: 100%;
