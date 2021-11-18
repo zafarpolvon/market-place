@@ -94,7 +94,7 @@ export default {
         padding: 10px 0;
     }
     .total__button:hover{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #384F81 -2.67%, #729EDB 56.03%, #49679F 99.79%);
+        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #49679F -2.67%, #384F81 56.03%, #729EDB 99.79%);
     }
     .total__agree h5 {
         font-weight: normal;

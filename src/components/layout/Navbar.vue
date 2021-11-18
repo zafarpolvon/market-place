@@ -582,6 +582,14 @@ export default {
             display: flex;
             align-items: center;
         }
+        .menu__responsive .goods{
+            display: flex;
+            align-items: center;
+        }
+        .menu__responsive .management{
+            display: flex;
+            align-items: center;
+        }
         .menu__responsive .arrow-right{
             margin-left: 15px;
             width: 16px;
@@ -619,6 +627,9 @@ export default {
         }
         .navbar__icons{
             padding-right: 40px;
+        }
+        .menu__responsive .arrow-right{
+            margin-left: auto;
         }
     }
 

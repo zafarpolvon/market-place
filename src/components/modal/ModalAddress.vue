@@ -90,4 +90,24 @@ export default {
         border: 1px solid #5E8CE2;
         color: #0052FF;
     }
+
+    /* @media (min-width: 769px) and (max-width: 1025px){
+        .vm--modal{
+            left: 23% !important;
+        }
+    }
+
+    @media (min-width: 600px) and (max-width: 769px){
+        .vm--modal{
+            left: 12% !important;
+        }
+    }
+
+    @media (max-width: 600px){
+        .vm--modal{
+            width: 100% !important;
+            left: 0 !important;
+        }
+    } */
+
 </style>

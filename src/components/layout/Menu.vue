@@ -261,6 +261,7 @@ export default {
     padding: 0.7em;
     padding-left: 5%;
     color: #FFF;
+    line-height: 1;
   }
   .bm-item-list > *:hover{
     background: rgba(196, 196, 196, 0.1);
