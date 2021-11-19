@@ -17,6 +17,7 @@ import Questions from '../views/Questions.vue'
 import Requisites from '../views/Requisites.vue'
 import ReturnProduct from '../views/ReturnProduct.vue'
 import DeliveryCart from '../views/DeliveryCart.vue'
+import Selected from '../views/Selected.vue'
 
 Vue.use(VueRouter)
 
@@ -105,6 +106,11 @@ const routes = [
     path: '/returnproduct',
     name: 'ReturnProduct',
     component: ReturnProduct
+  },
+  {
+    path: '/selected',
+    name: 'Selected',
+    component: Selected
   }
 ]
 
