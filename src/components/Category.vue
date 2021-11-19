@@ -60,6 +60,7 @@ export default {
 
 <style scoped>
     .category__box {
+        display: none;
         position: absolute;
         z-index: 101;
         min-width: 1000px;

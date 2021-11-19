@@ -78,14 +78,14 @@
             </div>
         </div>
         <div class="container mx-auto px-12 mb-12">
-                <div class="recently-products">
-                    <div class="recently__title">Вы недавно смотрели</div>
+            <div class="recently-products">
+                <div class="recently__title">Вы недавно смотрели</div>
                 <div class="grid grid-cols-5 gap-3" >
                     <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
                         <Cart :cart="cart" />
                     </div>
                 </div>
-                </div>
+            </div>
         </div>
         <Footer />
     </div>
