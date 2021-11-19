@@ -22,7 +22,7 @@
                         <a href="/"><img class="navbar__logo" src="../../assets/image/logo.png" alt=""></a>
                     </div>
                     <div class="category__button ml-12">
-                        <button class="flex items-center">
+                        <button @click="categoryToggle" class="flex items-center">
                             <img class="mr-3" src="../../assets/svg/menu.svg" alt="">
                             <span>Категории</span>
                             <img class="ml-3" src="../../assets/svg/dropdown.svg" alt="">
@@ -265,7 +265,7 @@
             </div>
         </div>
         <Search />
-        <Category />
+        <Category v-show="category" />
     </div>
 </template>
 <script>
@@ -276,7 +276,8 @@ export default {
   name: 'Home',
   data: () => ({
     listOne: false,
-    search: true
+    search: true,
+    category: false
   }),
   methods: {
     mouseEnter () {
@@ -287,6 +288,9 @@ export default {
     },
     showSearch () {
       this.$modal.show('Modal-Search')
+    },
+    categoryToggle () {
+      this.category = !this.category
     }
   },
   components: {

@@ -5,6 +5,7 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 const URL = `http://localhost:3000/carts`
+const CATEGORY = `http://localhost:3000/category`
 
 export default new Vuex.Store({
   state: {
@@ -24,14 +25,6 @@ export default new Vuex.Store({
         throw e
       }
     },
-    async loadData1 () {
-      try {
-        const info = await axios.get(test)
-        return info.data
-      } catch (e) {
-        throw e
-      }
-    },
     async loadDataById ({ commit }, id) {
       try {
         const { data } = await axios.get(URL + '/' + id)
@@ -40,7 +33,15 @@ export default new Vuex.Store({
       } catch (e) {
         throw e
       }
-    }
+    },
+    async loadCategory () {
+      try {
+        const info = await axios.get(CATEGORY)
+        return info.data
+      } catch (e) {
+        throw e
+      }
+    },
   },
   modules: {
   },
