@@ -111,7 +111,7 @@ const routes = [
     path: '/selected',
     name: 'Selected',
     component: Selected
-  }
+  },
 ]
 
 const router = new VueRouter({
