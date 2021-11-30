@@ -72,9 +72,6 @@ export default {
 </script>
 
 <style scoped>
-    .pages{
-        padding: 0rem 4rem 1rem 4rem;
-    }
     .pages a{
         color: #023047;
     }

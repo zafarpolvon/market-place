@@ -53,11 +53,11 @@ export default {
 </script>
 
 <style scoped>
-    .pages{
-        padding: 0rem 4rem 1rem 4rem;
-    }
-    .pages span{
+    .pages a{
         color: #023047;
+    }
+    .pages a:hover{
+        color: #023999;
     }
     .message__title{
         font-size: 42px;
@@ -180,9 +180,6 @@ export default {
     }
 
     @media (max-width: 415px){
-        .pages{
-            padding: 1rem 1.25rem !important;
-        }
         .px-4 xl:px-12 md:px-12{ 
             padding-left: 10px;
             padding-right: 10px;

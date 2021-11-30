@@ -246,9 +246,6 @@ export default {
     }
 
     @media (max-width: 416px) {
-        .pages{
-            padding: 1rem 1.25rem !important;
-        }
         .seller .header{
             background-size: cover;
             background-position-x: 51% !important;

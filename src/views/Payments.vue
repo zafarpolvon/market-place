@@ -91,9 +91,6 @@ export default {
 </script>
 
 <style scoped>
-    .pages{
-      padding: 0rem 4rem 1rem 4rem;
-    }
     .pages a{
         color: #023047;
         text-decoration: none;
@@ -135,9 +132,6 @@ export default {
     }
 
     @media only screen and (max-width: 415px){
-        .pages{
-            padding: 1rem 1.25rem !important;
-        }
         .payment__title{
             font-size: 32px;
             margin-bottom: 1rem;

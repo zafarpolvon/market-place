@@ -240,9 +240,6 @@ export default {
     PriceRange
 
 <style scoped>
-    .pages{
-        padding: 2.5rem 3rem;
-    }
     .pages a{
         color: #023047;
     }

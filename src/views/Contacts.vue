@@ -72,9 +72,6 @@ export default {
 </script>
 
 <style scoped>
-    .pages{
-        padding: 2.5rem 3rem;
-    }
     .pages a{
         color: #023047;
         text-decoration: none;
@@ -250,9 +247,6 @@ export default {
     }
 
     @media only screen and (max-width: 415px){
-        .pages{
-            padding: 1rem 1.25rem !important;
-        }
         .px-4 xl:px-12 md:px-12{
             padding-left: 1rem;
             padding-right: 1rem;

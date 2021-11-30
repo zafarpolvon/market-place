@@ -116,9 +116,6 @@ export default {
 </script>
 
 <style scoped>
-    .pages{
-        padding: 2.5rem 3rem !important;
-    }
     .pages a{
         color: #023047 !important;
         cursor: pointer;
@@ -438,9 +435,6 @@ export default {
     }
 
     @media (max-width: 415px){
-        .pages{
-            padding: 1rem 1.25rem !important;
-        }
         .news__boxes .box{
             width: 100% !important;
             margin: 10px 0 !important;
@@ -491,9 +485,6 @@ export default {
     }
 
     @media (max-width: 300px){
-        .pages{
-            padding: 1rem 1.25rem !important;
-        }
         .news__boxes .box{
             width: 100% !important;
             margin: 10px 0 !important;
