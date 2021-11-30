@@ -1,11 +1,11 @@
 <template>
     <div class="back">
         <Navbar />
-        <div class="container mx-auto px-12 pages">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
             <a href="#">Главная страница / </a>
             <a href="#"> Контакты</a>
         </div>
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="contacts__title">Контакты</div>
             <div class="contacts__boxes">
                 <div class="box">
@@ -253,7 +253,7 @@ export default {
         .pages{
             padding: 1rem 1.25rem !important;
         }
-        .px-12{
+        .px-4 xl:px-12 md:px-12{
             padding-left: 1rem;
             padding-right: 1rem;
         }

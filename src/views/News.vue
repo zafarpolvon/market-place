@@ -1,14 +1,14 @@
 <template>
     <div class="back">
         <Navbar />
-        <div class="container mx-auto px-12 pages">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
             <a href="#">Главная страница / </a>
             <a href="#">Новости</a>
         </div>
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="news__title">Новости</div>
         </div>
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="news__boxes">
                 <div class="box">
                     <img src="../assets/image/image 5 (4).png" alt="not found">
@@ -45,10 +45,10 @@
                 </div>
             </div>
         </div>
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="n-video-title">Видео новости</div>
         </div>
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="n-video">
                 <div class="videos">
                     <div class="video__box">

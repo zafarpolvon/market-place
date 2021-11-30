@@ -2,14 +2,11 @@
     <div class="back">
         <Navbar />
         <second-navbar />
-        <div class="container mx-auto px-12 pages">
-            <span>Главная страница / </span>
-            <span> Мои платежи</span>
-        </div>
-        <div class="container mx-auto px-12">
+        <location-navbar :name="'Базовая рубашка'" />
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="payment__title">Мои платежи</div>
         </div>
-        <div class="container mx-auto px-12 mb-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 mb-12">
             <table style="width:100%">
                 <tr>
                     <th>ID заказа</th>
@@ -30,6 +27,7 @@ import Navbar from '../components/layout/Navbar.vue'
 import Footer from '../components/layout/Footer.vue'
 import SecondNavbar from '../components/layout/SecondNavbar.vue'
 import Order from '../components/Order.vue'
+import LocationNavbar from '../components/layout/LocationNavbar.vue'
 
 export default {
   name: 'Home',
@@ -86,7 +84,8 @@ export default {
     Navbar,
     SecondNavbar,
     Footer,
-    Order
+    Order,
+    LocationNavbar
   }
 }
 </script>
@@ -125,7 +124,7 @@ export default {
     }
 
     @media (min-width: 415px) and (max-width: 600px){
-      .px-12{
+      .px-4 xl:px-12 md:px-12{
         padding-left: 10px;
         padding-right: 10px;
       }
@@ -143,7 +142,7 @@ export default {
             font-size: 32px;
             margin-bottom: 1rem;
         }
-        .px-12{
+        .px-4 xl:px-12 md:px-12{
           padding-left: 10px;
           padding-right: 10px;
         }

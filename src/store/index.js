@@ -4,50 +4,67 @@ import Vuex from 'vuex'
 import axios from 'axios'
 
 Vue.use(Vuex)
-const URL = `http://localhost:3000/carts`
+const URL = `http://izleshop.uz/api/getProducts`
 const CATEGORY = `http://localhost:3000/category`
+const ID = `http://izleshop.uz/api/getProductDetails?id=`
 
 export default new Vuex.Store({
   state: {
-    carts: []
+    carts: [],
+    category: []
   },
   mutations: {
     updateCart (state, carts) {
       state.carts = carts
+    },
+    updateCategory (state, category) {
+      state.category = category
     }
   },
   actions: {
     async loadData () {
       try {
         const info = await axios.get(URL)
-        return info.data
+        return info.data.data
       } catch (e) {
         throw e
       }
     },
     async loadDataById ({ commit }, id) {
       try {
-        const { data } = await axios.get(URL + '/' + id)
+        const { data } = await axios.get(ID + id)
         commit('updateCart', data)
         return data
       } catch (e) {
         throw e
       }
     },
-    async loadCategory () {
+    async loadCategory ({ commit }) {
       try {
         const info = await axios.get(CATEGORY)
-        return info.data
+        const cats = []
+        Object.keys(info.data).forEach(key => {
+          cats.push({
+            name: info.data[key].name,
+            subcategory: info.data[key].subcategory,
+            id: key
+          })
+        })
+        commit('updateCategory', info.data)
+        return cats
       } catch (e) {
         throw e
       }
-    },
+    }
   },
   modules: {
   },
   getters: {
     CARTS: state => {
       return state.carts
+    },
+    CATEGORY: state => {
+      return state.category
     },
     getShoesBySite: (state) => (id) => {
       console.log(id)

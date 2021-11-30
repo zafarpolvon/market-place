@@ -1,16 +1,16 @@
 <template>
     <div class="back" style="height: 6000px">
         <Navbar />
-        <div class="container mx-auto px-12 pages">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
             <a href="#">Главная страница / </a>
             <a href="#">Мужчинам / </a>
             <a href="#">Одежда / </a>
             <a href="#">Свитшоты </a>
         </div>
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="filter__title">Мужские свитшоты</div>
         </div>
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="filter">
                 <div class="sidebar__filter">
                     <div class="filter__price">

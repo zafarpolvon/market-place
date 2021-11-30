@@ -2,19 +2,18 @@
     <div class="back">
         <Navbar :black="gray" />
         <second-navbar />
-        <div class="container mx-auto px-12 pages">
-            <a href="#">Главная страница / </a>
-            <a href="#"> Мои сообщения</a>
-        </div>
-        <div class="container mx-auto px-12">
+        <location-navbar :name="'Базовая рубашка'" />
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="message__title">Мои сообщения</div>
         </div>
-        <div class="container mx-auto px-12 pb-12">
-            <div class="message">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 pb-12">
+            <div class="message__shadow">
                 <div class="title">Чат поддержки</div>
-                <p>Рада приветствовать Вас в (Сайт названия) Я Ева Вайлет - виртуальный помощник службы поддержки. Если у Вас возник вопрос - задайте его в этом чате, и я с удовольствием отвечу на него.</p>
-                <div class="admin__text">Рада приветствовать Вас в (Сайт названия) Я Ева Вайлет - виртуальный помощник службы поддержки. Если у Вас возник вопрос - задайте его в этом чате, и я с удовольствием отвечу на него.</div>
-                <p>Рада приветствовать Вас в (Сайт названия) Я Ева Вайлет - виртуальный помощник службы поддержки. Если у Вас возник вопрос - задайте его в этом чате, и я с удовольствием отвечу на него.</p>
+                <div class="message">
+                    <p>Рада приветствовать Вас в (Сайт названия) Я Ева Вайлет - виртуальный помощник службы поддержки. Если у Вас возник вопрос - задайте его в этом чате, и я с удовольствием отвечу на него.</p>
+                    <div class="admin__text">Рада приветствовать Вас в (Сайт названия) Я Ева Вайлет - виртуальный помощник службы поддержки. Если у Вас возник вопрос - задайте его в этом чате, и я с удовольствием отвечу на него.</div>
+                    <p>Рада приветствовать Вас в (Сайт названия) Я Ева Вайлет - виртуальный помощник службы поддержки. Если у Вас возник вопрос - задайте его в этом чате, и я с удовольствием отвечу на него.</p>
+                </div>
             </div>
             <div class="container mx-auto px-0">
                 <div class="send">
@@ -34,6 +33,7 @@
 import Navbar from '../components/layout/Navbar.vue'
 import Footer from '../components/layout/Footer.vue'
 import SecondNavbar from '../components/layout/SecondNavbar.vue'
+import LocationNavbar from '../components/layout/LocationNavbar.vue'
 
 export default {
   name: 'Home',
@@ -46,7 +46,8 @@ export default {
   components: {
     Navbar,
     Footer,
-    SecondNavbar
+    SecondNavbar,
+    LocationNavbar
   }
 }
 </script>
@@ -65,19 +66,20 @@ export default {
     }
     .message{
         background: #F8F8FA;
-        border-radius: 8px 8px 0px 0px;
-        height: 400px;
+        border-radius: 0px;
+        height: 480px;
         overflow-y: scroll;
     }
     .message::-webkit-scrollbar {
         display: none;
     }
-    .message .title{
+    .title{
         color: #023047;
         background: rgba(0, 82, 255, 0.15);
         font-size: 23px;
         padding: 1.5rem 1.5rem 1.5rem 3rem;
         border-radius: 8px 8px 0px 0px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
     .message p{
         color: #023047;
@@ -97,6 +99,10 @@ export default {
         width: 40%;
         font-size: 18px;
         margin-left: auto;
+    }
+    .message__shadow {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 8px ;
     }
     .send{
         background: #F8F8FA;
@@ -177,7 +183,7 @@ export default {
         .pages{
             padding: 1rem 1.25rem !important;
         }
-        .px-12{ 
+        .px-4 xl:px-12 md:px-12{ 
             padding-left: 10px;
             padding-right: 10px;
         }

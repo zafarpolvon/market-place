@@ -2,13 +2,13 @@
     <div>
         <splide :options="options">
             <splide-slide>
-                <img class="w-full" src="../assets/image/phones 1.png">
+                <img class="w-full image__responsive" src="../../assets/image/phones 1.png">
             </splide-slide>
             <splide-slide>
-                <img class="w-full" src="../assets/image/phones 1.png">
+                <img class="w-full image__responsive" src="../../assets/image/phones 1.png">
             </splide-slide>
             <splide-slide>
-                <img class="w-full" src="../assets/image/phones 1.png">
+                <img class="w-full image__responsive" src="../../assets/image/phones 1.png">
             </splide-slide>
         </splide>
     </div>
@@ -31,3 +31,15 @@ export default {
   }
 }
 </script>
+<style scoped>
+  .image__responsive {
+    height: auto;
+    object-fit: cover;
+  }
+  @media (min-width: 320px) and (max-width: 600px){
+    .image__responsive {
+      height: 280px !important;
+      object-fit: cover;
+    }
+  }
+</style>

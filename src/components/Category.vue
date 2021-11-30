@@ -1,49 +1,51 @@
 <template>
-    <div class="category__box">
-        <div class="container mx-auto px-12">
-            <div class="grid grid-cols-9 gap-4 ">
-                <div class="col-span-2 category__left">
-                    <div class="category__lefte">
-                        <ul v-for="cat in category" :key="cat.id">
-                            <li class="category__item">
-                                <a @mouseover="updateProduct(cat)" href="#" class="category__link">
-                                    <i class="fas fa-tshirt"></i>
-                                    <span>{{ cat.name }}</span>
-                                </a>
-                            </li>
-                        </ul>
+    <transition name="fade">
+        <div class="category__box">
+            <div class="container mx-auto px-4 xl:px-12 md:px-12">
+                <div class="grid grid-cols-9 gap-4 ">
+                    <div class="col-span-2 category__left">
+                        <div class="category__lefte">
+                            <ul v-for="cat in category" :key="cat.id">
+                                <li class="category__item">
+                                    <a @mouseover="updateProduct(cat)" href="#" class="category__link">
+                                        <i class="fas fa-tshirt"></i>
+                                        <span>{{ cat.name }}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-span-6 category__right">
-                    <div>
-                        <div class="all__category">
-                            <a class="title__header" href="#">{{ sub.name }}</a>
-                            <div class="grid grid-cols-6 gap-4 mt-4">
-                                <div class="col-span-2" v-for="cat in sub.subcategory" :key='cat.id'>
-                                    <div class="category__into">
-                                        <a href="#">{{ cat.name }}</a>
-                                        <ul class="category__inner" v-for="s in cat.subcategory" :key="s.id">
-                                            <li>
-                                                <a href="#">{{ s.name }}</a>
-                                            </li>
-                                        </ul>
-                                        <div class="show__more" >
-                                            <span v-if="switchMore">Ещё</span>
-                                            <span v-else>Свернуть</span>
+                    <div class="col-span-6 category__right">
+                        <div>
+                            <div class="all__category">
+                                <a class="title__header" href="#">{{ sub.name }}</a>
+                                <div class="grid grid-cols-6 gap-4 mt-4">
+                                    <div class="col-span-2" v-for="cat in sub.subcategory" :key='cat.id'>
+                                        <div class="category__into">
+                                            <a href="#">{{ cat.name }}</a>
+                                            <ul class="category__inner" v-for="s in cat.subcategory" :key="s.id">
+                                                <li>
+                                                    <a href="#">{{ s.name }}</a>
+                                                </li>
+                                            </ul>
+                                            <div class="show__more" >
+                                                <span v-if="switchMore">Ещё</span>
+                                                <span v-else>Свернуть</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-span-1">
-                    <button @click="test">Click</button>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis vero error minima similique? Nostrum voluptatem inventore ducimus quasi, labore iure porro minus, natus reiciendis pariatur blanditiis quo culpa ad perspiciatis.
+                    <div class="col-span-1">
+                        <button @click="test">Click</button>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis vero error minima similique? Nostrum voluptatem inventore ducimus quasi, labore iure porro minus, natus reiciendis pariatur blanditiis quo culpa ad perspiciatis.
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </transition>
 </template>
 
 <script>
@@ -51,38 +53,23 @@ export default {
   data: () => ({
     more: false,
     switchMore: true,
-    category: {},
     sub: {},
-    currentPage: 1
+    currentPage: 1,
+    category: []
   }),
   async mounted () {
     this.category = await this.$store.dispatch('loadCategory')
-    this.sub = this.category[0]
-    console.log(this.sub)
   },
-  computed: {
-    toBeShown () {
-      return this.sub.subcategory.map(function(k) {
-        return console.log(k)
-      })
-    //   return this.sub.subcategory.subcategory.slice(0, this.currentPage * 4)
-    },
-    totalPages () {
-      return Math.ceil(this.products.length / 4)
-    }
-  },
+  computed: {},
   methods: {
     updateProduct (name) {
       this.sub = name
-    },
-    nextPage () {
-      if (this.currentPage < this.totalPages) this.currentPage++
     },
     prevPage () {
       this.currentPage = this.currentPage - 1 || 1
     },
     test () {
-      console.log(this.toBeShown())
+      this.toBeShown()
     }
   }
 }
@@ -90,7 +77,6 @@ export default {
 
 <style scoped>
     .category__box {
-        display: none;
         position: absolute;
         z-index: 101;
         min-width: 1000px;
@@ -158,5 +144,11 @@ export default {
     .show__more span {
         color: rgba(0,0,0,.4);
         font-size: 14px;
+    }
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
     }
 </style>

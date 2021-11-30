@@ -2,7 +2,7 @@
     <div class="back">
         <Navbar />
         <second-navbar :active="active" />
-        <div class="container mx-auto px-12 pb-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 pb-12">
             <div class="info__boxes">
                 <div class="box">
                     <div class="user">
@@ -243,7 +243,7 @@ export default {
     }
 
     @media (max-width: 415px) {
-        .px-12{
+        .px-4 xl:px-12 md:px-12{
             padding-left: 1rem;
             padding-right: 1rem;
         }
@@ -327,7 +327,7 @@ export default {
     }
 
     @media (max-width: 300px){
-        .px-12{
+        .px-4 xl:px-12 md:px-12{
             padding-left: 10px;
             padding-right: 10px;
         }

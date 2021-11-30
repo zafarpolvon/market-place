@@ -1,6 +1,6 @@
 <template>
     <div>
-        <modal :height="500" name="Modal-Delivery">
+        <modal :height="500" :adaptive="true" name="Modal-Delivery">
             <div class="flex flex-col justify-between h-full">
                 <div class="delivery__box">
                     <div class="flex justify-end delivery__cancel">
@@ -114,5 +114,30 @@ export default {
         color: #FFFFFF;
         padding: 15px 25px;
     }
-    
+    @media (min-width: 200px) and (max-width: 600px){
+        .delivery__button {
+            padding-right: 0;
+        }
+        .delivery__pick {
+            font-size: 14px;
+        }
+        .delivery__bottom {
+            display: flex;
+            justify-content: center;
+        }
+        .delivery__title {
+            font-size: 20px;
+        }
+        .btn1 {
+            font-size: 15px;
+            height: 45px;
+        }
+        .btn2 {
+            font-size: 15px;
+            height: 45px;
+        }
+        .delivery__cancel {
+            font-size: 22px;
+        }
+    }
 </style>

@@ -2,11 +2,8 @@
     <div class="back">
         <Navbar :black="gray" />
         <second-navbar />
-        <div class="container mx-auto px-12 pages">
-            <a href="#">Главная страница / </a>
-            <a href="#"> Мои заказы</a>
-        </div>
-        <div class="container mx-auto px-12 delivery-carts">
+        <location-navbar :name="'Базовая рубашка'" />
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 delivery-carts">
             <div class="delivery-cart__title">Мои заказы</div>
             <h1>Заказ №23</h1>
             <order-cart />
@@ -29,6 +26,7 @@ import Navbar from '../components/layout/Navbar.vue'
 import Footer from '../components/layout/Footer.vue'
 import SecondNavbar from '../components/layout/SecondNavbar.vue'
 import OrderCart from '../components/OrderCart.vue'
+import LocationNavbar from '../components/layout/LocationNavbar.vue'
 
 export default {
   name: 'Home',
@@ -42,7 +40,8 @@ export default {
     Navbar,
     Footer,
     SecondNavbar,
-    OrderCart
+    OrderCart,
+    LocationNavbar
   }
 }
 </script>

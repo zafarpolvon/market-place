@@ -29,4 +29,9 @@ export default {
         color: #FC7D00;
         font-size: 25px;
     }
+    @media (min-width: 200px) and (max-width: 600px){
+        button i {
+            font-size: 20px;
+        }
+    }
 </style>
