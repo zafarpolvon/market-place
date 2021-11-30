@@ -2,8 +2,8 @@
     <div class="">
         <Navbar />
         <div class="add-product">
-            <location-navbar :name="'Базовая рубашка1'" />
-            <div class="container mx-auto px-12">
+            <location-navbar :name="'Базовая рубашка'" />
+            <div class="container mx-auto px-4 xl:px-12 md:px-12">
                 <h1>{{ cart.name }}</h1>
                 <div class="product-action">
                     <div class="stars">
@@ -12,21 +12,20 @@
                     <div class="comment"><a href="#">545 отзывов</a></div>
                 </div>
             </div>
-            <div class="container mx-auto px-12">
+            <div class="container mx-auto px-4 xl:px-12 md:px-12">
                 <div class="product-list">
                     <div class="product__img relative">
                         <div class="images">
-                            <img @load="onImgLoad" :src="cart.img" alt="">
-                            <img @load="onImgLoad" :src="cart.second" alt="">
-                            <img @load="onImgLoad" :src="cart.third" alt="">
-                            <img @load="onImgLoad" :src="cart.fourth" alt="">
+                            <img @load="onImgLoad" @click="updataMain(cart.images[0])" :src="cart.images[0]" alt="">
+                            <img @load="onImgLoad" @click="updataMain(cart.images[1])" :src="cart.images[1]" alt="">
+                            <img @load="onImgLoad" @click="updataMain(cart.images[2])" :src="cart.images[2]" alt="">
+                            <img @load="onImgLoad" @click="updataMain(cart.images[3])" :src="cart.images[3]" alt="">
                         </div>
-                        <div class="image">
-                            <img @load="onImgLoad" :src="cart.img" alt="not found">
+                        <div class="image ">
+                            <img @load="onImgLoad" :src="cart.image" alt="not found">
                             <i class="far fa-heart"></i>
-                            <i class="fa fa-chevron-left"></i>
-                            <i class="fa fa-chevron-right"></i>
                         </div>
+                        <slide-mobile :cart="cart" class="mobile__slide" />
                         <div v-if="imageLoader" class="loader__blur">
                             <div class="loader__into">
                                 <Loader />
@@ -35,7 +34,7 @@
                     </div>
                     <div class="product__information">
                         <div class="product__about">
-                            <div class="product__price">{{ cart.price }} ₽ <span>2000 рубл</span></div>
+                            <div class="product__price">{{ cart.price }} $ <span>2000 рубл</span></div>
                             <Counter />
                         </div>
                         <div class="color__title">Цвет</div>
@@ -71,7 +70,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container mx-auto px-12">
+            <div class="container mx-auto px-4 xl:px-12 md:px-12">
                 <div class="recommended">
                     <div class="r__box">
                         <div class="box__title">Состав</div>
@@ -95,7 +94,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container mx-auto px-12 c-products">
+            <div class="container mx-auto px-4 xl:px-12 md:px-12 c-products">
                 <div class="advertising__title">Рекламный блок</div>
                 <div class="grid grid-cols-5 gap-3" >
                     <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
@@ -106,7 +105,7 @@
                     <button type="submit" class="show__button">Показать еще</button>
                 </div>
             </div>
-            <div class="container mx-auto px-12 c-products">
+            <div class="container mx-auto px-4 xl:px-12 md:px-12 c-products">
                 <div class="advertising__title">Похожие товары</div>
                 <div class="grid grid-cols-5 gap-3" >
                     <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
@@ -117,7 +116,7 @@
                     <button type="submit" class="show__button">Показать еще</button>
                 </div>
             </div>
-            <div class="container mx-auto px-12">
+            <div class="container mx-auto px-4 xl:px-12 md:px-12">
                 <div class="question__title">Отзывы и вопросы</div>
                 <div class="q__comments">
                     <span>Отзывы 105</span>
@@ -200,7 +199,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container mx-auto px-12 p-customer">
+            <div class="container mx-auto px-4 xl:px-12 md:px-12 p-customer">
                 <span>Сортировать по: </span>
                 <span>Дате <i class="fa fa-arrow-down"></i></span>
                 <span>Оценке</span>
@@ -266,7 +265,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container mx-auto px-12 mb-12">
+            <div class="container mx-auto px-4 xl:px-12 md:px-12 mb-12">
                 <div class="recently-products">
                     <div class="recently__title">Вы недавно смотрели</div>
                 <div class="grid grid-cols-5 gap-3" >
@@ -291,6 +290,7 @@ import Progress from '../components/progress/Progress.vue'
 import StarRating from '../components/StarRating.vue'
 import ProgressLine from '../components/progress/ProgressLine.vue'
 import Loader from '../components/Loader.vue'
+import SlideMobile from '../components/slide/SlideMobile.vue'
 
 export default {
   name: 'Home',
@@ -307,7 +307,6 @@ export default {
     const id = this.$route.params.id
     this.cart = await this.$store.dispatch('loadDataById', id)
     this.tovar = await this.$store.dispatch('loadData')
-
     for (let i = 1; i <= 10; i++) {
       this.quantityArray.push(i)
     }
@@ -322,6 +321,9 @@ export default {
       this.cart.second = second
       this.cart.third = third
       this.cart.fourth = fourth
+    },
+    updataMain (index) {
+      this.cart.img = index
     },
     temp (index) {
       console.log(index)
@@ -342,7 +344,8 @@ export default {
     Progress,
     ProgressLine,
     LocationNavbar,
-    Loader
+    Loader,
+    SlideMobile
   }
 }
 
@@ -350,6 +353,9 @@ export default {
 <style>
     .back {
         background-color: #fff;
+    }
+    .web__slide {
+        display: block;
     }
     .loader__blur {
         backdrop-filter: blur(15px);
@@ -496,6 +502,9 @@ export default {
     .customer .user__comment .user .stars{
         margin-left: 0 !important;
     }
+    .mobile__slide {
+        display: none;
+    }
     .customer .user__comment .user .user__name{
         width: 30%;
         font-size: 19px;
@@ -597,6 +606,9 @@ export default {
         .grid-cols-5 {
             grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
         }
+        .web__slide {
+            display: none;
+        }
         .add-product .product__information .product__about .product__price{
             display: grid;
         }
@@ -646,8 +658,8 @@ export default {
             line-height: 1;
         }
         .question .q__box .box{
-            width: 130px;
-            height: 120px;
+            width: 100px;
+            height: 110px;
         }
         .p-customer .customer .c__box .user__comment .date__sale .date{
             width: 45%;
@@ -662,11 +674,20 @@ export default {
             width: 38%;
             margin-left: 0;
         }
+        .radioContainer .circle {
+            width: 35px;
+            height: 35px;
+            padding-top: 6px;
+            font-size: 14px;
+        }
     }
 
     @media (min-width: 600px) and (max-width: 769px){
         .grid-cols-5 {
             grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        }
+        .image {
+            display: none;
         }
         .add-product .recommended{
             display: block;
@@ -711,7 +732,7 @@ export default {
             width: auto;
         }
         .add-product .container:nth-child(2) h1{
-            font-size: 32px;
+            font-size: 20px;
         }
         .question{
             display: block;
@@ -754,12 +775,25 @@ export default {
             margin: auto;
             margin-bottom: 2rem;
         }
+        .product-list .product__img .image .far.fa-heart{
+            bottom: 15px !important;
+            top: unset !important;
+        }
+        .radioContainer .circle {
+            width: 35px;
+            height: 35px;
+            padding-top: 6px;
+            font-size: 14px;
+        }
+        .question .q__box .box{
+            width: 100px;
+            height: 110px;
+        }
     }
 
     @media (min-width: 376px) and (max-width: 600px){
-        .px-12{
-            padding-left: 1rem;
-            padding-right: 1rem;
+        .image {
+            display: none;
         }
         .grid-cols-5 {
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -799,7 +833,9 @@ export default {
         }
         .add-product .product__information{
             width: 100%;
-            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .add-product .product__information .product__about{
             width: 100%;
@@ -825,7 +861,7 @@ export default {
             margin: 0.5rem 0;
         }
         .add-product .container:nth-child(2) h1{
-            font-size: 24px;
+            font-size: 20px;
             margin-bottom: 10px;
         }
         .add-product .product__information .brend a{
@@ -876,13 +912,22 @@ export default {
             margin: auto;
             margin-bottom: 2rem;
         }
+        .mobile__slide {
+            display: block;
+        }
+        .product-list .product__img .image .far.fa-heart{
+            bottom: 15px !important;
+            top: unset !important;
+        }
+        .radioContainer .circle {
+            width: 35px;
+            height: 35px;
+            padding-top: 6px;
+            font-size: 14px;
+        }
     }
 
-    @media (max-width: 415px){
-        .px-12{
-            padding-left: 20px !important;
-            padding-right: 20px !important;
-        }
+    @media (max-width: 600px){
         .add-product .product-list .product__img{
             display: block !important;
         }
@@ -907,6 +952,7 @@ export default {
             width: 100%;
             height: auto !important;
             margin-right: 0 !important;
+            display: none;
         }
         .product-list .product__img .image .fa.fa-chevron-left,
         .product-list .product__img .image .fa.fa-chevron-right{
@@ -927,7 +973,10 @@ export default {
             margin: 0.5rem 0;
         }
         .add-product .product__information{
-            padding-left: 0 !important;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .add-product .product__information .product__about .product__price{
             flex-direction: column !important;
@@ -955,7 +1004,7 @@ export default {
             margin-right: 20px !important;
         }
         .question .q__box:nth-child(2){
-            flex-direction: column;
+            flex-direction: row;
         }
         .question .q__box .box {
             margin: 10px 0;
@@ -978,7 +1027,8 @@ export default {
             padding: 0 1rem 1rem 1rem;
         }
         .add-product .advertising__title {
-            font-size: 32px;
+            margin-top: 30px;
+            font-size: 24px;
             line-height: 1;
         }
         .recently-products .recently__title{
@@ -986,11 +1036,12 @@ export default {
             line-height: 1;
         }
         .question__title{
-            font-size: 32px;
+            margin-top: 30px;
+            font-size: 24px;
             line-height: 1;
         }
         .add-product .recommended .r__box .box__title{
-            font-size: 32px;
+            font-size: 24px;
             line-height: 1;
             margin-bottom: 2rem;
         }
@@ -1015,10 +1066,36 @@ export default {
             margin: auto;
             margin-bottom: 2rem;
         }
+        .mobile__slide {
+            display: block;
+        }
+        .product-list .product__img .image .far.fa-heart{
+            bottom: 15px !important;
+            top: unset !important;
+        }
+        .radioContainer .circle {
+            width: 35px;
+            height: 35px;
+            padding-top: 6px;
+            font-size: 14px;
+        }
+        .question .q__box .box{
+            width: 29%;
+            height: 110px;
+        }
     }
 
     @media (max-width: 376px){
-        .px-12{
+        .question .q__box .box p {
+            font-size: 10px;
+        }
+        .image {
+            display: none;
+        }
+        .mobile__slide {
+            display: block;
+        }
+        .px-4 xl:px-12 md:px-12{
             padding-left: 15px !important;
             padding-right: 15px !important;
         }
@@ -1073,7 +1150,7 @@ export default {
             margin: 0.5rem 0;
         }
         .add-product .container:nth-child(2) h1{
-            font-size: 24px;
+            font-size: 20px;
             margin-bottom: 10px;
         }
         .q__comments{
@@ -1094,7 +1171,7 @@ export default {
             display: block;
         }
         .question .q__box:nth-child(2){
-            flex-direction: column;
+            flex-direction: row;
         }
         .question .q__box .box {
             margin: 10px 0;
@@ -1132,11 +1209,23 @@ export default {
         .c__box:last-child {
             padding: 1rem;
         }
+        .radioContainer .circle {
+            width: 35px;
+            height: 35px;
+            padding-top: 6px;
+            font-size: 14px;
+        }
+        .question__title {
+            font-size: 24px;
+        }
     }
 
     @media (max-width: 360px){
         .add-product .product__information .color__boxes .color__box{
             margin: 6px !important;
+        }
+        .image {
+            display: none;
         }
         .radioContainer{
             margin: 4px !important;
@@ -1169,6 +1258,12 @@ export default {
         }
         .customer .user__comment .user .user__name{
             width: 60%;
+        }
+        .radioContainer .circle {
+            width: 35px;
+            height: 35px;
+            padding-top: 6px;
+            font-size: 14px;
         }
     }
 
@@ -1210,6 +1305,16 @@ export default {
         }
         .grid-cols-5 {
             grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+        }
+        .radioContainer .circle {
+            width: 35px;
+            height: 35px;
+            padding-top: 6px;
+            font-size: 14px;
+        }
+        .question .q__box .box{
+            width: 85px;
+            height: 95px;
         }
     }
 

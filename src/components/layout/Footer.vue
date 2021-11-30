@@ -3,7 +3,9 @@
         <div class="container mx-auto px-8">
             <div class="footer__box">
                 <div class="footer__logo">
-                    <a href="#">NovaMarket</a>
+                    <a href="#">
+                        <img class="h-8 w-auto mx-auto" src="../../assets/image/logo.png" alt="">
+                    </a>
                 </div>
                 <div>
                    <div class="footer__title">
@@ -130,6 +132,7 @@ export default {
     @media (max-width: 1000px){
         .footer__box{
             flex-direction: column !important;
+            text-align: center;
         }
         .footer__logo{
             margin-bottom: 1rem;
@@ -144,13 +147,16 @@ export default {
         .footer__back i.fa.fa-chevron-up{
             display: block;
             position: absolute;
-            bottom: 50px;
-            right: 50px;
-            font-size: 30px;
+            bottom: 25px;
+            right: 25px;
+            font-size: 18px;
             border-radius: 50%;
             background: #5E8CE2;
             color: #FFF;
-            padding: 20px;
+            padding: 18px;
+        }
+        .total__price {
+            font-size: 30px;
         }
     }
 

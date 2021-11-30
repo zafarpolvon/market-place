@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto px-12 pages">
+    <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
         <a href="#">Главная страница / </a>
         <a href="#">Рубашки / </a>
         <a href="#">{{ name }}</a>
@@ -19,6 +19,14 @@ export default {
   }
   .pages a:hover{
     color: #023999;
+  }
+  @media (min-width: 320px) and (max-width: 600px){
+    .pages {
+      padding: 20px 10px !important;
+    }
+    .pages a {
+      font-size: 12px;
+    }
   }
 
 </style>

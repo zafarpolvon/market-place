@@ -1,14 +1,14 @@
 <template>
     <div class="back">
         <Navbar />
-        <div class="container mx-auto px-12 pages">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
             <a href="#">Главная страница / </a>
             <a href="#">Новости подробно</a>
         </div>
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="mnews__title">Российская компания Wildberries планирует <br> выход на рынок Узбекистана</div>
         </div>
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="mnews__boxes">
                 <div class="box">
                     <div class="box__image">

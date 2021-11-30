@@ -3,13 +3,13 @@
         <Navbar />
         <div class="seller">
             <div class="header">
-                <div class="container mx-auto px-12">
+                <div class="container mx-auto px-4 xl:px-12 md:px-12">
                     <h1>Продажи на LogoName <br> по системе FBS (маркетплейс)</h1>
                     <p>Получайте заказы от клиентов, привозите товар и получайте большую комиссию от продаж</p>
                     <a href="#">Стать продавцом</a>
                 </div>
             </div>
-            <div class="container mx-auto px-12">
+            <div class="container mx-auto px-4 xl:px-12 md:px-12">
                 <div class="aside">
                     <div class="aside__box">
                         <img src="../assets/image/image 5.png" alt="not found">
@@ -299,7 +299,7 @@ export default {
     }
 
     @media only screen and (max-width: 360px){
-        .px-12{
+        .px-4 xl:px-12 md:px-12{
             padding-left: 1rem;
             padding-right: 1rem;
         }

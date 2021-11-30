@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto mt-16 px-12">
+    <div class="container mx-auto mt-16 px-4 xl:px-12 md:px-12">
         <div class="brand__name">
             <h2>Ваши магазины</h2>
         </div>
@@ -183,7 +183,7 @@ export default {
     }
 
     @media (max-width: 415px){
-        .px-12{
+        .px-4 xl:px-12 md:px-12{
             padding-left: 1rem;
             padding-right: 1rem;
         }

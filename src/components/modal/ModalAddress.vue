@@ -1,6 +1,6 @@
 <template>
     <div>
-        <modal :width="'90%'" :height="600" name="Modal-Address">
+        <modal :width="'90%'" :height="600" :adaptive="true" name="Modal-Address">
             <div class="address__box">
                 <div class="flex justify-end delivery__cancel">
                     <button @click="hide()"><i class="fas fa-times"></i></button>
@@ -9,14 +9,14 @@
                     <h5>Выберите адрес доставки</h5>
                 </div>
                 <div class="grid grid-cols-10 gap-4">
-                    <div class="col-span-4">
+                    <div class="col-span-10 xl:col-span-4 md:col-span-4">
                         <div class="address__button">
                             <button @click="activeBtn = 'btn1'" :class="{active: activeBtn === 'btn1' }" class="btn1">Все</button>
                             <button @click="activeBtn = 'btn2'" :class="{active: activeBtn === 'btn2' }" class="btn2">Пункты выдачи</button>
                             <button @click="activeBtn = 'btn3'" :class="{active: activeBtn === 'btn3' }" class="btn3">Почта РФ</button>
                         </div>
                     </div>
-                    <div class="col-span-6">
+                    <div class="col-span-10 xl:col-span-6 md:col-span-6">
                         <img class="w-full" src="../../assets/image/Rectangle 718.png" alt="">
                     </div>
                 </div>
@@ -89,6 +89,21 @@ export default {
     .active {
         border: 1px solid #5E8CE2;
         color: #0052FF;
+    }
+    @media (min-width: 200px) and (max-width: 600px){
+        .address__button {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .address__button button {
+            margin-top: 10px;
+        }
+        .address__title h5 {
+            font-size: 20px;
+        }
+        .delivery__cancel button {
+            font-size: 22px;
+        }
     }
 
     /* @media (min-width: 769px) and (max-width: 1025px){

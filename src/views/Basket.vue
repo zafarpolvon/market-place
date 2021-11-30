@@ -1,7 +1,7 @@
 <template>
     <div class="back">
         <Navbar />
-        <div class="container mx-auto px-12 mb-10 pages">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 mb-10 pages">
             <div class="basket__href mt-5">
                 <a href="#">Главная страница / </a>
                 <a href="#">Корзина</a>
@@ -140,7 +140,7 @@ export default {
     }
 
     @media (max-width: 600px){
-        .px-12{
+        .px-4 xl:px-12 md:px-12{
             padding-left: 1rem;
             padding-right: 1rem;
         }

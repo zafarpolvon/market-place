@@ -1,7 +1,7 @@
 <template>
     <div class="back">
         <Navbar />
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="delivery-menu">
                 <ul>
                     <li>Как сделать заказ</li>
@@ -14,12 +14,12 @@
                 </ul>
             </div>
         </div>
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="delivery">
                 <div class="delivery__title">Доставка</div>
             </div>
         </div>
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="delivery-boxes">
                 <div class="delivery__box">
                     <div class="box_title">Быстро доставим любой Ваш заказ по всей России</div>

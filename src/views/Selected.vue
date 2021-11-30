@@ -2,21 +2,18 @@
     <div class="back">
         <Navbar />
         <second-navbar />
-        <div class="container mx-auto px-12 pages">
-            <a href="#">Главная страница / </a>
-            <a href="#"> Мои заказы</a>
-        </div>
-        <div class="container mx-auto px-12">
+        <location-navbar :name="'Базовая рубашка'" />
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="selected__title">Избранное</div>
         </div>
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 mt-6">
             <div class="grid grid-cols-5 gap-3" >
                 <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
                     <Cart :cart="cart" />
                 </div>
             </div>
         </div>
-        <div class="container mx-auto px-12 c-products">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 c-products">
             <div class="advertising__title">Рекламный блок</div>
             <div class="grid grid-cols-5 gap-3" >
                 <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
@@ -27,7 +24,7 @@
                 <button type="submit" class="show__button">Показать еще</button>
             </div>
         </div>
-        <div class="container mx-auto px-12 mb-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 mb-12">
             <div class="recently-products">
                 <div class="recently__title">Вы недавно смотрели</div>
                 <div class="grid grid-cols-5 gap-3" >
@@ -46,12 +43,21 @@ import Navbar from '../components/layout/Navbar.vue'
 import Footer from '../components/layout/Footer.vue'
 import SecondNavbar from '../components/layout/SecondNavbar.vue'
 import Cart from '../components/Cart.vue'
+import LocationNavbar from '../components/layout/LocationNavbar.vue'
 
 export default {
   name: 'Home',
   data: () => ({
-
+    tovar: []
   }),
+  async mounted () {
+    this.tovar = await this.$store.dispatch('loadData')
+    this.setupPagination(this.tovar.map(person => {
+      return {
+        ...person
+      }
+    }))
+  },
   methods: {
 
   },
@@ -59,9 +65,9 @@ export default {
     Navbar,
     Footer,
     SecondNavbar,
-    Cart
-  },
-  
+    Cart,
+    LocationNavbar
+  }
 }
 </script>
 

@@ -68,7 +68,6 @@
         margin-right: 15px;
     }
     .add-product .product__information{
-        padding-left: 1.5rem;
         width: 48%;
     }
     .add-product .product__information .product__about{
@@ -263,7 +262,7 @@
         color: #FFF;
         padding: 8px 30px;
     }
-    .container.px-12.c-products{
+    .container.px-4 xl:px-12 md:px-12.c-products{
         padding-top: 4rem !important;
         padding-bottom: 2.5rem;
     }
@@ -366,7 +365,7 @@
         color: #898989;
     }
     .question .q__box .box{
-        height: 130px !important;
+        height: 130px;
         width: 140px;
         display: flex;
         flex-direction: column;

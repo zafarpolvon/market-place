@@ -1,11 +1,11 @@
 <template>
     <div class="back">
         <Navbar />
-        <div class="container mx-auto px-12 pages">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
             <a href="#">Главная страница / </a>
             <a href="#"> FAQ</a>
         </div>
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="questions__title">Часто задаемевый вопросы</div>
             <div class="questions__box">
                 <div class="box">

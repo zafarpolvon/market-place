@@ -1,7 +1,7 @@
 <template>
     <div class="back">
         <Navbar />
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="order-menu">
                 <ul>
                     <a href="#">Как сделать заказ</a>
@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="border-bottom">
-            <div class="container mx-auto px-12 r-product">
+            <div class="container mx-auto px-4 xl:px-12 md:px-12 r-product">
                 <div class="r-product__title">Правила возврата товаров</div>
                 <div class="product__title">Возврат товара надлежащего качества</div>
                 <h1>Срок возврата товара</h1>
@@ -45,7 +45,7 @@
                 <p>--- В случае отклонения заявки, покупатель вправе обратиться в независимую экспертизу. В случае, если независимой экспертизой будет подтверждено право покупателя на возврат товара, все расходы покупателя, связанные с проведением независимой экспертизы подлежат возмещению Продавцом.</p>
             </div>
         </div>
-        <div class="container mx-auto px-12 r-product__footer">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 r-product__footer">
             <span>*</span>
             <p>Настоящие правила носят рекомендательный характер и не ограничивают покупателя в правах, связанных с предъявлением требований Продавцу, предусмотренных действующим законодательством.</p>
         </div>

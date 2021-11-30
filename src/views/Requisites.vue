@@ -1,7 +1,7 @@
 <template>
     <div class="back">
         <Navbar />
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="order-menu">
                 <ul>
                     <a href="#">Как сделать заказ</a>
@@ -14,7 +14,7 @@
                 </ul>
             </div>
         </div>
-        <div class="container mx-auto px-12 requisites">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 requisites">
             <div class="requisites__title">Реквизиты</div>
             <div class="text">
                 <span>Полное наименование</span>
@@ -155,7 +155,7 @@ export default {
     }
 
     @media only screen and (min-width: 376px) and (max-width: 600px){
-        .px-12{
+        .px-4 xl:px-12 md:px-12{
             padding-left: 2rem;
             padding-right: 2rem;
         }
@@ -177,7 +177,7 @@ export default {
         }
     }
     @media only screen and (max-width: 376px){
-        .px-12{
+        .px-4 xl:px-12 md:px-12{
             padding-right: 1rem;
             padding-left: 1rem;
         }

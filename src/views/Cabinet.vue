@@ -3,7 +3,7 @@
     <div class="back">
         <Navbar />
         <second-navbar />
-        <div class="container mx-auto px-12 mb-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 mb-12">
             <div class="user__cabinet">
                 <div class="user">
                     <div class="user__img">
@@ -487,14 +487,14 @@ export default {
             text-align: center;
             font-size: 20px;
         }
-        .px-12 {
+        .px-4 xl:px-12 md:px-12 {
             padding-left: 2rem;
             padding-right: 2rem;
         }
     }
 
     @media (max-width: 300px){
-        .px-12{
+        .px-4 xl:px-12 md:px-12{
             padding-left: 10px;
             padding-right: 10px;
         }

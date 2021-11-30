@@ -1,9 +1,9 @@
 <template>
     <div class="info__menu">
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <ul>
                 <router-link tag="a" class="logo__svg" to="/info"><i class="fas fa-home"></i>Главная</router-link>
-                <router-link tag="a" class="logo__svg" to="/add"><i class="far fa-heart"></i>Избранные</router-link>
+                <router-link tag="a" class="logo__svg" to="/selected"><i class="far fa-heart"></i>Избранные</router-link>
                 <router-link tag="a" class="logo__svg" to="/deliverycart"><i class="fas fa-shopping-bag"></i>Мои заказы</router-link>
                 <router-link tag="a" class="logo__svg" to="/message"><i class="far fa-comment-alt"></i>Мои сообщения</router-link>
                 <router-link tag="a" class="logo__svg" to="/payments"><i class="fas fa-credit-card"></i>Мои платежи</router-link>
