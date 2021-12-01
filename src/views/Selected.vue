@@ -72,9 +72,6 @@ export default {
 </script>
 
 <style scoped>
-    .pages{
-        padding: 0rem 4rem 1rem 4rem;
-    }
     .pages a{
         color: #023047;
     }
@@ -89,6 +86,15 @@ export default {
     .recently-products .recently__title{
         margin-bottom: 20px;
         color: #023047;
+    }
+
+    @media (max-width: 600px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
     }
 
     @media (max-width: 300px){

@@ -315,6 +315,12 @@ export default {
     }
 
     @media (min-width: 415px) and (max-width: 600px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
         .user__cabinet{
             padding: 1.5rem;
             height: auto;
@@ -399,6 +405,12 @@ export default {
     }
 
     @media (max-width: 415px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
         .user__cabinet{
             padding: 1rem;
             height: auto;
@@ -487,17 +499,9 @@ export default {
             text-align: center;
             font-size: 20px;
         }
-        .px-4 xl:px-12 md:px-12 {
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
     }
 
     @media (max-width: 300px){
-        .px-4 xl:px-12 md:px-12{
-            padding-left: 10px;
-            padding-right: 10px;
-        }
         .user__boxes2 .box .add__cart i{
             font-size: 14px;
             height: 30px;

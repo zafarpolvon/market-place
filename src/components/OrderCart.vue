@@ -34,12 +34,6 @@ export default {
 </script>
 
 <style scoped>
-    .pages{
-        padding: 0rem 3rem 1rem 3rem;
-    }
-    .pages span{
-        color: #023047;
-    }
     .delivery-cart__title{
         font-size: 42px;
         color: #023047;

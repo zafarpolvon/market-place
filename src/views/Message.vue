@@ -53,11 +53,11 @@ export default {
 </script>
 
 <style scoped>
-    .pages{
-        padding: 0rem 4rem 1rem 4rem;
-    }
-    .pages span{
+    .pages a{
         color: #023047;
+    }
+    .pages a:hover{
+        color: #023999;
     }
     .message__title{
         font-size: 42px;
@@ -171,6 +171,12 @@ export default {
     }
 
     @media (min-width: 415px) and (max-width: 600px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
         .send form{
             padding: 0.8rem 1rem;
             width: 85%;
@@ -202,12 +208,11 @@ export default {
     }
 
     @media (max-width: 415px){
-        .pages{
-            padding: 1rem 1.25rem !important;
+        .pages {
+            padding: 20px 16px !important;
         }
-        .px-4 xl:px-12 md:px-12{ 
-            padding-left: 10px;
-            padding-right: 10px;
+        .pages a {
+            font-size: 12px !important;
         }
         .message .title{
             padding: 1rem;

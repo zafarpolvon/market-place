@@ -83,9 +83,6 @@ export default {
 </script>
 
 <style scoped>
-    .pages{
-        padding: 2.5rem 3rem;
-    }
     .pages a{
         color: #023047;
         text-decoration: none;
@@ -233,6 +230,12 @@ export default {
     }
 
     @media only screen and (min-width: 376px) and (max-width: 600px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
         .questions__title{
             font-size: 32px;
             margin-bottom: 0;
@@ -271,6 +274,12 @@ export default {
     }
 
     @media only screen and (max-width: 376px) {
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
         .questions__title{
             font-size: 32px;
             margin-bottom: 0;

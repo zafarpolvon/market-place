@@ -155,9 +155,11 @@ export default {
     }
 
     @media only screen and (min-width: 376px) and (max-width: 600px){
-        .px-4 xl:px-12 md:px-12{
-            padding-left: 2rem;
-            padding-right: 2rem;
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
         }
         .requisites .requisites__title{
             font-size: 32px;
@@ -177,9 +179,11 @@ export default {
         }
     }
     @media only screen and (max-width: 376px){
-        .px-4 xl:px-12 md:px-12{
-            padding-right: 1rem;
-            padding-left: 1rem;
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
         }
         .requisites .requisites__title{
             font-size: 32px;

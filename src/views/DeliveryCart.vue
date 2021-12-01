@@ -47,9 +47,6 @@ export default {
 </script>
 
 <style scoped>
-    .pages{
-        padding: 0rem 4rem 1rem 4rem;
-    }
     .pages a{
         color: #023047;
     }
@@ -175,6 +172,12 @@ export default {
     }
 
     @media (max-width: 600px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
         .delivery-carts h1{
             font-size: 24px;
             margin: 0 0 1rem 0;

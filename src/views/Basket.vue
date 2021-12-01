@@ -140,9 +140,11 @@ export default {
     }
 
     @media (max-width: 600px){
-        .px-4 xl:px-12 md:px-12{
-            padding-left: 1rem;
-            padding-right: 1rem;
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
         }
         .grid-cols-10{
             grid-template-columns: repeat(6, minmax(0, 1fr));

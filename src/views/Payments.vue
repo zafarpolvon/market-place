@@ -91,9 +91,6 @@ export default {
 </script>
 
 <style scoped>
-    .pages{
-      padding: 0rem 4rem 1rem 4rem;
-    }
     .pages a{
         color: #023047;
         text-decoration: none;
@@ -124,10 +121,12 @@ export default {
     }
 
     @media (min-width: 415px) and (max-width: 600px){
-      .px-4 xl:px-12 md:px-12{
-        padding-left: 10px;
-        padding-right: 10px;
-      }
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
       table tr th{
         font-size: 17px;
         line-height: 18px;
@@ -135,16 +134,15 @@ export default {
     }
 
     @media only screen and (max-width: 415px){
-        .pages{
-            padding: 1rem 1.25rem !important;
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
         }
         .payment__title{
             font-size: 32px;
             margin-bottom: 1rem;
-        }
-        .px-4 xl:px-12 md:px-12{
-          padding-left: 10px;
-          padding-right: 10px;
         }
         table tr th{
           font-size: 14px;

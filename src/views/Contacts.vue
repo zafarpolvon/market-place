@@ -72,9 +72,6 @@ export default {
 </script>
 
 <style scoped>
-    .pages{
-        padding: 2.5rem 3rem;
-    }
     .pages a{
         color: #023047;
         text-decoration: none;
@@ -225,6 +222,12 @@ export default {
     }
 
     @media only screen and (min-width: 376px) and (max-width: 600px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
         .contacts__boxes .box .boxes .contact__box{
             width: 100%;
             margin: 1rem auto;
@@ -250,12 +253,11 @@ export default {
     }
 
     @media only screen and (max-width: 415px){
-        .pages{
-            padding: 1rem 1.25rem !important;
+        .pages {
+            padding: 20px 16px !important;
         }
-        .px-4 xl:px-12 md:px-12{
-            padding-left: 1rem;
-            padding-right: 1rem;
+        .pages a {
+            font-size: 12px !important;
         }
         .contacts__title{
             font-size: 32px;

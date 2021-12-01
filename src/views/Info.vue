@@ -229,6 +229,12 @@ export default {
     }
 
     @media (min-width: 415px) and (max-width: 600px) {
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
         .info__boxes .box{
             padding: 1.2rem;
             height: 220px;
@@ -251,9 +257,11 @@ export default {
     }
 
     @media (max-width: 415px) {
-        .px-4 xl:px-12 md:px-12{
-            padding-left: 1rem;
-            padding-right: 1rem;
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
         }
         .info__boxes .box{
             padding: 1.2rem;
@@ -335,10 +343,6 @@ export default {
     }
 
     @media (max-width: 300px){
-        .px-4 xl:px-12 md:px-12{
-            padding-left: 10px;
-            padding-right: 10px;
-        }
         .info__boxes .box{
             height: auto;
             padding: 10px;

@@ -86,9 +86,6 @@ export default {
 </script>
 
 <style scoped>
-    .pages{
-        padding: 2.5rem 3rem;
-    }
     .pages a{
         color: #023047;
         text-decoration: none;
@@ -213,10 +210,6 @@ export default {
     }
 
     @media only screen and (max-width: 1025px){
-        .pages{
-            padding: 1rem 1.25rem !important;
-            font-size: 14px !important;
-        }
         .mnews__boxes .box:nth-child(2) .late__box .late__title{
             width: 100% !important;
             line-height: 20px !important;
@@ -350,7 +343,22 @@ export default {
         }
     }
 
+    @media (max-width: 600px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
+    }
+
     @media only screen and (max-width: 415px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
         .mnews__title{
             font-size: 20px !important;
             line-height: 22px !important;

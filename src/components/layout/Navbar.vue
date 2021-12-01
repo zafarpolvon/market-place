@@ -577,10 +577,6 @@ export default {
     }
 
     @media (min-width: 415px) and (max-width: 600px){
-        .px-4 xl:px-12 md:px-12{
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
         .fa.fa-bars.navbar__menu{
             font-size: 28px;
             top: 18px;

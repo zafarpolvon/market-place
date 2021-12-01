@@ -116,9 +116,6 @@ export default {
 </script>
 
 <style scoped>
-    .pages{
-        padding: 2.5rem 3rem !important;
-    }
     .pages a{
         color: #023047 !important;
         cursor: pointer;
@@ -148,8 +145,8 @@ export default {
         transition: 0.2s linear;
     }
     .news__boxes .box img:hover{
-        transform: scale(1.01);
-    }
+        filter: brightness(0.8);
+    }       
     .news__boxes .box .box__text{
         padding: 15px 10px 10px 10px;
     }
@@ -366,6 +363,12 @@ export default {
     }
 
     @media (min-width: 415px) and (max-width: 600px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
         .news__boxes .box{
             width: 48% !important;
             margin: 5px !important;
@@ -438,8 +441,11 @@ export default {
     }
 
     @media (max-width: 415px){
-        .pages{
-            padding: 1rem 1.25rem !important;
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
         }
         .news__boxes .box{
             width: 100% !important;
@@ -491,9 +497,6 @@ export default {
     }
 
     @media (max-width: 300px){
-        .pages{
-            padding: 1rem 1.25rem !important;
-        }
         .news__boxes .box{
             width: 100% !important;
             margin: 10px 0 !important;
@@ -542,10 +545,6 @@ export default {
         .news__boxes .box .box__text .n__date a{
             padding: 5px 10px !important;
             font-size: 12px !important;
-        }
-        .px-5{
-            padding-left: 5px !important;
-            padding-right: 5px !important;
         }
         .news__boxes .box .box__text .box__title{
             font-size: 15px !important;
