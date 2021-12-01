@@ -581,6 +581,12 @@ export default {
     }
 
     @media (min-width: 415px) and (max-width: 600px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
         .filter{
             display: block;
         }
@@ -609,6 +615,12 @@ export default {
     }
 
     @media (max-width: 415px) {
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
         .filter{
             display: block;
         }

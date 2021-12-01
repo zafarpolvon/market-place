@@ -159,11 +159,12 @@ export default {
     .news__boxes .box img{
         width: 100%;
         object-fit: cover;
+        position: relative;
         cursor: pointer;
         transition: 0.2s linear;
     }
     .news__boxes .box img:hover{
-        transform: scale(1.01);
+        filter: brightness(0.8);
     }
     .news__boxes .box .box__text{
         padding: 15px 10px 10px 10px;
@@ -226,15 +227,17 @@ export default {
     }
 
     @media (min-width: 376px) and (max-width: 600px){
-        .px-4 xl:px-12 md:px-12{
-            padding-left: 1rem;
-            padding-right: 1rem;
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
         }
         .grid-cols-5 {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
         .brand__name{
-            font-size: 32px;
+            font-size: 22px !important;
         }
         .banner .grid-cols-4{
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -245,6 +248,13 @@ export default {
         .news__boxes .box{
             width: 70% !important;
             margin: 1rem auto !important;
+        }
+        .news__title{
+            font-size: 22px !important;
+            margin-bottom: 0rem !important;
+        }
+        .recently-products .recently__title{
+            font-size: 22px !important;
         }
     }
 
@@ -257,15 +267,17 @@ export default {
             margin: 10px 0 !important;
         }
         .news__title{
-            font-size: 32px !important;
+            font-size: 22px !important;
             margin-bottom: 0rem !important;
         }
     }
 
     @media (max-width: 376px){
-        .px-4 xl:px-12 md:px-12{
-            padding-left: 1rem;
-            padding-right: 1rem;
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
         }
         .news__boxes .box .box__text .n__date a{
             padding: 7px 15px !important;
@@ -276,14 +288,14 @@ export default {
             margin: 10px 0 !important;
         }
         .news__title{
-            font-size: 32px !important;
+            font-size: 22px !important;
             margin-bottom: 0rem !important;
         }
         .grid-cols-5 {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
         .brand__name{
-            font-size: 28px;
+            font-size: 22px !important;
             line-height: 28px;
         }
         .banner .grid-cols-4{
@@ -299,6 +311,9 @@ export default {
             padding: 10px 25px;
             font-size: 16px;
         }
+        .recently-products .recently__title{
+            font-size: 22px !important;
+        }
     }
 
     @media (max-width: 300px){
@@ -309,10 +324,6 @@ export default {
         .news__boxes .box .box__text .n__date a{
             padding: 5px 10px !important;
             font-size: 12px !important;
-        }
-        .px-5{
-            padding-left: 5px !important;
-            padding-right: 5px !important;
         }
         .news__boxes .box .box__text .box__title{
             font-size: 15px !important;

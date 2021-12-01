@@ -162,6 +162,12 @@ export default {
     }
 
     @media (min-width: 415px) and (max-width: 600px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
         .send form{
             padding: 0.8rem 1rem;
             width: 85%;
@@ -180,9 +186,11 @@ export default {
     }
 
     @media (max-width: 415px){
-        .px-4 xl:px-12 md:px-12{ 
-            padding-left: 10px;
-            padding-right: 10px;
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
         }
         .message .title{
             padding: 1rem;

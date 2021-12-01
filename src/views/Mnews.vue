@@ -343,7 +343,22 @@ export default {
         }
     }
 
+    @media (max-width: 600px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
+    }
+
     @media only screen and (max-width: 415px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
         .mnews__title{
             font-size: 20px !important;
             line-height: 22px !important;

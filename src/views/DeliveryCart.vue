@@ -172,6 +172,12 @@ export default {
     }
 
     @media (max-width: 600px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
         .delivery-carts h1{
             font-size: 24px;
             margin: 0 0 1rem 0;

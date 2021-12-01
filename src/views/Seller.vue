@@ -296,10 +296,6 @@ export default {
     }
 
     @media only screen and (max-width: 360px){
-        .px-4 xl:px-12 md:px-12{
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
         .seller .header{
             background-position-x: 40% !important;
         }

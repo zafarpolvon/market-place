@@ -203,7 +203,7 @@
                 <span>Сортировать по: </span>
                 <span>Дате <i class="fa fa-arrow-down"></i></span>
                 <span>Оценке</span>
-                <div class="customer">
+                <div class="customer pt-4">
                     <div class="c__box">
                         <div class="c__box-title">Отзывы покупателей <span>(105)</span></div>
                         <div class="user__comment">
@@ -369,7 +369,6 @@ export default {
         position: absolute;
         top: 38%;
         left: 43%;
-
     }
     .pages a{
         color: #023047;
@@ -928,14 +927,16 @@ export default {
     }
 
     @media (max-width: 600px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
         .add-product .product-list .product__img{
             display: block !important;
         }
         .add-product .product-list .product__img .images{
-            /* display: flex !important;
-            flex-direction: row !important;
-            height: auto !important;
-            margin-right: 0 !important; */
             display: none;
         }
         .add-product .product-list .product__img .images img{
@@ -1055,7 +1056,7 @@ export default {
             padding-left: 0;
         }
         .customer .user__comment .user .user__name{
-            width: 65%;
+            width: 74%;
         }
         .customer .c__box:first-child{
             width: 100%;
@@ -1083,6 +1084,18 @@ export default {
             width: 29%;
             height: 110px;
         }
+        .customer .c__box:first-child .c__box-title{
+            font-size: 20px;
+        }
+        .customer .c__box:first-child .c__box-title span{
+            font-size: 20px;
+        }
+        .customer .user__comment .user .user__name{
+            font-size: 16px;
+        }
+        .customer .user__comment p{
+            font-size: 14px !important;
+        }
     }
 
     @media (max-width: 376px){
@@ -1094,10 +1107,6 @@ export default {
         }
         .mobile__slide {
             display: block;
-        }
-        .px-4 xl:px-12 md:px-12{
-            padding-left: 15px !important;
-            padding-right: 15px !important;
         }
         .grid-cols-5 {
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -1204,7 +1213,7 @@ export default {
             padding-left: 0;
         }
         .customer .user__comment .user .user__name{
-            width: 62%;
+            width: 74%;
         }
         .c__box:last-child {
             padding: 1rem;

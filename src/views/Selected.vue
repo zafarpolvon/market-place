@@ -88,6 +88,15 @@ export default {
         color: #023047;
     }
 
+    @media (max-width: 600px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
+    }
+
     @media (max-width: 300px){
         .delivery-cart__title{
             font-size: 32px;

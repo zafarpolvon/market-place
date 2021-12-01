@@ -102,7 +102,7 @@ export default {
     .footer__li a {
         font-size: 14px;
         line-height: 21px;
-        color: #D9D9D9;
+        color: #FFF;
     }
     .footer__li a:hover {
         color: #5E8CE2;
@@ -133,6 +133,8 @@ export default {
         .footer__box{
             flex-direction: column !important;
             text-align: center;
+            display: flex;
+            align-items: center;
         }
         .footer__logo{
             margin-bottom: 1rem;
