@@ -2,7 +2,7 @@
     <div class="back">
         <Navbar />
         <second-navbar :active="active" />
-        <div class="container mx-auto px-4 xl:px-12 md:px-12 pb-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 pb-12 xl:mt-4 md:mt-4 mt-0">
             <div class="info__boxes">
                 <div class="box">
                     <div class="user">
@@ -32,7 +32,8 @@
             <div class="info__boxes2">
                 <div class="box">
                     <div class="box__title">Банковские карты</div>
-                    <p>Добавыть карту</p>
+                    <a @click="modalCard()">Добавить карту</a>
+                    <modal-card />
                 </div>
                 <div class="box">
                     <div class="box__title">Покупки</div>
@@ -56,6 +57,7 @@
 import Navbar from '../components/layout/Navbar.vue'
 import Footer from '../components/layout/Footer.vue'
 import SecondNavbar from '../components/layout/SecondNavbar.vue'
+import ModalCard from '../components/modal/ModalCard.vue'
 
 export default {
   name: 'Home',
@@ -63,12 +65,15 @@ export default {
 
   }),
   methods: {
-
+    modalCard () {
+      this.$modal.show('Modal-Card')
+    }
   },
   components: {
     Navbar,
     Footer,
-    SecondNavbar
+    SecondNavbar,
+    ModalCard
   }
 }
 </script>
@@ -107,6 +112,9 @@ export default {
     }
     .info__boxes .box .email{
         color: #898989;
+    }
+    .box a {
+        cursor: pointer;
     }
     .info__boxes .box .email span{
         color: #2C2C2C;

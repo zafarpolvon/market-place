@@ -2,13 +2,13 @@
     <div>
         <splide :options="options">
             <splide-slide>
-                <img class="w-full image__responsive" src="../../assets/image/phones 1.png">
+                <img class="w-full image__responsive" src="../../assets/image/orig.jpg">
             </splide-slide>
             <splide-slide>
-                <img class="w-full image__responsive" src="../../assets/image/phones 1.png">
+                <img class="w-full image__responsive" src="../../assets/image/orig.jpg">
             </splide-slide>
             <splide-slide>
-                <img class="w-full image__responsive" src="../../assets/image/phones 1.png">
+                <img class="w-full image__responsive" src="../../assets/image/orig.jpg">
             </splide-slide>
         </splide>
     </div>

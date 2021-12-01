@@ -416,7 +416,7 @@
     }
     .customer .user__comment p{
         color: #666666 !important;
-        font-size: 15px !important;
+        font-size: 15px;
         margin: 0.5rem 0 1rem 0;
     }
 </style>

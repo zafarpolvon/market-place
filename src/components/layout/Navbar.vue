@@ -76,10 +76,10 @@
                                         <div class="profile__bottom">
                                             <ul class="profile__ul">
                                                 <li class="profile__item">
-                                                    <a href="#">
+                                                    <router-link to="/basket" tag="a" >
                                                         <i class="fas fa-chevron-right"></i>
                                                         Мои заказы
-                                                    </a>
+                                                    </router-link>
                                                 </li>
                                                 <li class="profile__item">
                                                     <router-link tag="a" to="/payments">
@@ -94,10 +94,10 @@
                                                     </router-link>
                                                 </li>
                                                 <li class="profile__item">
-                                                    <a href="#">
+                                                    <router-link tag="a" to="/selected">
                                                         <i class="fas fa-chevron-right"></i>
                                                         Избранные товара
-                                                    </a>
+                                                    </router-link>
                                                 </li>
                                                 <li class="profile__item">
                                                     <router-link tag="a" to="/info">

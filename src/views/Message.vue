@@ -156,8 +156,17 @@ export default {
         }
         .message p, .message .admin__text{
             padding: 1rem;
-            font-size: 18px;
+            font-size: 14px;
             width: 50%;
+        }
+        .title {
+            font-size: 20px;
+            padding-left: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .send form input {
+            font-size: 14px;
         }
     }
 
@@ -169,13 +178,26 @@ export default {
         .message .title{
             padding: 1rem 1rem 1rem 2rem;
         }
+        .message__title {
+            font-size: 28px;
+            margin-bottom: 1rem;
+        }
         .send img.send{
             height: 45px;
         }
         .message p, .message .admin__text{
             width: 60%;
             padding: 1rem;
-            font-size: 16px;
+            font-size: 14px;
+        }
+        .title {
+            font-size: 20px;
+            padding-left: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .send form input {
+            font-size: 14px;
         }
     }
 
@@ -214,6 +236,12 @@ export default {
             padding: 1rem;
             font-size: 16px;
         }
+        .message__title {
+            font-size: 24px;
+        }
+        .send form input {
+            font-size: 14px;
+        }
     }
 
     @media (max-width: 300px){
@@ -224,6 +252,9 @@ export default {
         }
         .send img.send{
             height: 40px;
+        }
+        .send form input {
+            font-size: 14px;
         }
     }
 

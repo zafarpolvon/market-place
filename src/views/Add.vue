@@ -323,7 +323,7 @@ export default {
       this.cart.fourth = fourth
     },
     updataMain (index) {
-      this.cart.img = index
+      this.cart.image = index
     },
     temp (index) {
       console.log(index)
@@ -695,6 +695,9 @@ export default {
         .add-product .recommended .r__box{
             width: 100%;
         }
+        .add-product .product__information .brend {
+            justify-content: center;
+        }
         .add-product .recommended .r__box:nth-child(2){
             width: 100%;
             padding-left: 0;
@@ -794,6 +797,9 @@ export default {
     @media (min-width: 376px) and (max-width: 600px){
         .image {
             display: none;
+        }
+        .add-product .product__information .brend {
+            justify-content: center;
         }
         .grid-cols-5 {
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -931,6 +937,9 @@ export default {
         .add-product .product-list .product__img{
             display: block !important;
         }
+        .add-product .product__information .brend {
+            justify-content: center;
+        }
         .add-product .product-list .product__img .images{
             /* display: flex !important;
             flex-direction: row !important;
@@ -1059,7 +1068,15 @@ export default {
         }
         .customer .c__box:first-child{
             width: 100%;
+            margin-top: 20px;
         }
+        .customer .c__box:first-child .c__box-title {
+            font-size: 20px;
+        }
+        .customer .user__comment p {
+            font-size: 18px !important;
+        }
+
         .c__box:last-child{
             width: 100%;
             margin-left: 0;
