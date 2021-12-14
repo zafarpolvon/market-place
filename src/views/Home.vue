@@ -211,6 +211,12 @@ export default {
             width: 48% !important;
             margin: 6px;
         }
+        .news__boxes {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            overflow-x: scroll;
+        }
     }
 
     @media (min-width: 600px) and (max-width: 769px){
@@ -223,6 +229,12 @@ export default {
         .news__boxes .box{
             width: 70% !important;
             margin: 1rem auto;
+        }
+        .news__boxes {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            overflow-x: scroll;
         }
     }
 
@@ -245,8 +257,14 @@ export default {
         .banner img.h-64{
             height: auto;
         }
+        .news__boxes {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            overflow-x: scroll;
+        }
         .news__boxes .box{
-            width: 70% !important;
+            width: 100% !important;
             margin: 1rem auto !important;
         }
         .news__title{
@@ -261,6 +279,12 @@ export default {
     @media (min-width: 376px) and (max-width: 415px){
         .banner .grid-cols-4{
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        }
+        .news__boxes {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            overflow-x: scroll;
         }
         .news__boxes .box{
             width: 100% !important;

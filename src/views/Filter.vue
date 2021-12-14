@@ -167,7 +167,7 @@
                     <div class="products">
                         <div class="grid grid-cols-4 gap-4">
                             <div v-for="cart in tovar" :key="cart.id">
-                                <Cart :cart="cart" />
+                                <Cart :favorite="false" :cart="cart" />
                             </div>
                         </div>
                     </div>

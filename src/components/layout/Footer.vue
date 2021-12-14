@@ -70,7 +70,7 @@
                         </a>
                     </div>
                 </div>
-                <div>
+                <div class="response__app">
                     <div class="footer__title">
                        <h5>Мы в соцсетях</h5>
                     </div>
@@ -80,12 +80,37 @@
                 </div>
             </div>
         </div>
-        <i class="fa fa-chevron-up"></i>
+        <a @click="scrollTop" v-show="visible">
+            <i class="fa fa-chevron-up"></i>
+        </a>
     </div>
 </template>
 <script>
 export default {
-
+  name: 'Footer',
+  data: () => ({
+    visible: false
+  }),
+  mounted () {
+    window.addEventListener('scroll', this.scrollListener)
+    setTimeout(function () {
+      // eslint-disable-next-line no-return-assign
+      return this.phone = true
+    }, 1000)
+  },
+  methods: {
+    scrollTop: function () {
+      this.intervalId = setInterval(() => {
+        if (window.pageYOffset === 0) {
+          clearInterval(this.intervalId)
+        }
+        window.scroll(0, window.pageYOffset - 50)
+      }, 8)
+    },
+    scrollListener: function () {
+      this.visible = window.scrollY > 150
+    }
+  }
 }
 </script>
 <style scoped>
@@ -128,20 +153,27 @@ export default {
     .footer__back i.fa.fa-chevron-up{
         display: none;
     }
-
+    .response__app {
+        display: block;
+    }
     @media (max-width: 1000px){
         .footer__box{
             flex-direction: column !important;
-            text-align: center;
+            text-align: left;
             display: flex;
-            align-items: center;
+            align-items: left;
         }
         .footer__logo{
             margin-bottom: 1rem;
+            display: none;
         }
         .footer__title{
             margin-top: 1rem;
             margin-bottom: 0.5rem;
+        }
+        .footer__title h5 {
+            font-size: 22px;
+            color: #e2e2e2;
         }
         .footer__ul{
             margin: 10px 0;
@@ -157,11 +189,16 @@ export default {
             color: #FFF;
             padding: 18px;
         }
+        .footer__li {
+            margin: 3px 0;
+        }
         .total__price {
             font-size: 30px;
         }
+        .response__app {
+            display: none;
+        }
     }
-
     @media (max-width: 330px){
         .footer__back i.fa.fa-chevron-up{
             bottom: 195px;

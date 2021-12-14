@@ -123,6 +123,9 @@ export default {
         line-height: 100%;
         color: #023047;
     }
+    .basket__gray {
+        font-size: 14px;
+    }
 
     @media (min-width: 769px) and (max-width: 1025px){
         .grid-cols-10 {
@@ -155,11 +158,26 @@ export default {
         .col-span-3{
             grid-column: span 7 / span 7;
         }
+        .basket__title h4 {
+            font-size: 28px
+        }
+        .basket__price h3 {
+            font-size: 28px;
+        }
+        .basket__price h4 {
+            font-size: 16px;
+        }
+        .basket__price p {
+            font-size: 12px;
+        }
     }
 
     @media (max-width: 415px){
         .basket__title h4{
             font-size: 24px !important;
+        }
+        .basket__gray {
+            font-size: 14px;
         }
     }
 
@@ -169,6 +187,9 @@ export default {
         }
         .basket__delivery{
             padding: 20px 10px;
+        }
+        .basket__gray {
+            font-size: 14px;
         }
         .basket__delivery h5{
             font-size: 20px;

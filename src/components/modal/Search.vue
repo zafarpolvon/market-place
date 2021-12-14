@@ -71,9 +71,9 @@ export default {
         width: 100%;
         outline: none;
         padding-left: 10px;
+        background: transparent;
     }
     .search__input {
-        background: rgba(255, 255, 255, 0.15);
         border: none;
         margin: 0 auto;
     }

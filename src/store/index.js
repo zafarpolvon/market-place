@@ -7,18 +7,45 @@ Vue.use(Vuex)
 const URL = `http://izleshop.uz/api/getProducts`
 const CATEGORY = `http://localhost:3000/category`
 const ID = `http://izleshop.uz/api/getProductDetails?id=`
+let cart = window.localStorage.getItem('cart')
 
 export default new Vuex.Store({
   state: {
+    cart: cart ? JSON.parse(cart) : [],
     carts: [],
     category: []
   },
   mutations: {
+    addToCart (state, product) {
+      let isProductExists = false
+      if (state.cart.length) {
+        state.cart.map(function (item) {
+          if (item.name === product.name) {
+            isProductExists = true
+            item.quantity++
+          }
+        })
+        if (!isProductExists) {
+          return state.cart.push(product)
+        }
+      } else {
+        return state.cart.push(product)
+      }
+      this.commit('saveData')
+    },
+    removeFromCart (state, item) {
+      let product = state.cart.findIndex(c => c.id === item)
+      state.cart.splice(product, 1)
+      this.commit('saveData')
+    },
     updateCart (state, carts) {
       state.carts = carts
     },
     updateCategory (state, category) {
       state.category = category
+    },
+    saveData (state) {
+      window.localStorage.setItem('cart', JSON.stringify(state.cart))
     }
   },
   actions: {
@@ -69,6 +96,9 @@ export default new Vuex.Store({
     getShoesBySite: (state) => (id) => {
       console.log(id)
       return state.carts.find(shoe => shoe.id === id)
+    },
+    PRODUCTS: state => {
+      return state.cart
     }
   }
 })

@@ -2,20 +2,21 @@
     <div class="cart__box shadow-xl">
         <div class="cart__image" @mouseover="listOne = true" @mouseleave="listOne = false">
             <img :src="cart.image" alt="">
-            <span v-if="listOne" @click="listOne = false" class="fast__review">просмотр</span>
+            <router-link tag="span" @click.native="$router.go()" :key="cart.id" :to="{ name: 'Add', params: { id: cart.id }, }" v-if="listOne" @click="listOne = false" class="fast__review">просмотр</router-link>
             <span class="skidka">21 %</span>
-            <icon-love :love="love" />
+            <icon-love v-if="!favorite" v-on:click.native="saveCart" :love="love" />
+            <icon-trash v-else v-on:click.native="deleteCart(cart.id)" />
         </div>
         <div class="cart__info">
             <div class="flex justify-between mt-3">
-                <a class="cart__cat" href="#">Рубашка</a>
+                <a class="cart__cat">Рубашка</a>
                 <a class="cart__brand" href="#">HM</a>
             </div>
             <div class="cart__title">
-                <a href="#">{{ cart.name.slice(0, 27) }}</a>
+                <router-link tag="a" @click.native="$router.go()" :key="cart.id" :to="{ name: 'Add', params: { id: cart.id }, }" >{{ cart.name.slice(0, 25) }}</router-link>
                 <div class="cart__price">
-                    <h5>{{ cart.price }} рубл</h5>
-                    <p>1000 $</p>
+                    <h5>{{ cart.price }} рубль</h5>
+                    <p>1000 рубль</p>
                 </div>
             </div>
             <div class="cart__add">
@@ -26,23 +27,39 @@
                         <path d="M9.375 23.769C10.4105 23.769 11.25 23.0395 11.25 22.1397C11.25 21.2398 10.4105 20.5103 9.375 20.5103C8.33947 20.5103 7.5 21.2398 7.5 22.1397C7.5 23.0395 8.33947 23.769 9.375 23.769Z" fill="white"/>
                         <path d="M21.875 23.769C22.9105 23.769 23.75 23.0395 23.75 22.1397C23.75 21.2398 22.9105 20.5103 21.875 20.5103C20.8395 20.5103 20 21.2398 20 22.1397C20 23.0395 20.8395 23.769 21.875 23.769Z" fill="white"/>
                     </svg>
-
                 </router-link>
             </div>
         </div>
     </div>
 </template>
 <script>
-import IconLove from './IconLove.vue'
+import IconLove from './Icon/IconLove.vue'
+import IconTrash from './Icon/IconTrash.vue'
 
 export default {
-  props: ['cart'],
+  props: ['cart', 'favorite'],
   data: () => ({
     listOne: false,
     love: false
   }),
+  methods: {
+    saveCart () {
+      const addShoes = {
+        image: this.cart.image,
+        price: this.cart.price,
+        name: this.cart.name,
+        id: this.cart.id
+      }
+      this.$store.commit('addToCart', addShoes)
+      this.$store.commit('saveData')
+    },
+    deleteCart (item) {
+      this.$store.commit('removeFromCart', item)
+    }
+  },
   components: {
-    IconLove
+    IconLove,
+    IconTrash
   }
 }
 </script>
@@ -56,6 +73,7 @@ export default {
         object-fit: contain;
         object-position: 50% 50%;
         border-radius: 10px 10px 0 0;
+        padding: 20px;
     }
     .cart__box {
         background: #FFFFFF;
@@ -113,6 +131,7 @@ export default {
         font-size: 15px;
         line-height: 18px;
         color: #023047;
+        height: 40px;
     }
     .cart__price {
         display: flex;

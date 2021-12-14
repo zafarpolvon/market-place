@@ -34,7 +34,7 @@
                     </div>
                     <div class="product__information">
                         <div class="product__about">
-                            <div class="product__price">{{ cart.price }} $ <span>2000 рубл</span></div>
+                            <div class="product__price">{{ cart.price }} рубль <span>2000 рубль</span></div>
                             <Counter />
                         </div>
                         <div class="color__title">Цвет</div>
@@ -50,16 +50,8 @@
                                 <label class="circle" :for="index">{{ size }}</label>
                             </div>
                         </div>
-                        <div class="payment">
-                            Цена при оплате:
-                            <a href="#"><img src="../assets/image/image 29.png" alt="not found"></a>
-                        </div>
-                        <div class="delivery">Доставка: 27-29 сентября</div>
                         <div class="sales">Продавец: <span>ВАЙЛДБЕРРИЗ ООО</span></div>
-                        <div class="warehouse">Склад отгрузки: склад Logoname</div>
                         <div class="brend">
-                            <a href="#"><img src="../assets/image/image 38.png" alt="not found"></a>
-                            <a href="#"><img src="../assets/image/image 38.png" alt="not found"></a>
                             <a href="#"><img src="../assets/image/image 38.png" alt="not found"></a>
                         </div>
                         <div class="product__buttons">
@@ -88,7 +80,7 @@
                         <div class="box__title">Рекомендуется</div>
                         <div class="grid grid-cols-2 gap-3" >
                             <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
-                                <Cart :cart="cart" />
+                                <Cart :favorite="false" :cart="cart" />
                             </div>
                         </div>
                     </div>
@@ -98,7 +90,7 @@
                 <div class="advertising__title">Рекламный блок</div>
                 <div class="grid grid-cols-5 gap-3" >
                     <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
-                        <Cart :cart="cart" />
+                        <Cart :favorite="false" :cart="cart" />
                     </div>
                 </div>
                 <div class="advertising__button mt-8">
@@ -109,7 +101,7 @@
                 <div class="advertising__title">Похожие товары</div>
                 <div class="grid grid-cols-5 gap-3" >
                     <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
-                        <Cart :cart="cart" />
+                        <Cart :favorite="false" :cart="cart" />
                     </div>
                 </div>
                 <div class="advertising__button mt-8">
@@ -120,9 +112,7 @@
                 <div class="question__title">Отзывы и вопросы</div>
                 <div class="q__comments">
                     <span>Отзывы 105</span>
-                    <span>Вопросы 229</span>
-                    <span>Статьи 2</span>
-                    <p>Правила оформления отзывов и вопросов</p>
+                    <a>Правила оформления отзывов</a>
                 </div>
                 <div class="question">
                     <div class="q__box">
@@ -269,8 +259,8 @@
                 <div class="recently-products">
                     <div class="recently__title">Вы недавно смотрели</div>
                 <div class="grid grid-cols-5 gap-3" >
-                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
-                        <Cart :cart="cart" />
+                    <div v-for="cart in tovar" :key="cart.id">
+                        <Cart :favorite="false" :cart="cart" />
                     </div>
                 </div>
                 </div>

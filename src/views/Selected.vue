@@ -3,33 +3,33 @@
         <Navbar />
         <second-navbar />
         <location-navbar :name="'Базовая рубашка'" />
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 mt-8">
             <div class="selected__title">Избранное</div>
         </div>
         <div class="container mx-auto px-4 xl:px-12 md:px-12 mt-6">
             <div class="grid grid-cols-5 gap-3" >
-                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
-                    <Cart :cart="cart" />
+                <div v-for="cart in product" :key="cart.id">
+                    <Cart :favorite="true" :cart="cart" />
                 </div>
             </div>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12 c-products">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 c-products mt-8">
             <div class="advertising__title">Рекламный блок</div>
             <div class="grid grid-cols-5 gap-3" >
                 <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
-                    <Cart :cart="cart" />
+                    <Cart :favorite="false" :cart="cart" />
                 </div>
             </div>
             <div class="advertising__button mt-8">
                 <button type="submit" class="show__button">Показать еще</button>
             </div>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12 mb-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 mb-12 mt-8">
             <div class="recently-products">
                 <div class="recently__title">Вы недавно смотрели</div>
                 <div class="grid grid-cols-5 gap-3" >
-                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
-                        <Cart :cart="cart" />
+                    <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                        <Cart :favorite="false" :cart="cart" />
                     </div>
                 </div>
             </div>
@@ -61,6 +61,11 @@ export default {
   methods: {
 
   },
+  computed: {
+    product () {
+      return this.$store.getters.PRODUCTS
+    }
+  },
   components: {
     Navbar,
     Footer,
@@ -86,6 +91,10 @@ export default {
     .recently-products .recently__title{
         margin-bottom: 20px;
         color: #023047;
+    }
+    .advertising__title {
+        color: #023047;
+        font-size: 38px;
     }
 
     @media (max-width: 600px){

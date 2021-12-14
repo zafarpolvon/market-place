@@ -1,8 +1,7 @@
 <template>
-    <button>
-        <i @mouseover="love = false"
-            @mouseout="love = true"
-            :class="[love ? 'far' : 'fas', 'far']"
+    <button @click.native="saveCart">
+        <i
+            :class="[!love ? 'far' : 'fas', 'far']"
             class="fa-heart"
         ></i>
     </button>

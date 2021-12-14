@@ -139,6 +139,7 @@ export default {
         }
         .brand__one img{
             width: 100%;
+            object-fit: contain;
         }
         .brand__box{
             height: auto;
@@ -179,6 +180,7 @@ export default {
         }
         .brand__one img{
             width: 100%;
+            object-fit: contain;
         }
     }
 
@@ -208,6 +210,7 @@ export default {
         .brand__one img{
             width: auto;
             height: 198px;
+            object-fit: contain;
         }
         .brand__second a{
             height: auto;

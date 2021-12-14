@@ -121,6 +121,9 @@ export default {
             margin: 1rem 0;
             width: 70%;
         }
+        .basket__gray {
+            font-size: 14px;
+        }
     }
 
     @media (min-width: 415px) and (max-width: 600px){
@@ -140,6 +143,12 @@ export default {
         .basket__image{
             width: 130px;
             height: 130px;
+        }
+        .basket__gray {
+            font-size: 14px;
+        }
+        .basket__price h3{
+            font-size: 24px;
         }
     }
 
@@ -179,6 +188,9 @@ export default {
         .basket__price h4{
             font-size: 14px;
         }
+        .basket__gray {
+            font-size: 14px;
+        }
     }
 
     @media (max-width: 300px){
@@ -190,6 +202,9 @@ export default {
         }
         .basket__box h5{
             margin: 0.2rem 0;
+        }
+        .basket__gray {
+            font-size: 12px;
         }
     }
 

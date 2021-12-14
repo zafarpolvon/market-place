@@ -5,17 +5,24 @@
 </template>
 
 <style>
+@font-face {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Montserrat'), url('./assets/fonts/Montserrat-Medium.ttf') format('truetype');
+    }
+    #app {
+        font-family: 'Montserrat', sans-serif;
+    }
     body::-webkit-scrollbar-track{
         -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
         background-color: #F5F5F5;
-        border-radius: 10px;
     }
     body::-webkit-scrollbar{
         width: 10px;
         background-color: #F5F5F5;
     }
     body::-webkit-scrollbar-thumb{
-        border-radius: 10px;
         background-image: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
     }
     #app {

@@ -108,11 +108,32 @@ export default {
             width: 500px;
             margin: 0 auto;
         }
+        .total__price {
+            font-size: 28px;
+        }
+    }
+    @media (min-width: 376px) and (max-width: 600px){
+        .total__price {
+            font-size: 28px;
+        }
+        .total__left {
+            font-size: 14px;
+            line-height: 31px;
+            margin-right: 5px;
+        }
     }
 
     @media (max-width: 376px){
         .total__box{
             padding: 20px 10px;
+        }
+        .total__price {
+            font-size: 26px;
+        }
+        .total__left {
+            font-size: 14px;
+            line-height: 31px;
+            margin-right: 5px;
         }
     }
 
