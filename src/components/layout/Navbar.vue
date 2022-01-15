@@ -70,7 +70,7 @@
                                                 <img src="../../assets/image/carbon_user-avatar-filled-alt.png" alt="">
                                             </div>
                                             <div class="profile__title">
-                                                <h5>{{ getUser.name }}</h5>
+                                                <h5>{{ getUser.name || 'Нету данных' }}</h5>
                                             </div>
                                         </a>
                                         <div class="profile__bottom">

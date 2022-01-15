@@ -6,12 +6,12 @@
             <div class="info__boxes">
                 <div class="box">
                     <div class="user">
-                        <img :src="user.photo" alt="not found">
-                        <div class="user__name">{{ user.name || 'Not found' }}</div>
+                        <img :src="getUser.photo" alt="not found">
+                        <div class="user__name">{{ getUser.name || 'Not found' }}</div>
                     </div>
-                    <div class="email">Э-маил: <span>{{ user.email || 'Not found' }}</span></div>
+                    <div class="email">Э-маил: <span>{{ getUser.email || 'Not found' }}</span></div>
                     <div class="b__user">
-                        <div class="phone">Телефон: <span>{{ user.phone }}</span></div>
+                        <div class="phone">Телефон: <span>{{ getUser.phone }}</span></div>
                     </div>
                 </div>
                 <div class="box">
@@ -62,17 +62,16 @@ import ModalCard from '../components/modal/ModalCard.vue'
 export default {
   name: 'Home',
   data: () => ({
-    user: []
   }),
-  async mounted () {
-    this.user = await this.$store.dispatch('getUser')
-  },
   methods: {
     modalCard () {
       this.$modal.show('Modal-Card')
     }
   },
   computed: {
+    getUser () {
+      return this.$store.getters.LOADUSER
+    }
   },
   components: {
     Navbar,

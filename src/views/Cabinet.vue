@@ -10,22 +10,31 @@
                         <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80" alt="not found">
                         <i class="fa fa-plus"></i>
                     </div>
-                    <div class="user__name">{{ user.name }}</div>
-                    <img src="../assets/image/Vector (19).png" alt="not found">
+                    <div class="user__name">{{ getUser.name }}</div>
+                    <input v-show="inputName" class="input__name" type="text" v-model="getUser.name">
+                    <img v-show="!inputName" class="cursor-pointer" @click="showInfoName" src="../assets/image/Vector (19).png" alt="not found">
+                    <button v-show="inputName" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputName = false">Отмена</button>
+                    <button v-show="inputName" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
                 </div>
                 <div class="info__box">
                     <div class="info__user">
                     <div class="title">Э-маил</div>
                     <div class="change">
-                        <p>{{ user.email || 'Нет email'}}</p>
-                        <img src="../assets/image/Vector (19).png" alt="not found">
+                        <p>{{ getUser.email || 'Нет email'}}</p>
+                        <input placeholder="Нет ничего" v-show="inputEmail" class="input__name" type="text" v-model="getUser.email">
+                        <img v-show="!inputEmail" @click="showInfoEmail" src="../assets/image/Vector (19).png" alt="not found">
+                        <button v-show="inputEmail" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputEmail = false">Отмена</button>
+                        <button v-show="inputEmail" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
                     </div>
                 </div>
                 <div class="info__user">
                     <div class="title">Телефон</div>
                     <div class="change">
-                        <p>{{ user.phone || 'Test' }}</p>
-                        <img src="../assets/image/Vector (19).png" alt="not found">
+                        <p>{{ getUser.phone || 'Test' }}</p>
+                        <input v-show="inputPhone" class="input__name" type="text" v-model="getUser.email">
+                        <img v-show="!inputPhone" @click="showInfoPhone" src="../assets/image/Vector (19).png" alt="not found">
+                        <button v-show="inputPhone" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputPhone = false">Отмена</button>
+                        <button v-show="inputPhone" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
                     </div>
                 </div>
                 <div class="info__user">
@@ -33,6 +42,8 @@
                     <div class="change">
                         <p>{{ 'Не указано' }}</p>
                         <img src="../assets/image/Vector (19).png" alt="not found">
+                        <button v-show="inputBirth" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputBirth = false">Отмена</button>
+                        <button v-show="inputBirth" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
                     </div>
                 </div>
                 <div class="info__user">
@@ -84,16 +95,26 @@ import SecondNavbar from '../components/layout/SecondNavbar.vue'
 export default {
   name: 'Home',
   data: () => ({
-    user: []
+    inputName: false,
+    inputEmail: false,
+    inputPhone: false
   }),
-  async mounted () {
-    this.user = await this.$store.dispatch('getUser')
-  },
   methods: {
+    showInfoName () {
+      this.inputName = true
+    },
+    showInfoPhone () {
+      this.inputPhone = true
+    },
+    showInfoEmail () {
+      this.inputEmail = true
+    }
 
   },
   computed: {
-
+    getUser () {
+      return this.$store.getters.LOADUSER
+    }
   },
   components: {
     Navbar,

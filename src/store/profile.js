@@ -2,21 +2,25 @@ import axios from 'axios'
 import 'core-js'
 
 const TOKEN = localStorage.getItem('token')
-const API = 'http://localhost:8080/api/user/profile'
+const API = 'http://novamarket.qwertyuz.ru/api/user/profile'
 
 export default {
   state: {
+    profile: {}
   },
   mutations: {
-    loadUser (state, user) {
-      state.user = user
+    loadUser (state, profile) {
+      state.profile = profile
     }
   },
   actions: {
     async getUser ({ commit }) {
       const info = await axios.get(API, {
         headers: {
-          Authorization: `Bearer ${TOKEN}`
+          Authorization: `Bearer ${TOKEN}`,
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+          'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
         }
       })
       try {
@@ -28,6 +32,8 @@ export default {
     }
   },
   getters: {
-
+    LOADUSER: state => {
+      return state.profile
+    }
   }
 }

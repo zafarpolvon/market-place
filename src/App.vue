@@ -6,6 +6,12 @@
 <script>
 export default {
   name: 'App',
+  data: () => ({
+    user: {}
+  }),
+  async mounted () {
+    this.user = await this.$store.dispatch('getUser')
+  },
   created: function () {
     this.$http.interceptors.response.use(undefined, function (err) {
       return new Promise(function (resolve, reject) {
