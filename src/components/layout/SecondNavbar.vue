@@ -56,7 +56,14 @@ export default {
     .logo__svg span {
         display: block;
     }
-
+    @media (min-width:1025px) {
+        .logo__svg i {
+            font-size: 18px;
+        }
+        .logo__svg span {
+            font-size: 16px;
+        }
+    }
     @media (min-width: 769px) and (max-width: 1025px){
         .info__menu ul a{
             font-size: 14px !important;

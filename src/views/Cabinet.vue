@@ -7,31 +7,31 @@
             <div class="user__cabinet">
                 <div class="user">
                     <div class="user__img">
-                        <img src="../assets/image/boy-1031527_1920 1.png" alt="not found">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80" alt="not found">
                         <i class="fa fa-plus"></i>
                     </div>
-                    <div class="user__name">Javohir Akramjonov</div>
+                    <div class="user__name">{{ user.name }}</div>
                     <img src="../assets/image/Vector (19).png" alt="not found">
                 </div>
                 <div class="info__box">
                     <div class="info__user">
                     <div class="title">Э-маил</div>
                     <div class="change">
-                        <p>mironshohnasimov@gmail.com</p>
+                        <p>{{ user.email || 'Нет email'}}</p>
                         <img src="../assets/image/Vector (19).png" alt="not found">
                     </div>
                 </div>
                 <div class="info__user">
                     <div class="title">Телефон</div>
                     <div class="change">
-                        <p>+99899 739 3538</p>
+                        <p>{{ user.phone || 'Test' }}</p>
                         <img src="../assets/image/Vector (19).png" alt="not found">
                     </div>
                 </div>
                 <div class="info__user">
                     <div class="title">Дата рождения</div>
                     <div class="change">
-                        <p>11.12.2000</p>
+                        <p>{{ 'Не указано' }}</p>
                         <img src="../assets/image/Vector (19).png" alt="not found">
                     </div>
                 </div>
@@ -84,9 +84,15 @@ import SecondNavbar from '../components/layout/SecondNavbar.vue'
 export default {
   name: 'Home',
   data: () => ({
-
+    user: []
   }),
+  async mounted () {
+    this.user = await this.$store.dispatch('getUser')
+  },
   methods: {
+
+  },
+  computed: {
 
   },
   components: {

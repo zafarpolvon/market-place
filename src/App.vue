@@ -3,7 +3,21 @@
         <router-view/>
     </div>
 </template>
-
+<script>
+export default {
+  name: 'App',
+  created: function () {
+    this.$http.interceptors.response.use(undefined, function (err) {
+      return new Promise(function (resolve, reject) {
+        if (err.status === 401 && err.config && !err.config.__isRetryRequest) {
+          this.$store.dispatch('logout')
+        }
+        throw err
+      })
+    })
+  }
+}
+</script>
 <style>
 @font-face {
         font-family: 'Montserrat';
@@ -39,7 +53,7 @@
         font-size: 15px;
     }
     .add-product .container:nth-child(2) h1{
-        font-size: 48px;
+        font-size: 40px;
         color: #023047;
     }
     .add-product .product-action{

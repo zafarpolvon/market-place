@@ -18,6 +18,10 @@ import Requisites from '../views/Requisites.vue'
 import ReturnProduct from '../views/ReturnProduct.vue'
 import DeliveryCart from '../views/DeliveryCart.vue'
 import Selected from '../views/Selected.vue'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
+import GetCode from '../views/GetCode.vue'
+import store from '../store/index'
 
 Vue.use(VueRouter)
 
@@ -25,93 +29,127 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: { layout: 'Home', auth: false }
   },
   {
     path: '/add/:id',
     name: 'Add',
-    component: Add
+    component: Add,
+    meta: { layout: 'Add', auth: false }
   },
   {
     path: '/basket',
     name: 'Basket',
-    component: Basket
+    component: Basket,
+    meta: { layout: 'Basket', auth: false }
   },
   {
     path: '/delivery',
     name: 'Delivery',
-    component: Delivery
+    component: Delivery,
+    meta: { layout: 'Delivery', auth: false }
   },
   {
     path: '/mnews',
     name: 'Mnews',
-    component: Mnews
+    component: Mnews,
+    meta: { layout: 'Mnews', auth: false }
   },
   {
     path: '/news',
     name: 'News',
-    component: News
+    component: News,
+    meta: { layout: 'News', auth: false }
   },
   {
     path: '/seller',
     name: 'Seller',
-    component: Seller
+    component: Seller,
+    meta: { layout: 'Seller', auth: false }
   },
   {
     path: '/cabinet',
     name: 'Cabinet',
-    component: Cabinet
+    component: Cabinet,
+    meta: { layout: 'Cabinet', auth: true }
   },
   {
     path: '/contacts',
     name: 'Contacts',
-    component: Contacts
+    component: Contacts,
+    meta: { layout: 'Contacts', auth: false }
   },
   {
     path: '/filter',
     name: 'Filter',
-    component: Filter
+    component: Filter,
+    meta: { layout: 'Filter', auth: false }
   },
   {
     path: '/info',
     name: 'Info',
-    component: Info
+    component: Info,
+    meta: { layout: 'Info', auth: true }
   },
   {
     path: '/message',
     name: 'Message',
-    component: Message
+    component: Message,
+    meta: { layout: 'Message', auth: true }
   },
   {
     path: '/payments',
     name: 'Payments',
-    component: Payments
+    component: Payments,
+    meta: { layout: 'Payments', auth: true }
   },
   {
     path: '/questions',
     name: 'Questions',
-    component: Questions
+    component: Questions,
+    meta: { layout: 'Questions', auth: false }
   },
   {
     path: '/requisites',
     name: 'Requisites',
-    component: Requisites
+    component: Requisites,
+    meta: { layout: 'Requisites', auth: false }
   },
   {
     path: '/deliverycart',
     name: 'DeliveryCart',
-    component: DeliveryCart
+    component: DeliveryCart,
+    meta: { layout: 'DeliveryCart', auth: false }
   },
   {
     path: '/returnproduct',
     name: 'ReturnProduct',
-    component: ReturnProduct
+    component: ReturnProduct,
+    meta: { layout: 'ReturnProduct', auth: false }
   },
   {
     path: '/selected',
     name: 'Selected',
-    component: Selected
+    component: Selected,
+    meta: { layout: 'Selected', auth: true }
   },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
+  },
+  {
+    path: '/getcode',
+    name: 'GetCode',
+    component: GetCode,
+    meta: { layout: 'GetCode', auth: false }
+  }
 ]
 
 const router = new VueRouter({
@@ -125,6 +163,17 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
   linkExactActiveClass: 'router-link-exact-active'
+})
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.auth)) {
+    if (store.getters.isLoggedIn) {
+      next()
+      return
+    }
+    next('/login')
+  } else {
+    next()
+  }
 })
 
 export default router

@@ -20,12 +20,12 @@
                     <div class="navbar__logo">
                         <a href="/"><img class="navbar__logo" src="../../assets/image/logo.png" alt=""></a>
                     </div>
-                    <div class="category__button ml-12">
-                        <button @click="categoryToggle" class="flex items-center">
-                            <img v-if="!category" class="mr-3" src="../../assets/svg/menu.svg" alt="">
-                            <i v-else class="fas fa-times mr-3"></i>
-                            <span>Категории</span>
-                            <img class="ml-3" src="../../assets/svg/dropdown.svg" alt="">
+                    <div class="category__button ml-10">
+                        <button @click="categoryToggle" class="items-center">
+                            <img v-if="!category" class="" src="../../assets/svg/menu.svg" alt="">
+                            <i v-else class="fas fa-times"></i>
+                            <span class="px-2">Категории</span>
+                            <img class="" src="../../assets/svg/dropdown.svg" alt="">
                         </button>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                                                 <img src="../../assets/image/carbon_user-avatar-filled-alt.png" alt="">
                                             </div>
                                             <div class="profile__title">
-                                                <h5>Mironshoh Nasimov</h5>
+                                                <h5>{{ getUser.name }}</h5>
                                             </div>
                                         </a>
                                         <div class="profile__bottom">
@@ -106,7 +106,7 @@
                                                     </router-link>
                                                 </li>
                                                 <li class="profile__item">
-                                                    <a href="#">
+                                                    <a @click="logout" href="#">
                                                         <i class="fas fa-chevron-right"></i>
                                                         Выйти
                                                     </a>
@@ -182,11 +182,17 @@ export default {
     },
     closeCategory () {
       this.category = false
+    },
+    logout () {
+      this.$store.dispatch('logout')
     }
   },
   computed: {
     product () {
       return this.$store.getters.PRODUCTS.length
+    },
+    getUser () {
+      return this.$store.getters.LOADUSER
     }
   },
   components: {
@@ -223,6 +229,7 @@ export default {
         background: transparent;
         border-radius: 8px;
         border: 1px solid #fff;
+        height: 40px;
     }
     .search__input input:focus {
         outline: none !important;
@@ -241,6 +248,9 @@ export default {
         margin-bottom: 17px;
     }
     .category__button button {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
         border: 1px solid #D9D9D9;
         box-sizing: border-box;
         border-radius: 8px;
@@ -248,6 +258,7 @@ export default {
         font-size: 16px;
         line-height: 16px;
         color: #FFFFFF;
+        height: 40px;
     }
     .navbar__logo {
         font-size: 20px;
@@ -343,7 +354,7 @@ export default {
         display: none;
     }
     .navbar__logo {
-        height: 40px;
+        height: 35px;
     }
 
     @media (min-width: 769px) and (max-width: 1025px){
@@ -413,11 +424,11 @@ export default {
         }
         .menu__mobile .navbar__menu svg:first-child{
             fill: #FFF;
-            margin-right: 1rem;
+            margin-right: 12px;
         }
         .menu__mobile .navbar__menu svg:nth-child(2){
             fill: #FFF;
-            margin-right: 50px;
+            margin-right: 12px;
         }
         .menu__mobile .menu__logo svg{
             fill: #FFF;

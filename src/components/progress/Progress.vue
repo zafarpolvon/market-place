@@ -1,6 +1,6 @@
 <template>
   <div class="progress__box">
-      <Progress :value="value" strokeColor="#FFFFFF" :strokeWidth="4" :radius="30"></Progress>
+    <Progress :value="value" strokeColor="#FFFFFF" :strokeWidth="4" :radius="30"></Progress>
   </div>
 </template>
 

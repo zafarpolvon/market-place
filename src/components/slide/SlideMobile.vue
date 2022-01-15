@@ -1,26 +1,17 @@
 <template>
     <div class="container mx-auto">
-      <swiper ref="mySwiper" :options="swiperOptions">
-        <swiper-slide>
-          <img :src="cart.image" alt="">
+      <swiper class="swiper" :options="swiperOption">
+        <swiper-slide v-show="cart.photo">
+          <img :src="cart.photo" alt="">
         </swiper-slide>
-        <swiper-slide>
-          <img :src="cart.images[0]" alt="">
-        </swiper-slide>
-        <swiper-slide>
-          <img :src="cart.images[1]" alt="">
-        </swiper-slide>
-        <swiper-slide>
-          <img :src="cart.images[2]" alt="">
-        </swiper-slide>
-        <swiper-slide>
-          <img :src="cart.images[3]" alt="">
+        <swiper-slide v-for="cart in cart.gallery" :key="cart.id">
+          <img :src="cart" alt="">
         </swiper-slide>
       </swiper>
     </div>
 </template>
 <script>
-import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
 // import style (<= Swiper 5.x)
 import 'swiper/css/swiper.css'
@@ -29,29 +20,18 @@ export default {
   props: ['cart'],
   data: () => ({
     images: [],
-    swiperOptions: {
-      pagination: {
-        el: '.swiper-pagination'
-      }
-      // Some Swiper option/callback...
+    swiperOption: {
+      loop: true
     }
   }),
   async mounted () {
-    console.log(this.cart)
-    console.log('Current Swiper instance object', this.swiper)
-    this.swiper.slideTo(0, 1000, false)
+    // console.log('Current Swiper instance object', this.swiper)
   },
   computed: {
-    swiper () {
-      return this.$refs.mySwiper.$swiper
-    }
   },
   components: {
     Swiper,
     SwiperSlide
-  },
-  directives: {
-    swiper: directive
   }
 }
 </script>

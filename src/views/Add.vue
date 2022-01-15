@@ -1,28 +1,28 @@
 <template>
     <div class="">
-        <Navbar />
+        <Navbar :info="cart" />
         <div class="add-product">
-            <location-navbar :name="'Базовая рубашка'" />
+            <location-navbar :cart="cart" />
             <div class="container mx-auto px-4 xl:px-12 md:px-12">
                 <h1>{{ cart.name }}</h1>
                 <div class="product-action">
                     <div class="stars">
-                        <star-rating :rating="5" />
+                        <star-rating :rating="cart.rating" />
                     </div>
-                    <div class="comment"><a href="#">545 отзывов</a></div>
+                    <div class="comment"><a href="#">{{ cart.description.slice(3, 7)}} отзывов</a></div>
                 </div>
             </div>
             <div class="container mx-auto px-4 xl:px-12 md:px-12">
                 <div class="product-list">
                     <div class="product__img relative">
                         <div class="images">
-                            <img @load="onImgLoad" @click="updataMain(cart.images[0])" :src="cart.images[0]" alt="">
-                            <img @load="onImgLoad" @click="updataMain(cart.images[1])" :src="cart.images[1]" alt="">
-                            <img @load="onImgLoad" @click="updataMain(cart.images[2])" :src="cart.images[2]" alt="">
-                            <img @load="onImgLoad" @click="updataMain(cart.images[3])" :src="cart.images[3]" alt="">
+                            <img @load="onImgLoad" @click="updataMain(cart.photo)" :src="cart.photo" alt="">
+                            <img v-show="cart.gallery[0]" @load="onImgLoad" @click="updataMain(cart.gallery[0])" :src="cart.gallery[0]" alt="">
+                            <img v-show="cart.gallery[1]" @load="onImgLoad" @click="updataMain(cart.gallery[1])" :src="cart.gallery[1]" alt="">
+                            <img v-show="cart.gallery[2]" @load="onImgLoad" @click="updataMain(cart.gallery[2])" :src="cart.gallery[2]" alt="">
                         </div>
-                        <div class="image ">
-                            <img @load="onImgLoad" :src="cart.image" alt="not found">
+                        <div class="image">
+                            <img :src="static.photo" alt="">
                             <i class="far fa-heart"></i>
                         </div>
                         <slide-mobile :cart="cart" class="mobile__slide" />
@@ -34,25 +34,25 @@
                     </div>
                     <div class="product__information">
                         <div class="product__about">
-                            <div class="product__price">{{ cart.price }} рубль <span>2000 рубль</span></div>
+                            <div class="product__price">{{ cart.price }} рубль <span>{{ cart.price_old }} рубль</span></div>
                             <Counter />
                         </div>
-                        <div class="color__title">Цвет</div>
+                        <div class="color__title" v-if="cart.filters.length > 1">Цвет</div>
                         <div class="color__boxes">
                             <div class="color__box" v-for="col in cart.colors" :key="col.id">
                                 <img class="cursor-pointer" @click="updateImage(col.img, col.second, col.third, col.fourth)" :src="col.img" alt="photo">
                             </div>
                         </div>
-                        <div class="product__size-title">Размер</div>
+                        <div class="product__size-title" v-if="cart.filters.length > 1">Размер</div>
                         <div class="product__size">
-                            <div class="radioContainer" v-for="(size, index) in sizes" :key="index">
-                                <input type="radio" :id="index" v-bind:value="size" v-model="picked" @click="temp(size)">
-                                <label class="circle" :for="index">{{ size }}</label>
+                            <div class="radioContainer" v-for="(size, index) in cart.filters" :key="index">
+                                <input type="radio" :id="index" v-bind:value="size.value" v-model="picked" @click="temp(size)">
+                                <label class="circle" :for="index">{{ size.value }}</label>
                             </div>
                         </div>
                         <div class="sales">Продавец: <span>ВАЙЛДБЕРРИЗ ООО</span></div>
                         <div class="brend">
-                            <a href="#"><img src="../assets/image/image 38.png" alt="not found"></a>
+                            <a href="#"><img :src="cart.brand.photo" alt="not found"></a>
                         </div>
                         <div class="product__buttons">
                             <div>
@@ -71,10 +71,7 @@
                         <span>шерсть 53%</span>
                         <div class="r__type">Комплектация: <span>рубашка</span></div>
                         <div class="r__landing">Крой: <span>средняя посадка</span></div>
-                        <p>Информация о технических характеристиках, комплекте
-                            поставки,стране изготовления и внешнем виде товара
-                            носит справочный характер и основывается на 
-                            последних доступных сведениях от продавца</p>
+                        <p>{{ cart.description.slice(3, -4) }}</p>
                     </div>
                     <div class="r__box">
                         <div class="box__title">Рекомендуется</div>
@@ -194,58 +191,7 @@
                 <span>Дате <i class="fa fa-arrow-down"></i></span>
                 <span>Оценке</span>
                 <div class="customer pt-4">
-                    <div class="c__box">
-                        <div class="c__box-title">Отзывы покупателей <span>(105)</span></div>
-                        <div class="user__comment">
-                            <div class="user">
-                                <div class="user__name">Турсунов Асрор</div>
-                                <div class="stars">
-                                    <star-rating :rating="3" />
-                                </div>
-                            </div>
-                            <p>Качество ткани хорошее, но если вы предпочитаете оверсайз, выбирайте размер меньше вашего, например, слишком свободные рукава.</p>
-                            <div class="date__sale">
-                                <div class="date">30.04.2021</div>
-                                <div class="saled">
-                                    <img src="../assets/image/Vector (22).png" alt="not found">
-                                    <div class="p__saled">Я купил товар</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="user__comment">
-                            <div class="user">
-                                <div class="user__name">Ахмад Собиров</div>
-                                <div class="stars">
-                                    <star-rating :rating="5" />
-                                </div>
-                            </div>
-                            <p>Ткань по своей фактуре - это не ткань, которая создает очень мелкие морщинки, занимает все ваше тело, качество проявляется в любом виде.</p>
-                            <div class="date__sale">
-                                <div class="date">21.04.2021</div>
-                                <div class="saled">
-                                    <img src="../assets/image/Vector (22).png" alt="not found">
-                                    <div class="p__saled">Я купил товар</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="user__comment">
-                            <div class="user">
-                                <div class="user__name">Улугбек Мустаков</div>
-                                <div class="stars">
-                                    <star-rating :rating="4" />
-                                </div>
-                            </div>
-                            <p>Полноразмерное качество красивое</p>
-                            <div class="date__sale">
-                                <div class="date">26.04.2021</div>
-                                <div class="saled">
-                                    <img src="../assets/image/Vector (22).png" alt="not found">
-                                    <div class="p__saled">Я купил товар</div>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="comment__btn">Показать больше комментариев</button>
-                    </div>
+                    <Comments />
                     <div class="c__box">
                         <div class="box__title">Оставьте ваш отзыв</div>
                         <input type="text" placeholder="Ваше имя" />
@@ -281,22 +227,27 @@ import StarRating from '../components/StarRating.vue'
 import ProgressLine from '../components/progress/ProgressLine.vue'
 import Loader from '../components/Loader.vue'
 import SlideMobile from '../components/slide/SlideMobile.vue'
+import Comments from '../components/Comments.vue'
 
 export default {
   name: 'Home',
   data: () => ({
     prot: 80,
-    sizes: [42, 46, 48, 50, 52, 54],
     cart: {},
     tovar: [],
     picked: '',
     quantity: 1,
+    static: {},
     imageLoader: true
   }),
   async mounted () {
     const id = this.$route.params.id
     this.cart = await this.$store.dispatch('loadDataById', id)
+    this.static = await this.$store.dispatch('loadDataById', id)
+
     this.tovar = await this.$store.dispatch('loadData')
+    this.imageLoader = false
+
     for (let i = 1; i <= 10; i++) {
       this.quantityArray.push(i)
     }
@@ -313,7 +264,7 @@ export default {
       this.cart.fourth = fourth
     },
     updataMain (index) {
-      this.cart.image = index
+      this.static.photo = index
     },
     temp (index) {
       console.log(index)
@@ -335,7 +286,8 @@ export default {
     ProgressLine,
     LocationNavbar,
     Loader,
-    SlideMobile
+    SlideMobile,
+    Comments
   }
 }
 
@@ -380,6 +332,11 @@ export default {
         flex-wrap: wrap;
         margin: 10px 0;
     }
+    .brend a img {
+        width: auto;
+        height: 60px;
+        object-fit: contain;
+    }
     .add-product .product__information .brend a{
         margin: 0.2rem 0;
         margin-right: 0.5rem !important;
@@ -396,8 +353,9 @@ export default {
         background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #2267C7 86.59%, #377AF9 99.79%);
     }
     .product-list .product__img .image{
-        width: 458px !important;
-        height: 458px !important;
+        width: 450px !important;
+        height: 450px !important;
+        padding: 30px;
         position: relative;
     }
     .product-list .product__img .image .fa.fa-chevron-left,
@@ -439,6 +397,7 @@ export default {
         margin-left: auto;
         border-bottom: 1px solid #898989;
         color: #898989;
+        cursor: pointer;
     }
     .q__comments a:hover{
         opacity: 0.7;
@@ -572,15 +531,15 @@ export default {
         border: 1px solid rgb(218, 218, 218);
         border-radius: 4px;
         text-align: center;
-        padding-top: 8.5px;
+        padding-top: 10.5px;
     }
     .radioContainer:hover .circle {
         border: 1px solid black;
     }
     .radioContainer input:checked + .circle {
-        background-color: black;
+        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
         color: white;
-        border: 1px solid rgb(12, 11, 11);
+        border: 1px solid #377AF9;
     }
     .add-product .product__information .color__boxes {
         display: flex;

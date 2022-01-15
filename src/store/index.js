@@ -2,11 +2,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import auth from './auth'
+import profile from './profile'
 
 Vue.use(Vuex)
-const URL = `http://izleshop.uz/api/getProducts`
-const CATEGORY = `http://localhost:3000/category`
-const ID = `http://izleshop.uz/api/getProductDetails?id=`
+const URL = `http://novamarket.qwertyuz.ru/api/product`
+const CATEGORY = `http://novamarket.qwertyuz.ru/api/category?type=product`
+const ID = `http://novamarket.qwertyuz.ru/api/product/detail?id=`
 let cart = window.localStorage.getItem('cart')
 
 export default new Vuex.Store({
@@ -60,8 +62,8 @@ export default new Vuex.Store({
     async loadDataById ({ commit }, id) {
       try {
         const { data } = await axios.get(ID + id)
-        commit('updateCart', data)
-        return data
+        commit('updateCart', data.data)
+        return data.data
       } catch (e) {
         throw e
       }
@@ -69,22 +71,23 @@ export default new Vuex.Store({
     async loadCategory ({ commit }) {
       try {
         const info = await axios.get(CATEGORY)
-        const cats = []
-        Object.keys(info.data).forEach(key => {
-          cats.push({
-            name: info.data[key].name,
-            subcategory: info.data[key].subcategory,
-            id: key
-          })
-        })
-        commit('updateCategory', info.data)
-        return cats
+        // const cats = []
+        // Object.keys(info.data.data).forEach(key => {
+        //   cats.push({
+        //     name: info.data[key].name,
+        //     childs: info.data[key].childs,
+        //     id: key
+        //   })
+        // })
+        commit('updateCategory', info.data.data)
+        return info.data.data
       } catch (e) {
         throw e
       }
     }
   },
   modules: {
+    auth, profile
   },
   getters: {
     CARTS: state => {

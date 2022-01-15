@@ -1,14 +1,14 @@
 <template>
     <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
-        <a href="#">Главная страница / </a>
-        <a href="#">Рубашки / </a>
-        <a href="#">{{ name }}</a>
+        <router-link tag="a" to="/">Главная страница / </router-link>
+        <a href="#">{{ cart.category.name }} / </a>
+        <a href="#">{{ cart.brand.name }}</a>
     </div>
 </template>
 
 <script>
 export default {
-  props: ['name']
+  props: ['cart']
 
 }
 </script>

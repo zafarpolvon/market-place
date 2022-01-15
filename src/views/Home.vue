@@ -3,7 +3,7 @@
         <Navbar />
         <Slide />
         <Magazin />
-        <div class="container mx-auto mt-8 px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto mt-8 px-4 xl:px-12 md:px-4">
             <Title />
             <div class="grid grid-cols-5 gap-3" >
                 <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
@@ -14,7 +14,7 @@
                 <button class="show__all">Показать еще</button>
             </div>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12 mt-12 banner">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4 mt-12 banner">
             <div class="grid grid-cols-4 gap-4">
                 <a href="#" class="col-span-2">
                     <img class="w-full h-64" src="../assets/image/image 25.png" alt="">
@@ -27,7 +27,7 @@
                 </a>
             </div>
         </div>
-        <div class="container mx-auto mt-12 px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto mt-12 px-4 xl:px-12 md:px-4">
             <div class="grid grid-cols-5 gap-3">
                 <div v-for="cart in tovar" :key="cart.id">
                     <Cart :cart="cart" />
@@ -37,7 +37,7 @@
                 <button class="show__all">Показать еще</button>
             </div>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4">
             <div class="news__title">Новости</div>
         </div>
         <div class="container mx-auto px-4 xl:px-12 md:px-12">
@@ -77,7 +77,7 @@
                 </div>
             </div>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12 mb-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4 mb-12">
             <div class="recently-products">
                 <div class="recently__title">Вы недавно смотрели</div>
                 <div class="grid grid-cols-5 gap-3" >
@@ -106,7 +106,6 @@ export default {
   }),
   async mounted () {
     this.tovar = await this.$store.dispatch('loadData')
-    console.log(this.tovar)
     this.setupPagination(this.tovar.map(person => {
       return {
         ...person

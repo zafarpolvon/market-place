@@ -6,12 +6,12 @@
             <div class="info__boxes">
                 <div class="box">
                     <div class="user">
-                        <img src="../assets/image/boy-1031527_1920 1.png" alt="not found">
-                        <div class="user__name">Javohir Akramjonov</div>
+                        <img :src="user.photo" alt="not found">
+                        <div class="user__name">{{ user.name || 'Not found' }}</div>
                     </div>
-                    <div class="email">Э-маил: <span>mironshohnasimov@gmail.com</span></div>
+                    <div class="email">Э-маил: <span>{{ user.email || 'Not found' }}</span></div>
                     <div class="b__user">
-                        <div class="phone">Телефон: <span>+99899 739 3538</span></div>
+                        <div class="phone">Телефон: <span>{{ user.phone }}</span></div>
                     </div>
                 </div>
                 <div class="box">
@@ -62,12 +62,17 @@ import ModalCard from '../components/modal/ModalCard.vue'
 export default {
   name: 'Home',
   data: () => ({
-
+    user: []
   }),
+  async mounted () {
+    this.user = await this.$store.dispatch('getUser')
+  },
   methods: {
     modalCard () {
       this.$modal.show('Modal-Card')
     }
+  },
+  computed: {
   },
   components: {
     Navbar,
@@ -165,6 +170,7 @@ export default {
         color: #898989;
     }
     .info__boxes .box:nth-child(3) .delivery .discount{
+        display: block;
         border-radius: 50%;
         height: 100px;
         width: 100px;
@@ -227,7 +233,15 @@ export default {
             margin: 10px 0;
         }
     }
-
+    @media (min-width:1025px) {
+        .info__boxes .box:nth-child(3) .delivery .discount {
+            font-size: 32px;
+            margin-right: 0.5rem;
+        }
+        .info__boxes .box {
+            padding: 2rem;
+        }
+    }
     @media (min-width: 415px) and (max-width: 600px) {
         .pages {
             padding: 20px 16px !important;

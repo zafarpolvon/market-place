@@ -20,7 +20,7 @@
                             <div class="all__category">
                                 <a class="title__header" href="#">{{ sub.name }}</a>
                                 <div class="grid grid-cols-6 gap-4 mt-4">
-                                    <div class="col-span-2" v-for="cat in sub.subcategory" :key='cat.id'>
+                                    <div class="col-span-2" v-for="cat in sub.childs" :key='cat.id'>
                                         <div class="category__into">
                                             <a href="#">{{ cat.name }}</a>
                                             <ul class="category__inner" v-for="s in cat.subcategory" :key="s.id">
