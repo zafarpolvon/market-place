@@ -366,7 +366,7 @@ export default {
         }
     }
 
-    @media (max-width: 769px){
+    @media (max-width: 930px){
         .navbar__icons a{
             display: none !important;
         }

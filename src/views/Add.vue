@@ -525,13 +525,13 @@ export default {
     }
     .radioContainer .circle {
         display: inline-block;
-        width: 58px;
+        width: auto;
         height: 48px;
         background-color: white;
         border: 1px solid rgb(218, 218, 218);
         border-radius: 4px;
         text-align: center;
-        padding-top: 10.5px;
+        padding: 10.5px 15px 0 15px;
     }
     .radioContainer:hover .circle {
         border: 1px solid black;
@@ -623,9 +623,9 @@ export default {
             margin-left: 0;
         }
         .radioContainer .circle {
-            width: 35px;
+            width: auto;
             height: 35px;
-            padding-top: 6px;
+            padding: 6px 15px 0 15px;
             font-size: 14px;
         }
     }
@@ -729,12 +729,6 @@ export default {
         .product-list .product__img .image .far.fa-heart{
             bottom: 15px !important;
             top: unset !important;
-        }
-        .radioContainer .circle {
-            width: 35px;
-            height: 35px;
-            padding-top: 6px;
-            font-size: 14px;
         }
         .question .q__box .box{
             width: 100px;
@@ -874,9 +868,9 @@ export default {
             top: unset !important;
         }
         .radioContainer .circle {
-            width: 35px;
+            width: auto;
             height: 35px;
-            padding-top: 6px;
+            padding: 6px 15px 0 15px;
             font-size: 14px;
         }
     }
@@ -1008,7 +1002,6 @@ export default {
             display: block;
         }
         .p-customer .customer .c__box .user__comment .date__sale .date{
-            width: 65%;
         }
         .p-customer .customer .c__box .user__comment .date__sale .saled{
             padding-left: 0;
@@ -1041,9 +1034,9 @@ export default {
             top: unset !important;
         }
         .radioContainer .circle {
-            width: 35px;
+            width: auto;
             height: 35px;
-            padding-top: 6px;
+            padding: 6px 15px 0 15px;
             font-size: 14px;
         }
         .question .q__box .box{
@@ -1062,7 +1055,16 @@ export default {
         .customer .user__comment p{
             font-size: 14px !important;
         }
+        .p-customer .customer .c__box .user__comment .date__sale{
+            justify-content: space-between;
+        }
     }
+
+    /* @media (min-width: 380px) and (max-width: 400px){
+        .p-customer .customer .c__box .user__comment .date__sale .date{
+            width: 60%;
+        }
+    } */
 
     @media (max-width: 376px){
         .question .q__box .box p {
@@ -1172,9 +1174,6 @@ export default {
         .question .q__box{
             width: 100% !important;
         }
-        .p-customer .customer .c__box .user__comment .date__sale .date{
-            width: 62%;
-        }
         .p-customer .customer .c__box .user__comment .date__sale .saled{
             padding-left: 0;
         }
@@ -1185,9 +1184,9 @@ export default {
             padding: 1rem;
         }
         .radioContainer .circle {
-            width: 35px;
+            width: auto;
             height: 35px;
-            padding-top: 6px;
+            padding: 6px 15px 0 15px;
             font-size: 14px;
         }
         .question__title {
@@ -1225,9 +1224,6 @@ export default {
             line-height: 1;
             margin-bottom: 1rem;
         }
-        .p-customer .customer .c__box .user__comment .date__sale .date{
-            width: 60%;
-        }
         .p-customer .customer .c__box .user__comment .date__sale .saled{
             padding-left: 0;
         }
@@ -1235,9 +1231,9 @@ export default {
             width: 60%;
         }
         .radioContainer .circle {
-            width: 35px;
+            width: auto;
             height: 35px;
-            padding-top: 6px;
+            padding: 6px 15px 0 15px;
             font-size: 14px;
         }
     }
@@ -1282,9 +1278,9 @@ export default {
             grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
         }
         .radioContainer .circle {
-            width: 35px;
+            width: auto;
             height: 35px;
-            padding-top: 6px;
+            padding: 6px 15px 0 15px;
             font-size: 14px;
         }
         .question .q__box .box{
