@@ -4,7 +4,7 @@
             <div class="footer__box">
                 <div class="footer__logo">
                     <a href="#">
-                        <img class="h-8 w-auto mx-auto" src="../../assets/image/logo.png" alt="">
+                        <img class="h-8 w-auto mx-auto" src="../../assets/image/Mask Group.png" alt="">
                     </a>
                 </div>
                 <div>
@@ -115,7 +115,7 @@ export default {
 </script>
 <style scoped>
     .footer__back {
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #1C55C0 56.03%, #0A3168 99.79%);
+        background: #131E3D;
         position: relative;
     }
     .footer__box {
@@ -130,7 +130,7 @@ export default {
         color: #FFF;
     }
     .footer__li a:hover {
-        color: #5E8CE2;
+        color: #EE4927;
     }
     .footer__title h5 {
         font-size: 18px;
@@ -144,7 +144,7 @@ export default {
         color: #FFFFFF;
     }
     .footer__soc a:hover {
-        color: #5E8CE2;
+        color: #EE4927;
     }
     .footer__logo a {
         font-size: 24px;
@@ -165,7 +165,9 @@ export default {
         }
         .footer__logo{
             margin-bottom: 1rem;
-            display: none;
+        }
+        .footer__logo a img{
+            margin: 0 !important;
         }
         .footer__title{
             margin-top: 1rem;

@@ -1,6 +1,7 @@
 <template>
     <div class="back">
         <Navbar />
+        <MainMenu />
         <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
             <a href="#">Главная страница / </a>
             <a href="#"> Контакты</a>
@@ -33,20 +34,69 @@
                 <div class="r__box">
                     <div class="title">Отпавте нам сообщение</div>
                     <div class="input">
-                        <input type="text" placeholder="Ваше имя">
+                        <label for="">Имя</label>
+                        <input class="mt-2" type="text" placeholder="Ваше имя">
                     </div>
                     <div class="input">
-                        <input type="email" placeholder="Ваш e-mail"/>
+                        <label for="">E-mail</label>
+                        <input class="mt-2" type="email" placeholder="Ваш e-mail"/>
                     </div>
                     <div class="input">
-                        <input type="number" placeholder="Ваш номер"/>
+                        <label for="">Номер</label>
+                        <input class="mt-2" type="number" placeholder="Ваш номер"/>
                     </div>
-                    <textarea placeholder="Оставьте отзыв" class="textarea"></textarea>
+                    <label for="">Комментарий</label>
+                    <textarea class="textarea mt-2" placeholder="Оставьте отзыв"></textarea>
                     <div class="r__box-button">
                         <button type="submit" class="mx-auto">Отправить сообщение</button>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container mx-auto px-4 xl:px-12 md:px-12 requisites">
+            <div class="requisites__title">Реквизиты</div>
+            <div class="text">
+                <span>Полное наименование</span>
+                <p>Общество с ограниченной ответственностью «LogoName»</p>
+            </div>
+            <div class="text">
+                <span>Генеральный директор</span>
+                <p>Бакальчук Татьяна Владимировна</p>
+            </div>
+            <div class="text">
+                <span>Наименование банка</span>
+                <p>в Банк ВТБ (ПАО), г. Москва</p>
+            </div>
+            <div class="text">
+                <span>Корреспондентский счет</span>
+                <p>30101810700000000187</p>
+            </div>
+            <div class="text">
+                <span>БИК</span>
+                <p>044525187</p>
+            </div>
+            <div class="text">
+                <span>Расчетный счет</span>
+                <p>40702810500110000939</p>
+            </div>
+            <div class="text">
+                <span>ИНН</span>
+                <p>7721546864</p>
+            </div>
+            <div class="text">
+                <span>КПП</span>
+                <p>507401001</p>
+            </div>
+            <div class="text">
+                <span>ОГРН</span>
+                <p>1067746062449</p>
+            </div>
+            <div class="text">
+                <span>Юридический адреc</span>
+                <p>142181, Московская область, г. Подольск, деревня Коледино, Территория Индустриальный парк Коледино, д. 6, стр. 1</p>
+            </div>
+            <h3>Обращаем внимание, что данные реквизиты не предназначены для оплаты заказов</h3>
+            <h3>Оплата заказа производится только через Личный кабинет</h3>
         </div>
         <Footer />
     </div>
@@ -55,6 +105,7 @@
 <script>
 import Navbar from '../components/layout/Navbar.vue'
 import Footer from '../components/layout/Footer.vue'
+import MainMenu from '../components/layout/MainMenu.vue'
 
 export default {
   name: 'Home',
@@ -66,7 +117,8 @@ export default {
   },
   components: {
     Navbar,
-    Footer
+    Footer,
+    MainMenu
   }
 }
 </script>
@@ -79,6 +131,23 @@ export default {
     }
     .pages a:hover{
         color: #023999;
+    }
+    input[type="checkbox"]{
+        position: relative;
+    }
+    input[type="checkbox"]:checked::after{
+        content: "\2713";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        position: absolute;
+        color: #fff;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #131E3D;
     }
     .contacts__title{
         font-size: 42px;
@@ -126,7 +195,7 @@ export default {
     .contacts__boxes .r__box{
         width: 40%;
         height: 690px;
-        background: rgba(0, 82, 255, 0.2);
+        background: #FAC8BE;
         filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.15));
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
         padding: 2rem 2.5rem;
@@ -155,6 +224,7 @@ export default {
         outline: none;
     }
     .textarea{
+        resize: none;
         padding-bottom: 5rem !important;
         outline: none;
         padding: 8px 10px;
@@ -167,9 +237,9 @@ export default {
         text-align: center;
     }
     .contacts__boxes .r__box button{
-        width: 50%;
+        width: 100%;
         height: 45px;
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
+        background: #EE4927;
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
         color: #FCF6F6;
@@ -178,7 +248,7 @@ export default {
     }
     .contacts__boxes .r__box button:hover{
         box-shadow: unset !important;
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #2267C7 86.59%, #377AF9 99.79%);
+        background: #EE3111;
     }
     @media only screen and (min-width: 800px) and (max-width: 1025px){
         .contacts__boxes .r__box{
@@ -301,6 +371,111 @@ export default {
         .contacts__boxes .r__box{
             width: 100% !important;
             padding: 10px !important;
+        }
+    }
+
+    .requisites .requisites__title{
+        font-size: 42px;
+        margin-bottom: 2rem;
+        color: #023047;
+    }
+    .requisites .text{
+        display: flex;
+        margin: 1.5rem 0;
+    }
+    .requisites .text span{
+        color: #898989;
+        font-size: 20px;
+        width: 25%;
+    }
+    .requisites h3{
+        color: #023047;
+        font-size: 20px;
+        margin: 1rem 0;
+    }
+    .requisites .text p{
+        color: #023047;
+        margin-left: 5rem;
+        font-size: 20px;
+        width: 50%;
+    }
+    @media only screen and (min-width: 769px) and (max-width: 1025px) {
+        .order-menu ul a{
+            font-size: 13px;
+        }
+        .order-menu{
+            margin-bottom: 0;
+        }
+    }
+    @media only screen and (max-width: 769px){
+        .order-menu{
+            display: none;
+        }
+        .requisites .text span{
+            font-size: 18px;
+            width: 31%;
+        }
+        .requisites .text p{
+            font-size: 18px;
+        }
+        .requisites h3{
+            font-size: 18px;
+            padding: 1rem 0;
+            margin: 0;
+        }
+    }
+
+    @media only screen and (min-width: 376px) and (max-width: 600px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
+        .requisites .requisites__title{
+            font-size: 32px;
+            margin-bottom: 1rem;
+        }
+        .requisites .text{
+            flex-direction: column;
+            margin: 12px 0;
+        }
+        .requisites .text span{
+            width: 100%;
+        }
+        .requisites .text p{
+            font-size: 16px;
+            margin-left: 0;
+            width: 100%;
+        }
+    }
+    @media only screen and (max-width: 376px){
+        .pages {
+            padding: 20px 16px !important;
+        }
+        .pages a {
+            font-size: 12px !important;
+        }
+        .requisites .requisites__title{
+            font-size: 32px;
+            margin-bottom: 1rem;
+        }
+        .requisites .text{
+            flex-direction: column;
+            margin: 12px 0;
+        }
+        .requisites .text span{
+            width: 100%;
+            font-size: 16px;
+        }
+        .requisites .text p{
+            font-size: 14px;
+            margin-left: 0;
+            width: 100%;
+        }
+        .requisites h3{
+            font-size: 14px;
+            padding: 0.5rem 0;
         }
     }
 

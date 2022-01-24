@@ -15,8 +15,9 @@
         </div>
         <div class="order">
             <p>Количество: <span>1 шт</span></p>
+            <div>Доставлен</div>
             <div class="payment">
-                <p>Цена при оплате:</p>
+                <p>Способ оплаты</p>
                 <a href="#"><img src="../assets/image/image 29.png" alt="not found"></a>
             </div>
         </div>
@@ -129,7 +130,7 @@ export default {
         width: 20%;
     }
     .delivery-carts .cart.delivery__cart .price #price{
-        color: #0052FF;
+        color: #313131;
         font-size: 32px;
         font-weight: bold;
         align-self: end;

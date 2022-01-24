@@ -1,6 +1,7 @@
 <template>
     <div class="back">
         <Navbar />
+        <MainMenu />
         <div class="container mx-auto px-4 xl:px-12 md:px-12 mb-10 pages">
             <div class="basket__href mt-5">
                 <a href="#">Главная страница / </a>
@@ -11,10 +12,26 @@
             </div>
             <div class="grid grid-cols-10 gap-4 pb-6">
                 <div class="col-span-7">
+                    <div class="basket__title">ИП Иван Дияров</div>
                     <Korzina />
                     <div class="basket__delivery mt-8">
-                        <h5>Способ доставки</h5>
-                        <button class="mt-4" @click="show()">Выбрать адрес доставки</button>
+                        <div>
+                            <h5>Способ доставки</h5>
+                            <button class="mt-4" @click="show()">Выбрать адрес доставки</button>
+                        </div>
+                        <div>
+                            <h5>Способ получения товара</h5>
+                            <div class="inputs mt-4">
+                                <div>
+                                    <input class="mr-2" type="radio" name="delivery" />
+                                    <span>Самовывоз</span>
+                                </div>
+                                <div>
+                                    <input class="mr-2" type="radio" name="delivery" />
+                                    <span>Доставка</span>
+                                </div>
+                            </div>
+                        </div>
                         <Modal-Delivery />
                         <Modal-Address />
                     </div>
@@ -25,9 +42,6 @@
                 </div>
                 <div class="col-span-3">
                     <Total />
-                    <div class="basket__spec mt-8">
-                        <a href="#" @click="address()">Правил пользования торговой площадкой и правилами возврата</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -44,6 +58,7 @@ import Payment from '../components/Payment.vue'
 import Login from '../components/Login.vue'
 import ModalDelivery from '../components/modal/ModalDelivery.vue'
 import ModalAddress from '../components/modal/ModalAddress.vue'
+import MainMenu from '../components/layout/MainMenu.vue'
 
 export default {
   mount () {
@@ -65,20 +80,59 @@ export default {
     Payment,
     Login,
     ModalDelivery,
-    ModalAddress
+    ModalAddress,
+    MainMenu
   }
 }
 </script>
 
 <style scoped>
     .back {
-        background-color: #E5E5E5;
+        background-color: #fff;
     }
     .pages a{
         color: #023047;
     }
     .pages a:hover{
         color: #023999;
+    }
+    input[type=radio]:before {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        border: 1px solid gray;
+        background: #fff;
+        content: "";
+    }
+    input[type=radio]:checked:before{
+        border: 1px solid #EE4927;
+    }
+    input[type=radio]:checked:after {
+        position: relative;
+        top: -2px;
+        left: 4px;
+        display: inline-block;
+        visibility: visible;
+        border-radius: 6px;
+        width: 12px;
+        height: 12px;
+        background: #EE4927;
+        content: "";
+    }
+    input[type="checkbox"]:checked::after{
+        content: "\2713";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        position: absolute;
+        color: #fff;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #131E3D;
     }
     .basket__href a {
         font-weight: normal;
@@ -94,6 +148,9 @@ export default {
         margin-bottom: 1rem;
     }
     .basket__delivery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
         padding: 39px 20px;
         background: #FFFFFF;
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
@@ -105,11 +162,24 @@ export default {
         line-height: 100%;
         color: #000000;
     }
+    .inputs{
+        display: flex;
+        align-items: center;
+    }
+    .inputs div{
+        display: flex;
+        align-items: center;
+        margin-right: 1rem;
+    }
+    .inputs input{
+        width: 18px;
+        height: 18px;
+    }
     .basket__delivery button {
         font-weight: normal;
         font-size: 14px;
         line-height: 100%;
-        color: #0052FF;
+        color: #131E3D;
     }
     .basket__spec {
         background: #FFFFFF;

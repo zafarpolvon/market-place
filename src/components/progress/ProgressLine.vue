@@ -1,5 +1,5 @@
 <template>
-  <progress-bar size="3" :val="val" bg-color="#D9D9D9" bar-color="#0052FF"></progress-bar>
+  <progress-bar size="3" :val="val" bg-color="#D9D9D9" bar-color="#313131"></progress-bar>
 </template>
 
 <script>

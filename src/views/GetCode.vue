@@ -6,7 +6,7 @@
                     <div>
                         <label class="block font-size" for="email">Введите sms-код полученный через sms</label>
                         <input type="password" placeholder="Ваше код"
-                            class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+                            class="w-full px-4 py-2 mt-2 border rounded-md">
                     </div>
                     <span class="mt-2 time">-0.59</span>
                     <div class="flex mt-4">
@@ -25,8 +25,28 @@
 </template>
 
 <style scoped>
+    input:focus{
+        border: 1.16px solid #0F3E44;
+    }
+    input[type="checkbox"]{
+        position: relative;
+    }
+    input[type="checkbox"]:checked::after{
+        content: "\2713";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        position: absolute;
+        color: #fff;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #131E3D;
+    }
 .time{
-    color: #0052FF;
+    color: #131E3D;
     font-size: 14px;
 }
 .font-size{
@@ -38,14 +58,14 @@
     box-sizing: border-box;
     box-shadow: 0px 2.32px 11.6px rgba(0, 0, 0, 0.25);
     border-radius: 5.8px;
-    color: #999999;
+    color: #666;
     transition: 0.3s linear;
 }
 .text-gray:hover{
     box-shadow: unset;
 }
 .reg{
-    background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
+    background: #131E3D;
     border: 1px solid #B9D5FD;
     box-shadow: 0px 2.32px 11.6px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
@@ -59,7 +79,7 @@
 }
 .registered{
     font-size: 14px;
-    color: #0052FF;
+    color: #EE4927;
     text-decoration: underline;
     cursor: pointer;
 }

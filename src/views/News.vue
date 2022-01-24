@@ -1,6 +1,7 @@
 <template>
     <div class="back">
         <Navbar />
+        <MainMenu />
         <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
             <a href="#">Главная страница / </a>
             <a href="#">Новости</a>
@@ -99,6 +100,7 @@
 <script>
 import Navbar from '../components/layout/Navbar.vue'
 import Footer from '../components/layout/Footer.vue'
+import MainMenu from '../components/layout/MainMenu.vue'
 
 export default {
   name: 'Home',
@@ -110,7 +112,8 @@ export default {
   },
   components: {
     Navbar,
-    Footer
+    Footer,
+    MainMenu
   }
 }
 </script>
@@ -122,6 +125,23 @@ export default {
     }
     .pages a:hover{
         color: #023999 !important;
+    }
+    input[type="checkbox"]{
+        position: relative;
+    }
+    input[type="checkbox"]:checked::after{
+        content: "\2713";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        position: absolute;
+        color: #fff;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #131E3D;
     }
     .news__title{
         font-size: 42px;
@@ -166,7 +186,7 @@ export default {
         justify-content: space-between;
     }
     .news__boxes .box .box__text .n__date a{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
+        background: #131E3D;
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
         padding: 10px 15px;
@@ -174,10 +194,10 @@ export default {
     }
     .news__boxes .box .box__text .n__date a:hover{
         box-shadow: unset !important;
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #2267C7 86.59%, #377AF9 99.79%);
+        background: #11113D;
     }
     .news__boxes .box .box__text .n__date span{
-        color: #999999;
+        color: #EE4927;
     }
     .n-video-title{
         font-size: 42px;
@@ -232,14 +252,14 @@ export default {
         width: 95%;
     }
     .n-video .video__box a{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%) !important;
+        background: #131E3D !important;
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
         padding: 10px 15px;
         color: #FCF6F6;
     }
     .n-video .video__box a:hover{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #2267C7 86.59%, #377AF9 99.79%) !important;
+        background: #11113D !important;
         box-shadow: unset !important;
     }
     .n-video .video__boxes .box{
@@ -287,7 +307,7 @@ export default {
         justify-content: space-between;
     }
     .n-video .video__boxes .box .box__text .n__date a{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%) !important;
+        background: #131E3D !important;
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
         padding: 10px 15px;
@@ -295,10 +315,10 @@ export default {
     }
     .n-video .video__boxes .box .box__text .n__date a:hover{
         box-shadow: unset !important;
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #2267C7 86.59%, #377AF9 99.79%) !important;
+        background: #11113D !important;
     }
     .n-video .video__boxes .box .box__text .n__date span{
-        color: #999999;
+        color: #EE4927;
     }
 
     @media (max-width: 1025px){

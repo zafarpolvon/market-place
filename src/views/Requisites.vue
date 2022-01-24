@@ -83,6 +83,23 @@ export default {
 </script>
 
 <style scoped>
+input[type="checkbox"]{
+        position: relative;
+    }
+    input[type="checkbox"]:checked::after{
+        content: "\2713";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        position: absolute;
+        color: #fff;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #131E3D;
+    }
     .order-menu{
         padding: 1.5rem 0;
         margin-bottom: 1.5rem;

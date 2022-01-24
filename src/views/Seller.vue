@@ -6,7 +6,6 @@
                 <div class="container mx-auto px-4 xl:px-12 md:px-12">
                     <h1>Продажи на LogoName <br> по системе FBS (маркетплейс)</h1>
                     <p>Получайте заказы от клиентов, привозите товар и получайте большую комиссию от продаж</p>
-                    <a href="#">Стать продавцом</a>
                 </div>
             </div>
             <div class="container mx-auto px-4 xl:px-12 md:px-12">
@@ -33,6 +32,8 @@
                         </div>
                     </div>
                 </div>
+                <div class="seller__title">Станьте продавцом и зарабатывайте <br>на Birmakon</div>
+                <a class="seller__link" href="#">Стать продавцом</a>
             </div>
         </div>
         <Footer />
@@ -59,6 +60,23 @@ export default {
 </script>
 
 <style scoped>
+    input[type="checkbox"]{
+        position: relative;
+    }
+    input[type="checkbox"]:checked::after{
+        content: "\2713";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        position: absolute;
+        color: #fff;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #131E3D;
+    }
     .seller .header{
         background: url("../assets/image/image 37.png") no-repeat;
         background-position: cover;
@@ -79,16 +97,22 @@ export default {
     .seller .header h1{
         font-size: 52px;
         line-height: 64px;
-        color: #FFF;
+        color: #131E3D;
     }
     .seller .header p{
-        color: #FFF;
+        color: #131E3D;
         font-size: 20px;
         width: 50%;
         font-weight: 100;
     }
-    .seller .header a{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
+    .seller__title{
+        font-size: 42px;
+        color: #131E3D;
+        text-align: center;
+    }
+    .seller__link{
+        margin: 1rem auto 2rem auto;
+        background: #131E3D;
         border-radius: 8px;
         font-size: 17px;
         color: #FFF;
@@ -98,9 +122,10 @@ export default {
         align-items: center;
         justify-content: center;
         transition: 0.3s linear;
+        cursor: pointer;
     }
-    .seller .header a:hover{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #2267C7 86.59%, #377AF9  99.79%);
+    .seller__link:hover{
+        background: #11113D;
     }
     .aside{
         display: flex;
@@ -139,7 +164,7 @@ export default {
         padding-bottom: 5rem;
     }
     .last a{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
+        background: #131E3D;
         border-radius: 8px;
         font-size: 17px;
         color: #FFF;
@@ -152,10 +177,17 @@ export default {
         transition: 0.2s linear;
     }
     .last a:hover{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #2267C7 86.59%, #377AF9  99.79%);
+        background: #11113D;
     }
 
     @media (min-width: 769px) and (max-width: 1025px){
+        .aside{
+            justify-content: space-around;
+        }
+        .aside .aside__box{
+            width: 48%;
+            margin-bottom: 1rem;
+        }
         .seller .header{
             background-size: auto !important;
         }
@@ -187,8 +219,12 @@ export default {
             padding-top: 0;
             margin: auto 0;
         }
+        .aside{
+            justify-content: space-around;
+        }
         .aside .aside__box{
-            width: 32.5%;
+            width: 48%;
+            margin-bottom: 1rem;
         }
         .aside .aside__box .aside__text .text__title{
             font-size: 18px;
@@ -199,6 +235,17 @@ export default {
         .last h1{
             font-size: 36px;
             line-height: 40px;
+        }
+    }
+
+    @media (max-width: 600px){
+        .seller__title{
+            font-size: 24px;
+        }
+        .seller__link{
+            width: 185px;
+            height: 40px;
+            font-size: 14px;
         }
     }
 

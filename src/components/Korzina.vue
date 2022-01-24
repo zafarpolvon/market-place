@@ -1,25 +1,22 @@
 <template>
     <div class="basket__item">
         <div class="basket__left">
+            <input id="check__input" type="checkbox" />
             <div class="basket__image">
                 <img src="../assets/image/outdoors-3176153_1920 1 (1).png" alt="">
             </div>
             <div class="basket__box">
-                <h4>POLO  рубашка</h4>
-                <h5>Цвет: <span class="basket__gray">Белый</span></h5>
-                <h5>Размер: <span class="basket__gray">XXL - 44</span></h5>
-                <h5>Склад отгрузки:  <span class="basket__gray">склад Logoname</span></h5>
-                <h5>ИП Иван Дияров</h5>
+                <h4 class="mb-4">POLO  рубашка</h4>
+                <h5 class="mb-4">Цвет: <span class="basket__gray">Белый</span></h5>
+                <h5 class="mb-4">Размер: <span class="basket__gray">XXL - 44</span></h5>
             </div>
+        </div>
+        <div class="basket__price">
+            <h3>500 ₽</h3>
         </div>
         <div class="basket__count">
             <Counter />
             <h5>Осталось 2 шт</h5>
-        </div>
-        <div class="basket__price">
-            <h3>500 ₽</h3>
-            <h4>2000 рубл</h4>
-            <p>кредит от 50 ₽/мес</p>
         </div>
     </div>
 </template>
@@ -42,6 +39,26 @@ export default {
         width: 150px;
         height: 150px;
         display: flex;
+        align-items: center;
+    }
+    #check__input{
+        width: 18px;
+        height: 18px;
+        position: relative;
+    }
+    #check__input:checked::after{
+        content: "\2713";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        position: absolute;
+        color: #fff;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #131E3D;
     }
     .basket__item {
         display: flex;
@@ -58,7 +75,6 @@ export default {
         margin-left: 20px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
     }
     .basket__box h4 {
         font-size: 18px;
@@ -79,20 +95,28 @@ export default {
         line-height: 100%;
         color: #898989;
     }
+    .basket__count{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
     .basket__count h5 {
         margin-top: 15px;
         font-size: 14px;
         line-height: 100%;
-        color: #0052FF;
+        color: #404040;
     }
     .basket__price h3 {
-        font-weight: bold;
-        font-size: 40px;
+        font-size: 22px;
         line-height: 100%;
-        color: #0052FF;
+        color: #404040;
     }
     .basket__price {
         text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .basket__price h4 {
         font-weight: 500;
@@ -107,6 +131,14 @@ export default {
         color: #898989;
     }
 
+    @media (min-width: 416px){
+        #check__input{
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-right: 10px;
+        }
+    }
+
     @media (min-width: 600px) and (max-width: 769px){
         .basket__item{
             flex-direction: column;
@@ -115,11 +147,12 @@ export default {
             text-align: left;
             position: absolute;
             right: 15px;
-            bottom: 23px;
+            bottom: 45px;
         }
         .basket__count{
             margin: 1rem 0;
-            width: 70%;
+            align-items: flex-start;
+            justify-content: unset;
         }
         .basket__gray {
             font-size: 14px;
@@ -134,11 +167,12 @@ export default {
             text-align: left;
             position: absolute;
             right: 15px;
-            bottom: 23px;
+            bottom: 45px;
         }
         .basket__count{
             margin: 1rem 0;
-            width: 70%;
+            justify-content: unset;
+            align-items: unset;
         }
         .basket__image{
             width: 130px;
@@ -153,6 +187,9 @@ export default {
     }
 
     @media (max-width: 415px){
+        #check__input{
+            margin: 0 auto 10px auto;
+        }
         .basket__item{
             flex-direction: column;
         }
@@ -176,11 +213,6 @@ export default {
         }
         .basket__count{
             margin: 1rem 0;
-        }
-        .basket__price{
-            position: absolute;
-            bottom: 28px;
-            right: 15px;
         }
         .basket__price h3{
             font-size: 24px;

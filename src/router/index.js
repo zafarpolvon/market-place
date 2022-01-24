@@ -21,6 +21,8 @@ import Selected from '../views/Selected.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import GetCode from '../views/GetCode.vue'
+import SellerAdres from '../views/SellerAdres.vue'
+import RatingCart from '../views/RatingCart.vue'
 import store from '../store/index'
 
 Vue.use(VueRouter)
@@ -73,6 +75,11 @@ const routes = [
     name: 'Cabinet',
     component: Cabinet,
     // meta: { layout: 'Cabinet', auth: true }
+  },
+  {
+    path: '/ratingcart',
+    name: 'RatingCart',
+    component: RatingCart,
   },
   {
     path: '/contacts',
@@ -129,6 +136,11 @@ const routes = [
     meta: { layout: 'ReturnProduct', auth: false }
   },
   {
+    path: '/selleradres',
+    name: 'SellerAdres',
+    component: SellerAdres
+  },
+  {
     path: '/selected',
     name: 'Selected',
     component: Selected,
@@ -149,7 +161,7 @@ const routes = [
     name: 'GetCode',
     component: GetCode,
     meta: { layout: 'GetCode', auth: false }
-  }
+  },
 ]
 
 const router = new VueRouter({

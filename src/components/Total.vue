@@ -30,14 +30,23 @@
             <button class="total__button">Заказать</button>
         </div>
         <div class="total__agree">
-            <h5>Согласен с условиями Правил пользования торговой площадкой и правилами возврата</h5>
+            <div class="basket__spec">
+                <a href="#" @click="address()">Правил пользования торговой площадкой и правилами возврата</a>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-
+    methods: {
+    show () {
+      this.$modal.show('Modal-Delivery')
+    },
+    address () {
+      this.$modal.show('Modal-Address')
+    }
+  },
 }
 </script>
 
@@ -58,7 +67,7 @@ export default {
         font-weight: bold;
         font-size: 40px;
         line-height: 100%;
-        color: #0052FF;
+        color: #131E3D;
     }
     .total__left {
         font-weight: normal;
@@ -77,7 +86,7 @@ export default {
         font-size: 14px;
         line-height: 100%;
         text-align: right;
-        color: #0052FF;
+        color: #131E3D;
         margin-left: 10px;
     }
     .total__button {
@@ -87,14 +96,14 @@ export default {
         text-align: center;
         color: #FCF6F6;
         width: 100%;
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #384F81 -2.67%, #49679F 56.03%, #729EDB 99.79%);
+        background: #131E3D;
         box-sizing: border-box;
         box-shadow: 0px 2.32px 11.6px rgba(0, 0, 0, 0.25);
         border-radius: 5.8px;
         padding: 10px 0;
     }
     .total__button:hover{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #49679F -2.67%, #384F81 56.03%, #729EDB 99.79%);
+        background: #11113D;
     }
     .total__agree h5 {
         font-weight: normal;

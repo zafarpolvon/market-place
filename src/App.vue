@@ -33,6 +33,7 @@ export default {
     }
     #app {
         font-family: 'Montserrat', sans-serif;
+        overflow: hidden;
     }
     body::-webkit-scrollbar-track{
         -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -43,7 +44,7 @@ export default {
         background-color: #F5F5F5;
     }
     body::-webkit-scrollbar-thumb{
-        background-image: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
+        background: #131E3D !important;
     }
     #app {
         font-family: Montserrat;

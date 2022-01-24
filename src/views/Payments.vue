@@ -98,17 +98,34 @@ export default {
     .pages a:hover{
       color: #023999;
     }
+    input[type="checkbox"]{
+        position: relative;
+    }
+    input[type="checkbox"]:checked::after{
+        content: "\2713";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        position: absolute;
+        color: #fff;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #131E3D;
+    }
     .payment__title{
         font-size: 42px;
-        color: #023047;
+        color: #131E3D;
         margin-bottom: 2rem;
     }
     table{
         border-radius: 8px;
     }
     table tr th{
-        background: rgba(0, 82, 255, 0.15);
-        color: #023047;
+        background: rgba(238, 73, 39, 0.2);
+        color: #131E3D;
         font-size: 20px;
         padding: 1.5rem 0;
         font-weight: 500;

@@ -12,7 +12,7 @@ export default {
     .brand__name {
         font-size: 48px;
         line-height: 56px;
-        color: #023047;
+        color: #131E3D;
         margin-bottom: 20px;
     }
 </style>

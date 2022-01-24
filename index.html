@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>BIR MAKON</title>
+</head>
+<body>
+    <div class="back">
+        <div class="navbar__back">
+            <div class="container mx-auto px-4 xl:px-12 md:px-12">
+                <div class="flex justify-between py-2 relative">
+                    <div class="flex navbar__text ">
+                        <a href="#" class="flex">
+                            <img src="../../assets/svg/location.svg" alt="">
+                            <span class="">Москва</span>
+                        </a>
+                    </div>
+                    <div class="flex navbar__text">
+                        <a href="#">
+                            Продавайте на NovaMarkt
+                        </a>
+                        <a class="ml-4 navbar__category" href="#">Ру</a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-7 gap-4 mt-0 xl:mt-3 md:mt-3">
+                    <div class="col-span-2 flex navbar__category">
+                        <div class="navbar__logo">
+                            <a href="/"><img class="navbar__logo" src="../../assets/image/logo.png" alt=""></a>
+                        </div>
+                        <div class="category__button ml-10">
+                            <button @click="categoryToggle" class="items-center">
+                                <img v-if="!category" class="" src="../../assets/svg/menu.svg" alt="">
+                                <i v-else class="fas fa-times"></i>
+                                <span class="px-2">Категории</span>
+                                <img class="" src="../../assets/svg/dropdown.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-span-3">
+                        <div class="relative search__input">
+                            <input @click="closeCategory" type="search" v-model="searchweb" class="py-2 w-full text-sm text-white rounded-md pl-4 pr-12 text-gray-900" placeholder="Я ищу" autocomplete="off">
+                            <transition name="fade">
+                                <search-web v-if="searchweb.length > 2" />
+                            </transition>
+                            <span class="absolute inset-y-0 right-0 flex items-center pr-2">
+                                <button type="submit" class="p-1 focus:shadow-outline">
+                                    <img src="../../assets/svg/search.svg" alt="">
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-span-2">
+                        <div class="flex navbar__icons">
+                            <router-link to="/delivery" tag="a" class="flex flex-col justify-between">
+                                <img class="h-6 flex flex-row items-center" src="../../assets/svg/delivery.svg" alt="">
+                                <span>Доставка</span>
+                            </router-link>
+                            <router-link to="/selected" tag="a" class="flex flex-col justify-between">
+                                <span v-if="product > 0" class="count__navbar1">{{ product }}</span>
+                                <span v-else class="count__navbar1">0</span>
+                                <img class="h-5 flex flex-row items-center" src="../../assets/svg/saved.svg" alt="">
+                                <span>Избранные</span>
+                            </router-link>
+                            <router-link tag="a" to="/basket" class="flex flex-col justify-between">
+                                <span class="count__navbar2">2</span>
+                                <img class="h-7 flex flex-row items-center" src="../../assets/svg/cart.svg" alt="">
+                                <span>Корзина</span>
+                            </router-link>
+                            <router-link @click.native="$router.go()" tag="a" to="/info"  class="flex flex-col justify-between navbar__category">
+                                <li class="flex flex-col justify-between navbar__category" @mouseover="listOne = true" @mouseleave="listOne = false">
+                                    <img class="h-5 flex flex-row items-center" src="../../assets/svg/user.svg" alt="">
+                                    <span class="margin__hover">Войти</span>
+                                    <transition name="fade">
+                                        <div v-if="listOne" @mouseleave="listOne = false" @click="listOne = false" class="profile__dropdown">
+                                            <a  href="#" class="profile__header">
+                                                <div class="profile__image">
+                                                    <img src="../../assets/image/carbon_user-avatar-filled-alt.png" alt="">
+                                                </div>
+                                                <div class="profile__title">
+                                                    <h5>{{ getUser.name || 'Нету данных' }}</h5>
+                                                </div>
+                                            </a>
+                                            <div class="profile__bottom">
+                                                <ul class="profile__ul">
+                                                    <li class="profile__item">
+                                                        <router-link to="/basket" tag="a" >
+                                                            <i class="fas fa-chevron-right"></i>
+                                                            Мои заказы
+                                                        </router-link>
+                                                    </li>
+                                                    <li class="profile__item">
+                                                        <router-link tag="a" to="/payments">
+                                                            <i class="fas fa-chevron-right"></i>
+                                                            Мои платежи
+                                                        </router-link>
+                                                    </li>
+                                                    <li class="profile__item">
+                                                        <router-link tag="a" to="/message">
+                                                            <i class="fas fa-chevron-right"></i>
+                                                            Мои сообщения
+                                                        </router-link>
+                                                    </li>
+                                                    <li class="profile__item">
+                                                        <router-link tag="a" to="/selected">
+                                                            <i class="fas fa-chevron-right"></i>
+                                                            Избранные товара
+                                                        </router-link>
+                                                    </li>
+                                                    <li class="profile__item">
+                                                        <router-link tag="a" to="/info">
+                                                            <i class="fas fa-chevron-right"></i>
+                                                            Мои данные
+                                                        </router-link>
+                                                    </li>
+                                                    <li class="profile__item">
+                                                        <a @click="logout" href="#">
+                                                            <i class="fas fa-chevron-right"></i>
+                                                            Выйти
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </transition>
+                                </li>
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu__mobile">
+                    <div class="menu__logo">
+                        <a href="/"><img class="h-8 my-3" src="../../assets/image/logo.png" alt=""></a>
+                    </div>
+                    <div class="navbar__menu">
+                        <router-link tag="a" to="/basket">
+                            <svg width="28px" height="28px" fill="#111" viewBox="0 0 24 24">
+                                <path d="M16 7a1 1 0 0 1-1-1V3H9v3a1 1 0 0 1-2 0V3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3a1 1 0 0 1-1 1z"></path>
+                                <path d="M20 5H4a2 2 0 0 0-2 2v13a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a2 2 0 0 0-2-2zm0 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7h16z"></path>
+                            </svg>
+                        </router-link>
+                        <svg @click="showSearch" class="pre-search-input-icon" fill="#111" height="30px" width="30px" viewBox="0 0 24 24">
+                            <path d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.39zM11 18a7 7 0 1 1 7-7 7 7 0 0 1-7 7z"></path>
+                        </svg>
+                        <svg @click="showMenu" width="32" height="24" viewBox="0 0 32 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 2H30" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12H30" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 22H30" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <modal :top="0" :width="'100%'" :height="'100%'" name="Modal-Menu" class="search__box">
+                <li>lorem</li>
+            </modal>
+            <Search />
+            <Category v-show="category" />
+        </div>
+        <Slide />
+        <Magazin />
+        <div class="container mx-auto mt-8 px-4 xl:px-12 md:px-4">
+            <Title />
+            <div class="grid grid-cols-5 gap-3" >
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+            </div>
+            <div class="flex justify-center my-6">
+                <button class="show__all">Показать еще</button>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 xl:px-12 md:px-4 mt-12 banner">
+            <div class="grid grid-cols-4 gap-4">
+                <a href="#" class="col-span-2">
+                    <img class="w-full h-64" src="../assets/image/image 25.png" alt="">
+                </a>
+                <a href="#" class="col-span-1">
+                    <img class="w-full h-64" src="../assets/image/image 26.png" alt="">
+                </a>
+                <a href="#" class="col-span-1">
+                    <img class="w-full h-64" src="../assets/image/image 27.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="container mx-auto mt-12 px-4 xl:px-12 md:px-4">
+            <div class="grid grid-cols-5 gap-3">
+                <div v-for="cart in tovar" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+            </div>
+            <div class="flex justify-center my-6">
+                <button class="show__all">Показать еще</button>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 xl:px-12 md:px-4">
+            <div class="news__title">Новости</div>
+        </div>
+        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+            <div class="news__boxes">
+                <div class="box">
+                    <img src="../assets/image/image 5 (4).png" alt="not found">
+                    <div class="box__text">
+                        <div class="box__title">В AliExpress представили портрет типичного покупателя в регионах</div>
+                        <p>Петербуржцы закупаются пляжными сабо, омички — теплыми тапочками, а в Нижнем Новгороде заказывают жилеты с подогревом.</p>
+                        <div class="n__date">
+                            <router-link tag="a" to="/news">Подробно</router-link>
+                            <span>24.04.2021</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="../assets/image/image 5 (4).png" alt="not found">
+                    <div class="box__text">
+                        <div class="box__title">В AliExpress представили портрет типичного покупателя в регионах</div>
+                        <p>Петербуржцы закупаются пляжными сабо, омички — теплыми тапочками, а в Нижнем Новгороде заказывают жилеты с подогревом.</p>
+                        <div class="n__date">
+                            <router-link tag="a" to="/news">Подробно</router-link>
+                            <span>24.04.2021</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="../assets/image/image 5 (4).png" alt="not found">
+                    <div class="box__text">
+                        <div class="box__title">В AliExpress представили портрет типичного покупателя в регионах</div>
+                        <p>Петербуржцы закупаются пляжными сабо, омички — теплыми тапочками, а в Нижнем Новгороде заказывают жилеты с подогревом.</p>
+                        <div class="n__date">
+                            <router-link tag="a" to="/news">Подробно</router-link>
+                            <span>24.04.2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 xl:px-12 md:px-4 mb-12">
+            <div class="recently-products">
+                <div class="recently__title">Вы недавно смотрели</div>
+                <div class="grid grid-cols-5 gap-3" >
+                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
+                        <Cart :cart="cart" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <Footer />
+    </div>
+</body>
+</html>

@@ -28,8 +28,8 @@ export default {
         align-items: center;
     }
     .product__order .product__increment{
-        background: #EDE9E9;
-        color: #000;
+        background: #EE4927 !important;
+        color: #fff !important;
         cursor: pointer;
         font-size: 28px;
         font-weight: bold;
@@ -37,7 +37,7 @@ export default {
         border-radius: 0 !important;
     }
     .product__order .product__decrement{
-        background: linear-gradient(92.98deg, rgba(190, 217, 255, 0) 0.15%, #729EDB 0.15%, #274784 100.17%) !important;
+        background: #131E3D !important;
         color: #FFF;
         cursor: pointer;
         font-size: 28px;

@@ -1,6 +1,7 @@
 <template>
     <div class="back">
         <Navbar />
+        <MainMenu />
         <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
             <a href="#">Главная страница / </a>
             <a href="#"> FAQ</a>
@@ -66,6 +67,7 @@
 <script>
 import Navbar from '../components/layout/Navbar.vue'
 import Footer from '../components/layout/Footer.vue'
+import MainMenu from '../components/layout/MainMenu.vue'
 
 export default {
   name: 'Home',
@@ -77,7 +79,8 @@ export default {
   },
   components: {
     Navbar,
-    Footer
+    Footer,
+    MainMenu
   }
 }
 </script>
@@ -90,6 +93,23 @@ export default {
     }
     .pages a:hover{
         color: #023999;
+    }
+    input[type="checkbox"]{
+        position: relative;
+    }
+    input[type="checkbox"]:checked::after{
+        content: "\2713";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        position: absolute;
+        color: #fff;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #131E3D;
     }
     .questions__title{
         font-size: 42px;
@@ -118,7 +138,7 @@ export default {
         padding-left: 1rem;
     }
     .questions__box .box .questions__text .text2:hover{
-        color: #023999;
+        color: #131E3D;
     }
     .questions__box .box .questions__text .text2 i{
         height: 50px;
@@ -126,7 +146,7 @@ export default {
         border-radius: 50%;
         margin-right: 1.5rem;
         color: #FFF;
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #384F81 -2.67%, #49679F 56.03%, #729EDB 99.79%);
+        background: #131E3D;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -151,7 +171,7 @@ export default {
     }
     .c__box{
         filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.15));
-        background: rgba(0, 82, 255, 0.2);
+        background: rgba(238, 73, 39, 0.3);
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -177,14 +197,14 @@ export default {
         border-radius: 8px;
     }
     .c__box button{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
+        background: #EE4927;
         border-radius: 8px;
         color: #FFF;
         padding: 15px 30px;
         margin: 0 auto;
     }
     .c__box button:hover{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #2267C7 86.59%, #377AF9 99.79%);
+        background: #EE3111;
     }
 
     @media only screen and (min-width: 769px) and (max-width: 1025px){

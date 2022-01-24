@@ -8,6 +8,7 @@
                 <router-link tag="a" class="logo__svg" to="/message"><i class="far fa-comment-alt"></i><span>Мои сообщения</span></router-link>
                 <router-link tag="a" class="logo__svg" to="/payments"><i class="fas fa-credit-card"></i><span>Мои платежи</span></router-link>
                 <router-link tag="a" class="logo__svg" to="/cabinet"><i class="far fa-user"></i><span>Мои данные</span></router-link>
+                <router-link tag="a" class="logo__svg" to="/cabinet"><i class="fa fa-map-marker-alt"></i><span>Мои адреса</span></router-link>
             </ul>
         </div>
     </div>
@@ -32,16 +33,16 @@ export default {
         min-width: max-content;
     }
     .info__menu ul a{
-        color: #023047;
+        color: #959595;
         display: flex;
         align-items: center;
         margin: 0 20px;
     }
     .info__menu ul a.router-link-exact-active {
-        color: #0052FF;
+        color: #131E3D;
     }
     .active{
-        color: #0052FF;
+        color: #131E3D;
     }
     .info__menu ul a img{
         margin-right: 1rem;

@@ -33,7 +33,7 @@
                     </div>
                     <div class="brand__images">
                         <a href="#" class="brand__one">
-                            <img src="../assets/image/Mask Group.png" alt="">
+                            <img src="../assets/image/washer1 1.png" alt="">
                         </a>
                         <div href="#" class="flex flex-col justify-between brand__second">
                             <a href="#"><img src="../assets/image/microwave-wattage-what-to-look-for-before-buying-1554472332 1.png" alt="img"></a>
@@ -98,7 +98,7 @@ export default {
     .brand__name {
         font-size: 48px;
         line-height: 56px;
-        color: #023047;
+        color: #131E3D;
         margin-left: 25px;
         margin-bottom: 20px;
     }

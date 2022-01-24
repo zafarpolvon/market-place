@@ -1,7 +1,8 @@
 <template>
     <div class="back">
         <Navbar />
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <MainMenu />
+        <!-- <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="order-menu">
                 <ul>
                     <a href="#">Как сделать заказ</a>
@@ -13,7 +14,7 @@
                     <a href="#">Вопросы и ответы</a>
                 </ul>
             </div>
-        </div>
+        </div> -->
         <div class="border-bottom">
             <div class="container mx-auto px-4 xl:px-12 md:px-12 r-product">
                 <div class="r-product__title">Правила возврата товаров</div>
@@ -56,6 +57,7 @@
 <script>
 import Navbar from '../components/layout/Navbar.vue'
 import Footer from '../components/layout/Footer.vue'
+import MainMenu from '../components/layout/MainMenu.vue'
 
 export default {
   name: 'Home',
@@ -67,12 +69,30 @@ export default {
   },
   components: {
     Navbar,
-    Footer
+    Footer,
+    MainMenu
   }
 }
 </script>
 
 <style scoped>
+input[type="checkbox"]{
+        position: relative;
+    }
+    input[type="checkbox"]:checked::after{
+        content: "\2713";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        position: absolute;
+        color: #fff;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #131E3D;
+    }
     .order-menu{
         padding: 1.5rem 0;
         margin-bottom: 1.5rem;
@@ -127,23 +147,23 @@ export default {
         align-items: center;
         width: 100%;
         padding: 0px 1rem 0px 1.5rem;
-        background: rgba(0, 82, 255, 0.15);
+        background: #EE4927;
         border-radius: 8px;
         margin: 2rem 0 1rem 0;
     }
     .r-product .warning span{
         border-radius: 50%;
-        background: #0052FF;
+        background: #FFF;
         width: 35px;
         height: 35px;
-        color: #FFF;
+        color: #EE4927;
         display: flex;
         align-items: center;
         justify-content: center;
         margin-right: 1rem;
     }
     .r-product .warning p{
-        color: #000;
+        color: #FFF;
         font-weight: bold;
     }
     .r-product__footer{

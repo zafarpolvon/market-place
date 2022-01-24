@@ -91,7 +91,7 @@ export default {
         flex-direction: row;
         justify-content: center;
         font-size: 12px;
-        color: #0052FF;
+        color: #131E3D;
     }
     .debit__bottom {
         margin-top: 25px;
@@ -120,12 +120,16 @@ export default {
         justify-content: flex-end;
     }
     .debit__footer a {
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
+        background: #131E3D;
         border-radius: 8px;
         color: #ffffff;
         font-size: 16px;
         padding: 8px 12px;
         margin-top: 20px;
+        cursor: pointer;
+    }
+    .debit__footer a:hover{
+        background: #11113D;
     }
     @media (min-width: 320px) and (max-width: 600px) {
         .header__title h4 {

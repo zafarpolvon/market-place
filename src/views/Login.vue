@@ -6,15 +6,15 @@
                     <div class="mt-4">
                         <label class="block">Номер</label>
                         <input v-model="phone" type="text" placeholder="Ваш номер"
-                            class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+                            class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none">
                     </div>
                     <div class="mt-4">
                         <label class="block">Пароль</label>
                         <input v-model="password" type="text" placeholder="Ваш пароль"
-                            class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+                            class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none">
                     </div>
                     <div class="flex items-baseline justify-between">
-                        <button type="submit" class="px-6 py-2 w-full mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Авторизоваться</button>
+                        <button type="submit" class="px-6 py-2 w-full mt-4 text-white">Авторизоваться</button>
                     </div>
                     <div class="flex justify-between mt-2">
                         <a to="" class="forget">Забыли пароль?</a>
@@ -47,7 +47,7 @@ export default {
 </script>
 <style scoped>
 button{
-    background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
+    background: #131E3D;
     border: 1px solid #B9D5FD;
     box-shadow: 0px 2.32px 11.6px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
@@ -61,7 +61,7 @@ button:hover{
 }
 .forget{
     text-decoration: underline;
-    color: #0052FF;
+    color: #131E3D;
     font-size: 14px;
     cursor: pointer;
 }

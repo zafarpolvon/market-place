@@ -87,8 +87,8 @@ export default {
         font-size: 26px;
     }
     .active {
-        border: 1px solid #5E8CE2;
-        color: #0052FF;
+        border: 1px solid #131E3D;
+        color: #131E3D;
     }
     @media (min-width: 200px) and (max-width: 600px){
         .address__button {

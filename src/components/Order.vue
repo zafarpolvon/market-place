@@ -20,7 +20,7 @@ export default {
 <style scoped>
     table tr td{
         text-align: center;
-        color: #005964;
+        color: #131E3D;
         font-size: 19px;
         font-weight: normal;
         border-bottom: 1px solid #D9D9D9;

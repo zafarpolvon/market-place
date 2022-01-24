@@ -1,6 +1,7 @@
 <template>
     <div class="back" style="height: 6000px">
         <Navbar />
+        <MainMenu />
         <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
             <a href="#">Главная страница / </a>
             <a href="#">Мужчинам / </a>
@@ -182,6 +183,7 @@ import Navbar from '../components/layout/Navbar.vue'
 import Cart from '../components/Cart.vue'
 import PriceRange from '../components/PriceRange.vue'
 import _ from 'lodash'
+import MainMenu from '../components/layout/MainMenu.vue'
 
 export default {
   name: 'Home',
@@ -233,7 +235,8 @@ export default {
   components: {
     Navbar,
     Cart,
-    PriceRange
+    PriceRange,
+    MainMenu
   }
 }
 </script>,
@@ -245,6 +248,47 @@ export default {
     }
     .pages a:hover{
         color: #023999;
+    }
+    input[type=radio]:before {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        border: 1px solid gray;
+        background: #fff;
+        content: "";
+    }
+    input[type=radio]:checked:before{
+        border: 1px solid #EE4927;
+    }
+    input[type=radio]:checked:after {
+        position: relative;
+        top: -2px;
+        left: 4px;
+        display: inline-block;
+        visibility: visible;
+        border-radius: 6px;
+        width: 12px;
+        height: 12px;
+        background: #EE4927;
+        content: "";
+    }
+    input[type="checkbox"]{
+        position: relative;
+    }
+    input[type="checkbox"]:checked::after{
+        content: "\2713";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        position: absolute;
+        color: #fff;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #131E3D;
     }
     .filter__title{
         font-size: 42px;
@@ -482,7 +526,7 @@ export default {
         height: 18px;
     }
     .filter .sidebar__filter .filter{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
+        background: #131E3D;
         border-radius: 5px;
         color: #FFF;
         width: 160px;
@@ -494,10 +538,10 @@ export default {
         cursor: pointer;
     }
     .filter .sidebar__filter .filter:hover{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #2267C7 86.59%, #377AF9 99.79%);
+        background: #11113D;
     }
     .filter .sidebar__filter .reset{
-        background: #FF1B1B;
+        background: rgba(238, 73, 39, 0.6);
         border-radius: 5px;
         color: #FFF;
         width: 160px;
@@ -509,7 +553,7 @@ export default {
         cursor: pointer;
     }
     .filter .sidebar__filter .reset:hover{
-        background: #FF0000;
+        background: rgba(238, 73, 39, 1);
     }
     .filter .all__products{
         width: 80%;

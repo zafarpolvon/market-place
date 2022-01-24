@@ -25,7 +25,7 @@ export default {
         margin-top: 10px;
     }
     button i {
-        color: #FC7D00;
+        color: #EE4927;
         font-size: 25px;
     }
     @media (min-width: 200px) and (max-width: 600px){

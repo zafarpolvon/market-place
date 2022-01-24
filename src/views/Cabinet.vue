@@ -12,7 +12,7 @@
                     </div>
                     <div class="user__name">{{ getUser.name }}</div>
                     <input v-show="inputName" class="input__name" type="text" v-model="getUser.name">
-                    <img v-show="!inputName" class="cursor-pointer" @click="showInfoName" src="../assets/image/Vector (19).png" alt="not found">
+                    <img v-show="!inputName" class="cursor-pointer" @click="showInfoName" src="../assets/image/Vector (31).png" alt="not found">
                     <button v-show="inputName" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputName = false">Отмена</button>
                     <button v-show="inputName" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
                 </div>
@@ -22,7 +22,7 @@
                     <div class="change">
                         <p>{{ getUser.email || 'Нет email'}}</p>
                         <input placeholder="Нет ничего" v-show="inputEmail" class="input__name" type="text" v-model="getUser.email">
-                        <img v-show="!inputEmail" @click="showInfoEmail" src="../assets/image/Vector (19).png" alt="not found">
+                        <img v-show="!inputEmail" @click="showInfoEmail" src="../assets/image/Vector (31).png" alt="not found">
                         <button v-show="inputEmail" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputEmail = false">Отмена</button>
                         <button v-show="inputEmail" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
                     </div>
@@ -32,7 +32,7 @@
                     <div class="change">
                         <p>{{ getUser.phone || 'Test' }}</p>
                         <input v-show="inputPhone" class="input__name" type="text" v-model="getUser.email">
-                        <img v-show="!inputPhone" @click="showInfoPhone" src="../assets/image/Vector (19).png" alt="not found">
+                        <img v-show="!inputPhone" @click="showInfoPhone" src="../assets/image/Vector (31).png" alt="not found">
                         <button v-show="inputPhone" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputPhone = false">Отмена</button>
                         <button v-show="inputPhone" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
                     </div>
@@ -41,7 +41,7 @@
                     <div class="title">Дата рождения</div>
                     <div class="change">
                         <p>{{ 'Не указано' }}</p>
-                        <img src="../assets/image/Vector (19).png" alt="not found">
+                        <img src="../assets/image/Vector (31).png" alt="not found">
                         <button v-show="inputBirth" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputBirth = false">Отмена</button>
                         <button v-show="inputBirth" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
                     </div>
@@ -55,24 +55,79 @@
                         <span>Жен.</span>
                     </div>
                 </div>
+                <div class="info__user">
+                    <div class="title">Наименование организации / ЯТТ</div>
+                    <div class="change">
+                        <p>Itmaker</p>
+                        <img src="../assets/image/Vector (31).png" alt="not found">
+                    </div>
+                </div>
+                <div class="info__user">
+                    <div class="title">Расчетный счет</div>
+                    <div class="change">
+                        <p>274528284</p>
+                        <img src="../assets/image/Vector (31).png" alt="not found">
+                    </div>
+                </div>
+                <div class="info__user">
+                    <div class="title">Наименование банка</div>
+                    <div class="change">
+                        <p>Ипотека банк</p>
+                        <img src="../assets/image/Vector (31).png" alt="not found">
+                    </div>
+                </div>
+                <div class="info__user">
+                    <div class="title">МФО</div>
+                    <div class="change">
+                        <p>11122000</p>
+                    </div>
+                </div>
+                <div class="info__user">
+                    <div class="title">ИНН</div>
+                    <div class="change">
+                        <p>274528284</p>
+                        <img src="../assets/image/Vector (31).png" alt="not found">
+                    </div>
+                </div>
+                <div class="info__user">
+                    <div class="title">ОКЭД</div>
+                    <div class="change">
+                        <p>274528284</p>
+                        <img src="../assets/image/Vector (31).png" alt="not found">
+                    </div>
+                </div>
+                <div class="info__user">
+                    <div class="title">Юридический адрес</div>
+                    <div class="change">
+                        <p>Махмуда тараби 23</p>
+                        <img src="../assets/image/Vector (31).png" alt="not found">
+                    </div>
+                </div>
+                <div class="info__user">
+                    <div class="title">ФИО руководителя</div>
+                    <div class="change">
+                        <p>mironshohnasimov</p>
+                        <img src="../assets/image/Vector (31).png" alt="not found">
+                    </div>
+                </div>
                 </div>
             </div>
             <div class="user__boxes2">
                 <div class="box">
-                    <div class="title">Банковские карты</div>
+                    <div class="title">Добавить карту</div>
                     <div class="add__cart">
                         <i class="fa fa-plus"></i>
                         <p>Добавить карту</p>
                     </div>
                 </div>
                 <div class="box">
-                    <div class="title">Адреса клиента</div>
+                    <div class="title">Адреса</div>
                     <div class="gps__text">
                         <img src="../assets/image/Vector (15).png" alt="not found">
-                        Москва
+                        Samarqand
                     </div>
                 </div>
-                <div class="box">
+                <!-- <div class="box">
                     <div class="title">Удаление личново кабинета</div>
                     <p>Как только Ваш личный кабинет будет удален</p>
                     <a href="#">Удаление личново кабинета</a>
@@ -80,7 +135,7 @@
                 <div class="box">
                     <div class="title">Восстановления пароля</div>
                     <a href="#">Данные для восстановления пароля и sms</a>
-                </div>
+                </div> -->
             </div>
         </div>
         <Footer />
@@ -125,9 +180,49 @@ export default {
 </script>
 
 <style scoped>
+    input[type=radio]:before {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        border: 1px solid gray;
+        background: #fff;
+        content: "";
+    }
+    input[type=radio]:checked:before{
+        border: 1px solid #EE4927;
+    }
+    input[type=radio]:checked:after {
+        position: relative;
+        top: -2px;
+        left: 4px;
+        display: inline-block;
+        visibility: visible;
+        border-radius: 6px;
+        width: 12px;
+        height: 12px;
+        background: #EE4927;
+        content: "";
+    }
+    input[type="checkbox"]{
+        position: relative;
+    }
+    input[type="checkbox"]:checked::after{
+        content: "\2713";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        position: absolute;
+        color: #fff;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #131E3D;
+    }
     .user__cabinet{
         width: 100%;
-        height: 260px;
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
         border-radius: 8px;
         padding: 2.5rem;
@@ -174,18 +269,20 @@ export default {
     }
     .user__cabinet .info__box{
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-        padding-right: 3rem;
     }
     .user__cabinet .info__user{
+        width: 25%;
+        margin-bottom: 2rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
     .user__cabinet .info__user .title{
         color: #898989 !important;
-        font-size: 19px;
+        font-size: 16px;
         padding-bottom: 0.5rem;
     }
     .user__cabinet .info__user .change{
@@ -236,7 +333,7 @@ export default {
         border-radius: 8px;
         align-items: center;
         justify-content: center;
-        border: 2px solid #0052FF;
+        border: 2px solid #EE4927;
         width: 260px;
         height: 130px;
         transition: 0.3s linear;
@@ -251,14 +348,14 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid #0052FF;
-        color: #0052FF;
+        border: 1px solid #EE4927;
+        color: #EE4927;
         font-size: 22px;
         box-sizing: border-box;
         margin-bottom: 1rem;
     }
     .user__boxes2 .box .add__cart p{
-        color: #0052FF;
+        color: #EE4927;
     }
     .user__boxes2 .box:nth-child(2) .gps__text{
         display: flex;
@@ -278,6 +375,12 @@ export default {
     }
     .user__boxes2 .box:nth-child(3) a:hover, .user__boxes2 .box:nth-child(4) a:hover{
         text-decoration: underline;
+    }
+
+    @media (min-width: 769px) and (max-width: 1200px){
+        .user__cabinet .info__user{
+            width: 48%;
+        }
     }
 
     @media (min-width: 769px) and (max-width: 1025px){
@@ -329,15 +432,6 @@ export default {
         }
         .user__boxes2 .box:nth-child(3) p{
             margin-bottom: 0.4rem;
-        }
-        .user__cabinet .info__user:first-child, .user__cabinet .info__user:nth-child(3){
-            width: 60%;
-        }
-        .user__cabinet .info__user:nth-child(2){
-            width: 40%;
-        }
-        .user__cabinet .info__user:last-child{
-            width: 40%;
         }
     }
 

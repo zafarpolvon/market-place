@@ -94,6 +94,23 @@ export default {
     .pages a:hover{
         color: #023999 !important;
     }
+    input[type="checkbox"]{
+        position: relative;
+    }
+    input[type="checkbox"]:checked::after{
+        content: "\2713";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        position: absolute;
+        color: #fff;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #131E3D;
+    }
     .mnews__title{
         font-size: 42px;
         color: #023047;
@@ -195,18 +212,18 @@ export default {
         justify-content: space-between;
     }
     .mnews__boxes .box:nth-child(2) .late__box .n__date a{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #377AF9 86.59%, #2267C7 99.79%);
+        background: #131E3D;
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
         padding: 10px 15px;
         color: #FCF6F6;
     }
     .mnews__boxes .box:nth-child(2) .late__box .n__date a:hover{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #08235C -2.67%, #2267C7 86.59%, #377AF9 99.79%);
+        background: #11113D;
         box-shadow: unset !important;
     }
     .mnews__boxes .box:nth-child(2) .late__box .n__date span{
-        color: #999999;
+        color: #EE4927;
     }
 
     @media only screen and (max-width: 1025px){
