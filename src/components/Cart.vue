@@ -4,8 +4,7 @@
             <img :src="cart.photo" alt="">
             <router-link tag="span" @click.native="$router.go()" :key="cart.id" :to="{ name: 'Add', params: { id: cart.id }, }" v-if="listOne" @click="listOne = false" class="fast__review">просмотр</router-link>
             <span class="skidka">21 %</span>
-            <icon-love v-if="!favorite" v-on:click.native="saveCart" :love="love" />
-            <icon-trash v-else v-on:click.native="deleteCart(cart.id)" />
+            <icon-love :getFav="getFav" @favevent="favevent(cart.id)" />
         </div>
         <div class="cart__info">
             <div class="flex justify-between mt-3">
@@ -34,10 +33,9 @@
 </template>
 <script>
 import IconLove from './Icon/IconLove.vue'
-import IconTrash from './Icon/IconTrash.vue'
 
 export default {
-  props: ['cart', 'favorite'],
+  props: ['cart', 'getFav'],
   data: () => ({
     listOne: false,
     love: false
@@ -53,13 +51,15 @@ export default {
       this.$store.commit('addToCart', addShoes)
       this.$store.commit('saveData')
     },
+    async favevent (item) {
+      await this.$store.dispatch('addFavorite', item)
+    },
     deleteCart (item) {
       this.$store.commit('removeFromCart', item)
     }
   },
   components: {
-    IconLove,
-    IconTrash
+    IconLove
   }
 }
 </script>
