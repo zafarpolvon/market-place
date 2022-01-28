@@ -216,7 +216,10 @@ export default {
             line-height: 16px;
         }
         .cart__price {
-            justify-content: space-between;
+            flex-direction: column;
+        }
+        .cart__price h5{
+            margin-bottom: 5px;
         }
         .cart__price h5 {
             font-size: 13px;

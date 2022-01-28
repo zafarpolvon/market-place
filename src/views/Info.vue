@@ -173,6 +173,7 @@ export default {
         border-radius: 50%;
         height: 100px;
         width: 100px;
+        min-width: 100px;
         background: #FFF;
         margin-right: 1rem;
         color: #0052FF;
@@ -215,12 +216,13 @@ export default {
         margin-right: 10px;
     }
 
-    @media (max-width: 1025px){
+    @media (max-width: 1300px){
         .info__boxes{
             flex-direction: column;
         }
         .info__boxes .box{
             width: 100%;
+            height: 215px;
             margin-bottom: 1rem;
         }
         .info__boxes2{
@@ -337,6 +339,7 @@ export default {
         }
         .info__boxes .box:nth-child(3) .delivery .discount{
             width: 80px;
+            min-width: 80px;
             height: 80px;
             font-size: 36px;
         }

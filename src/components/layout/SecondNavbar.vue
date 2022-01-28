@@ -23,6 +23,7 @@ export default {
     .info__menu{
         padding: 1.5rem 0;
         margin-bottom: 0.5rem;
+        display: flex;
     }
     .info__menu ul{
         display: flex;
@@ -56,7 +57,11 @@ export default {
     .logo__svg span {
         display: block;
     }
-    @media (min-width:1025px) {
+    @media (max-width: 1300px) {
+        .info__menu{
+            width: 100%;
+            overflow-x: scroll;
+        }
         .logo__svg i {
             font-size: 18px;
         }
