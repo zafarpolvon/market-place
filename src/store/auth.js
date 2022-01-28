@@ -1,93 +1,68 @@
-import axios from 'axios'
+import Vue from "vue";
+const vm = Vue.prototype;
 
-const TOKEN = window.localStorage.getItem('token')
+export const state = () => ({
+  user: {},
+});
 
-export default {
-  state: {
-    status: '',
-    token: localStorage.getItem('token') || '',
-    user: {}
+export const mutations = {
+  SET_USER(state, user) {
+    state.user = user || {};
   },
-  mutations: {
-    auth_request (state) {
-      state.status = 'loading'
-    },
-    auth_success (state, token) {
-      state.status = 'success'
-      state.token = token.token
-      state.user = token
-    },
-    auth_error (state) {
-      state.status = 'error'
-    },
-    logout (state) {
-      state.status = ''
-      state.token = ''
+};
+
+export const actions = {
+  INIT_USER({ commit, dispatch }) {
+    let status = false;
+    const token = vm.$cookies.get("token");
+    const user = vm.$browserStore.getLocal("user");
+    if (token && user) {
+      commit("SET_USER", user);
+      status = true;
+    } else {
+      dispatch("LOGOUT");
+    }
+
+    return status;
+  },
+
+  async LOGIN({ commit, dispatch }, payload) {
+    const data = await vm.$axios.$post("user/sign-in", payload);
+    if (data) {
+      vm.$cookies.set("token", data.token);
+      delete data.token;
+      vm.$browserStore.setLocal("user", data);
+      commit("SET_USER", data);
+    } else dispatch("LOGOUT");
+  },
+
+  async REGISTER({ commit }, payload) {
+    // http://localhost:8080/api/
+    const data = await vm.$axios.$post("user/sign-up", payload);
+    if (data) {
+      vm.$cookies.set("token", data.token);
+      return true;
     }
   },
-  actions: {
-    async login ({ commit, dispatch }, user) {
-      const info = await axios
-        .post('http://localhost:8080/api/user/sign-in', {
-          phone: user.phone,
-          password: user.password
-        },
-        {
-          headers: {
-            'Access-Control-Allow-Origin': '*'
-          }
-        }
-        )
-      try {
-        const token = info.data
-        localStorage.setItem('token', token.token)
-        axios.defaults.headers.common.Authorization = token
-        commit('auth_success', token)
-      } catch (err) {
-        commit('auth_error')
-        console.log(err)
-        localStorage.removeItem('token')
-      }
-    },
-    async register ({ commit }, user) {
-      console.log(user)
-      await axios
-        .post('http://localhost:8080/api/user/sign-up', {
-          name: user.name,
-          phone: user.phone,
-          password: user.password,
-          device_id: user.device_id
-        },
-        {
-          headers: {
-            'Access-Control-Allow-Origin': '*'
-          }
-        }
-        )
-        .then(resp => {
-          console.log(resp)
-          const token = resp.data
-          localStorage.setItem('token', token.token)
-          axios.defaults.headers.common.Authorization = token
-          commit('auth_success', token)
-        })
-        .catch(err => {
-          commit('auth_error')
-          console.log(err.response.data)
-          localStorage.removeItem('token')
-        })
-    },
-    logout ({ commit }) {
-      return new Promise((resolve, reject) => {
-        commit('logout')
-        localStorage.removeItem('token')
-        delete axios.defaults.headers.common.Authorization
-        resolve()
-      })
-    }
+
+  async CONFIRM_CODE(ctx, payload) {
+    const data = await vm.$axios.$post("send-code", payload);
+    debugger;
+    if (data) return true;
   },
-  getters: {
-    isLoggedIn: state => !!state.token,
-    authStatus: state => state.status
-  }
-}
+
+  async RESEND_CODE() {
+    const data = await vm.$axios.$post("resend-code");
+    if (data) return true;
+  },
+
+  LOGOUT({ commit }) {
+    commit("SET_USER");
+    vm.$cookies.remove("token");
+    localStorage.removeItem("user");
+  },
+};
+
+export const getters = {
+  GET_USER: (state) => state.user,
+};

@@ -1,107 +1,76 @@
-/* eslint-disable no-useless-catch */
-import Vue from 'vue'
-import Vuex from 'vuex'
-import axios from 'axios'
-import auth from './auth'
-import profile from './profile'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
-const URL = `http://novamarket.qwertyuz.ru/api/product`
-const CATEGORY = `http://novamarket.qwertyuz.ru/api/category?type=product`
-const ID = `http://novamarket.qwertyuz.ru/api/product/detail?id=`
-let cart = window.localStorage.getItem('cart')
+Vue.use(Vuex);
 
 export default new Vuex.Store({
+  modules: getModules(),
+
   state: {
-    cart: cart ? JSON.parse(cart) : [],
-    carts: [],
-    category: []
+    snackbar: {
+      text: false,
+      color: "success",
+      isShow: false,
+    },
+
+    loading: false,
   },
+
   mutations: {
-    addToCart (state, product) {
-      let isProductExists = false
-      if (state.cart.length) {
-        state.cart.map(function (item) {
-          if (item.name === product.name) {
-            isProductExists = true
-            item.quantity++
-          }
-        })
-        if (!isProductExists) {
-          return state.cart.push(product)
-        }
-      } else {
-        return state.cart.push(product)
-      }
-      this.commit('saveData')
+    SET_SNACKBAR(state, snackbar) {
+      snackbar.isShow = true;
+      state.snackbar = snackbar;
     },
-    removeFromCart (state, item) {
-      let product = state.cart.findIndex(c => c.id === item)
-      state.cart.splice(product, 1)
-      this.commit('saveData')
+
+    SET_LOADING(state, payload) {
+      state.loading = payload;
     },
-    updateCart (state, carts) {
-      state.carts = carts
-    },
-    updateCategory (state, category) {
-      state.category = category
-    },
-    saveData (state) {
-      window.localStorage.setItem('cart', JSON.stringify(state.cart))
-    }
   },
+
   actions: {
-    async loadData () {
-      try {
-        const info = await axios.get(URL)
-        return info.data.data
-      } catch (e) {
-        throw e
+    async INIT_STATES({ dispatch, commit }, status) {
+      commit("SET_LOADING", true);
+      if (await dispatch("auth/INIT_USER")) {
+        await dispatch("product/INIT_FAVORITES");
       }
+
+      if (status == "init") {
+        await dispatch("category/INIT_CATEGORYS");
+        await dispatch("product/INIT_PRODUCTS");
+      }
+
+      commit("SET_LOADING", false);
     },
-    async loadDataById ({ commit }, id) {
-      try {
-        const { data } = await axios.get(ID + id)
-        commit('updateCart', data.data)
-        return data.data
-      } catch (e) {
-        throw e
-      }
+
+    SET_SNACKBAR({ commit }, payload) {
+      commit("SET_SNACKBAR", payload);
     },
-    async loadCategory ({ commit }) {
-      try {
-        const info = await axios.get(CATEGORY)
-        // const cats = []
-        // Object.keys(info.data.data).forEach(key => {
-        //   cats.push({
-        //     name: info.data[key].name,
-        //     childs: info.data[key].childs,
-        //     id: key
-        //   })
-        // })
-        commit('updateCategory', info.data.data)
-        return info.data.data
-      } catch (e) {
-        throw e
-      }
-    }
+
+    SET_LOADING({ commit }, payload) {
+      commit("SET_LOADING", payload);
+    },
   },
-  modules: {
-    auth, profile
-  },
+
   getters: {
-    CARTS: state => {
-      return state.carts
-    },
-    CATEGORY: state => {
-      return state.category
-    },
-    getShoesBySite: (state) => (id) => {
-      console.log(id)
-      return state.carts.find(shoe => shoe.id === id)
-    },
-    PRODUCTS: state => {
-      return state.cart
+    GET_SNACKBAR: (state) => state.snackbar,
+    GET_LOADING: (state) => state.loading,
+  },
+});
+
+function getModules() {
+  const modulesCtx = require.context("./", true, /[A-Za-z0-9-_,\s]+\.js$/i);
+
+  const modules = {};
+  const ignores = [];
+
+  modulesCtx.keys().forEach((key) => {
+    if (ignores.indexOf(key) < 0 && key != "./index.js") {
+      const name = key.replace("./", "").replace(".js", "");
+      let module = modulesCtx(key);
+      module.namespaced = true;
+      modules[name] = module;
     }
-  }
-})
+  });
+
+  return modules;
+}
