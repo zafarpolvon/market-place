@@ -28,11 +28,10 @@ export default {
   actions: {
     async login ({ commit, dispatch }, user) {
       const info = await axios
-        .post('http://localhost:8080/api/user/sign-in', {
+        .post('/api/user/sign-in', {
           phone: user.phone,
           password: user.password
-        },
-        {
+        }, {
           headers: {
             'Access-Control-Allow-Origin': '*'
           }

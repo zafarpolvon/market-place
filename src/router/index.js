@@ -72,7 +72,7 @@ const routes = [
     path: '/cabinet',
     name: 'Cabinet',
     component: Cabinet,
-    // meta: { layout: 'Cabinet', auth: true }
+    meta: { layout: 'Cabinet', auth: true }
   },
   {
     path: '/contacts',
@@ -90,25 +90,25 @@ const routes = [
     path: '/info',
     name: 'Info',
     component: Info,
-    // meta: { layout: 'Info', auth: false }
+    meta: { layout: 'Info', auth: true }
   },
   {
     path: '/message',
     name: 'Message',
     component: Message,
-    // meta: { layout: 'Message', auth: true }
+    meta: { layout: 'Message', auth: true }
   },
   {
     path: '/payments',
     name: 'Payments',
     component: Payments,
-    // meta: { layout: 'Payments', auth: true }
+    meta: { layout: 'Payments', auth: true }
   },
   {
     path: '/questions',
     name: 'Questions',
     component: Questions,
-    // meta: { layout: 'Questions', auth: false }
+    meta: { layout: 'Questions', auth: false }
   },
   {
     path: '/requisites',
@@ -132,7 +132,7 @@ const routes = [
     path: '/selected',
     name: 'Selected',
     component: Selected,
-    // meta: { layout: 'Selected', auth: true }
+    meta: { layout: 'Selected', auth: true }
   },
   {
     path: '/login',

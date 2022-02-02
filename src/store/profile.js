@@ -36,7 +36,7 @@ export default {
     async addFavorite ({ commit }, user) {
       console.log(user)
       const info = await axios
-        .post('http://localhost:8080/api/product/set-favorite', {
+        .post('/api/product/set-favorite', {
           product_id: user
         },
         {
