@@ -1,11 +1,10 @@
 <template>
     <div class="cart__box shadow-xl">
         <div class="cart__image" @mouseover="listOne = true" @mouseleave="listOne = false">
-            <img :src="cart.photo" alt="">
+            <img :src="cart.brand.photo" alt="">
             <router-link tag="span" @click.native="$router.go()" :key="cart.id" :to="{ name: 'Add', params: { id: cart.id }, }" v-if="listOne" @click="listOne = false" class="fast__review">просмотр</router-link>
             <span class="skidka">21 %</span>
-            <icon-love v-if="!favorite" v-on:click.native="saveCart" :love="love" />
-            <icon-trash v-else v-on:click.native="deleteCart(cart.id)" />
+            <icon-love :getFav="getFav" @favevent="favevent(cart.id)" />
         </div>
         <div class="cart__info">
             <div class="flex justify-between mt-3">
@@ -20,7 +19,7 @@
                 </div>
             </div>
             <div class="cart__add">
-                <button>
+                <button @click="addCart(cart.id)">
                     <span>В корзину</span>
                     <svg class="cart__svg" width="30" height="28" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M26.35 8.56208C26.134 8.23689 25.8247 7.96589 25.4523 7.77553C25.0799 7.58516 24.657 7.48192 24.225 7.47587H8.225L7.5 5.02104C7.42675 4.78408 7.26333 4.57564 7.03635 4.42968C6.80937 4.28373 6.5322 4.20885 6.25 4.21725H3.75C3.41848 4.21725 3.10054 4.33169 2.86612 4.53539C2.6317 4.7391 2.5 5.01538 2.5 5.30346C2.5 5.59154 2.6317 5.86782 2.86612 6.07152C3.10054 6.27523 3.41848 6.38966 3.75 6.38966H5.3L8.75 17.5341C8.82325 17.7711 8.98667 17.9796 9.21365 18.1255C9.44063 18.2715 9.7178 18.3463 10 18.3379H21.25C21.4808 18.3373 21.707 18.2812 21.9033 18.1757C22.0997 18.0703 22.2586 17.9197 22.3625 17.7405L26.4625 10.615C26.6402 10.2913 26.7229 9.93447 26.7033 9.57625C26.6837 9.21804 26.5623 8.86961 26.35 8.56208Z" fill="white"/>
@@ -34,32 +33,32 @@
 </template>
 <script>
 import IconLove from './Icon/IconLove.vue'
-import IconTrash from './Icon/IconTrash.vue'
 
 export default {
-  props: ['cart', 'favorite'],
+  props: ['cart', 'getFav'],
   data: () => ({
     listOne: false,
     love: false
   }),
   methods: {
-    saveCart () {
-      const addShoes = {
-        image: this.cart.image,
-        price: this.cart.price,
-        name: this.cart.name,
-        id: this.cart.id
+    async addCart (id) {
+      console.log(id)
+      const info = {
+        product_id: id,
+        amount: 1
       }
-      this.$store.commit('addToCart', addShoes)
-      this.$store.commit('saveData')
+      await this.$store.dispatch('addCart', info)
+      await this.$store.dispatch('getCartItem')
+    },
+    async favevent (item) {
+      await this.$store.dispatch('addFavorite', item)
     },
     deleteCart (item) {
       this.$store.commit('removeFromCart', item)
     }
   },
   components: {
-    IconLove,
-    IconTrash
+    IconLove
   }
 }
 </script>

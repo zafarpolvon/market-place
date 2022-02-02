@@ -8,15 +8,15 @@
         </div>
         <div class="container mx-auto px-4 xl:px-12 md:px-12 mt-6">
             <div class="grid grid-cols-5 gap-3" >
-                <div v-for="cart in product" :key="cart.id">
-                    <Cart :favorite="true" :cart="cart" />
+                <div v-for="cart in tovar.data" :key="cart.id">
+                    <Cart :cart="cart" />
                 </div>
             </div>
         </div>
         <div class="container mx-auto px-4 xl:px-12 md:px-12 c-products mt-8">
             <div class="advertising__title">Рекламный блок</div>
             <div class="grid grid-cols-5 gap-3" >
-                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                <div v-for="cart in tovar" :key="cart.id">
                     <Cart :favorite="false" :cart="cart" />
                 </div>
             </div>
@@ -28,7 +28,7 @@
             <div class="recently-products">
                 <div class="recently__title">Вы недавно смотрели</div>
                 <div class="grid grid-cols-5 gap-3" >
-                    <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <div v-for="cart in tovar" :key="cart.id">
                         <Cart :favorite="false" :cart="cart" />
                     </div>
                 </div>
@@ -51,12 +51,8 @@ export default {
     tovar: []
   }),
   async mounted () {
-    this.tovar = await this.$store.dispatch('loadData')
-    this.setupPagination(this.tovar.map(person => {
-      return {
-        ...person
-      }
-    }))
+    this.tovar = await this.$store.dispatch('getFavorite')
+    console.log(this.tovar)
   },
   methods: {
 

@@ -1,5 +1,5 @@
 module.exports = {
   devServer: {
-    proxy: 'http://novamarket.qwertyuz.ru/'
+    proxy: 'https://novamarket.qwertyuz.ru/'
   }
 }

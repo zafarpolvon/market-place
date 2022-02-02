@@ -4,51 +4,51 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import auth from './auth'
 import profile from './profile'
+import cart from './cart'
 
 Vue.use(Vuex)
 const URL = `http://novamarket.qwertyuz.ru/api/product`
 const CATEGORY = `http://novamarket.qwertyuz.ru/api/category?type=product`
 const ID = `http://novamarket.qwertyuz.ru/api/product/detail?id=`
-let cart = window.localStorage.getItem('cart')
 
 export default new Vuex.Store({
   state: {
-    cart: cart ? JSON.parse(cart) : [],
+    // cart: cart ? JSON.parse(cart) : [],
     carts: [],
     category: []
   },
   mutations: {
-    addToCart (state, product) {
-      let isProductExists = false
-      if (state.cart.length) {
-        state.cart.map(function (item) {
-          if (item.name === product.name) {
-            isProductExists = true
-            item.quantity++
-          }
-        })
-        if (!isProductExists) {
-          return state.cart.push(product)
-        }
-      } else {
-        return state.cart.push(product)
-      }
-      this.commit('saveData')
-    },
-    removeFromCart (state, item) {
-      let product = state.cart.findIndex(c => c.id === item)
-      state.cart.splice(product, 1)
-      this.commit('saveData')
-    },
-    updateCart (state, carts) {
-      state.carts = carts
-    },
-    updateCategory (state, category) {
-      state.category = category
-    },
-    saveData (state) {
-      window.localStorage.setItem('cart', JSON.stringify(state.cart))
-    }
+    // addToCart (state, product) {
+    //   let isProductExists = false
+    //   if (state.cart.length) {
+    //     state.cart.map(function (item) {
+    //       if (item.name === product.name) {
+    //         isProductExists = true
+    //         item.quantity++
+    //       }
+    //     })
+    //     if (!isProductExists) {
+    //       return state.cart.push(product)
+    //     }
+    //   } else {
+    //     return state.cart.push(product)
+    //   }
+    //   this.commit('saveData')
+    // },
+    // removeFromCart (state, item) {
+    //   let product = state.cart.findIndex(c => c.id === item)
+    //   state.cart.splice(product, 1)
+    //   this.commit('saveData')
+    // },
+    // updateCart (state, carts) {
+    //   state.carts = carts
+    // },
+    // updateCategory (state, category) {
+    //   state.category = category
+    // },
+    // saveData (state) {
+    //   window.localStorage.setItem('cart', JSON.stringify(state.cart))
+    // }
   },
   actions: {
     async loadData () {
@@ -87,7 +87,7 @@ export default new Vuex.Store({
     }
   },
   modules: {
-    auth, profile
+    auth, profile, cart
   },
   getters: {
     CARTS: state => {

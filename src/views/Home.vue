@@ -7,7 +7,7 @@
             <Title />
             <div class="grid grid-cols-5 gap-3" >
                 <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
-                    <Cart :cart="cart" />
+                    <Cart :getFav="getFav" :cart="cart" />
                 </div>
             </div>
             <div class="flex justify-center my-6">
@@ -116,6 +116,9 @@ export default {
 
   },
   computed: {
+    getFav () {
+      return this.$store.getters.LOADFAV
+    }
   },
   components: {
     Navbar,

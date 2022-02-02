@@ -7,10 +7,12 @@
 export default {
   name: 'App',
   data: () => ({
-    user: {}
+    user: {},
+    favorite: []
   }),
   async mounted () {
     this.user = await this.$store.dispatch('getUser')
+    this.favorite = await this.$store.dispatch('getFavorite')
   },
   created: function () {
     this.$http.interceptors.response.use(undefined, function (err) {

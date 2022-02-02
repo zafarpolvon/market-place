@@ -28,15 +28,12 @@ export default {
   actions: {
     async login ({ commit, dispatch }, user) {
       const info = await axios
-        .post('http://novamarket.qwertyuz.ru/api/user/sign-in', {
+        .post('/api/user/sign-in', {
           phone: user.phone,
           password: user.password
-        },
-        {
+        }, {
           headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+            'Access-Control-Allow-Origin': '*'
           }
         }
         )
@@ -54,7 +51,7 @@ export default {
     async register ({ commit }, user) {
       console.log(user)
       await axios
-        .post('http://novamarket.qwertyuz.ru/api/user/sign-up', {
+        .post('http://localhost:8080/api/user/sign-up', {
           name: user.name,
           phone: user.phone,
           password: user.password,
@@ -62,9 +59,7 @@ export default {
         },
         {
           headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+            'Access-Control-Allow-Origin': '*'
           }
         }
         )

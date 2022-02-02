@@ -49,13 +49,12 @@
                             <span>Доставка</span>
                         </router-link>
                         <router-link to="/selected" tag="a" class="flex flex-col justify-between">
-                            <span v-if="product > 0" class="count__navbar1">{{ product }}</span>
-                            <span v-else class="count__navbar1">0</span>
+                            <span class="count__navbar1">1</span>
                             <img class="h-5 flex flex-row items-center" src="../../assets/svg/saved.svg" alt="">
                             <span>Избранные</span>
                         </router-link>
                         <router-link tag="a" to="/basket" class="flex flex-col justify-between">
-                            <span class="count__navbar2">2</span>
+                            <span class="count__navbar2">{{ cartProduct.length }}</span>
                             <img class="h-7 flex flex-row items-center" src="../../assets/svg/cart.svg" alt="">
                             <span>Корзина</span>
                         </router-link>
@@ -158,8 +157,13 @@ export default {
     listOne: false,
     search: true,
     category: false,
-    searchweb: ''
+    searchweb: '',
+    test: []
   }),
+  async mounted () {
+    this.test = await this.$store.dispatch('getCartItem')
+    console.log(this.test.length)
+  },
   methods: {
     mouseEnter () {
       this.toShowOnHover = !this.toShowOnHover
@@ -188,8 +192,8 @@ export default {
     }
   },
   computed: {
-    product () {
-      return this.$store.getters.PRODUCTS.length
+    cartProduct () {
+      return this.$store.getters.CART_INFO
     },
     getUser () {
       return this.$store.getters.LOADUSER
