@@ -1141,7 +1141,7 @@ export default {
         .q__comments p{
             margin-left: unset;
             text-align: center;
-            font-size: 14px;
+            font-size: 14px; 
             margin: 1rem 0;
         }
         .question{
