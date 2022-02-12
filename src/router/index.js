@@ -23,6 +23,7 @@ import Register from '../views/Register.vue'
 import GetCode from '../views/GetCode.vue'
 import store from '../store/index'
 
+
 Vue.use(VueRouter)
 
 const routes = [

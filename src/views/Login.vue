@@ -29,18 +29,37 @@
     </div>
 </template>
 <script>
+import TokenService from "../services/TokenService";
 export default {
+    name:'Login',
   data: () => ({
     phone: '+998977584224',
     password: 'test123'
   }),
   methods: {
     async submitHandler () {
-      const phone = this.phone
-      const password = this.password
-      await this.$store.dispatch('login', { phone, password })
-      this.$router.push('/info')
-      this.$router.go()
+        let deviceKey = localStorage.getItem('_deviceKey')
+        if (!deviceKey){
+            deviceKey = '_' + (Math.random().toString(36) + window.navigator.userAgent).toString(36).substr(2, 9);
+            localStorage.setItem('_deviceKey', deviceKey);
+        }
+        let params = {
+            phone: this.phone,
+            password: this.password
+        }
+        try{
+            const res = await this.$http.post('user/sign-in',params,{headers:{device_id:deviceKey}})
+            if (res){
+                let response = res.result
+                if (response.isAuthorized == true){
+                    TokenService.setToken(response.authorization);
+                    await this.$router.push('/');
+                }
+            }
+
+        }catch (e) {
+            console.log(e.response)
+            }
     }
   }
 }

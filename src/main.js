@@ -9,7 +9,8 @@ import Progress from 'vue-multiple-progress'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 import ZoomOnHover from 'vue-zoom-on-hover'
-import Axios from 'axios'
+import http from './plugins/Axios'
+
 
 Vue.use(VueSplide)
 Vue.use(Progress)
@@ -19,13 +20,9 @@ Vue.use(ZoomOnHover)
 Vue.use(VModal)
 Vue.use(VueAwesomeSwiper /* { default options with global component } */)
 
-Vue.config.productionTip = false
-Vue.prototype.$http = Axios
-const token = localStorage.getItem('token')
-if (token) {
-  Vue.prototype.$http.defaults.headers.common['Authorization'] = token
-}
+Vue.config.productionTip = false;
 
+Vue.prototype.$http = http;
 new Vue({
   store,
   router,
