@@ -38,14 +38,17 @@ export default {
   }),
   methods: {
     async submitHandler () {
-      const formData = {
-        name: this.name,
-        phone: this.phone,
-        password: this.password,
-        device_id: Math.floor(Math.random() * (100000 - 1 + 1)) + 1 + '7'
-      }
+      let form = new FormData()
+        form.append('name', this.name)
+        form.append('phone', this.phone)
+        form.append('password', this.password)
+        form.append('device_id', this.device_id)
       try {
-        await this.$store.dispatch('register', formData)
+          await axios
+              .post(this.$_http + 'api/user/sign-up', form)
+          .then(response =>{
+              this.successNotify()
+          })
         this.$router.push('/info')
       } catch (e) {
         console.log(e)

@@ -1,46 +1,64 @@
 import axios from "axios";
-import TokenService from "../../services/TokenService";
-import router from "../../router";
+import TokenService from '../../services/TokenService';
 
 window.axios = axios;
-export const baseURL = "http://novamarket.qwertyuz.ru"
 
-const http = axios.create({
-    baseURL: baseURL + '/api/'
-});
+export default {
+    install: function (Vue) {
+        let baseURL = Vue.prototype.$_http;
+        axios.defaults.baseURL = baseURL;
 
-function setConfiguration(provider) {
-    provider.interceptors.request.use(config => {
-            let token = TokenService.getToken();
-            if (token) {
-                config.headers['Authorization'] = `Bearer ${token}`;
+        Vue.prototype.$api = {
+            send(requestType, apiRoute, params = {}, data = null) {
+
+                this.setToken();
+                return new Promise((resolve, reject) => {
+                    axios[requestType](baseURL + apiRoute, params ? params : [], data)
+                        .then(res => {
+                            if (res.headers.authorization) {
+                                TokenService.saveToken(res.headers.authorization)
+
+                            }
+                            resolve(res.data)
+                        })
+                        .catch(err => {
+                            this.errorHandler(err);
+                            reject(err);
+                        })
+                        .finally(() => {
+                        })
+
+                });
+            },
+            get(apiRoute, params = null) {
+                return this.send('get', apiRoute, params);
+            },
+            post(apiRoute, data = null) {
+                return this.send('post', apiRoute, data);
+            },
+            put(apiRoute, data = null) {
+                return this.send('put', apiRoute, data);
+            },
+            patch(apiRoute, data = null) {
+                return this.send('patch', apiRoute, data);
+            },
+            delete(apiRoute, params = null) {
+                return this.send('delete', apiRoute, params);
+            },
+            errorHandler(err) {
+                console.log(err);
+            },
+            setToken() {
+
+                axios.defaults.headers.common = {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Authorization': 'Bearer ' + TokenService.getToken(),
+                };
             }
-            config.headers['Accept'] = 'application/json';
-            config.headers['Content-Type'] = 'application/json';
-            return config;
-        },
-        error => Promise.reject(error)
-    );
-    provider.interceptors.response.use(res => res.data,
-        error => {
-            if ( (error.response.status === 401 || error.response.status === 403)) {
-                TokenService.removeToken();
-                router.push({name: 'Login'}).then(() => {
-                }).catch(e => {
-                    console.log(e)
-                })
-            }
-            return Promise.reject(error)
-        });
 
-}
+        };
 
-setConfiguration(http)
-
-axios.defaults.headers.common = {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    'Authorization': 'Bearer ' + TokenService.getToken(),
+    }
 };
-export default http
