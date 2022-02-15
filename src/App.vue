@@ -15,16 +15,7 @@ export default {
     this.user = await this.$store.dispatch('getUser')
     this.favorite = await this.$store.dispatch('getFavorite')
   },
-  created: function () {
-    this.$_http.interceptors.response.use(undefined, function (err) {
-      return new Promise(function (resolve, reject) {
-        if (err.status === 401 && err.config && !err.config.__isRetryRequest) {
-          this.$store.dispatch('logout')
-        }
-        throw err
-      })
-    })
-  }
+
 }
 </script>
 <style>

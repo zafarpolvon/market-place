@@ -30,10 +30,26 @@
                     <div class="mt-4 p-3">
                         <label class="block">Номер</label>
                         <input v-model="forgotPasswordPhone" type="text" placeholder="Ваш номер"
-                               class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+                               class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                @keyup.enter="forgotPasswords"
+                        >
                     </div>
-                    <div class="flex items-baseline justify-between mb-3 p-3">
-                        <button type="submit" class="px-6 py-2 w-full mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900" @click="forgotPasswords">Подтверждение номера</button>
+                    <div class=" p-3" v-if="ifCode">
+                        <label class="block">код</label>
+                        <input v-model="code" type="text" placeholder="код"
+                               class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" disabled>
+                    </div>
+                    <div class=" p-3" v-if="ifNewPassword">
+                        <label class="block">Новый пароль</label>
+                        <input v-model="newPassword" type="text" placeholder="Новый пароль"
+                               class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" disabled>
+                    </div>
+                    <div class="flex items-baseline justify-between mb-3 p-3" v-if="!ifCode">
+                        <button type="submit" class="px-6 py-2 w-full mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900" @click="forgotPasswords"> Продолжить </button>
+                    </div>
+
+                    <div class="flex items-baseline justify-between mb-3 p-3" v-else>
+                        <button type="submit" class="px-6 py-2 w-full mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900" @click="newPasswords"> Подтвердить </button>
                     </div>
                 </div>
             </modal>
@@ -49,11 +65,20 @@ export default {
     phone: '',
     password: '',
       device_id: '123123',
-      forgotPasswordPhone:''
+      forgotPasswordPhone:'',
+      ifCode:false,
+      code:'',
+      ifNewPassword:false,
+      newPassword:''
   }),
   methods: {
       forgotPassword(){
           this.$modal.show('Modal-Card')
+          this.forgotPasswordPhone=''
+              this.ifCode=false
+              this.code=''
+              this.ifNewPassword=false
+              this.newPassword =''
       },
     async submitHandler () {
         let form = new FormData()
@@ -66,14 +91,12 @@ export default {
             .post(this.$_http + 'api/user/sign-in', form)
             .then(async response => {
                 if (response) {
-                    console.log(response)
                     TokenService.setToken(response.data.token)
                     localStorage.setItem('name', response.data.name)
                     await this.$router.push('/')
                 }
             })
       } catch (e) {
-            console.log(e.response.data.errors.password[0])
             this.errorNotify(e.response.data.errors.password[0])
       }
     },
@@ -86,12 +109,31 @@ export default {
                   .post(this.$_http + 'api/user/recover-password', form)
                   .then(async response => {
                       if (response) {
-                          console.log(response)
+                          this.ifCode = true;
+                          this.code = response.data.data.code
+                          this.successNotify('код отправлен!!!')
                       }
                   })
           } catch (e) {
-              console.log(e.response.data.errors.password[0])
-              this.errorNotify(e.response.data.errors.password[0])
+              this.errorNotify(e.response.data.errors.phone)
+          }
+      },
+      async newPasswords(){
+          let form = new FormData()
+          form.append('phone', this.forgotPasswordPhone)
+          form.append('code', this.code)
+
+          try {
+              await axios
+                  .post(this.$_http + 'api/user/accept-recover-code',form)
+                  .then(response => {
+                          this.newPassword = response.data.data.password
+                      this.ifNewPassword = true
+                      this.successNotify('пароль изменен!!!')
+                  })
+          } catch (e) {
+              // this.errorNotify(e.response.data.errors.phone)
+              console.log(e.response)
           }
       }
 

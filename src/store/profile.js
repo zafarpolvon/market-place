@@ -1,8 +1,6 @@
 import axios from 'axios'
 
 const TOKEN = localStorage.getItem('token')
-const API = 'http://localhost:8080/api/user/profile'
-
 export default {
   state: {
     profile: {},
@@ -18,19 +16,16 @@ export default {
   },
   actions: {
     async getUser ({ commit }) {
-      const info = await axios.get(API, {
+      const info = await this.$_http.get('api/user/profile', {
         headers: {
-          Authorization: `Bearer ${TOKEN}`,
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-          'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+          Authorization: `Bearer ${TOKEN}`
         }
       })
       try {
-        commit('loadUser', info.data.data)
+        commit('loadUser', info.data)
         return info.data.data
       } catch (e) {
-        console.log(e)
+        this.errorNotify(e.response.data.data)
       }
     },
     async addFavorite ({ commit }, user) {
@@ -58,7 +53,7 @@ export default {
     },
     async getFavorite ({ commit }) {
       const info = await axios
-        .get('http://localhost:8080/api/product/favorites',
+        .get('https://novamarket.qwertyuz.ru/api/product/favorites',
           {
             headers: {
               Authorization: `Bearer ${TOKEN}`,

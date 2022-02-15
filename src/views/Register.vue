@@ -32,9 +32,9 @@
 <script>
 export default {
   data: () => ({
-    name: 'Rasulbek',
-    phone: '+998971234567',
-    password: 'test123'
+    name: '',
+    phone: '',
+    password: ''
   }),
   methods: {
     async submitHandler () {

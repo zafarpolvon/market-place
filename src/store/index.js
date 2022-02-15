@@ -7,7 +7,7 @@ import profile from './profile'
 import cart from './cart'
 
 Vue.use(Vuex)
-const URL = 'http://novamarket.qwertyuz.ru/api/product'
+const URL = 'https://novamarket.qwertyuz.ru/api/product'
 const CATEGORY = 'http://novamarket.qwertyuz.ru/api/category?type=product'
 const ID = 'http://novamarket.qwertyuz.ru/api/product/detail?id='
 
