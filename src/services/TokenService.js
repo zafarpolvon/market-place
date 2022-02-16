@@ -1,4 +1,4 @@
-const TOKEN_KEY = 'Authorization'
+const TOKEN_KEY = 'token'
 // const REFRESH_TOKEN_KEY = 'Refresh';
 // let refreshToken = null
 
