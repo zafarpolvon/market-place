@@ -165,6 +165,7 @@ export default {
     console.log(this.test.length)
   },
   methods: {
+
     mouseEnter () {
       this.toShowOnHover = !this.toShowOnHover
     },

@@ -7,8 +7,8 @@
                         <div class="category__lefte">
                             <ul v-for="cat in category" :key="cat.id">
                                 <li class="category__item">
-                                    <a @mouseover="updateProduct(cat)" href="#" class="category__link">
-                                        <i class="fas fa-tshirt"></i>
+                                    <a @mouseover="subCategorys(cat.id)" href="#" class="category__link">
+                                        <img v-if="cat.photo" :src="'https://novamarket.qwertyuz.ru/' + cat.photo" alt="">
                                         <span>{{ cat.name }}</span>
                                     </a>
                                 </li>
@@ -20,28 +20,29 @@
                             <div class="all__category">
                                 <a class="title__header" href="#">{{ sub.name }}</a>
                                 <div class="grid grid-cols-6 gap-4 mt-4">
-                                    <div class="col-span-2" v-for="cat in sub.childs" :key='cat.id'>
+                                    <div class="col-span-2" v-for="subCat in sub" :key='subCat.id'>
                                         <div class="category__into">
-                                            <a href="#">{{ cat.name }}</a>
-                                            <ul class="category__inner" v-for="s in cat.subcategory" :key="s.id">
+                                            <a href="#">{{ subCat.name }}</a>
+                                            <ul class="category__inner" v-for="s in subCat.childs" :key="s.id">
                                                 <li>
+                                                    <img v-if="s.photo" :src="'https://novamarket.qwertyuz.ru/' + s.photo" alt="" class="subcategorychildimg">
                                                     <a href="#">{{ s.name }}</a>
                                                 </li>
                                             </ul>
-                                            <div class="show__more" >
-                                                <span v-if="switchMore">Ещё</span>
-                                                <span v-else>Свернуть</span>
-                                            </div>
+<!--                                            <div class="show__more" >-->
+<!--                                                <span v-if="switchMore">Ещё</span>-->
+<!--                                                <span v-else>Свернуть</span>-->
+<!--                                            </div>-->
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-span-1">
-                        <button @click="test">Click</button>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis vero error minima similique? Nostrum voluptatem inventore ducimus quasi, labore iure porro minus, natus reiciendis pariatur blanditiis quo culpa ad perspiciatis.
-                    </div>
+<!--                    <div class="col-span-1">-->
+<!--                        <button @click="test">Click</button>-->
+<!--                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis vero error minima similique? Nostrum voluptatem inventore ducimus quasi, labore iure porro minus, natus reiciendis pariatur blanditiis quo culpa ad perspiciatis.-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>
@@ -53,7 +54,7 @@ export default {
   data: () => ({
     more: false,
     switchMore: true,
-    sub: {},
+    sub: [],
     currentPage: 1,
     category: []
   }),
@@ -62,8 +63,22 @@ export default {
   },
   computed: {},
   methods: {
-    updateProduct (name) {
-      this.sub = name
+   async subCategorys (id) {
+      try {
+          await axios
+              .get(this.$_http + 'api/category/sub-category', {
+                  params:{
+                      id:id
+                  }
+              })
+          .then(response=>{
+              this.sub = response.data.data;
+              console.log(this.sub)
+          })
+      }
+      catch (e){
+          this.errorNotify(e.response.data)
+      }
     },
     prevPage () {
       this.currentPage = this.currentPage - 1 || 1
@@ -76,6 +91,15 @@ export default {
 </script>
 
 <style scoped>
+.category__inner li{
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+
+}
+.subcategorychildimg{
+    width: 20px;
+}
     .category__box {
         position: absolute;
         z-index: 101;
@@ -89,7 +113,13 @@ export default {
     }
     .category__item {
         margin: 10px 0;
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
     }
+.category__item img{
+    width: 50px;
+}
     .category__link {
         display: flex;
     }
