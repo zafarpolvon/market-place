@@ -86,7 +86,9 @@
                     </div>
                 </div>
             </div>
+            <Brend/>
         </div>
+
         <Footer />
     </div>
 </template>
@@ -98,6 +100,7 @@ import Slide from '../components/slide/Slide.vue'
 import Magazin from '../components/Magazin.vue'
 import Cart from '../components/Cart.vue'
 import Title from '../components/Title.vue'
+import Brend from "@/views/Brend";
 
 export default {
   name: 'Home',
@@ -126,7 +129,8 @@ export default {
     Magazin,
     Cart,
     Title,
-    Footer
+    Footer,
+      Brend
   }
 }
 

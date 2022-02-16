@@ -3,7 +3,7 @@
         <Navbar />
         <div class="container mx-auto px-4 xl:px-12 md:px-12 mb-10 pages">
             <div class="basket__href mt-5">
-                <a href="#">Главная страница / </a>
+                <router-link to="/" tag="a">Главная страница / </router-link>
                 <a href="#">Корзина</a>
             </div>
             <div class="basket__title mt-5">

@@ -22,7 +22,7 @@ export default {
     options: {
       rewind: true,
       width: '100%',
-      gap: '1rem'
+      gap: '1rem',
     }
   }),
   components: {
