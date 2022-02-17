@@ -16,14 +16,14 @@ export default {
   },
   actions: {
     async getUser ({ commit }) {
-      const info = await this.$_http.get('api/user/profile', {
+      const info = await axios.get('api/user/profile', {
         headers: {
           Authorization: `Bearer ${TOKEN}`
         }
       })
       try {
         commit('loadUser', info.data)
-        return info.data.data
+        return info.data.data.data
       } catch (e) {
         this.errorNotify(e.response.data.data)
       }
@@ -53,7 +53,7 @@ export default {
     },
     async getFavorite ({ commit }) {
       const info = await axios
-        .get('https://novamarket.qwertyuz.ru/api/product/favorites',
+        .get('api/product/favorites',
           {
             headers: {
               Authorization: `Bearer ${TOKEN}`,

@@ -7,7 +7,7 @@
             <Title />
             <div class="grid grid-cols-5 gap-3" >
                 <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
-                    <Cart :getFav="getFav" :cart="cart" />
+                    <Cart v-if="cart" :getFav="getFav" :cart="cart" />
                 </div>
             </div>
             <div class="flex justify-center my-6">
@@ -42,50 +42,28 @@
         </div>
         <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="news__boxes">
-                <div class="box">
-                    <img src="../assets/image/image 5 (4).png" alt="not found">
+                <div class="box" v-for="(item,index) in news" :key="index">
+                    <img :src="'https://novamarket.qwertyuz.ru/' + item.photo" alt="not found">
                     <div class="box__text">
-                        <div class="box__title">В AliExpress представили портрет типичного покупателя в регионах</div>
-                        <p>Петербуржцы закупаются пляжными сабо, омички — теплыми тапочками, а в Нижнем Новгороде заказывают жилеты с подогревом.</p>
+                        <div class="box__title" >{{ item.name }}</div>
+                        <div v-html="item.description_mini"></div>
                         <div class="n__date">
                             <router-link tag="a" to="/news">Подробно</router-link>
-                            <span>24.04.2021</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="../assets/image/image 5 (4).png" alt="not found">
-                    <div class="box__text">
-                        <div class="box__title">В AliExpress представили портрет типичного покупателя в регионах</div>
-                        <p>Петербуржцы закупаются пляжными сабо, омички — теплыми тапочками, а в Нижнем Новгороде заказывают жилеты с подогревом.</p>
-                        <div class="n__date">
-                            <router-link tag="a" to="/news">Подробно</router-link>
-                            <span>24.04.2021</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="../assets/image/image 5 (4).png" alt="not found">
-                    <div class="box__text">
-                        <div class="box__title">В AliExpress представили портрет типичного покупателя в регионах</div>
-                        <p>Петербуржцы закупаются пляжными сабо, омички — теплыми тапочками, а в Нижнем Новгороде заказывают жилеты с подогревом.</p>
-                        <div class="n__date">
-                            <router-link tag="a" to="/news">Подробно</router-link>
-                            <span>24.04.2021</span>
+                            <span>{{ item.date }}</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container mx-auto px-4 xl:px-12 md:px-4 mb-12">
-            <div class="recently-products">
-                <div class="recently__title">Вы недавно смотрели</div>
-                <div class="grid grid-cols-5 gap-3" >
-                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
-                        <Cart :cart="cart" />
-                    </div>
-                </div>
-            </div>
+<!--            <div class="recently-products">-->
+<!--                <div class="recently__title">Вы недавно смотрели</div>-->
+<!--                <div class="grid grid-cols-5 gap-3" >-->
+<!--                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">-->
+<!--                        <Cart :cart="cart" />-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
             <Brend/>
         </div>
 
@@ -105,7 +83,8 @@ import Brend from "@/views/Brend";
 export default {
   name: 'Home',
   data: () => ({
-    tovar: []
+    tovar: [],
+      news:[]
   }),
   async mounted () {
     this.tovar = await this.$store.dispatch('loadData')
@@ -116,8 +95,19 @@ export default {
     }))
   },
   methods: {
-
-  },
+    async getNews(){
+        try {
+            await axios
+                .get(this.$_http + 'api/news', )
+                .then(response => {
+                    this.news = response.data.data;
+                })
+        }
+        catch (e){
+            this.errorNotify(e.response.data)
+        }
+    }
+},
   computed: {
     getFav () {
       return this.$store.getters.LOADFAV
@@ -130,8 +120,12 @@ export default {
     Cart,
     Title,
     Footer,
-      Brend
-  }
+    Brend
+  },
+    created() {
+      this.getNews()
+        console.log(localStorage.getItem('token'))
+    }
 }
 
 </script>

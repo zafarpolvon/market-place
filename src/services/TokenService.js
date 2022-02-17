@@ -6,6 +6,10 @@ const TokenService = {
     getToken(){
         return localStorage.getItem(TOKEN_KEY)
     },
+    saveToken(token){
+            localStorage.setItem(TOKEN_KEY, token);
+            axios.defaults.headers.common['id'] = 'Bearer ' + token;
+        },
     setToken(token){
         localStorage.setItem(TOKEN_KEY, token);
     },

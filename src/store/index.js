@@ -2,7 +2,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-import auth from './auth'
 import profile from './profile'
 import cart from './cart'
 
@@ -87,7 +86,7 @@ export default new Vuex.Store({
     }
   },
   modules: {
-    auth, profile, cart
+      profile, cart
   },
   getters: {
     CARTS: state => {

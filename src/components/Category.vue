@@ -73,7 +73,6 @@ export default {
               })
           .then(response=>{
               this.sub = response.data.data;
-              console.log(this.sub)
           })
       }
       catch (e){

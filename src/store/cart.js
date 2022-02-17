@@ -14,7 +14,7 @@ export default {
   actions: {
     async addCart ({ commit }, cart) {
       const info = await axios
-        .post('/api/cart/add', {
+        .post(this.$_http + '/api/cart/add', {
           product_id: cart.product_id,
           amount: cart.amount
         },

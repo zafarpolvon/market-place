@@ -2,63 +2,50 @@
     <div class="back">
         <Navbar />
         <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
-            <a href="#">Главная страница / </a>
+            <router-link to="/" tag="a">Главная страница / </router-link>
             <a href="#">Новости подробно</a>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
-            <div class="mnews__title">Российская компания Wildberries планирует <br> выход на рынок Узбекистана</div>
-        </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
-            <div class="mnews__boxes">
-                <div class="box">
-                    <div class="box__image">
-                        <img src="../assets/image/image 3.png" alt="not found">
-                        <span>08.02.2021</span>
-                    </div>
-                    <p>Стороны обсудили возможное сотрудничество в сфере экспортных интернет-продаж текстильной и швейно-трикотажной промышленности с производителями Узбекистана.
-                        ТАШКЕНТ, 5 мар - Sputnik. Российская компания LogoName рассматривает рынок Узбекистана как очень перспективный, сообщает Ассоциация "Узтекстиль".</p>
-                    <p>На днях в Ассоциации прошла встреча руководства с представителями российского онлайн-ритейлера Wildberries, где узбекская компания была ознакомлена с
-                        действующей бизнес-моделью, со спецификой интернет-торговлиВ частности, стороны обсудили возможное сотрудничество в сфере экспортных интернет-продаж текстильной и швейно-трикотажной промышленности с производителями Узбекистана.</p>
-                    <p>LogoName выразили повышенную заинтересованность входа на рынок электронной коммерции Узбекистана, а также проработали вопрос входа на рынок с
-                        инвестированием своих средств в экономику страны", - говорится в сообщении.</p>
-                    <div class="sidebar">
-                        <img src="../assets/image/image 3.png" alt="not found" class="sidebar__img">
-                        <div class="sidebar__box">
-                            <img src="../assets/image/Rectangle 623.png" alt="not found">
-                            <img src="../assets/image/Rectangle 624.png" alt="not found">
+        <div v-for="(item,index) in newsdetail" :key="item.id">
+            <div class="container mx-auto px-4 xl:px-12 md:px-12">
+                <div class="mnews__title">{{ item.name}}</div>
+            </div>
+            <div class="container mx-auto px-4 xl:px-12 md:px-12">
+                <div class="mnews__boxes">
+                    <div class="box">
+                        <div class="box__image">
+                            <img :src="'https://novamarket.qwertyuz.ru/' + item.photo" alt="not found">
+                            <span>{{ item.date }}</span>
+                        </div>
+                       <div v-html="item.description"></div>
+                        <div class="shows">
+                            <span><i class="fa fa-eye"></i> {{ item.views }}</span>
                         </div>
                     </div>
-                    <div class="shows">
-                        <a href="#">Telegram</a>
-                        <span>|</span>
-                        <a href="#">Facebook</a>
-                        <span><i class="fa fa-eye"></i> 1023</span>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="box__title">Последние новости</div>
-                    <div class="late__box">
-                        <img src="../assets/image/Rectangle 621 (1).png" alt="not found">
-                        <div class="late__text">
-                            <div class="late__title">Бренды отказываются от "черной пятницы" из-за изменения климата</div>
-                            <p>По мнению активистов, день всемирных распродаж заставляет людей покупать ненужные вещи и тем самым вредить природе.....</p>
-                            <div class="n__date">
-                                <a href="#">Подробно</a>
-                                <span>09.04.2021</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="late__box">
-                        <img src="../assets/image/Rectangle 621 (2).png" alt="not found">
-                        <div class="late__text">
-                            <div class="late__title">AliExpress запустил в России интернет-магазин "Лоукостер"</div>
-                            <p>Новый интернет-магазин будет рассчитан на аудиторию до 25 лет, а также на тех, кто хочет купить известные бренды с доставкой из России....</p>
-                            <div class="n__date">
-                                <a href="#">Подробно</a>
-                                <span>15.04.2021</span>
-                            </div>
-                        </div>
-                    </div>
+                    <!--                <div class="box">-->
+                    <!--                    <div class="box__title">Последние новости</div>-->
+                    <!--                    <div class="late__box">-->
+                    <!--                        <img src="../assets/image/Rectangle 621 (1).png" alt="not found">-->
+                    <!--                        <div class="late__text">-->
+                    <!--                            <div class="late__title">Бренды отказываются от "черной пятницы" из-за изменения климата</div>-->
+                    <!--                            <p>По мнению активистов, день всемирных распродаж заставляет людей покупать ненужные вещи и тем самым вредить природе.....</p>-->
+                    <!--                            <div class="n__date">-->
+                    <!--                                <a href="#">Подробно</a>-->
+                    <!--                                <span>09.04.2021</span>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <!--                    <div class="late__box">-->
+                    <!--                        <img src="../assets/image/Rectangle 621 (2).png" alt="not found">-->
+                    <!--                        <div class="late__text">-->
+                    <!--                            <div class="late__title">AliExpress запустил в России интернет-магазин "Лоукостер"</div>-->
+                    <!--                            <p>Новый интернет-магазин будет рассчитан на аудиторию до 25 лет, а также на тех, кто хочет купить известные бренды с доставкой из России....</p>-->
+                    <!--                            <div class="n__date">-->
+                    <!--                                <a href="#">Подробно</a>-->
+                    <!--                                <span>15.04.2021</span>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <!--                </div>-->
                 </div>
             </div>
         </div>
@@ -73,12 +60,32 @@ import Footer from '../components/layout/Footer.vue'
 export default {
   name: 'Home',
   data: () => ({
-
+newsdetail:[]
   }),
   methods: {
-
+      async getNewsDetail(){
+          try {
+              await axios
+                  .get(this.$_http + 'api/news/detail',{
+                      params:{
+                          id: this.$route.params.id
+                      }
+                  } )
+                  .then(response => {
+                      this.newsdetail = response.data
+                  })
+          }
+          catch (e){
+              this.errorNotify(e.response.data.name)
+          }
+      }
   },
-  components: {
+    mounted:{
+    },
+    created() {
+      this.getNewsDetail()
+    },
+    components: {
     Navbar,
     Footer
   }

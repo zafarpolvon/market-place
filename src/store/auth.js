@@ -5,7 +5,7 @@ const TOKEN = window.localStorage.getItem('token')
 export default {
   state: {
     status: '',
-    token: localStorage.getItem('token') || '',
+    token: !!localStorage.getItem('token') || '',
     user: {}
   },
   mutations: {
@@ -14,7 +14,7 @@ export default {
     },
     auth_success (state, token) {
       state.status = 'success'
-      state.token = token.token
+      state.token = token
       state.user = token
     },
     auth_error (state) {
@@ -86,7 +86,7 @@ export default {
     }
   },
   getters: {
-    isLoggedIn: state => !!state.token,
+    isLoggedIn: state => state.token,
     authStatus: state => state.status
   }
 }

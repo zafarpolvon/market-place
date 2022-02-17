@@ -2,7 +2,7 @@
     <div class="back">
         <Navbar />
         <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
-            <a href="#">Главная страница / </a>
+            <router-link to="/" tag="a">Главная страница / </router-link>
             <a href="#">Новости</a>
         </div>
         <div class="container mx-auto px-4 xl:px-12 md:px-12">
@@ -10,83 +10,14 @@
         </div>
         <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="news__boxes">
-                <div class="box">
-                    <img src="../assets/image/image 5 (4).png" alt="not found">
+                <div class="box" v-for="(item,index) in news" :key="index">
+                    <img :src="'https://novamarket.qwertyuz.ru/' + item.photo" alt="not found">
                     <div class="box__text">
-                        <div class="box__title">В AliExpress представили портрет типичного покупателя в регионах</div>
-                        <p>Петербуржцы закупаются пляжными сабо, омички — теплыми тапочками, а в Нижнем Новгороде заказывают жилеты с подогревом.</p>
+                        <div class="box__title">{{item.name}}</div>
+                        <div v-html="item.description_mini"></div>
                         <div class="n__date">
-                            <a href="#">Подробно</a>
-                            <span>24.04.2021</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="../assets/image/image 5 (4).png" alt="not found">
-                    <div class="box__text">
-                        <div class="box__title">В AliExpress представили портрет типичного покупателя в регионах</div>
-                        <p>Петербуржцы закупаются пляжными сабо, омички — теплыми тапочками, а в Нижнем Новгороде заказывают жилеты с подогревом.</p>
-                        <div class="n__date">
-                            <a href="#">Подробно</a>
-                            <span>24.04.2021</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="../assets/image/image 5 (4).png" alt="not found">
-                    <div class="box__text">
-                        <div class="box__title">В AliExpress представили портрет типичного покупателя в регионах</div>
-                        <p>Петербуржцы закупаются пляжными сабо, омички — теплыми тапочками, а в Нижнем Новгороде заказывают жилеты с подогревом.</p>
-                        <div class="n__date">
-                            <a href="#">Подробно</a>
-                            <span>24.04.2021</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
-            <div class="n-video-title">Видео новости</div>
-        </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
-            <div class="n-video">
-                <div class="videos">
-                    <div class="video__box">
-                        <div class="video__box-img">
-                            <img src="../assets/image/image 3.png" alt="not found">
-                            <i class="fa fa-play"></i>
-                        </div>
-                        <div class="box__title">Российская компания NameLogo планирует выход на рынок Узбекистана</div>
-                        <p>Стороны обсудили возможное сотрудничество в сфере экспортных интернет-продаж текстильной и швейно-трикотажной промышленности с производителями Узбекистана.</p>
-                        <a href="#">Подробно</a>
-                    </div>
-                </div>
-                <div class="video__boxes">
-                    <div class="box">
-                        <div class="box__image">
-                            <img src="../assets/image/Rectangle 621.png" alt="not found">
-                            <i class="fa fa-play"></i>
-                        </div>
-                        <div class="box__text">
-                            <div class="text__title">В топ-10 российских онлайн-магазинов впервые вошла интернет-аптека</div>
-                            <p>OВ десятку крупнейших интернет-магазинов России по версии аналитического агентства Data Insight впервые вошла онлайн-аптека – apteka.ru. По итогам 2019 г. она поднялась с 13-го на 7-е место.</p>
-                            <div class="n__date">
-                                <a href="#">Подробно</a>
-                                <span>30.04.2021</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div class="box__image">
-                            <img src="../assets/image/image 9.png" alt="not found">
-                        </div>
-                        <div class="box__text">
-                            <div class="text__title">В топ-10 российских онлайн-магазинов впервые вошла интернет-аптека</div>
-                            <p>OВ десятку крупнейших интернет-магазинов России по версии аналитического агентства Data Insight впервые вошла онлайн-аптека – apteka.ru. По итогам 2019 г. она поднялась с 13-го на 7-е место.</p>
-                            <div class="n__date">
-                                <a href="#">Подробно</a>
-                                <span>30.04.2021</span>
-                            </div>
+                            <router-link :to="{name:'Mnews', params:{id:item.id}}" tag="a">Подробно</router-link>
+                            <span>{{ item.date }}</span>
                         </div>
                     </div>
                 </div>
@@ -103,11 +34,25 @@ import Footer from '../components/layout/Footer.vue'
 export default {
   name: 'Home',
   data: () => ({
-
+news:[]
   }),
   methods: {
-
+      async getNews(){
+          try {
+              await axios
+                  .get(this.$_http + 'api/news', )
+                  .then(response => {
+                      this.news = response.data.data;
+                  })
+          }
+          catch (e){
+              this.errorNotify(e.response.data)
+          }
+      }
   },
+    created(){
+      this.getNews()
+    },
   components: {
     Navbar,
     Footer
@@ -146,7 +91,7 @@ export default {
     }
     .news__boxes .box img:hover{
         filter: brightness(0.8);
-    }       
+    }
     .news__boxes .box .box__text{
         padding: 15px 10px 10px 10px;
     }

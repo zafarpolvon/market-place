@@ -52,7 +52,7 @@ const routes = [
     meta: { layout: 'Delivery', auth: false }
   },
   {
-    path: '/mnews',
+    path: '/mnews/:id',
     name: 'Mnews',
     component: Mnews,
     meta: { layout: 'Mnews', auth: false }
@@ -133,7 +133,7 @@ const routes = [
     path: '/selected',
     name: 'Selected',
     component: Selected,
-    meta: { layout: 'Selected', auth: true }
+    meta: { layout: 'Selected', auth: false }
   },
   {
     path: '/login',

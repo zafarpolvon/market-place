@@ -9,7 +9,7 @@
                         <img :src="getUser.photo" alt="not found">
                         <div class="user__name">{{ getUser.name || 'Not found' }}</div>
                     </div>
-                    <div class="email">Э-маил: <span>{{ getUser.email || 'Not found' }}</span></div>
+                    <div class="email">Э-маил: <span>{{ getUser.email || '' }}</span></div>
                     <div class="b__user">
                         <div class="phone">Телефон: <span>{{ getUser.phone }}</span></div>
                     </div>
@@ -70,7 +70,7 @@ export default {
   },
   computed: {
     getUser () {
-      return this.$store.getters.LOADUSER
+      return this.$store.getters.LOADUSER.data
     }
   },
   components: {

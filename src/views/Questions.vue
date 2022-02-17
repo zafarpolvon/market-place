@@ -2,61 +2,33 @@
     <div class="back">
         <Navbar />
         <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
-            <a href="#">Главная страница / </a>
+            <router-link to="/" tag="a">Главная страница / </router-link>
             <a href="#"> FAQ</a>
         </div>
         <div class="container mx-auto px-4 xl:px-12 md:px-12">
             <div class="questions__title">Часто задаемевый вопросы</div>
             <div class="questions__box">
                 <div class="box">
-                    <div class="questions__text">
-                        <div class="text2">
-                            <i class="fa fa-play"></i>
-                            <p>Название любого вопроса из этой сферы деятельности?</p>
+                    <div v-for="(item,index) in questions" :key="index">
+                        <div class="questions__text">
+                            <div class="text2" data-bs-toggle="collapse" :href="'#multiCollapseExample'  + `${index}`" role="button" aria-expanded="false" :aria-controls=" 'multiCollapseExample'  + `${index}`">
+                                <i class="fa fa-play"></i>
+                                <div v-html="item.question"></div>
+                            </div>
+                            <div class="text__box collapse multi-collapse" :id="'multiCollapseExample' + `${index}`">
+                                <div  v-html="item.answer"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="questions__text">
-                        <div class="text2">
-                            <i class="fa fa-play"></i>
-                            <p>Название любого вопроса из этой сферы деятельности?</p>
-                        </div>
-                    </div>
-                    <div class="questions__text">
-                        <div class="text2">
-                            <i class="fa fa-play"></i>
-                            <p>Название любого вопроса из этой сферы деятельности?</p>
-                        </div>
-                        <div class="text__box">
-                            <p>Лента LFD400S-G1-827-06 4052899953611 классом исполнения IP67 по проекту установлена на поверхности стеклянного фасада, под козырьком-отливом, и подключена к блокам OSRAM Optotronic OTi DALI 75/220-240/24, по 1-му на каждый комплект ленты(6м). Лента укреплена с помощью кабельных стяжек. Лента, установлена по периметру фасада на уровне 6-ти и 18м. Всего уложено 84м.</p>
-                            <p>После монтажных работ конструкция отработала в режиме технического прогона с сентября по 3-ю декаду ноября. В процессе монтажа выявлено, что некоторые отрезки 6-ти метровой ленты имеют мерцание. Лента LFD400S-G1-827-06 4052899953611 классом исполнения IP67 по проекту установлена на поверхности стеклянного фасада, под козырьком-отливом, и подключена к блокам OSRAM Optotronic OTi DALI 75/220-240/24, по 1-му на каждый комплект ленты(6м).</p>
-                        </div>
-                    </div>
-                    <div class="questions__text">
-                        <div class="text2">
-                            <i class="fa fa-play"></i>
-                            <p>Название любого вопроса из этой сферы деятельности?</p>
-                        </div>
-                    </div>
-                    <div class="questions__text">
-                        <div class="text2">
-                            <i class="fa fa-play"></i>
-                            <p>Название любого вопроса из этой сферы деятельности?</p>
-                        </div>
-                    </div>
-                    <div class="questions__text">
-                        <div class="text2">
-                            <i class="fa fa-play"></i>
-                            <p>Название любого вопроса из этой сферы деятельности?</p>
-                        </div>
-                    </div>
+
                 </div>
-                <div class="c__box">
+                <form class="c__box" @submit.prevent="sendFeedback">
                     <div class="box__title">У вас есть вопросы</div>
-                    <input type="text" placeholder="Ваше имя" />
-                    <input type="email" placeholder="Ваш  e-mail" />
-                    <textarea placeholder="Ваш отзыв"></textarea>
-                    <button type="submit">Отправить вопрос</button>
-                </div>
+                    <input type="text" placeholder="Ваше имя" v-model="name"/>
+                    <input type="email" placeholder="Ваш  e-mail"  v-model="email" />
+                    <textarea placeholder="Ваш отзыв" v-model="message"></textarea>
+                    <button type="submit" @click="sendFeedback">Отправить вопрос</button>
+                </form>
             </div>
         </div>
         <Footer />
@@ -70,12 +42,50 @@ import Footer from '../components/layout/Footer.vue'
 export default {
   name: 'Home',
   data: () => ({
-
+questions:[],
+      name:'',
+      email:'',
+      message:''
   }),
   methods: {
+      async getQuestions () {
+          try {
+              await axios
+                  .get(this.$_http + 'api/question')
+                  .then(response=>{
+                      this.questions = response.data.data;
+                  })
+          }
+          catch (e){
+              this.errorNotify(e.response.data)
+          }
+      },
+      async sendFeedback () {
+          let form = new FormData();
+          form.append('name', this.name)
+          form.append('email', this.email)
+          form.append('message', this.message)
 
+          try {
+              await axios
+                  .post(this.$_http + 'api/feedback/send', form)
+                  .then(response=>{
+                      this.successNotify()
+                      this.name = '';
+                      this.email = '';
+                      this.message = '';
+                  })
+          }
+          catch (e){
+              this.errorNotify(e.response.data.errors)
+          }
+      }
   },
-  components: {
+
+    created(){
+      this.getQuestions()
+    },
+    components: {
     Navbar,
     Footer
   }
@@ -83,6 +93,9 @@ export default {
 </script>
 
 <style scoped>
+.questions__text.active .fa-play{
+    transform: rotate(90deg);
+}
     .pages a{
         color: #023047;
         text-decoration: none;
@@ -105,6 +118,7 @@ export default {
     .questions__box .box{
         width: 65%;
     }
+
     .questions__box .box .questions__text{
         display: flex;
         flex-direction: column;
@@ -140,14 +154,17 @@ export default {
     .questions__box .box .questions__text .text__box{
         background: #F1EFED;
         border-radius: 10px;
-        padding: 1.5rem 1.5rem 0 1.5rem;
         margin-top: 1.5rem;
         width: 85%;
+        /*max-height: 0;*/
+        /*overflow: hidden;*/
+        /*transition: max-height 1.4s ease !important;*/
     }
-    .questions__box .box .questions__text .text__box p{
+    .questions__box .box .questions__text .text__box div{
         color: #666666;
         margin-bottom: 1.5rem;
         font-size: 17px;
+        padding: 15px;
     }
     .c__box{
         filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.15));
