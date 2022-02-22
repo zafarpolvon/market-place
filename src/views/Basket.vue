@@ -11,7 +11,11 @@
             </div>
             <div class="grid grid-cols-10 gap-4 pb-6">
                 <div class="col-span-7">
-                    <Korzina />
+                    <div v-for="item in korzina" :key="item.id">
+                        <Korzina :korzina="item"/>
+
+                    </div>
+
                     <div class="basket__delivery mt-8">
                         <h5>Способ доставки</h5>
                         <button class="mt-4" @click="show()">Выбрать адрес доставки</button>
@@ -24,7 +28,7 @@
                     </div>
                 </div>
                 <div class="col-span-3">
-                    <Total />
+                    <Total :korzinaTotal="korzina"/>
                     <div class="basket__spec mt-8">
                         <a href="#" @click="address()">Правил пользования торговой площадкой и правилами возврата</a>
                     </div>
@@ -46,6 +50,9 @@ import ModalDelivery from '../components/modal/ModalDelivery.vue'
 import ModalAddress from '../components/modal/ModalAddress.vue'
 
 export default {
+    data: () => ({
+        korzina:[]
+    }),
   mount () {
     this.show()
   },
@@ -57,6 +64,9 @@ export default {
       this.$modal.show('Modal-Address')
     }
   },
+    async mounted(){
+        this.korzina = await this.$store.dispatch('getCartItem')
+    },
   components: {
     Navbar,
     Footer,

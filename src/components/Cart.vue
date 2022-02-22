@@ -52,10 +52,8 @@ export default {
     },
     async favevent (item) {
       await this.$store.dispatch('addFavorite', item)
+      await this.$store.dispatch('getFavorite')
     },
-    deleteCart (item) {
-      this.$store.commit('removeFromCart', item)
-    }
   },
   components: {
     IconLove

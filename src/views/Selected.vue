@@ -8,7 +8,7 @@
         </div>
         <div class="container mx-auto px-4 xl:px-12 md:px-12 mt-6">
             <div class="grid grid-cols-5 gap-3" >
-                <div v-for="cart in tovar.data" :key="cart.id">
+                <div v-for="cart in favoriteList" :key="cart.id">
                     <Cart :cart="cart" />
                 </div>
             </div>
@@ -52,7 +52,6 @@ export default {
   }),
   async mounted () {
     this.tovar = await this.$store.dispatch('getFavorite')
-    console.log(this.tovar)
   },
   methods: {
 
@@ -60,7 +59,10 @@ export default {
   computed: {
     product () {
       return this.$store.getters.PRODUCTS
-    }
+    },
+       favoriteList(){
+           return this.$store.getters.LOADFAV
+      }
   },
   components: {
     Navbar,

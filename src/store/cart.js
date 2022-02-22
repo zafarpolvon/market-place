@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 const TOKEN = localStorage.getItem('token')
-
 export default {
   state: {
     korzina: []
@@ -14,7 +13,7 @@ export default {
   actions: {
     async addCart ({ commit }, cart) {
       const info = await axios
-        .post(this.$_http + '/api/cart/add', {
+        .post('api/cart/add', {
           product_id: cart.product_id,
           amount: cart.amount
         },
@@ -50,7 +49,26 @@ export default {
       } catch (e) {
         console.log(e)
       }
-    }
+    },
+      async removeCartItem ({ commit }, item) {
+          const info = await axios
+              .post('/api/cart/remove',{
+                      product_id: item
+                  },
+                  {
+                      headers: {
+                          Authorization: `Bearer ${TOKEN}`,
+                          'Access-Control-Allow-Origin': '*'
+                      }
+                  }
+              )
+          try {
+              commit('setCart', info.data.data)
+              return info.data.data
+          } catch (e) {
+              console.log(e)
+          }
+      }
   },
   getters: {
     CART_INFO: state => {

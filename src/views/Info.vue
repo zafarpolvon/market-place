@@ -153,9 +153,9 @@ export default {
         color: #023047;
         font-weight: bold;
     }
-    .info__boxes .box:nth-child(2){
-        background: rgba(0, 82, 255, 0.2);
-    }
+    /*.info__boxes .box:nth-child(2){*/
+    /*    background: rgba(0, 82, 255, 0.2);*/
+    /*}*/
     .info__boxes .box:nth-child(2) p{
         color: #2C2C2C;
     }
@@ -199,9 +199,9 @@ export default {
         height: 140px;
         width: 23%;
     }
-    .info__boxes2 .box:first-child{
-        background: rgba(0, 82, 255, 0.2);
-    }
+    /*.info__boxes2 .box:first-child{*/
+    /*    background: rgba(0, 82, 255, 0.2);*/
+    /*}*/
     .info__boxes2 .box .box__title{
         font-size: 23px;
         color: #023047;

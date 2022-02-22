@@ -14,7 +14,8 @@ export default new Vuex.Store({
   state: {
     // cart: cart ? JSON.parse(cart) : [],
     carts: [],
-    category: []
+    category: [],
+      token : !!localStorage.getItem('token') || ''
   },
   mutations: {
     // addToCart (state, product) {
@@ -101,6 +102,8 @@ export default new Vuex.Store({
     },
     PRODUCTS: state => {
       return state.cart
-    }
+    },
+    isLoggedIn: state => state.token
+
   }
 })

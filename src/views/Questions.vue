@@ -22,7 +22,7 @@
                     </div>
 
                 </div>
-                <form class="c__box" @submit.prevent="sendFeedback">
+                <form class="c__box mb-4" @submit.prevent="sendFeedback">
                     <div class="box__title">У вас есть вопросы</div>
                     <input type="text" placeholder="Ваше имя" v-model="name"/>
                     <input type="email" placeholder="Ваш  e-mail"  v-model="email" />
@@ -69,7 +69,7 @@ questions:[],
           try {
               await axios
                   .post(this.$_http + 'api/feedback/send', form)
-                  .then(response=>{
+                  .then(response=> {
                       this.successNotify()
                       this.name = '';
                       this.email = '';

@@ -5,54 +5,52 @@
         <second-navbar />
         <div class="container mx-auto px-4 xl:px-12 md:px-12 mb-12">
             <div class="user__cabinet">
+                <div class="user_cabinet__edit-icon" >
+                    <img src="../assets/image/Vector (19).png" alt="not found" @click="edit">
+                </div>
                 <div class="user">
                     <div class="user__img">
-                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80" alt="not found">
-                        <i class="fa fa-plus"></i>
+                        <img :src="getUser.photo" alt="not found">
+                        <div class="mt-2">
+                            <span v-if="getUser.photo" class="photo__remove">-rasm uchirish</span>
+                            <span v-else class="photo__save">+rasm yuklash</span>
+                        </div>
                     </div>
-                    <div class="user__name">{{ getUser.name }}</div>
-                    <input v-show="inputName" class="input__name" type="text" v-model="getUser.name">
-                    <img v-show="!inputName" class="cursor-pointer" @click="showInfoName" src="../assets/image/Vector (19).png" alt="not found">
-                    <button v-show="inputName" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputName = false">Отмена</button>
-                    <button v-show="inputName" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
-                </div>
+                    <div class="user__name">{{ getUser.name || 'Не указано'}}</div>
+
+
+
+                                    </div>
                 <div class="info__box">
                     <div class="info__user">
                     <div class="title">Э-маил</div>
                     <div class="change">
-                        <p>{{ getUser.email || 'Нет email'}}</p>
-                        <input placeholder="Нет ничего" v-show="inputEmail" class="input__name" type="text" v-model="getUser.email">
-                        <img v-show="!inputEmail" @click="showInfoEmail" src="../assets/image/Vector (19).png" alt="not found">
-                        <button v-show="inputEmail" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputEmail = false">Отмена</button>
-                        <button v-show="inputEmail" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
+                        <p> {{ getUser.email || 'Не указано'}}</p>
+
                     </div>
                 </div>
                 <div class="info__user">
                     <div class="title">Телефон</div>
                     <div class="change">
-                        <p>{{ getUser.phone || 'Test' }}</p>
-                        <input v-show="inputPhone" class="input__name" type="text" v-model="getUser.email">
-                        <img v-show="!inputPhone" @click="showInfoPhone" src="../assets/image/Vector (19).png" alt="not found">
-                        <button v-show="inputPhone" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputPhone = false">Отмена</button>
-                        <button v-show="inputPhone" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
+                        <p>{{ getUser.phone }}</p>
+
                     </div>
                 </div>
                 <div class="info__user">
                     <div class="title">Дата рождения</div>
                     <div class="change">
                         <p>{{ 'Не указано' }}</p>
-                        <img src="../assets/image/Vector (19).png" alt="not found">
-                        <button v-show="inputBirth" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputBirth = false">Отмена</button>
-                        <button v-show="inputBirth" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
+
                     </div>
                 </div>
                 <div class="info__user">
                     <div class="title">Пол</div>
                     <div class="change inputs">
-                        <input type="radio" name="name" />
-                        <span>Муж.</span>
-                        <input type="radio" name="name" />
-                        <span>Жен.</span>
+                        <input type="radio" name="name" id="genderMan" value="1" v-model="getUser.gender" :disabled="inputGender"/>
+                        <label for="genderMan" class="mr-2">Муж.</label>
+                        <input type="radio" name="name" id="genderWomen" value="2" v-model="getUser.gender" :disabled="inputGender"/>
+                        <label for="genderWomen">Жен.</label>
+
                     </div>
                 </div>
                 </div>
@@ -83,6 +81,57 @@
                 </div>
             </div>
         </div>
+        <div class="debit__box">
+            <modal class="modal__card" :height="'auto'" :adaptive="true" name="Modal-Cabinet">
+                <div class="debit__modal">
+                    <div class="modal__header">
+                        <div class="header__title">
+                            <h4>izminet</h4>
+                        </div>
+                        <div class="header__close">
+                            <button @click="hide()"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="modal-content">
+                        <form>
+                            <div class="form-item">
+                                <label>Name</label>
+                                <input type="text" class="text" v-model="getUser.name">
+                            </div>
+                            <div class="form-item">
+                                <label>Э-маил
+                                </label>
+                                <input type="text" class="text" v-model="getUser.email">
+                            </div>
+                            <div class="form-item">
+                                <label>Телефон</label>
+                                <input type="text" class="text" v-model="getUser.phone">
+                            </div>
+                            <div class="form-item">
+                                <label>Дата рождения
+                                </label>
+                                <input type="text" class="text" v-model="getUser.birthday">
+                            </div>
+                            <div class="form-item">
+                                <label>Пол
+                                </label>
+                                <div class="poll__container">
+                                    <input type="radio" name="poll" v-model="getUser.gender" value="1">
+                                    <label class="mr-2">Муж</label>
+                                    <input type="radio" name="poll" v-model="getUser.gender" value="2">
+                                    <label>Жен</label>
+                                </div>
+                            </div>
+                            <div class="modal__footer">
+                                <button  type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="hide">Отмена</button>
+                                <button  type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >Сохранить</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </modal>
+        </div>
         <Footer />
     </div>
 </template>
@@ -97,34 +146,184 @@ export default {
   data: () => ({
     inputName: false,
     inputEmail: false,
-    inputPhone: false
+    inputPhone: false,
+      inputBirth:false,
+      inputGender:true,
+      // form:{
+      //   name:'',
+      //     email:'',
+      //     phone:'',
+      //     dateBirth:'',
+      //     pol:'',
+      //     address:'',
+      //     password:''
+      // }
+      form:null
   }),
   methods: {
     showInfoName () {
       this.inputName = true
     },
-    showInfoPhone () {
+      edit(){
+          this.$modal.show('Modal-Cabinet')
+
+      },
+      showInfoPhone () {
       this.inputPhone = true
     },
     showInfoEmail () {
       this.inputEmail = true
-    }
+    },
+      showInfoBirth(){
+        this.inputBirth = true
+      },
+      showInfoGender(){
+        this.inputGender = false
+      },
+      hide () {
+          this.$modal.hide('Modal-Cabinet')
+      },
+      async saveUserProfile(){
+          let form = new FormData();
+          form.append('phone', this.getUser.phone)
+          form.append('name', this.getUser.name)
+          form.append('email', this.getUser.email)
+          form.append('password', this.getUser.password)
+          form.append('gender', this.getUser.gender)
+          form.append('birthday', this.getUser.birthday)
+          form.append('photo', this.getUser.photo)
+          try {
+
+
+              await axios
+                  .post(this.$_http + 'api/user/update', form,{
+                      headers: {
+                          Authorization: `Bearer ${localStorage.getItem('token')}`
+
+                      }
+                  })
+                  .then(async response => {
+                      if (response) {
+                            await this.getUser()
+                          this.successNotify()
+                      }
+                  })
+          } catch (e) {
+              this.errorNotify(e.response.data.name)
+          }
+      }
 
   },
   computed: {
     getUser () {
-      return this.$store.getters.LOADUSER
+      return this.$store.getters.LOADUSER.data
     }
   },
   components: {
     Navbar,
     Footer,
-    SecondNavbar
+    SecondNavbar,
   }
 }
 </script>
 
 <style scoped>
+.photo__save,
+.photo__remove{
+    font-size: 12px;
+    white-space: nowrap;
+    cursor:pointer;
+}
+.photo__save{
+    color: green;
+}
+.photo__remove{
+    color: red;
+}
+.debit__box {
+    width: 50%;
+}
+.modal__card {
+    width: 80%;
+}
+.header__close button {
+    font-size: 20px;
+}
+.modal__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header__title h4 {
+    font-size: 20px;
+    color: #0a0a0a;
+    text-align: center;
+    font-weight: 500;
+}
+.header__title {
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+.debit__modal {
+    padding: 20px 20px;
+}
+.form-item{
+    display: flex;
+    flex-direction: column;
+
+}
+.form-item input.text{
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgba(59, 130, 246, 0.5);
+    border-radius: 10px;
+    outline: none;
+    padding: 0 20px;
+}
+form{
+    padding: 20px;
+}
+.poll__container{
+    display: flex;
+    align-items: center;
+}
+.poll__container label{
+    font-weight: 400;
+    font-size: 14px;
+
+}
+.modal__footer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.modal__footer button{
+    outline: none;
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+    .header__title h4 {
+        font-size: 18px;
+    }
+}
+.user_cabinet__edit-icon{
+    width: 100%;
+   display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+.input__name{
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #1C55C0;
+    border-radius: 10px;
+
+}
     .user__cabinet{
         width: 100%;
         height: 260px;
@@ -139,17 +338,16 @@ export default {
         display: flex;
         align-items: center;
         margin-bottom: 1.5rem;
+        justify-content: space-around;
     }
     .user__cabinet .user .user__img img{
         width: 100%;
         border-radius: 50%;
-        filter: brightness(0.5);
         text-align: center;
         margin: 0 auto;
     }
     .user__cabinet .user .user__img{
         display: flex;
-        align-items: center;
         justify-content: center;
         position: relative;
         border-radius: 50%;
@@ -257,6 +455,7 @@ export default {
         box-sizing: border-box;
         margin-bottom: 1rem;
     }
+
     .user__boxes2 .box .add__cart p{
         color: #0052FF;
     }

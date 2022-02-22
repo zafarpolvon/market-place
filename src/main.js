@@ -9,14 +9,13 @@ import Progress from 'vue-multiple-progress'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 import ZoomOnHover from 'vue-zoom-on-hover'
-import http from './plugins/Axios'
 import Notifications from 'vue-notification';
 import NotificationMixin from "./mixins/Notification";
-
-
+import Api from './services/ApiPlugin';
 
 Vue.prototype.$_http = "https://novamarket.qwertyuz.ru/";
 window.axios = require('axios');
+// Vue.use(Api)
 Vue.use(VueSplide)
 Vue.use(Progress)
 Vue.use(ZoomOnHover)

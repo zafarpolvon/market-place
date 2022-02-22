@@ -2,10 +2,10 @@
     <div class="basket__item">
         <div class="basket__left">
             <div class="basket__image">
-                <img src="../assets/image/outdoors-3176153_1920 1 (1).png" alt="">
+                <img :src="korzina.product.photo" alt="">
             </div>
             <div class="basket__box">
-                <h4>POLO  рубашка</h4>
+                <h4>{{ korzina.product.name }}</h4>
                 <h5>Цвет: <span class="basket__gray">Белый</span></h5>
                 <h5>Размер: <span class="basket__gray">XXL - 44</span></h5>
                 <h5>Склад отгрузки:  <span class="basket__gray">склад Logoname</span></h5>
@@ -13,27 +13,133 @@
             </div>
         </div>
         <div class="basket__count">
-            <Counter />
+            <div class="product__order">
+                <button @click="decreaseCounter" class="product__increment">-</button>
+                <p>{{ korzina.amount }}</p>
+                <button @click="increaseCounter" class="product__decrement">+</button>
+            </div>
             <h5>Осталось 2 шт</h5>
         </div>
         <div class="basket__price">
-            <h3>500 ₽</h3>
-            <h4>2000 рубл</h4>
-            <p>кредит от 50 ₽/мес</p>
+            <div>
+                <h3>{{ korzina.product.price }}</h3>
+                <h4>{{ korzina.product.price_old }}</h4>
+                <p>кредит от 50 ₽/мес</p>
+            </div>
+            <div style="color: red; cursor:pointer" @click="removeCartItem(korzina.product.id)">
+                remove korzina
+            </div>
         </div>
+
     </div>
 </template>
 
 <script>
-import Counter from '../components/Counter.vue'
 export default {
-  components: {
-    Counter
-  }
+    props: ['korzina'],
+    data: ()=>({
+        counter:1
+    }),
+    methods: {
+        increaseCounter () {
+            this.korzina.amount++
+        },
+        decreaseCounter () {
+            if (this.korzina.amount > 1) this.korzina.amount--
+        },
+        async removeCartItem(item){
+            await this.$store.dispatch('removeCartItem', item)
+            location.reload()
+        }
+    }
+
 }
 </script>
 
 <style scoped>
+.product__order {
+    display: flex;
+    align-items: center;
+}
+.product__order .product__increment{
+    background: #EDE9E9;
+    color: #000;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 0 10px;
+    border-radius: 0 !important;
+}
+.product__order .product__decrement{
+    background: linear-gradient(92.98deg, rgba(190, 217, 255, 0) 0.15%, #729EDB 0.15%, #274784 100.17%) !important;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 0 10px;
+    border-radius: 0 !important;
+}
+.product__order {
+p {
+    width: 70px;
+    padding: 8px 10px;
+    outline: none;
+    text-align: center;
+    border: 1px solid #C4C4C4;
+}
+}
+.add-product .product__information .product__about .product__order .product__increment{
+    font-size: 28px;
+    border-radius: 0 !important;
+}
+.add-product .product__information .product__about .product__order .product__decrement{
+    font-size: 28px;
+    border-radius: 0 !important;
+}
+
+@media (min-width: 415px) and (max-width: 769px){
+    .product__order p{
+        width: 55px;
+        padding: 5px;
+    }
+    .product__order .product__decrement{
+        font-size: 24px;
+    }
+    .add-product .product__information .product__about .product__order .product__decrement{
+        font-size: 24px;
+    }
+    .product__order .product__increment{
+        font-size: 24px;
+    }
+    .add-product .product__information .product__about .product__order .product__increment{
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 415px){
+    .product__order p{
+        width: 45px;
+        padding: 0px 5px;
+        height: 29px;
+    }
+    .product__order .product__decrement{
+        font-size: 20px;
+        height: 29px;
+    }
+    .add-product .product__information .product__about .product__order .product__decrement{
+        font-size: 20px;
+        height: 29px;
+    }
+    .product__order .product__increment{
+        font-size: 20px;
+        height: 29px;
+    }
+    .add-product .product__information .product__about .product__order .product__increment{
+        font-size: 20px;
+        height: 29px;
+    }
+}
+
     .basket__left {
         display: flex;
         flex-direction: row;
@@ -93,6 +199,9 @@ export default {
     }
     .basket__price {
         text-align: right;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     .basket__price h4 {
         font-weight: 500;

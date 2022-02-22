@@ -122,10 +122,7 @@ export default {
     Footer,
     Brend
   },
-    created() {
-      this.getNews()
-        console.log(localStorage.getItem('token'))
-    }
+
 }
 
 </script>

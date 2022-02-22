@@ -49,7 +49,7 @@
                             <span>Доставка</span>
                         </router-link>
                         <router-link to="/selected" tag="a" class="flex flex-col justify-between">
-                            <span class="count__navbar1">1</span>
+                            <span class="count__navbar1">{{ getFav.length }}</span>
                             <img class="h-5 flex flex-row items-center" src="../../assets/svg/saved.svg" alt="">
                             <span>Избранные</span>
                         </router-link>
@@ -151,6 +151,7 @@ import Menu from './Menu.vue'
 import Search from '../modal/Search.vue'
 import Category from '../Category.vue'
 import SearchWeb from '../SearchWeb.vue'
+import axios from "axios";
 export default {
   name: 'Home',
   data: () => ({
@@ -158,13 +159,25 @@ export default {
     search: true,
     category: false,
     searchweb: '',
-    test: []
+    test: [],
+      cartItem:[]
   }),
-  async mounted () {
-    this.test = await this.$store.dispatch('getCartItem')
-    console.log(this.test.length)
-  },
+
   methods: {
+      async getCartItem () {
+          try {
+              await axios
+                  .get(this.$_http + 'api/news', )
+                  .then(response => {
+                      this.news = response.data.data;
+                  })
+          }
+          catch (e){
+              this.errorNotify(e.response.data)
+          }
+
+
+      },
 
     mouseEnter () {
       this.toShowOnHover = !this.toShowOnHover
@@ -197,10 +210,18 @@ export default {
       return this.$store.getters.CART_INFO
     },
     getUser () {
-      return this.$store.getters.LOADUSER
-    }
+      return this.$store.getters.LOADUSER.data
+    },
+      getFav(){
+          return this.$store.getters.LOADFAV
+
+      }
   },
-  components: {
+    created() {
+        this.$store.dispatch('getCartItem')
+        console.log(this.$store.getters.LOADFAV)
+    },
+    components: {
     Menu,
     Search,
     Category,

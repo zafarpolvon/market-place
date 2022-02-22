@@ -2,11 +2,13 @@
     <div class="total__box">
         <div class="flex justify-between mt-4">
             <h5 class="total__title">Итого</h5>
-            <h3 class="total__price">1890 ₽</h3>
+            <div >
+                <h3 class="total__price">{{getKorzinaTotalAmount}}₽</h3>
+            </div>
         </div>
-        <div class="flex justify-between mt-4">
-            <h5 class="total__left">Товары (1)</h5>
-            <p class="total__right">1890 ₽</p>
+        <div class="flex justify-between mt-4" v-for="item in korzinaTotal" :key="item.id">
+            <h5 class="total__left">{{ item.product.name }} ({{ item.amount }})</h5>
+            <p class="total__right">{{ (item.product.price * item.amount) }}₽</p>
         </div>
         <div class="flex justify-between mt-2">
             <div class="flex">
@@ -37,7 +39,16 @@
 
 <script>
 export default {
-
+    props: ['korzinaTotal'],
+    computed:{
+        getKorzinaTotalAmount(){
+            let sum = 0;
+            this.korzinaTotal.find(x=>{
+                sum = sum + (x.product.price * x.amount)
+            })
+            return sum
+        }
+    }
 }
 </script>
 

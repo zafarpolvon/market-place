@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="cursor-pointer">
         <a @click="addFavorite">
             <i class="far fa-heart"></i>
         </a>

@@ -1,24 +1,26 @@
 import axios from 'axios'
 
 const TOKEN = localStorage.getItem('token')
+
 export default {
   state: {
     profile: {},
-    favorite: []
+    favorite: [],
   },
   mutations: {
     loadUser (state, profile) {
       state.profile = profile
     },
-    setFavorite (state) {
-      state.favorite = state
+    setFavorite (state,favorite) {
+      state.favorite = favorite
     }
   },
   actions: {
     async getUser ({ commit }) {
       const info = await axios.get('api/user/profile', {
         headers: {
-          Authorization: `Bearer ${TOKEN}`
+            Authorization: `Bearer ${TOKEN}`
+
         }
       })
       try {
@@ -29,7 +31,6 @@ export default {
       }
     },
     async addFavorite ({ commit }, user) {
-      console.log(user)
       const info = await axios
         .post('/api/product/set-favorite', {
           product_id: user
@@ -45,10 +46,10 @@ export default {
         )
 
       try {
-        commit('loadUser', info.data.data)
+        commit('setFavorite', info.data)
         return info.data.data
       } catch (e) {
-        console.log(e)
+
       }
     },
     async getFavorite ({ commit }) {
@@ -62,8 +63,8 @@ export default {
           }
         )
       try {
-        commit('setFavorite', info.data)
-        return info.data
+        commit('setFavorite', info.data.data)
+        return info.data.data
       } catch (e) {
         console.log(e)
       }
