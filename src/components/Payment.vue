@@ -5,20 +5,20 @@
             <p>Для оформления  заказа , выбрат адрес доставки</p>
             <div class="inputs">
                 <div>
-                    <input class="mr-2" type="radio" name="payments" />
-                    <span>Онлайн</span>
+                    <input id="input1" class="mr-2" type="radio" name="payments" />
+                    <label for="input1">Онлайн</label>
                 </div>
                 <div>
-                    <input class="mr-2" type="radio" name="payments" />
-                    <span>Наличными </span>
+                    <input id="input2" class="mr-2" type="radio" name="payments" />
+                    <label for="input2">Наличными </label>
                 </div>
                 <div>
-                    <input class="mr-2" type="radio" name="payments" />
-                    <span>Картой при получении</span>
+                    <input id="input3" class="mr-2" type="radio" name="payments" />
+                    <label for="input3">Картой при получении</label>
                 </div>
                 <div>
-                    <input class="mr-2" type="radio" name="payments" />
-                    <span>По договору</span>
+                    <input id="input4" class="mr-2" type="radio" name="payments" />
+                    <label for="input4">По договору</label>
                 </div>
             </div>
         </div>
@@ -36,6 +36,11 @@ export default {
 </script>
 
 <style scoped>
+    input[type=radio]{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     input[type=radio]:before {
         position: absolute;
         width: 20px;
@@ -50,8 +55,6 @@ export default {
     }
     input[type=radio]:checked:after {
         position: relative;
-        top: -2px;
-        left: 4px;
         display: inline-block;
         visibility: visible;
         border-radius: 6px;
@@ -95,7 +98,7 @@ export default {
         width: 18px;
         height: 18px;
     }
-    .inputs span{
+    .inputs label{
         font-size: 16px;
     }
 
@@ -106,11 +109,23 @@ export default {
         .inputs div{
             margin: 1rem 1rem 0 0;
         }
-    }
-
-    @media (max-width: 376px){
+        input[type=radio]{
+            width: 14px;
+            height: 14px;
+        }
+        input[type=radio]:before {
+            width: 14px;
+            height: 14px;
+        }
+        input[type=radio]:checked:after {
+            width: 8px;
+            height: 8px;
+        }
         .payment__box h5{
-            font-size: 20px !important;
+            font-size: 16px;
+        }
+        .inputs label{
+            font-size: 14px;
         }
     }
 

@@ -3,7 +3,7 @@
         <div class="container mx-auto px-8">
             <div class="footer__box">
                 <div class="footer__logo">
-                    <a href="#">
+                    <a href="/">
                         <img class="h-8 w-auto mx-auto" src="../../assets/image/Mask Group.png" alt="">
                     </a>
                 </div>
@@ -16,10 +16,10 @@
                             <a href="#">Как сделать заказ</a>
                         </li>
                         <li class="footer__li">
-                            <a href="#">Способы оплаты</a>
+                            <router-link tag="a" to="/basket">Способы оплаты</router-link>
                         </li>
                         <li class="footer__li">
-                            <router-link to="/delivery" tag="a" href="#">Доставка</router-link>
+                            <router-link to="/delivery" tag="a">Доставка</router-link>
                         </li>
                         <li class="footer__li">
                             <router-link tag="a" to="/returnproduct">Возврат товара</router-link>
@@ -41,7 +41,7 @@
                     </div>
                     <ul class="footer__ul">
                         <li class="footer__li">
-                            <a href="#">О нас</a>
+                            <router-link tag="a" to="contacts" >О нас</router-link>
                         </li>
                         <li class="footer__li">
                             <router-link to="/requisites" href="#">Реквизиты</router-link>

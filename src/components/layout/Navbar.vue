@@ -1,14 +1,19 @@
 <template>
     <div class="navbar__back">
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4">
             <div class="flex justify-between py-2 relative">
                 <div class="flex navbar__text ">
                     <a href="#" class="flex img-center">
                         <img src="../../assets/image/Vector (27).png" alt="">
-                        <span class="">Ташкент</span>
+                        <select name="" id="">
+                            <option value="">Ташкент</option>
+                            <option value="">Ташкент</option>
+                            <option value="">Ташкент</option>
+                        </select>
+                        
                     </a>
-                    <a class="sale" to="">Продавайте на Birmakon</a>
-                    <a class="delivery" to="">Доставка</a>
+                    <router-link tag="a" class="sale" to="/seller">Продавайте на Birmakon</router-link>
+                    <router-link tag="a" class="delivery" to="/delivery">Доставка</router-link>
                     <div class="call">Call center: +998 (98) 989-98-98</div>
                 </div>
                 <div class="flex navbar__text">
@@ -49,7 +54,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-span-3">
+                <div class="col-span-3 media-ml">
                     <div class="relative search__input">
                         <input @click="closeCategory" type="search" v-model="searchweb" class="py-2 w-full text-sm text-white rounded-md pl-4 pr-12 text-gray-900" placeholder="Я ищу..." autocomplete="off">
                         <transition name="fade">
@@ -66,12 +71,12 @@
                 </div>
                 <div class="col-span-2">
                     <div class="flex navbar__icons">
-                        <router-link to="/delivery" tag="a" class="flex flex-col justify-between">
+                        <router-link to="/ratingcart" tag="a" class="flex flex-col justify-between">
                             <!-- <img class="h-6 flex flex-row items-center" src="../../assets/svg/delivery.svg" alt=""> -->
                             <svg class="h-6 flex flex-row items-center mx-auto" width="26" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4.5127 0.5C2.1002 0.5 0.137695 2.4625 0.137695 4.875C0.137695 6.85 1.4627 8.50375 3.2627 9.04625V17.9963C3.26145 18.22 3.29645 20.2225 4.7302 21.66C5.6152 22.55 6.8002 23 8.25019 23V25.5L13.2502 21.75L8.25019 18V20.5C5.97145 20.5 5.7702 18.5825 5.7627 18V9.04625C7.5627 8.50375 8.8877 6.85 8.8877 4.875C8.8877 2.4625 6.92395 0.5 4.5127 0.5ZM4.5127 6.75C3.47895 6.75 2.6377 5.90875 2.6377 4.875C2.6377 3.84125 3.47895 3 4.5127 3C5.54645 3 6.3877 3.84125 6.3877 4.875C6.3877 5.90875 5.54645 6.75 4.5127 6.75ZM20.7627 16.9538V7.99625C20.7564 5.98875 19.4164 3 15.7502 3V0.5L10.7502 4.25L15.7502 8V5.5C18.0364 5.5 18.2514 7.42375 18.2627 8V16.9538C16.4627 17.4963 15.1377 19.15 15.1377 21.125C15.1377 23.5375 17.1002 25.5 19.5127 25.5C21.9252 25.5 23.8877 23.5375 23.8877 21.125C23.8877 19.15 22.5627 17.4963 20.7627 16.9538ZM19.5127 23C18.4789 23 17.6377 22.1588 17.6377 21.125C17.6377 20.0912 18.4789 19.25 19.5127 19.25C20.5464 19.25 21.3877 20.0912 21.3877 21.125C21.3877 22.1588 20.5464 23 19.5127 23Z" fill="#131E3D"/>
                             </svg>
-                            <span>Доставка</span>
+                            <span>Сравнить</span>
                         </router-link>
                         <router-link to="/selected" tag="a" class="flex flex-col justify-between">
                             <span v-if="product > 0" class="count__navbar1">{{ product }}</span>
@@ -414,7 +419,26 @@ export default {
         display: none;
     }
     .navbar__logo {
-        min-width: 165px;
+        min-width: 215px;
+        margin-top: -3px;
+    }
+
+    @media (min-width: 1500px){
+        .media-ml{
+            margin-left: 2rem;
+        }
+    }
+
+    @media (min-width: 1200px) and (max-width: 1500px){
+        .navbar__icons{
+            padding-left: 0px;
+        }
+        .media-ml{
+            margin-left: 4rem;
+        }
+        .category__button{
+            margin-left: 1.5rem;
+        }
     }
 
     @media (min-width: 769px) and (max-width: 1025px){

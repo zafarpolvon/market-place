@@ -1,7 +1,7 @@
 <template>
     <div class="back">
         <Navbar />
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4">
             <div class="order-menu">
                 <ul>
                     <a href="#">Как сделать заказ</a>
@@ -14,7 +14,7 @@
                 </ul>
             </div>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12 requisites">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4 requisites">
             <div class="requisites__title">Реквизиты</div>
             <div class="text">
                 <span>Полное наименование</span>
@@ -83,7 +83,7 @@ export default {
 </script>
 
 <style scoped>
-input[type="checkbox"]{
+    input[type="checkbox"]{
         position: relative;
     }
     input[type="checkbox"]:checked::after{
@@ -179,7 +179,7 @@ input[type="checkbox"]{
             font-size: 12px !important;
         }
         .requisites .requisites__title{
-            font-size: 32px;
+            font-size: 22px;
             margin-bottom: 1rem;
         }
         .requisites .text{
@@ -203,7 +203,7 @@ input[type="checkbox"]{
             font-size: 12px !important;
         }
         .requisites .requisites__title{
-            font-size: 32px;
+            font-size: 22px;
             margin-bottom: 1rem;
         }
         .requisites .text{

@@ -3,12 +3,12 @@
         <Navbar />
         <div class="seller">
             <div class="header">
-                <div class="container mx-auto px-4 xl:px-12 md:px-12">
+                <div class="container mx-auto px-4 xl:px-12 md:px-4">
                     <h1>Продажи на LogoName <br> по системе FBS (маркетплейс)</h1>
                     <p>Получайте заказы от клиентов, привозите товар и получайте большую комиссию от продаж</p>
                 </div>
             </div>
-            <div class="container mx-auto px-4 xl:px-12 md:px-12">
+            <div class="container mx-auto px-4 xl:px-12 md:px-4">
                 <div class="aside">
                     <div class="aside__box">
                         <img src="../assets/image/image 5.png" alt="not found">
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="seller__title">Станьте продавцом и зарабатывайте <br>на Birmakon</div>
-                <a class="seller__link" href="#">Стать продавцом</a>
+                <router-link tag="a" to="/selleradres" class="seller__link">Стать продавцом</router-link>
             </div>
         </div>
         <Footer />

@@ -2,14 +2,14 @@
     <div class="back">
         <Navbar />
         <MainMenu />
-        <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4 pages">
             <a href="#">Главная страница / </a>
             <a href="#">Новости</a>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4">
             <div class="news__title">Новости</div>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4">
             <div class="news__boxes">
                 <div class="box">
                     <img src="../assets/image/image 5 (4).png" alt="not found">
@@ -46,10 +46,10 @@
                 </div>
             </div>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4">
             <div class="n-video-title">Видео новости</div>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4">
             <div class="n-video">
                 <div class="videos">
                     <div class="video__box">
@@ -358,13 +358,26 @@ export default {
             height: 100% !important;
             padding-top: 10px !important;
         }
+        .news__boxes .box{
+            width: 30% !important;
+            margin: 8px;
+        }
+        .news__boxes .box .box__text .box__title{
+            font-size: 14px;
+        }
+        .news__boxes .box .box__text p{
+            font-size: 13px;
+        }
+        .news__boxes .box .box__text .n__date a{
+            font-size: 12px;
+            padding: 5px 8px;
+        }
+        .news__boxes .box .box__text .n__date span{
+            font-size: 12px;
+        }
     }
 
     @media (min-width: 600px) and (max-width: 769px){
-        .news__boxes .box{
-            width: 47% !important;
-            margin: 10px !important;
-        }
         .n-video .video__boxes{
             width: 100% !important;
             display: flex !important;
@@ -380,6 +393,23 @@ export default {
             height: 100% !important;
             padding-top: 10px !important;
         }
+        .news__boxes .box{
+            width: 30% !important;
+            margin: 8px;
+        }
+        .news__boxes .box .box__text .box__title{
+            font-size: 14px;
+        }
+        .news__boxes .box .box__text p{
+            font-size: 13px;
+        }
+        .news__boxes .box .box__text .n__date a{
+            font-size: 12px;
+            padding: 5px 8px;
+        }
+        .news__boxes .box .box__text .n__date span{
+            font-size: 12px;
+        }
     }
 
     @media (min-width: 415px) and (max-width: 600px){
@@ -388,10 +418,6 @@ export default {
         }
         .pages a {
             font-size: 12px !important;
-        }
-        .news__boxes .box{
-            width: 48% !important;
-            margin: 5px !important;
         }
         .n-video .video__boxes{
             width: 100% !important;
@@ -404,6 +430,13 @@ export default {
             margin: 0 7px !important;
             min-height: unset !important;
             padding-bottom: 1rem !important;
+        }
+        .news__boxes{
+            justify-content: space-between;
+        }
+        .news__boxes .box{
+            width: 49%;
+            margin: 5px 0;
         }
         .news__boxes .box .box__text{
             padding: 5px !important;
@@ -458,6 +491,9 @@ export default {
             padding: 7px 13px !important;
             font-size: 14px !important;
         }
+        .news__title{
+            font-size: 22px;
+        }
     }
 
     @media (max-width: 415px){
@@ -467,12 +503,8 @@ export default {
         .pages a {
             font-size: 12px !important;
         }
-        .news__boxes .box{
-            width: 100% !important;
-            margin: 10px 0 !important;
-        }
         .news__title{
-            font-size: 32px !important;
+            font-size: 22px !important;
             margin-bottom: 0rem !important;
         }
         .n-video-title{
@@ -511,8 +543,30 @@ export default {
         .n-video .video__boxes .box .box__text .n__date a{
             padding: 7px 15px !important;
         }
+        .news__boxes{
+            justify-content: space-between;
+        }
+        .news__boxes .box{
+            width: 48%;
+            margin: 5px 0;
+        }
+        .news__boxes .box .box__text .box__title{
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+        .news__boxes .box .box__text p{
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
         .news__boxes .box .box__text .n__date a{
-            padding: 7px 15px !important;
+            font-size: 11px;
+            padding: 3px 5px;
+        }
+        .news__boxes .box .box__text .n__date span{
+            font-size: 11px;
+        }
+        .news__boxes .box .box__text{
+            padding: 5px;
         }
     }
 

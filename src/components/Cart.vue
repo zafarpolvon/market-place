@@ -1,27 +1,27 @@
 <template>
     <div class="cart__box shadow-xl">
         <div class="cart__image" @mouseover="listOne = true" @mouseleave="listOne = false">
-            <img :src="cart.photo" alt="">
-            <router-link tag="span" @click.native="$router.go()" :key="cart.id" :to="{ name: 'Add', params: { id: cart.id }, }" v-if="listOne" @click="listOne = false" class="fast__review">Быстрый просмотр</router-link>
+            <img :src="cart.photo" alt="not found">
+            <!-- <router-link tag="span" @click.native="$router.go()" :key="cart.id" :to="{ name: 'Add', params: { id: cart.id }, }" v-if="listOne" @click="listOne = false" class="fast__review">Быстрый просмотр</router-link> -->
             <span class="skidka">21 %</span>
             <icon-love v-if="!favorite" v-on:click.native="saveCart" :love="love" />
             <icon-trash v-else v-on:click.native="deleteCart(cart.id)" />
         </div>
         <div class="cart__info">
             <div class="flex justify-between mt-3">
-                <a class="cart__cat">{{ cart.category.name }}</a>
-                <a class="cart__brand" href="#">{{ cart.brand.name }}</a>
+                <a class="cart__cat">Lorem ipsum dolor</a>
+                <a class="cart__brand" href="#">Nike</a>
             </div>
             <div class="cart__title">
                 <router-link tag="a" @click.native="$router.go()" :key="cart.id" :to="{ name: 'Add', params: { id: cart.id }, }" >{{ cart.name.slice(0, 20) }}</router-link>
                 <div class="cart__price">
-                    <h5>{{ cart.price }} рубль</h5>
-                    <p>{{ cart.price_old }} рубль</p>
+                    <h5>1400 Сум</h5>
+                    <p>2000 Сум</p>
                 </div>
             </div>
             <div class="cart__add">
                 <button><span>В корзину</span></button>
-                <a to="" class="buy">Купить</a>
+                <router-link tag="a" to="/basket" class="buy">Купить</router-link>
             </div>
         </div>
     </div>
@@ -72,7 +72,13 @@ export default {
     .cart__box {
         background: #FFFFFF;
         border-radius: 10px;
-        height: 400px;
+        min-height: 400px;
+    }
+    .shadow-xl{
+        transition: 0.3s linear;
+    }
+    .shadow-xl:hover{
+        box-shadow: none;
     }
     .cart__add {
         margin-top: 15px;
@@ -135,6 +141,9 @@ export default {
         color: #313131;
         height: 40px;
     }
+    .cart__title a:hover{
+        color: #919191;
+    }
     .cart__price {
         display: flex;
         flex-direction: row;
@@ -160,7 +169,7 @@ export default {
         top: 0;
         margin-top: 0px;
         font-weight: normal;
-        font-size: 12px;
+        font-size: 12px !important;
         line-height: 22px;
         color: #023047;
         top: 50%;
@@ -169,9 +178,10 @@ export default {
         cursor: pointer;
         background: #F8F8FA;
         border-radius: 25px;
-        width: 50%;
-        padding: 5px 0;
+        width: max-content;
+        padding: 5px 10px;
         text-align: center;
+        white-space: nowrap;
     }
     .skidka {
         position: absolute;
@@ -198,6 +208,7 @@ export default {
     @media (min-width: 200px) and (max-width: 600px){
         .cart__image img {
             height: 160px;
+            padding: 0;
         }
         .cart__add{
             flex-direction: column;
@@ -259,7 +270,7 @@ export default {
             margin-left: 0;
         }
         .cart__box {
-            height: auto;
+            min-height: 350px;
         }
     }
 </style>

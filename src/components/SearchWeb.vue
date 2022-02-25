@@ -25,7 +25,7 @@ export default {
         position: absolute;
         width: 100%;
         left: 0;
-        background: #FFF;
+        background: #fff;
         border-radius: 8px;
         padding: 10px 5px 10px 10px;
         margin-top: 0.5rem;
@@ -43,11 +43,12 @@ export default {
         background-color: #F5F5F5;
     }
     .search__category::-webkit-scrollbar-thumb{
-        background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(122,153,217)), color-stop(0.72, rgb(73,125,189)), color-stop(0.86, rgb(28,58,148)));
+        background: #EE4927;
+        border-radius: 30px;
     }
     .search__category .search__text{
         width: 100%;
-        color: #000;
+        color: #131E3D;
         padding: 0 0.5rem;
         height: 55px;
         cursor: pointer;
@@ -66,7 +67,7 @@ export default {
         width: 35px;
     }
     .search__category .search__text:hover{
-        background: linear-gradient(92.64deg, #B9D5FD -2.68%, #384F81 -2.67%, #49679F 56.03%, #729EDB 99.79%);
+        background: #EE4927;
         color: #FFF;
     }
     .search__category .search__text:hover span{

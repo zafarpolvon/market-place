@@ -2,11 +2,11 @@
     <div class="back">
         <Navbar />
         <MainMenu />
-        <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4 pages">
             <a href="#">Главная страница / </a>
             <a href="#"> Контакты</a>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4">
             <div class="contacts__title">Контакты</div>
             <div class="contacts__boxes">
                 <div class="box">
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12 requisites">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4 requisites">
             <div class="requisites__title">Реквизиты</div>
             <div class="text">
                 <span>Полное наименование</span>
@@ -320,6 +320,10 @@ export default {
         .textarea{
             padding-bottom: 5rem !important;
         }
+        .contacts__title{
+            font-size: 22px;
+            margin-bottom: 1rem;
+        }
     }
 
     @media only screen and (max-width: 415px){
@@ -330,7 +334,7 @@ export default {
             font-size: 12px !important;
         }
         .contacts__title{
-            font-size: 32px;
+            font-size: 22px;
             margin-bottom: 1rem;
         }
         .contacts__boxes .box .boxes .contact__box{
@@ -342,6 +346,7 @@ export default {
             font-size: 14px;
         }
         .contacts__boxes .r__box{
+            width: 100% !important;
             height: auto !important;
             padding: 1.5rem;
         }
@@ -433,7 +438,7 @@ export default {
             font-size: 12px !important;
         }
         .requisites .requisites__title{
-            font-size: 32px;
+            font-size: 22px;
             margin-bottom: 1rem;
         }
         .requisites .text{
@@ -457,7 +462,7 @@ export default {
             font-size: 12px !important;
         }
         .requisites .requisites__title{
-            font-size: 32px;
+            font-size: 22px;
             margin-bottom: 1rem;
         }
         .requisites .text{

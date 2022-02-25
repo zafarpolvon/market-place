@@ -2,8 +2,8 @@
     <div class="back">
         <Navbar />
         <MainMenu />
-        <div class="container mx-auto px-4 xl:px-12 md:px-12 mb-10 pages">
-            <div class="basket__href mt-5">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4 mb-10 pages">
+            <div class="basket__href">
                 <a href="#">Главная страница / </a>
                 <a href="#">Корзина</a>
             </div>
@@ -14,21 +14,22 @@
                 <div class="col-span-7">
                     <div class="basket__title">ИП Иван Дияров</div>
                     <Korzina />
+                    <Korzina />
                     <div class="basket__delivery mt-8">
-                        <div>
+                        <div class="mt-4">
                             <h5>Способ доставки</h5>
                             <button class="mt-4" @click="show()">Выбрать адрес доставки</button>
                         </div>
-                        <div>
+                        <div class="mt-4">
                             <h5>Способ получения товара</h5>
                             <div class="inputs mt-4">
                                 <div>
-                                    <input class="mr-2" type="radio" name="delivery" />
-                                    <span>Самовывоз</span>
+                                    <input id="samo" class="mr-2" type="radio" name="delivery" />
+                                    <label for="samo">Самовывоз</label>
                                 </div>
                                 <div>
-                                    <input class="mr-2" type="radio" name="delivery" />
-                                    <span>Доставка</span>
+                                    <input id="samo2" class="mr-2" type="radio" name="delivery" />
+                                    <label for="samo2">Доставка</label>
                                 </div>
                             </div>
                         </div>
@@ -96,6 +97,11 @@ export default {
     .pages a:hover{
         color: #023999;
     }
+    input[type=radio]{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     input[type=radio]:before {
         position: absolute;
         width: 20px;
@@ -110,8 +116,6 @@ export default {
     }
     input[type=radio]:checked:after {
         position: relative;
-        top: -2px;
-        left: 4px;
         display: inline-block;
         visibility: visible;
         border-radius: 6px;
@@ -151,7 +155,7 @@ export default {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 39px 20px;
+        padding: 14px 20px;
         background: #FFFFFF;
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
         border-radius: 8px;
@@ -214,7 +218,7 @@ export default {
 
     @media (max-width: 600px){
         .pages {
-            padding: 20px 16px !important;
+            padding: 0 16px 20px 16px !important;
         }
         .pages a {
             font-size: 12px !important;
@@ -240,11 +244,29 @@ export default {
         .basket__price p {
             font-size: 12px;
         }
+        .basket__delivery h5{
+            font-size: 16px;
+        }
+        .inputs span, label{
+            font-size: 14px;
+        }
+        input[type=radio]{
+            width: 14px;
+            height: 14px;
+        }
+        input[type=radio]:before {
+            width: 14px;
+            height: 14px;
+        }
+        input[type=radio]:checked:after {
+            width: 8px;
+            height: 8px;
+        }
     }
 
     @media (max-width: 415px){
         .basket__title h4{
-            font-size: 24px !important;
+            font-size: 22px !important;
         }
         .basket__gray {
             font-size: 14px;
@@ -252,17 +274,11 @@ export default {
     }
 
     @media (max-width: 376px){
-        .basket__title h4{
-            font-size: 24px !important;
-        }
         .basket__delivery{
             padding: 20px 10px;
         }
         .basket__gray {
             font-size: 14px;
-        }
-        .basket__delivery h5{
-            font-size: 20px;
         }
         .payment__item{
             padding: 20px 10px;

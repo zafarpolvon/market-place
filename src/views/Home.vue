@@ -10,9 +10,21 @@
                 <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
                     <Cart :cart="cart" />
                 </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
             </div>
             <div class="flex justify-center my-6">
-                <button class="show__all">Показать еще</button>
+                <router-link class="show__all" tag="a" to="/filter">Показать еще</router-link>
             </div>
         </div>
         <div class="delivery">
@@ -22,6 +34,44 @@
                     <p>ПО ВСЕМ УЗБЕКИСТАНУ</p>
                 </div>
                 <img src="../assets/image/11 122001.png" alt="not found">
+            </div>
+        </div>
+        <div class="container mx-auto mt-12 px-4 xl:px-12 md:px-4">
+            <div class="news__title">Недавно добавленные товары</div>
+            <div class="grid grid-cols-5 gap-3">
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+            </div>
+            <div class="flex justify-center my-6">
+                <router-link class="show__all" tag="a" to="/filter">Показать еще</router-link>
             </div>
         </div>
         <div class="container mx-auto px-4 xl:px-12 md:px-4 mt-12 banner">
@@ -38,13 +88,41 @@
             </div>
         </div>
         <div class="container mx-auto mt-12 px-4 xl:px-12 md:px-4">
+            <div class="news__title">Товары со скидкой</div>
             <div class="grid grid-cols-5 gap-3">
-                <div v-for="cart in tovar" :key="cart.id">
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
+                    <Cart :cart="cart" />
+                </div>
+                <div v-for="cart in tovar.slice(0, 5)" :key="cart.id">
                     <Cart :cart="cart" />
                 </div>
             </div>
             <div class="flex justify-center my-6">
-                <button class="show__all">Показать еще</button>
+                <router-link class="show__all" tag="a" to="/filtler">Показать еще</router-link>
             </div>
         </div>
         <div class="container mx-auto px-4 xl:px-12 md:px-4">
@@ -94,6 +172,9 @@
                     <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
                         <Cart :cart="cart" />
                     </div>
+                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
+                        <Cart :cart="cart" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -120,7 +201,7 @@ import Magazin from '../components/Magazin.vue'
 import Cart from '../components/Cart.vue'
 import Title from '../components/Title.vue'
 import Adventage from '../components/layout/Adventage.vue'
-import Brands from '../components/layout/Brands.vue'
+import Brands from '../components/slide/Brands.vue'
 import MainMenu from '../components/layout/MainMenu.vue'
 
 export default {
@@ -289,28 +370,48 @@ export default {
         cursor: pointer;
     }
 
+    @media (min-width: 1025px) and (max-width: 1500px){
+        .news__boxes .box{
+            width: 31%;
+            margin: 10px;
+        }
+    }
+
     @media (min-width: 769px) and (max-width: 1025px){
         .grid-cols-5 {
             grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
         }
         .news__boxes .box{
-            width: 48% !important;
-            margin: 6px;
+            width: 31% !important;
+            margin: 8px;
         }
-        .news__boxes {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            overflow-x: scroll;
+        .news__boxes .box .box__text .box__title{
+            font-size: 14px;
+        }
+        .news__boxes .box .box__text p{
+            font-size: 13px;
+        }
+        .news__boxes .box .box__text .n__date a{
+            font-size: 12px;
+            padding: 5px 8px;
+        }
+        .news__boxes .box .box__text .n__date span{
+            font-size: 12px;
         }
     }
 
     @media (max-width: 960px){
-        .delivery .container{
-            flex-direction: column;
-        }
         .delivery__text{
-            margin-bottom: 2rem;
+            font-weight: 100;
+        }
+        .delivery__text .text__title{
+            font-size: 32px;
+        }
+        .delivery__text p{
+            font-size: 24px;
+        }
+        .delivery img{
+            width: 30%;
         }
     }
 
@@ -322,14 +423,27 @@ export default {
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         }
         .news__boxes .box{
-            width: 70% !important;
-            margin: 1rem auto;
+            width: 30% !important;
+            margin: 8px;
         }
-        .news__boxes {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            overflow-x: scroll;
+        .news__boxes .box .box__text .box__title{
+            font-size: 14px;
+        }
+        .news__boxes .box .box__text p{
+            font-size: 13px;
+        }
+        .news__boxes .box .box__text .n__date a{
+            font-size: 12px;
+            padding: 5px 8px;
+        }
+        .news__boxes .box .box__text .n__date span{
+            font-size: 12px;
+        }
+        .delivery__text .text__title{
+            font-size: 38px;
+        }
+        .delivery__text p{
+            font-size: 24px;
         }
     }
 
@@ -353,14 +467,27 @@ export default {
             height: auto;
         }
         .news__boxes {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            overflow-x: scroll;
+            justify-content: space-between;
         }
         .news__boxes .box{
-            width: 100% !important;
-            margin: 1rem auto !important;
+            width: 48%;
+            margin: 5px 0;
+        }
+        .news__boxes .box .box__text .box__title{
+            font-size: 12.5px !important;
+            margin-bottom: 0.4rem;
+            margin-bottom: 5px;
+        }
+        .news__boxes .box .box__text p{
+            font-size: 11px !important;
+            margin-bottom: 5px;
+        }
+        .news__boxes .box .box__text .n__date a{
+            padding: 5px 10px !important;
+            font-size: 11px !important;
+        }
+        .news__boxes .box .box__text .n__date span{
+            font-size: 11px !important;
         }
         .news__title{
             font-size: 22px !important;
@@ -369,33 +496,33 @@ export default {
         .recently-products .recently__title, .brands__title{
             font-size: 22px !important;
         }
+        .delivery__text .text__title{
+            font-size: 26px;
+        }
+        .delivery__text p{
+            font-size: 16px;
+            line-height: 1;
+        }
+        .seo__subtitle{
+            font-size: 16px;
+        }
+        .seo__text{
+            font-size: 14px;
+        }
+        .seo__link{
+            font-size: 14px;
+        }
     }
 
     @media (max-width: 500px){
         .delivery .container{
             align-items: unset;
         }
-        .delivery__text .text__title{
-            font-size: 46px;
-        }
-        .delivery__text p{
-            font-size: 22px;
-        }
     }
 
     @media (min-width: 376px) and (max-width: 415px){
         .banner .grid-cols-4{
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        }
-        .news__boxes {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            overflow-x: scroll;
-        }
-        .news__boxes .box{
-            width: 100% !important;
-            margin: 10px 0 !important;
         }
         .news__title{
             font-size: 22px !important;
@@ -411,12 +538,33 @@ export default {
             font-size: 12px !important;
         }
         .news__boxes .box .box__text .n__date a{
-            padding: 7px 15px !important;
-            font-size: 16px;
+            padding: 3px 5px !important;
+            font-size: 11px;
+        }
+        .news__boxes{
+            justify-content: space-between;
         }
         .news__boxes .box{
-            width: 100% !important;
-            margin: 10px 0 !important;
+            width: 48%;
+            margin: 5px 0;
+        }
+        .news__boxes .box .box__text .box__title{
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+        .news__boxes .box .box__text p{
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .news__boxes .box .box__text .n__date a{
+            font-size: 11px;
+            padding: 3px 5px;
+        }
+        .news__boxes .box .box__text .n__date span{
+            font-size: 11px;
+        }
+        .news__boxes .box .box__text{
+            padding: 5px;
         }
         .news__title{
             font-size: 22px !important;
@@ -445,27 +593,27 @@ export default {
         .recently-products .recently__title, .brands__title{
             font-size: 22px !important;
         }
+        .delivery__text .text__title{
+            font-size: 18px;
+        }
+        .delivery__text p{
+            font-size: 14px;
+        }
+        .seo__subtitle{
+            font-size: 16px;
+        }
+        .seo__text{
+            font-size: 14px;
+        }
+        .seo__link{
+            font-size: 14px;
+        }
     }
 
     @media (max-width: 300px){
         .show__all {
             padding: 10px 25px;
             font-size: 16px;
-        }
-        .news__boxes .box .box__text .n__date a{
-            padding: 5px 10px !important;
-            font-size: 12px !important;
-        }
-        .news__boxes .box .box__text .box__title{
-            font-size: 15px !important;
-            margin-bottom: 10px !important;
-        }
-        .news__boxes .box .box__text p{
-            font-size: 14px !important;
-            margin-bottom: 10px !important;
-        }
-        .news__boxes .box .box__text .n__date span{
-            font-size: 12px !important;
         }
         .grid-cols-5 {
             grid-template-columns: repeat(1, minmax(0, 1fr)) !important;

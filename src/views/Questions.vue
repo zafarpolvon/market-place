@@ -2,11 +2,11 @@
     <div class="back">
         <Navbar />
         <MainMenu />
-        <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4 pages">
             <a href="#">Главная страница / </a>
             <a href="#"> FAQ</a>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4">
             <div class="questions__title">Часто задаемевый вопросы</div>
             <div class="questions__box">
                 <div class="box">
@@ -156,6 +156,7 @@ export default {
     .questions__box .box .questions__text .text2 p{
         font-weight: bold;
         font-size: 22px;
+        line-height: 1;
     }
     .questions__box .box .questions__text .text__box{
         background: #F1EFED;
@@ -257,7 +258,7 @@ export default {
             font-size: 12px !important;
         }
         .questions__title{
-            font-size: 32px;
+            font-size: 22px;
             margin-bottom: 0;
         }
         .questions__box .c__box{
@@ -291,6 +292,9 @@ export default {
         .questions__box .box .questions__text .text__box p{
             font-size: 12px !important;
         }
+        .questions__box .box .questions__text .text2{
+            padding-left: 0;
+        }
     }
 
     @media only screen and (max-width: 376px) {
@@ -301,7 +305,7 @@ export default {
             font-size: 12px !important;
         }
         .questions__title{
-            font-size: 32px;
+            font-size: 22px;
             margin-bottom: 0;
         }
         .questions__box .c__box{
@@ -341,6 +345,9 @@ export default {
         }
         .c__box button{
             padding: 10px 30px;
+        }
+        .questions__box .box .questions__text .text2{
+            padding-left: 0;
         }
     }
 </style>

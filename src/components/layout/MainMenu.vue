@@ -1,13 +1,13 @@
 <template>
     <div class="container mx-auto mt-8 mb-8 px-4 xl:px-12 md:px-4">
         <ul class="menu-list">
-            <li><a to="">Одежда</a></li>
-            <li><a to="">Электроника</a></li>
-            <li><a to="">Игрушки</a></li>
-            <li><a to="">Все для дома</a></li>
-            <li><a to="">Зоотовары</a></li>
-            <li><a to="">Покупателям</a></li>
-            <li><a to="">Магазинам</a></li>
+            <li><router-link tag="a" to="/filter">Одежда</router-link></li>
+            <li><router-link tag="a" to="/filter">Электроника</router-link></li>
+            <li><router-link tag="a" to="/filter">Игрушки</router-link></li>
+            <li><router-link tag="a" to="/filter">Все для дома</router-link></li>
+            <li><router-link tag="a" to="/filter">Зоотовары</router-link></li>
+            <li><router-link tag="a" to="/filter">Покупателям</router-link></li>
+            <li><router-link tag="a" to="/filter">Магазинам</router-link></li>
         </ul>
     </div>
 </template>
@@ -53,6 +53,12 @@
         }
         .menu-list li a{
             font-size: 14px;
+        }
+        .mt-8{
+            margin-top: 1rem;
+        }
+        .mb-8{
+            margin-bottom: 1rem;
         }
     }
 </style>

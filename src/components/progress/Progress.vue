@@ -15,6 +15,7 @@ export default {
 }
 </script>
 
+
 <style>
     .progress__box {
         color: #fff !important;

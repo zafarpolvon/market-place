@@ -9,14 +9,16 @@
                 <h4 class="mb-4">POLO  рубашка</h4>
                 <h5 class="mb-4">Цвет: <span class="basket__gray">Белый</span></h5>
                 <h5 class="mb-4">Размер: <span class="basket__gray">XXL - 44</span></h5>
+                <div class="flex">
+                    <div class="basket__price">
+                        <h3>500 ₽</h3>
+                    </div>
+                    <div class="basket__count">
+                        <Counter />
+                        <h5>Осталось 2 шт</h5>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="basket__price">
-            <h3>500 ₽</h3>
-        </div>
-        <div class="basket__count">
-            <Counter />
-            <h5>Осталось 2 шт</h5>
         </div>
     </div>
 </template>
@@ -36,13 +38,22 @@ export default {
         flex-direction: row;
     }
     .basket__image {
+        min-width: 150px;
         width: 150px;
         height: 150px;
         display: flex;
         align-items: center;
+        margin-right: 26px;
+    }
+    .basket__image img{
+        margin-top: auto;
+        margin-bottom: auto;
     }
     #check__input{
-        width: 18px;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-right: 10px;
+        min-width: 18px;
         height: 18px;
         position: relative;
     }
@@ -72,7 +83,6 @@ export default {
         position: relative;
     }
     .basket__box {
-        margin-left: 20px;
         display: flex;
         flex-direction: column;
     }
@@ -92,7 +102,7 @@ export default {
     .basket__gray {
         font-weight: normal;
         font-size: 16px;
-        line-height: 100%;
+        line-height: 1;
         color: #898989;
     }
     .basket__count{
@@ -112,12 +122,6 @@ export default {
         line-height: 100%;
         color: #404040;
     }
-    .basket__price {
-        text-align: right;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
     .basket__price h4 {
         font-weight: 500;
         font-size: 18px;
@@ -131,23 +135,36 @@ export default {
         color: #898989;
     }
 
-    @media (min-width: 416px){
-        #check__input{
-            margin-top: auto;
-            margin-bottom: auto;
-            margin-right: 10px;
+    @media (min-width: 1000px){
+        .basket__price{
+            width: 270px;
+        }
+    }
+
+    @media (max-width: 1000px){
+        .basket__left{
+            width: 100%;
+        }
+        .basket__box{
+            width: 100%;
+        }
+        .basket__box .flex{
+            justify-content: space-between;
+        }
+        .basket__price{
+            align-items: unset;
+        }
+        .basket__image{
+            margin: auto 16px auto 0;
+        }
+        .basket__count h5{
+            margin-top: 6px;
         }
     }
 
     @media (min-width: 600px) and (max-width: 769px){
         .basket__item{
             flex-direction: column;
-        }
-        .basket__price{
-            text-align: left;
-            position: absolute;
-            right: 15px;
-            bottom: 45px;
         }
         .basket__count{
             margin: 1rem 0;
@@ -159,84 +176,87 @@ export default {
         }
     }
 
-    @media (min-width: 415px) and (max-width: 600px){
-        .basket__item{
-            flex-direction: column;
-        }
-        .basket__price{
-            text-align: left;
-            position: absolute;
-            right: 15px;
-            bottom: 45px;
-        }
-        .basket__count{
-            margin: 1rem 0;
-            justify-content: unset;
-            align-items: unset;
-        }
-        .basket__image{
-            width: 130px;
-            height: 130px;
-        }
-        .basket__gray {
-            font-size: 14px;
-        }
-        .basket__price h3{
-            font-size: 24px;
-        }
-    }
+   @media (min-width: 415px) and (max-width: 600px){
+       .basket__price{
+           align-items: unset;
+       }
+       .basket__left{
+           width: 100%;
+       }
+       .basket__box{
+           width: 100%;
+       }
+       .basket__box .mb-4{
+           margin-bottom: 10px;
+       }
+       .basket__box .flex{
+           justify-content: space-between;
+       }
+       .basket__image{
+           min-width: 130px;
+           width: 130px;
+       }
+       .basket__image img{
+           border-radius: 8px;
+       }
+       .basket__box h4{
+           font-size: 16px;
+       }
+       .basket__count h5{
+           margin-top: 5px;
+       }
+   }
 
     @media (max-width: 415px){
         #check__input{
-            margin: 0 auto 10px auto;
-        }
-        .basket__item{
-            flex-direction: column;
-        }
-        .basket__box{
-            margin-left: 0;
-        }
-        .basket__box h5{
-            margin: 0.5rem 0;
-        }
-        .basket__box h4{
-            text-align: center;
-            margin-top: 10px;
+            margin-right: 5px;
         }
         .basket__left{
-            flex-direction: column;
+            width: 100%;
+        }
+        .basket__item{
+            padding: 10px;
+        }
+        .basket__box{
+            width: 100%;
+            margin-left: 0;
+        }
+        .basket__box .flex{
+            width: 100%;
+            margin-top: 5px;
+            justify-content: space-between;
+        }
+        .basket__box h5{
+            margin-top: 5px;
+            margin-bottom: 0;
+            font-size: 11px;
+        }
+        .basket__box h5 span{
+            font-size: 11px;
+        }
+        .basket__box h4{
+            margin-top: 0px;
+            margin-bottom: 0;
+            font-size: 12px;
         }
         .basket__image{
-            width: 100%;
+            min-width: 80px;
+            width: 80px;
             height: auto;
-            margin: auto;
+            margin: auto 10px auto 0;
         }
-        .basket__count{
-            margin: 1rem 0;
+        .basket__image img{
+            border-radius: 8px;
         }
         .basket__price h3{
-            font-size: 24px;
+            font-size: 13px;
         }
         .basket__price h4{
             font-size: 14px;
         }
         .basket__gray {
             font-size: 14px;
-        }
-    }
-
-    @media (max-width: 300px){
-        .basket__price{
-            position: relative;
-            bottom: unset;
-            right: unset;
-            text-align: left;
-        }
-        .basket__box h5{
-            margin: 0.2rem 0;
-        }
-        .basket__gray {
-            font-size: 12px;
+            line-height: 1;
         }
     }
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
+    <div class="container mx-auto px-4 xl:px-12 md:px-4 pages">
         <router-link tag="a" to="/">Главная страница / </router-link>
         <a href="#">{{ cart.category.name }} / </a>
         <a href="#">{{ cart.brand.name }}</a>

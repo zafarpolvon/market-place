@@ -45,6 +45,7 @@ export default {
     }
     body::-webkit-scrollbar-thumb{
         background: #131E3D !important;
+        border-radius: 30px !important;
     }
     #app {
         font-family: Montserrat;

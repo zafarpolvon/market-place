@@ -5,8 +5,8 @@
             <button>Войти</button>
         </div>
         <div class="message mt-4">
-            <p>Получать буду не я</p>
-            <input type="checkbox" />
+            <label for="input6">Получать буду не я</label>
+            <input id="input6" type="checkbox" />
         </div>
         <div class="flex justify-between mt-4">
             <div class="login__item mr-2">
@@ -27,8 +27,8 @@
             <input type="text" placeholder="Емаил">
         </div>
         <div class="login__agree mt-4">
-            <input type="checkbox" />
-            <p>Получать эксклюзивные скидки вSMS‑рассылке от Wildberries</p>
+            <input id="input5" type="checkbox" />
+            <label for="input5">Получать эксклюзивные скидки вSMS‑рассылке от Wildberries</label>
         </div>
     </div>
 </template>
@@ -128,19 +128,31 @@ export default {
         height: 22px;
         margin-right: 0.5rem;
     }
-    .login__agree p {
+    .login__agree label {
         font-weight: normal;
         font-size: 13px;
         line-height: 24px;
         color: #898989;
     }
 
+    @media (max-width: 600px){
+        .login__title{
+            align-items: center;
+        }
+        .message p{
+            font-size: 14px;
+        }
+        .login__item input, label{
+            font-size: 14px;
+        }
+        .login__title h4{
+            font-size: 16px;
+        }
+    }
+
     @media (max-width: 376px){
         .login__box{
             padding: 20px 10px;
-        }
-        .login__title h4{
-            font-size: 20px;
         }
     }
 

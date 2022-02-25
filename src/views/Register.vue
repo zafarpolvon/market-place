@@ -1,6 +1,6 @@
 <template>
     <div class="flex items-center justify-center min-h-screen bg-gray-100">
-        <div class="px-8 py-6 w-3/12 rounded-md mt-4 text-left bg-white shadow-lg">
+        <div class="px-8 py-6 w-3/12 rounded-md mt-4 text-left bg-white shadow-lg register__box">
             <div class="flex float-right">
                 <a href=""><i class="fas fa-times"></i></a>
             </div>
@@ -75,6 +75,10 @@ export default {
         width: 100%;
         background: #131E3D;
     }
+    .register__box{
+        min-width: 380px;
+        width: 380px;
+    }
 button{
     background: #131E3D;
     border: 1px solid #B9D5FD;
@@ -94,4 +98,12 @@ button:hover{
     padding: 5px 20px;
     cursor: pointer;
 }
+
+@media (max-width: 400px){
+    .register__box{
+        min-width: 98%;
+        width: 98%;
+    }
+}
+
 </style>

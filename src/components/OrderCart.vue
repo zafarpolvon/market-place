@@ -7,7 +7,7 @@
             <div class="cart__info">
                 <div>
                     <div class="title">Телефон  iPHONE</div>
-                    <p>Смартфон Samsung</p>
+                    <p class="my-2">Смартфон Samsung</p>
                     <p>A30s 128GB</p>
                 </div>
                 <p>Продавец: <span>ООО "ПРАЙД"</span></p>
@@ -15,7 +15,7 @@
         </div>
         <div class="order">
             <p>Количество: <span>1 шт</span></p>
-            <div>Доставлен</div>
+            <div class="delivered">Доставлен</div>
             <div class="payment">
                 <p>Способ оплаты</p>
                 <a href="#"><img src="../assets/image/image 29.png" alt="not found"></a>
@@ -55,7 +55,7 @@ export default {
         padding: 1.5rem;
         border-radius: 5px;
         margin: 1.5rem 0;
-        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+        /* box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25); */
     }
     .delivery-carts .cart.delivery__cart .cart__img{
         display: flex;
@@ -193,51 +193,72 @@ export default {
     @media (max-width: 600px){
         .delivery-carts .cart.delivery__cart .cart__img{
             width: 100%;
-            flex-direction: column;
         }
         .delivery-carts .cart.delivery__cart .order{
             width: 100%;
             margin-left: 0;
         }
         .delivery-carts .cart.delivery__cart .price{
-            width: 100%;
+            width: 50%;
+            justify-content: unset;
+        }
+        .delivery-carts .cart.delivery__cart .price p span{
+            margin-left: 5px;
+        }
+        .delivery-carts .cart.delivery__cart .order .payment img{
+            margin-left: 5px;
         }
         .delivery-carts .cart.delivery__cart .price #price{
             align-self: flex-start;
         }
         .delivery-carts .cart.delivery__cart .cart__img .image{
-            width: 75%;
-            margin: auto;
-            height: 250px;
+            height: unset;
+            width: unset;
+            margin-right: 10px;
+        }
+        .delivery-carts .cart.delivery__cart .cart__info{
+            justify-content: unset;
         }
         .delivery-carts .cart.delivery__cart .cart__info .title{
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-        .delivery-carts .cart.delivery__cart .cart__info p:last-child{
-            margin-bottom: 0;
-            margin-top: 10px;
+            text-align: left;
+            margin-bottom: 5px;
+            font-size: 13px;
         }
         .delivery-carts .cart.delivery__cart .order{
             padding-top: 0;
-            margin-top: 10px;
+            margin-top: 5px;
+            width: 50%;
         }
         .delivery-carts .cart.delivery__cart .order .payment{
             margin-bottom: 0;
-            margin-top: 10px;
+            margin-top: 5px;
         }
         .delivery-carts .cart.delivery__cart .price p{
             margin-bottom: 0;
-            margin-top: 10px;
+            margin-top: 5px;
+            font-size: 12px;
         }
         .delivery-carts .cart.delivery__cart .price #price{
             line-height: 1;
+            font-size: 13px;
         }
         .delivery-carts .cart.delivery__cart .cart__info p{
-            font-size: 18px;
+            margin-bottom: 5px !important;
+            margin-top: 0;
+            font-size: 12px;
         }
         .delivery-carts .cart.delivery__cart .order p{
             line-height: 1;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .delivery-carts .cart.delivery__cart .cart__img .image img{
+            min-width: 80px;
+            width: 80px;
+            border-radius: 8px;
+        }
+        .delivered{
+            font-size: 12px;
         }
     }
 

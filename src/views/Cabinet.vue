@@ -3,7 +3,7 @@
     <div class="back">
         <Navbar />
         <second-navbar />
-        <div class="container mx-auto px-4 xl:px-12 md:px-12 mb-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4 mb-12">
             <div class="user__cabinet">
                 <div class="user">
                     <div class="user__img">
@@ -11,30 +11,36 @@
                         <i class="fa fa-plus"></i>
                     </div>
                     <div class="user__name">{{ getUser.name }}</div>
-                    <input v-show="inputName" class="input__name" type="text" v-model="getUser.name">
                     <img v-show="!inputName" class="cursor-pointer" @click="showInfoName" src="../assets/image/Vector (31).png" alt="not found">
-                    <button v-show="inputName" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputName = false">Отмена</button>
-                    <button v-show="inputName" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
+                    <div class="add__info absolute">
+                        <input v-show="inputName" class="input__name" type="text" v-model="getUser.name">
+                        <button v-show="inputName" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputName = false">Отмена</button>
+                        <button v-show="inputName" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
+                    </div>
                 </div>
                 <div class="info__box">
                     <div class="info__user">
                     <div class="title">Э-маил</div>
                     <div class="change">
                         <p>{{ getUser.email || 'Нет email'}}</p>
-                        <input placeholder="Нет ничего" v-show="inputEmail" class="input__name" type="text" v-model="getUser.email">
                         <img v-show="!inputEmail" @click="showInfoEmail" src="../assets/image/Vector (31).png" alt="not found">
-                        <button v-show="inputEmail" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputEmail = false">Отмена</button>
-                        <button v-show="inputEmail" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
+                        <div class="add__info absolute">
+                            <input placeholder="Нет ничего" v-show="inputEmail" class="input__name" type="text" v-model="getUser.email">
+                            <button v-show="inputEmail" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputEmail = false">Отмена</button>
+                            <button v-show="inputEmail" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
+                        </div>
                     </div>
                 </div>
                 <div class="info__user">
                     <div class="title">Телефон</div>
                     <div class="change">
                         <p>{{ getUser.phone || 'Test' }}</p>
-                        <input v-show="inputPhone" class="input__name" type="text" v-model="getUser.email">
                         <img v-show="!inputPhone" @click="showInfoPhone" src="../assets/image/Vector (31).png" alt="not found">
-                        <button v-show="inputPhone" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputPhone = false">Отмена</button>
-                        <button v-show="inputPhone" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
+                        <div class="add__info absolute">
+                            <input v-show="inputPhone" class="input__name" type="text" v-model="getUser.email">
+                            <button v-show="inputPhone" type="button" class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" @click="inputPhone = false">Отмена</button>
+                            <button v-show="inputPhone" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Сохранить</button>
+                        </div>
                     </div>
                 </div>
                 <div class="info__user">
@@ -49,10 +55,10 @@
                 <div class="info__user">
                     <div class="title">Пол</div>
                     <div class="change inputs">
-                        <input type="radio" name="name" />
-                        <span>Муж.</span>
-                        <input type="radio" name="name" />
-                        <span>Жен.</span>
+                        <input id="muj" class="mr-2" type="radio" name="name" />
+                        <label for="muj">Муж.</label>
+                        <input id="jen" class="mr-2" type="radio" name="name" />
+                        <label for="jen">Жен.</label>
                     </div>
                 </div>
                 <div class="info__user">
@@ -114,8 +120,9 @@
             </div>
             <div class="user__boxes2">
                 <div class="box">
+                    <modal-card />
                     <div class="title">Добавить карту</div>
-                    <div class="add__cart">
+                    <div class="add__cart" @click="modalCard()">
                         <i class="fa fa-plus"></i>
                         <p>Добавить карту</p>
                     </div>
@@ -146,6 +153,7 @@
 import Navbar from '../components/layout/Navbar.vue'
 import Footer from '../components/layout/Footer.vue'
 import SecondNavbar from '../components/layout/SecondNavbar.vue'
+import ModalCard from '../components/modal/ModalCard.vue'
 
 export default {
   name: 'Home',
@@ -163,8 +171,10 @@ export default {
     },
     showInfoEmail () {
       this.inputEmail = true
+    },
+    modalCard () {
+        this.$modal.show('Modal-Card')
     }
-
   },
   computed: {
     getUser () {
@@ -174,12 +184,18 @@ export default {
   components: {
     Navbar,
     Footer,
-    SecondNavbar
+    SecondNavbar,
+    ModalCard,
   }
 }
 </script>
 
 <style scoped>
+    input[type=radio]{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     input[type=radio]:before {
         position: absolute;
         width: 20px;
@@ -194,8 +210,6 @@ export default {
     }
     input[type=radio]:checked:after {
         position: relative;
-        top: -2px;
-        left: 4px;
         display: inline-block;
         visibility: visible;
         border-radius: 6px;
@@ -221,14 +235,25 @@ export default {
         width: 100%;
         background: #131E3D;
     }
+    .add__info.absolute{
+        position: absolute;
+        bottom: 1.25rem;
+        left: 2.5rem;
+    }
+    .add__info.absolute input{
+        border: 1px solid #131E3D;
+        border-radius: 3px;
+        padding: 3px;
+    }
     .user__cabinet{
         width: 100%;
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
         border-radius: 8px;
-        padding: 2.5rem;
+        padding: 2.5rem 2.5rem 5rem 2.5rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        position: relative;
     }
     .user__cabinet .user{
         display: flex;
@@ -292,7 +317,7 @@ export default {
         display: flex;
         align-items: center;
     }
-    .user__cabinet .info__user .change.inputs span{
+    .user__cabinet .info__user .change.inputs label{
         margin: 0 10px 0 5px;
     }
     .user__cabinet .info__user .change p{
@@ -317,9 +342,6 @@ export default {
         border-radius: 8px;
         margin-top: 2.5rem;
     }
-    .user__boxes2 .box:first-child{
-        cursor: pointer;
-    }
     .user__boxes2 .box .title{
         font-size: 24px;
         font-weight: bold;
@@ -336,6 +358,7 @@ export default {
         border: 2px solid #EE4927;
         width: 260px;
         height: 130px;
+        cursor: pointer;
         transition: 0.3s linear;
     }
     .user__boxes2 .box .add__cart:hover{
@@ -385,17 +408,25 @@ export default {
 
     @media (min-width: 769px) and (max-width: 1025px){
         .user__cabinet{
-            padding: 1.5rem;
+            padding: 1.5rem 1.5rem 3rem 1.5rem;
         }
         .user__boxes2 .box{
             padding: 1.5rem;
+        }
+        .add__info.absolute{
+            bottom: 0.5rem;
+            left: 20px;
         }
     }
 
     @media (min-width: 600px) and (max-width: 769px){
         .user__cabinet{
-            padding: 1.5rem;
+            padding: 1.5rem 1.5rem 3rem 1.5rem;
             height: auto;
+        }
+        .add__info.absolute{
+            bottom: 5px;
+            left: 20px;
         }
         .user__boxes2 .box{
             padding: 1.5rem;
@@ -418,7 +449,7 @@ export default {
             margin-left: 10px;
             height: 16px;
         }
-        .user__cabinet .info__user .change.inputs span{
+        .user__cabinet .info__user .change.inputs label{
             font-size: 14px;
         }
         .user__boxes2 .box .add__cart{
@@ -443,8 +474,15 @@ export default {
             font-size: 12px !important;
         }
         .user__cabinet{
-            padding: 1.5rem;
+            padding: 1.5rem 1.5rem 3rem 1.5rem;
             height: auto;
+        }
+        .add__info.absolute{
+            bottom: 5px;
+            left: 1.5rem;
+        }
+        .user__boxes2{
+            padding-bottom: 0;
         }
         .user__boxes2 .box{
             padding: 1rem;
@@ -475,7 +513,7 @@ export default {
             margin-left: 10px;
             height: 16px;
         }
-        .user__cabinet .info__user .change.inputs span{
+        .user__cabinet .info__user .change.inputs label{
             font-size: 14px;
         }
         .user__boxes2 .box .add__cart{
@@ -523,6 +561,18 @@ export default {
             font-size: 14px;
             line-height: 16px;
         }
+        input[type=radio]{
+            width: 14px;
+            height: 14px;
+        }
+        input[type=radio]:before {
+            width: 14px;
+            height: 14px;
+        }
+        input[type=radio]:checked:after {
+            width: 8px;
+            height: 8px;
+        }
     }
 
     @media (max-width: 415px){
@@ -533,8 +583,26 @@ export default {
             font-size: 12px !important;
         }
         .user__cabinet{
-            padding: 1rem;
+            padding: 1rem 1rem 8rem 1rem;
             height: auto;
+        }
+        .add__info.absolute{
+            display: flex;
+            flex-direction: column;
+            bottom: 0.5rem;
+            left: 1rem;
+        }
+        .add__info.absolute input{
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .add__info.absolute button{
+            font-size: 14px;
+            padding: 5px 10px;
+            width: max-content;
+        }
+        .user__boxes2{
+            padding-bottom: 0;
         }
         .user__boxes2 .box{
             padding: 1rem;
@@ -568,7 +636,7 @@ export default {
             margin-left: 10px;
             height: 16px;
         }
-        .user__cabinet .info__user .change.inputs span{
+        .user__cabinet .info__user .change.inputs label{
             font-size: 14px;
         }
         .user__boxes2 .box .add__cart{
@@ -619,6 +687,18 @@ export default {
             margin-right: 0;
             text-align: center;
             font-size: 20px;
+        }
+        input[type=radio]{
+            width: 14px;
+            height: 14px;
+        }
+        input[type=radio]:before {
+            width: 14px;
+            height: 14px;
+        }
+        input[type=radio]:checked:after {
+            width: 8px;
+            height: 8px;
         }
     }
 

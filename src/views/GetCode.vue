@@ -1,6 +1,6 @@
 <template>
-    <div class="flex items-center justify-center min-h-screen bg-gray-100">
-        <div class="px-8 py-6 w-3/12 rounded-md mt-4 text-left bg-white shadow-lg">
+    <div class="flex items-center justify-center min-h-screen bg-gray-100 pb-8">
+        <div class="px-8 py-6 w-3/12 rounded-md mt-4 text-left bg-white shadow-lg get__code">
             <form action="">
                 <div class="mt-4">
                     <div>
@@ -45,6 +45,10 @@
         width: 100%;
         background: #131E3D;
     }
+.get__code{
+    min-width: 380px;
+    width: 380px;
+}
 .time{
     color: #131E3D;
     font-size: 14px;
@@ -86,4 +90,12 @@
 .registered:hover{
     text-decoration: none;
 }
+
+    @media (max-width: 400px){
+        .get__code{
+            min-width: 98%;
+            width: 98%;
+        }
+    }
+
 </style>

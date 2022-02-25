@@ -106,6 +106,12 @@ export default {
         height: 210px;
     }
 
+    @media (min-width: 1025px) and (max-width: 1500px){
+        .brand__one img{
+            object-fit: contain;
+        }
+    }
+
     @media (max-width: 1025px){
         .brand__name{
             margin-left: 0;

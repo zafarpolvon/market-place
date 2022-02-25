@@ -206,7 +206,7 @@ export default {
   }
 
   .track-highlight{
-    background-color: #0052FF;
+    background-color: #FE9E0D;
     border-radius: 17px;
     z-index: 2;
   }
@@ -243,7 +243,7 @@ export default {
       height: 50%;
       margin: auto;
       border-radius: 50%;
-      background: #0052FF;
+      background: #FE9E0D;
   }
 
   @media (max-width: 769px){

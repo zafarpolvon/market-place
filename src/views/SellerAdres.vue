@@ -3,12 +3,12 @@
         <Navbar />
         <div class="seller">
             <div class="header">
-                <div class="container mx-auto px-4 xl:px-12 md:px-12">
+                <div class="container mx-auto px-4 xl:px-12 md:px-4">
                     <h1>Продажи на LogoName <br> по системе FBS (маркетплейс)</h1>
                     <p>Получайте заказы от клиентов, привозите товар и получайте большую комиссию от продаж</p>
                 </div>
             </div>
-            <div class="container mx-auto px-4 xl:px-12 md:px-12 seller__container">
+            <div class="container mx-auto px-4 xl:px-12 md:px-4 seller__container">
                 <div class="seller__adres">
                     <div class="box">
                         <img src="../assets/image/unsplash_OhKElOkQ3RE (2).png" alt="not found">
@@ -36,14 +36,43 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="container mx-auto px-4 xl:px-12 md:px-4 mb-12">
+            <div class="container mx-auto px-4 xl:px-12 md:px-4 mb-12">
                 <div class="grid grid-cols-5 gap-3" >
                     <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
                         <Cart :cart="cart" />
                     </div>
+                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
+                        <Cart :cart="cart" />
+                    </div>
+                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
+                        <Cart :cart="cart" />
+                    </div>
+                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
+                        <Cart :cart="cart" />
+                    </div>
+                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
+                        <Cart :cart="cart" />
+                    </div>
+                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
+                        <Cart :cart="cart" />
+                    </div>
+                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
+                        <Cart :cart="cart" />
+                    </div>
+                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
+                        <Cart :cart="cart" />
+                    </div>
+                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
+                        <Cart :cart="cart" />
+                    </div>
+                    <div v-for="cart in tovar.slice(0, 2)" :key="cart.id">
+                        <Cart :cart="cart" />
+                    </div>
                 </div>
-                <div class="show__all">показать еще</div>
-            </div> -->
+            </div>
+            <div class="mb-8 text-center">
+                <router-link tag="a" to="/filter" class="show__all">показать еще</router-link>
+            </div>
         </div>
         <Footer />
     </div>
@@ -55,6 +84,26 @@ import Navbar from '../components/layout/Navbar.vue'
 import Cart from '../components/Cart.vue'
 
 export default {
+    name: 'Home',
+  data: () => ({
+    tovar: []
+  }),
+  async mounted () {
+    this.tovar = await this.$store.dispatch('loadData')
+    this.setupPagination(this.tovar.map(person => {
+      return {
+        ...person
+      }
+    }))
+  },
+  methods: {
+
+  },
+  computed: {
+    product () {
+      return this.$store.getters.PRODUCTS
+    }
+  },
     components: {
         Navbar,
         Footer,
@@ -82,6 +131,8 @@ export default {
         background: #131E3D;
     }
     .show__all {
+        width: max-content;
+        margin: 1.5rem auto;
         background: #131E3D;
         border-radius: 8px;
         font-size: 18px;
@@ -302,15 +353,23 @@ export default {
         }
         .seller__adres .box{
             width: 100%;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
         }
         .seller__adres .box:first-child{
             width: 100%;
             margin-top: 0;
-            flex-direction: column;
         }
         .seller__adres .box:first-child img{
             margin-bottom: 12px;
+            height: 100px;
+            width: 100px;
+        }
+        .seller__adres .box:first-child .user__name{
+            font-size: 16px;
+        }
+        .seller__adres .box .box__title{
+            margin-bottom: 0px;
+            font-size: 14px;
         }
     }
 
@@ -373,9 +432,6 @@ export default {
             font-size: 22px;
             line-height: 26px;
         }
-    }
-    .back{
-        padding-bottom: 100rem;
     }
 
 </style>

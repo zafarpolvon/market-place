@@ -1,6 +1,6 @@
 <template>
     <div class="flex items-center justify-center min-h-screen bg-gray-100">
-        <div class="px-8 py-6 w-3/12 rounded-md mt-4 text-left bg-white shadow-lg">
+        <div class="px-8 py-6 w-3/12 rounded-md mt-4 text-left bg-white shadow-lg login__box">
             <form @submit.prevent="submitHandler">
                 <div class="mt-4">
                     <div class="mt-4">
@@ -59,6 +59,10 @@ button:hover{
     color: #08235C;
     box-shadow: unset;
 }
+.login__box{
+    min-width: 380px;
+    width: 380px;
+}
 .forget{
     text-decoration: underline;
     color: #131E3D;
@@ -73,4 +77,12 @@ button:hover{
     font-size: 14px;
     cursor: pointer;
 }
+
+@media (max-width: 400px){
+    .login__box{
+        min-width: 98%;
+        width: 98%;
+    }
+}
+
 </style>

@@ -28,15 +28,20 @@ export default {
         align-items: center;
     }
     .product__order .product__increment{
+      display: flex;
+      align-items: center;
+      justify-content: center;
         background: #EE4927 !important;
         color: #fff !important;
         cursor: pointer;
         font-size: 28px;
         font-weight: bold;
         padding: 0 10px;
-        border-radius: 0 !important;
     }
     .product__order .product__decrement{
+      display: flex;
+      align-items: center;
+      justify-content: center;
         background: #131E3D !important;
         color: #FFF;
         cursor: pointer;
@@ -47,6 +52,9 @@ export default {
     }
     .product__order {
       p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 70px;
         padding: 8px 10px;
         outline: none;
@@ -63,46 +71,53 @@ export default {
       border-radius: 0 !important;
     }
 
+    @media (max-width: 1000px){
+      .product__order p{
+        padding: 3px 5px;
+      }
+      .product__order .product__increment, .product__order .product__decrement{
+        height: 32px;
+      }
+    }
+
   @media (min-width: 415px) and (max-width: 769px){
     .product__order p{
       width: 55px;
-      padding: 5px;
+      padding: 3px 5px;
     }
     .product__order .product__decrement{
       font-size: 24px;
     }
-    .add-product .product__information .product__about .product__order .product__decrement{
+    .product__decrement{
       font-size: 24px;
     }
     .product__order .product__increment{
       font-size: 24px;
     }
-    .add-product .product__information .product__about .product__order .product__increment{
+    .product__increment{
       font-size: 24px;
     }
   }
 
   @media (max-width: 415px){
     .product__order p{
-      width: 45px;
-      padding: 0px 5px;
-      height: 29px;
+      width: 30px;
+      padding: 0px;
+      height: 20px;
+      font-size: 14px;
     }
     .product__order .product__decrement{
+      padding: 0 8px;
+      height: 20px;
+      border-radius: 0 8px 8px 0 !important;
       font-size: 20px;
-      height: 29px;
-    }
-    .add-product .product__information .product__about .product__order .product__decrement{
-      font-size: 20px;
-      height: 29px;
+      border-radius: 8px 0 0 8px;
     }
     .product__order .product__increment{
+      padding: 0 8px;
+      height: 20px;
+      border-radius: 8px 0 0 8px !important;
       font-size: 20px;
-      height: 29px;
-    }
-    .add-product .product__information .product__about .product__order .product__increment{
-      font-size: 20px;
-      height: 29px;
     }
   }
 

@@ -23,6 +23,7 @@ import Register from '../views/Register.vue'
 import GetCode from '../views/GetCode.vue'
 import SellerAdres from '../views/SellerAdres.vue'
 import RatingCart from '../views/RatingCart.vue'
+import Paid from '../views/Paid.vue'
 import store from '../store/index'
 
 Vue.use(VueRouter)
@@ -80,6 +81,11 @@ const routes = [
     path: '/ratingcart',
     name: 'RatingCart',
     component: RatingCart,
+  },
+  {
+    path: '/paid',
+    name: 'Paid',
+    component: Paid,
   },
   {
     path: '/contacts',

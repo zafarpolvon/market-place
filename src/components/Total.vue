@@ -8,20 +8,6 @@
             <h5 class="total__left">Товары (1)</h5>
             <p class="total__right">1890 ₽</p>
         </div>
-        <div class="flex justify-between mt-2">
-            <div class="flex">
-                <h5 class="total__left">Скидка при</h5>
-                <img class="h-8 w-auto" src="../assets/image/image 292.png" alt="">
-            </div>
-            <p class="total__right">-500 ₽</p>
-        </div>
-        <div class="flex justify-between mt-2">
-            <div class="flex">
-                <h5 class="total__left">Скидка при</h5>
-                <img class="h-8 w-auto" src="../assets/image/image 30.png" alt="">
-            </div>
-            <p class="total__right">-500 ₽</p>
-        </div>
         <div class="flex mt-2">
             <h5 class="total__delivery">Доставка: </h5>
             <button class="total__pick">Выбрать адресс доставки</button>
@@ -123,12 +109,21 @@ export default {
     }
     @media (min-width: 376px) and (max-width: 600px){
         .total__price {
-            font-size: 28px;
+            font-size: 18px;
         }
         .total__left {
             font-size: 14px;
             line-height: 31px;
             margin-right: 5px;
+        }
+        .total__title{
+            font-size: 18px;
+        }
+        .total__delivery{
+            font-size: 14px;
+        }
+        .total__button{
+            font-size: 14px;
         }
     }
 
@@ -137,12 +132,21 @@ export default {
             padding: 20px 10px;
         }
         .total__price {
-            font-size: 26px;
+            font-size: 18px;
         }
         .total__left {
             font-size: 14px;
             line-height: 31px;
             margin-right: 5px;
+        }
+        .total__title{
+            font-size: 18px;
+        }
+        .total__delivery{
+            font-size: 14px;
+        }
+        .total__button{
+            font-size: 14px;
         }
     }
 

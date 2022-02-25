@@ -2,7 +2,7 @@
     <div class="back">
         <Navbar />
         <MainMenu />
-        <!-- <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <!-- <div class="container mx-auto px-4 xl:px-12 md:px-4">
             <div class="delivery-menu">
                 <ul>
                     <li>Как сделать заказ</li>
@@ -15,12 +15,12 @@
                 </ul>
             </div>
         </div> -->
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4">
             <div class="delivery">
                 <div class="delivery__title">Доставка</div>
             </div>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4">
             <div class="delivery-boxes">
                 <div class="delivery__box">
                     <div class="box_title">Быстро доставим любой Ваш заказ по всей России</div>
@@ -202,6 +202,9 @@ export default {
         .delivery-boxes .delivery__box .d__boxes .d__box p{
             font-size: 14px;
         }
+        .delivery .delivery__title{
+            font-size: 22px;
+        }
     }
 
     @media only screen and (max-width: 376px) {
@@ -230,6 +233,9 @@ export default {
         }
         .delivery-boxes .delivery__box .d__boxes .d__box p{
             font-size: 14px;
+        }
+        .delivery .delivery__title{
+            font-size: 22px;
         }
     }
 </style>

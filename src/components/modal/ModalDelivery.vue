@@ -13,6 +13,14 @@
                         <button @click="activeBtn = 'btn1'" :class="{active: activeBtn === 'btn1' }" class="mr-3 btn1">Пункт выдачи</button>
                         <button @click="activeBtn = 'btn2'" :class="{active: activeBtn === 'btn2' }" class="ml-3 btn2">Курьером</button>
                     </div>
+                    <div class="delivery__select my-4">
+                        <select class="mr-3" name="" id="">
+                            <option value="">Россия</option>
+                        </select>
+                        <select class="ml-3" name="" id="">
+                            <option value="">Москва</option>
+                        </select>
+                    </div>
                     <div class="delivery__address">
                         <p v-if="!info">Нет сохраненных адресов</p>
                         <p v-else>Бунёдкор 14 32кв</p>
@@ -98,6 +106,28 @@ export default {
         box-sizing: border-box;
         border-radius: 8px;
     }
+    .delivery__select{
+        display: flex;
+        padding-right: 40px;
+    }
+    .delivery__select select{
+        background: #D9D9D9;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 100%;
+        color: #000000;
+        height: 50px;
+        width: 100%;
+        text-align: center;
+        outline: none;
+        -webkit-appearance: media-slider;
+        -moz-appearance: none;
+        background-image: url("data:image/svg+xml;utf8,<svg fill='darkblue' height='32' viewBox='0 0 24 24' width='32' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+        background-repeat: no-repeat;
+        background-position-x: 98%;
+        background-position-y: 50%;
+    }
     .delivery__address {
         margin-top: 20px;
         font-weight: 600;
@@ -115,8 +145,18 @@ export default {
         padding: 15px 25px;
     }
     @media (min-width: 200px) and (max-width: 600px){
+        .delivery__box{
+            padding: 12px;
+        }
         .delivery__button {
             padding-right: 0;
+        }
+        .delivery__select{
+            padding-right: 0;
+        }
+        .delivery__select select{
+            font-size: 15px;
+            height: 45px;
         }
         .delivery__pick {
             font-size: 14px;

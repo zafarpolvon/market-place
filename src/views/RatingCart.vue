@@ -1,7 +1,7 @@
 <template>
     <div class="back">
         <Navbar />
-        <div class="container mx-auto px-4 xl:px-12 md:px-12 mb-8 mt-8">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4 mb-8 mt-8">
             <div class="box">
                 <div class="rating__box">
                     <div class="rating__about padding">
@@ -22,43 +22,6 @@
                             </a>
                         </div>
                     </div>
-                    <div class="description padding border-top">
-                        <div class="description__title mb-4">Описания</div>
-                        <p class="description__text">Lorem Ipsum is simply dummy text of the printing and typesetting 
-                            industry. Lorem Ipsum has been the industry's standard dummy text 
-                            ever since the 1500s, when an unknown printer took a galley of 
-                            type and scrambled it to make a type specimen 
-                        </p>
-                    </div>
-                    <div class="size padding border-top">
-                        <div class="size__title mb-4">Размер</div>
-                        <div class="product__size">
-                            <!-- <div class="radioContainer" v-for="(size, index) in cart.filters" :key="index">
-                                <input type="radio" :id="index" v-bind:value="size.value" v-model="picked" @click="temp(size)">
-                                <label class="circle" :for="index">{{ size.value }}</label>
-                            </div> -->
-                            <div class="radioContainer">
-                                <input type="radio" name="radio">
-                                <label for="" class="circle">48</label>
-                            </div>
-                            <div class="radioContainer">
-                                <input type="radio" name="radio">
-                                <label for="" class="circle">50</label>
-                            </div>
-                            <div class="radioContainer">
-                                <input type="radio" name="radio">
-                                <label for="" class="circle">52</label>
-                            </div>
-                            <div class="radioContainer">
-                                <input type="radio" name="radio">
-                                <label for="" class="circle">54</label>
-                            </div>
-                            <div class="radioContainer">
-                                <input type="radio" name="radio">
-                                <label for="" class="circle">56</label>
-                            </div>
-                        </div>
-                    </div>
                     <div class="character padding border-top">
                         <div class="character__title mb-4">Характеристики</div>
                         <span>эластан 5%,</span>
@@ -76,14 +39,13 @@
                         <span>шерсть 53%</span>
                         <div class="r__type">Комплектация: <span>рубашка</span></div>
                         <div class="r__landing">Крой: <span>средняя посадка</span></div>
-                        <!-- <p>{{ cart.description.slice(3, -4) }}</p> -->
                     </div>
                 </div>
                 <div class="rating__box">
                     <div class="rating__about padding">
                         <img class="rating__image mr-4" src="../assets/image/unsplash_XZ3EmAIWuz0.png" alt="not found">
                         <div class="rating">
-                            <div class="rating__title">Lorem Ipsum dolor simer a g sgf esfgr asdd as das asd asd asf wds g</div>
+                            <div class="rating__title">Lorem ipsum dolor sit amet.</div>
                             <div class="rating__number">
                                 <span>4.3</span>
                                 <span>Общая оценка</span>
@@ -98,43 +60,6 @@
                             </a>
                         </div>
                     </div>
-                    <div class="description padding border-top">
-                        <div class="description__title mb-4">Описания</div>
-                        <p class="description__text">Lorem Ipsum is simply dummy text of the printing and typesetting 
-                            industry. Lorem Ipsum has been the industry's standard dummy text 
-                            ever since the 1500s, when an unknown printer took a galley of 
-                            type and scrambled it to make a type specimen 
-                        </p>
-                    </div>
-                    <div class="size padding border-top">
-                        <div class="size__title mb-4">Размер</div>
-                        <div class="product__size">
-                            <!-- <div class="radioContainer" v-for="(size, index) in cart.filters" :key="index">
-                                <input type="radio" :id="index" v-bind:value="size.value" v-model="picked" @click="temp(size)">
-                                <label class="circle" :for="index">{{ size.value }}</label>
-                            </div> -->
-                            <div class="radioContainer">
-                                <input type="radio" name="radio2">
-                                <label for="" class="circle">48</label>
-                            </div>
-                            <div class="radioContainer">
-                                <input type="radio" name="radio2">
-                                <label for="" class="circle">50</label>
-                            </div>
-                            <div class="radioContainer">
-                                <input type="radio" name="radio2">
-                                <label for="" class="circle">52</label>
-                            </div>
-                            <div class="radioContainer">
-                                <input type="radio" name="radio2">
-                                <label for="" class="circle">54</label>
-                            </div>
-                            <div class="radioContainer">
-                                <input type="radio" name="radio2">
-                                <label for="" class="circle">56</label>
-                            </div>
-                        </div>
-                    </div>
                     <div class="character padding border-top">
                         <div class="character__title mb-4">Характеристики</div>
                         <span>эластан 5%,</span>
@@ -152,7 +77,6 @@
                         <span>шерсть 53%</span>
                         <div class="r__type">Комплектация: <span>рубашка</span></div>
                         <div class="r__landing">Крой: <span>средняя посадка</span></div>
-                        <!-- <p>{{ cart.description.slice(3, -4) }}</p> -->
                     </div>
                 </div>
             </div>
@@ -179,9 +103,6 @@ export default {
 </script>
 
 <style scoped>
-.back{
-    padding-bottom: 100rem;
-}
     .border-top{
         border-top:  1px solid #D9D9D9;
     }
@@ -337,11 +258,51 @@ export default {
     }
 
     @media (max-width: 600px){
-        .box{
-            flex-direction: column;
-        }
         .rating__box{
-            width: 100%;
+            width: 50%;
+        }
+        .padding{
+            padding: 12px 0;
+        }
+        .rating__title{
+            font-size: 12px;
+        }
+        .rating__image{
+            width: 120px;
+            height: 120px;
+        }
+        .rating__number span:first-child{
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+        .rating__number span:last-child{
+            font-size: 12px;
+        }
+        .rating__link{
+            font-size: 12px;
+            padding: 4px 8px;
+        }
+        .rating__link svg{
+            width: 12px;
+            height: 12px;
+        }
+        .character{
+            padding: 12px 5px;
+        }
+        .character__title{
+            font-size: 14px;
+        }
+        .character span{
+            font-size: 12px;
+        }
+        .character .r__type, .character .r__landing{
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+        .mb-4{
+            margin-bottom: 0;
         }
     }
 

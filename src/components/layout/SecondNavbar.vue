@@ -1,6 +1,6 @@
 <template>
     <div class="info__menu">
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4">
             <ul>
                 <router-link tag="a" class="logo__svg" to="/info"><i class="fas fa-home"></i><span>Главная</span></router-link>
                 <router-link tag="a" class="logo__svg" to="/selected"><i class="far fa-heart"></i><span>Избранные</span></router-link>
@@ -8,7 +8,6 @@
                 <router-link tag="a" class="logo__svg" to="/message"><i class="far fa-comment-alt"></i><span>Мои сообщения</span></router-link>
                 <router-link tag="a" class="logo__svg" to="/payments"><i class="fas fa-credit-card"></i><span>Мои платежи</span></router-link>
                 <router-link tag="a" class="logo__svg" to="/cabinet"><i class="far fa-user"></i><span>Мои данные</span></router-link>
-                <router-link tag="a" class="logo__svg" to="/cabinet"><i class="fa fa-map-marker-alt"></i><span>Мои адреса</span></router-link>
             </ul>
         </div>
     </div>

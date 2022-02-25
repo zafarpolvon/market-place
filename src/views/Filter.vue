@@ -1,157 +1,201 @@
 <template>
-    <div class="back" style="height: 6000px">
+    <div class="back">
         <Navbar />
         <MainMenu />
-        <div class="container mx-auto px-4 xl:px-12 md:px-12 pages">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4 pages">
             <a href="#">Главная страница / </a>
             <a href="#">Мужчинам / </a>
             <a href="#">Одежда / </a>
             <a href="#">Свитшоты </a>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
-            <div class="filter__title">Мужские свитшоты</div>
+        <div class="container mx-auto px-4 xl:px-12 md:px-4">
+            <div class="filter__title mt-8">Свитшоты</div>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4">
             <div class="filter">
                 <div class="sidebar__filter">
-                    <div class="filter__price">
-                        <div class="price__title">Диапазон цена</div>
-                        <i class="fa fa-chevron-up"></i>
-                    </div>
-                    <div class="price__range1">
-                        <price-range @minValue="minValue" @maxValue="maxValue" />
-                    </div>
-                    <div class="brand">
-                        <div class="brand__title">Бренд</div>
-                        <i class="fa fa-chevron-up"></i>
-                    </div>
-                    <input type="search" placeholder="Я ищу..." class="brand__search">
-                    <form class="brand__inputs">
-                        <div class="brand__input">
-                            <input type="checkbox" name="name" />
-                            <p>Zara</p>
-                        </div>
-                        <div class="brand__input">
-                            <input type="checkbox" name="name" />
-                            <p>Legendr</p>
-                        </div>
-                        <div class="brand__input">
-                            <input type="checkbox" name="name" />
-                            <p>ABB</p>
-                        </div>
-                        <div class="brand__input">
-                            <input type="checkbox" name="name" />
-                            <p>Navigator</p>
-                        </div>
-                        <div class="brand__input">
-                            <input type="checkbox" name="name" />
-                            <p>TELFOR</p>
-                        </div>
-                        <div class="brand__input">
-                            <input type="checkbox" name="name" />
-                            <p>Wago</p>
-                        </div>
-                        <div class="brand__input">
-                            <input type="checkbox" name="name" />
-                            <p>UniVersal</p>
-                        </div>
-                    </form>
-                    <div class="discount">
-                        <div class="discount__title">Скидка</div>
-                        <i class="fa fa-chevron-up"></i>
-                    </div>
-                    <div class="discount__inputs">
-                        <div class="discount__input">
-                            <input type="radio" name="name" />
-                            <p>от 10% и выше</p>
-                        </div>
-                        <div class="discount__input">
-                            <input type="radio" name="name" />
-                            <p>от 20% и выше</p>
-                        </div>
-                        <div class="discount__input">
-                            <input type="radio" name="name" />
-                            <p>от 30% и выше</p>
-                        </div>
-                        <div class="discount__input">
-                            <input type="radio" name="name" />
-                            <p>от 40% и выше</p>
-                        </div>
-                    </div>
-                    <div class="color">
-                        <div class="color__title">Цвет</div>
-                        <i class="fa fa-chevron-up"></i>
-                    </div>
-                    <div class="colors">
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                    </div>
-                    <div class="gender">
-                        <div class="gender__title">Пол</div>
-                        <i class="fa fa-chevron-up"></i>
-                    </div>
-                    <div class="gender__inputs">
-                        <div class="gender__input">
-                            <input type="checkbox" name="g__name" />
-                            <p>мужской (37)</p>
-                        </div>
-                    </div>
-                    <div class="size">
-                        <div class="size__title">Размер</div>
-                        <i class="fa fa-chevron-up"></i>
-                    </div>
-                    <input type="search" class="size__input" placeholder="Я ищу..."/>
-                    <div class="size__boxes">
-                        <div class="box">42</div>
-                        <div class="box">44</div>
-                        <div class="box">48</div>
-                        <div class="box">50</div>
-                        <div class="box">52</div>
-                        <div class="box">S</div>
-                        <div class="box">SM</div>
-                        <div class="box">M</div>
-                        <div class="box">L</div>
-                        <div class="box">2XL</div>
-                        <div class="box">3XL</div>
-                    </div>
-                    <div class="season">
-                        <div class="season__title">Сезон</div>
-                        <i class="fa fa-chevron-up"></i>
-                    </div>
-                    <form class="season__inputs">
-                        <div class="season__input">
-                            <input type="checkbox" name="s__name" />
-                            <p>(сезон не задан) (34)</p>
-                        </div>
-                        <div class="season__input">
-                            <input type="checkbox" name="s__name" />
-                            <p>демисезон (16)</p>
-                        </div>
-                        <div class="season__input">
-                            <input type="checkbox" name="s__name" />
-                            <p>зима (120)</p>
-                        </div>
-                        <div class="season__input">
-                            <input type="checkbox" name="s__name" />
-                            <p>круглогодичный (14)</p>
-                        </div>
-                        <div class="season__input">
-                            <input type="checkbox" name="s__name" />
-                            <p>лето (62)</p>
-                        </div>
-                    </form>
-                    <div class="filter__buttons">
+                    <vsa-list>
+                        <vsa-item>
+                            <vsa-heading>
+                                <div class="filter__price">
+                                    <div class="price__title md14">Диапазон цена</div>
+                                </div>
+                            </vsa-heading>
+                            <vsa-content>
+                                <div class="price__range1">
+                                    <price-range @minValue="minValue" @maxValue="maxValue" />
+                                </div>
+                            </vsa-content>
+                        </vsa-item>
+                    </vsa-list>
+                    <vsa-list>
+                        <vsa-item>
+                            <vsa-heading>
+                                <div class="brand">
+                                    <div class="brand__title md14">Бренд</div>
+                                </div>
+                            </vsa-heading>
+                            <vsa-content>
+                                <input type="search" placeholder="Я ищу..." class="brand__search">
+                                <form class="brand__inputs">
+                                    <div class="brand__input">
+                                        <input id="zara" type="checkbox" name="name" />
+                                        <label for="zara">Zara</label>
+                                    </div>
+                                    <div class="brand__input">
+                                        <input id="legendr" type="checkbox" name="name" />
+                                        <label for="legendr">Legendr</label>
+                                    </div>
+                                    <div class="brand__input">
+                                        <input id="abb" type="checkbox" name="name" />
+                                        <label for="abb">ABB</label>
+                                    </div>
+                                    <div class="brand__input">
+                                        <input id="navigator" type="checkbox" name="name" />
+                                        <label for="navigator">Navigator</label>
+                                    </div>
+                                    <div class="brand__input">
+                                        <input id="telfor" type="checkbox" name="name" />
+                                        <label for="telfor">TELFOR</label>
+                                    </div>
+                                    <div class="brand__input">
+                                        <input id="wago" type="checkbox" name="name" />
+                                        <label for="wago">Wago</label>
+                                    </div>
+                                    <div class="brand__input">
+                                        <input id="universal" type="checkbox" name="name" />
+                                        <label for="universal">UniVersal</label>
+                                    </div>
+                                </form>
+                            </vsa-content>
+                        </vsa-item>
+                    </vsa-list>
+                    <vsa-list>
+                        <vsa-item>
+                            <vsa-heading>
+                                <div class="discount">
+                                    <div class="discount__title md14">Скидка</div>
+                                </div>
+                            </vsa-heading>
+                            <vsa-content>
+                                <div class="discount__inputs">
+                                    <div class="discount__input">
+                                        <input id="10" type="radio" name="name" />
+                                        <label for="10">от 10% и выше</label>
+                                    </div>
+                                    <div class="discount__input">
+                                        <input id="20" type="radio" name="name" />
+                                        <label for="20">от 20% и выше</label>
+                                    </div>
+                                    <div class="discount__input">
+                                        <input id="30" type="radio" name="name" />
+                                        <label for="30">от 30% и выше</label>
+                                    </div>
+                                    <div class="discount__input">
+                                        <input id="40" type="radio" name="name" />
+                                        <label for="40">от 40% и выше</label>
+                                    </div>
+                                </div>
+                            </vsa-content>
+                        </vsa-item>
+                    </vsa-list>
+                    <vsa-list>
+                        <vsa-item>
+                            <vsa-heading>
+                            <div class="color">
+                                <div class="color__title md14">Цвет</div>
+                            </div>
+                            </vsa-heading>
+                            <vsa-content>
+                            <div class="colors">
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                </div>
+                            </vsa-content>
+                        </vsa-item>
+                    </vsa-list>
+                    <vsa-list>
+                        <vsa-item>
+                            <vsa-heading>
+                                <div class="gender">
+                                    <div class="gender__title md14">Пол</div>
+                                </div>
+                            </vsa-heading>
+                            <vsa-content>
+                                <div class="gender__inputs">
+                                    <div class="gender__input">
+                                        <input id="gender" type="checkbox" name="g__name" />
+                                        <label for="gender">мужской (37)</label>
+                                    </div>
+                                </div>
+                            </vsa-content>
+                        </vsa-item>
+                    </vsa-list>
+                    <vsa-list>
+                        <vsa-item>
+                            <vsa-heading>
+                                <div class="size">
+                                    <div class="size__title md14">Размер</div>
+                                </div>
+                            </vsa-heading>
+                            <vsa-content>
+                                <input type="search" class="size__input" placeholder="Я ищу..."/>
+                                <div class="size__boxes">
+                                    <div class="box">42</div>
+                                    <div class="box">44</div>
+                                    <div class="box">48</div>
+                                    <div class="box">50</div>
+                                    <div class="box">52</div>
+                                    <div class="box">S</div>
+                                    <div class="box">SM</div>
+                                    <div class="box">M</div>
+                                    <div class="box">L</div>
+                                    <div class="box">2XL</div>
+                                    <div class="box">3XL</div>
+                                </div>
+                            </vsa-content>
+                        </vsa-item>
+                    </vsa-list>
+                    <vsa-list>
+                        <vsa-item>
+                            <vsa-heading>
+                                <div class="season">
+                                    <div class="season__title md14">Сезон</div>
+                                </div>
+                            </vsa-heading>
+                            <vsa-content>
+                                <form class="season__inputs">
+                                    <div class="season__input">
+                                        <input id="season1" type="checkbox" name="s__name" />
+                                        <label for="season1">(сезон не задан) (34)</label>
+                                    </div>
+                                    <div class="season__input">
+                                        <input id="season2" type="checkbox" name="s__name" />
+                                        <label for="season2">демисезон (16)</label>
+                                    </div>
+                                    <div class="season__input">
+                                        <input id="season3" type="checkbox" name="s__name" />
+                                        <label for="season3">зима (120)</label>
+                                    </div>
+                                    <div class="season__input">
+                                        <input id="season4" type="checkbox" name="s__name" />
+                                        <label for="season4">круглогодичный (14)</label>
+                                    </div>
+                                    <div class="season__input">
+                                        <input id="season5" type="checkbox" name="s__name" />
+                                        <label for="season5">лето (62)</label>
+                                    </div>
+                                </form>
+                            </vsa-content>
+                        </vsa-item>
+                    </vsa-list>
+                    <div class="filter__buttons flex">
                         <button type="submit" @click="check()" class="filter">Фильтр</button>
                         <button type="submit" class="reset">Сбросить</button>
                     </div>
@@ -160,18 +204,37 @@
                     <div class="products__menu">
                         <ul>
                             <span>Сортировать по:</span>
-                            <li>Ид продукта</li>
-                            <li>Цене</li>
-                            <li>Названию продукта</li>
                         </ul>
                     </div>
-                    <div class="products">
-                        <div class="grid grid-cols-4 gap-4">
-                            <div v-for="cart in tovar" :key="cart.id">
-                                <Cart :favorite="false" :cart="cart" />
+                    <tabs class="filter__tab">
+                        <tab title="Ид продукта">
+                            <div class="products">
+                                <div class="grid grid-cols-4 gap-4">
+                                    <div v-for="cart in tovar" :key="cart.id">
+                                        <Cart :favorite="false" :cart="cart" />
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </tab>
+                        <tab title="Цене">
+                            <div class="products">
+                                <div class="grid grid-cols-4 gap-4">
+                                    <div v-for="cart in tovar" :key="cart.id">
+                                        <Cart :favorite="false" :cart="cart" />
+                                    </div>
+                                </div>
+                            </div>
+                        </tab>
+                        <tab title="Названию продукта">
+                            <div class="products">
+                                <div class="grid grid-cols-4 gap-4">
+                                    <div v-for="cart in tovar" :key="cart.id">
+                                        <Cart :favorite="false" :cart="cart" />
+                                    </div>
+                                </div>
+                            </div>
+                        </tab>
+                    </tabs>
                 </div>
             </div>
         </div>
@@ -184,9 +247,20 @@ import Cart from '../components/Cart.vue'
 import PriceRange from '../components/PriceRange.vue'
 import _ from 'lodash'
 import MainMenu from '../components/layout/MainMenu.vue'
+import { Tabs, Tab } from 'vue-slim-tabs'
+import {
+  VsaList,
+  VsaItem,
+  VsaHeading,
+  VsaContent,
+  VsaIcon
+} from 'vue-simple-accordion';
+import 'vue-simple-accordion/dist/vue-simple-accordion.css';
 
 export default {
   name: 'Home',
+  el:"#app",
+  data:{},
   data: () => ({
     sortedProducts: [],
     min: 50,
@@ -230,24 +304,41 @@ export default {
     },
     check () {
       console.log(this.min)
+    },
+    activate:function(el){
+        this.active_el = el;
+        console.log(this.active_el);
     }
   },
   components: {
     Navbar,
     Cart,
     PriceRange,
-    MainMenu
-  }
+    MainMenu,
+    PriceRange,
+    VsaList,
+    VsaItem,
+    VsaHeading,
+    VsaContent,
+    VsaIcon,
+    Tabs,
+    Tab,
+  },
 }
-</script>,
-    PriceRange
+</script>
 
+<style src="vue-slim-tabs/themes/default.css"></style>
 <style scoped>
     .pages a{
         color: #023047;
     }
     .pages a:hover{
         color: #023999;
+    }
+    input[type=radio]{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     input[type=radio]:before {
         position: absolute;
@@ -263,8 +354,6 @@ export default {
     }
     input[type=radio]:checked:after {
         position: relative;
-        top: -2px;
-        left: 4px;
         display: inline-block;
         visibility: visible;
         border-radius: 6px;
@@ -290,6 +379,11 @@ export default {
         width: 100%;
         background: #131E3D;
     }
+    .active{
+        box-shadow: 5px 5px 5px rgba(155, 155, 155, 0.5);
+        transform: scale(1.05);
+        transition: 0.2s linear;
+    }
     .filter__title{
         font-size: 42px;
         color: #023047;
@@ -302,14 +396,6 @@ export default {
     }
     .filter .sidebar__filter{
         width: 18%;
-    }
-    .filter .sidebar__filter .filter__price{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        padding-bottom: 5px;
-        border-bottom: 1px solid #B5B0A1;
     }
     .filter .sidebar__filter .filter__price .price__title{
         font-size: 20px;
@@ -340,16 +426,6 @@ export default {
     .filter .sidebar__filter .price__range{
         width: 90%;
     }
-    .filter .sidebar__filter .brand{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 5px;
-        width: 100%;
-        border-bottom: 1px solid #B5B0A1;
-        margin-top: 10px;
-        margin-bottom: 16px;
-    }
     .filter .sidebar__filter .brand .brand__title{
         font-size: 20px;
     }
@@ -357,6 +433,7 @@ export default {
         color: #898989;
     }
     .filter .sidebar__filter .brand__search{
+        margin-top: 10px;
         width: 100%;
         border: 1px solid #B5B0A1;
         border-radius: 8px;
@@ -378,14 +455,6 @@ export default {
         border-radius: 1px;
         border: 1px solid #666666;
     }
-    .filter .sidebar__filter .discount{
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 5px;
-        border-bottom: 1px solid #B5B0A1;
-    }
     .filter .sidebar__filter .discount .discount__title{
         font-size: 20px;
     }
@@ -402,18 +471,10 @@ export default {
     }
     .filter .sidebar__filter .discount__inputs .discount__input input{
         margin-right: 12px;
-        width: 18px;
-        height: 18px;
+        width: 12px;
+        height: 12px;
         border-radius: 1px;
         border: 1px solid #666666;
-    }
-    .filter .sidebar__filter .color{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 5px;
-        border-bottom: 1px solid #B5B0A1;
-        width: 100%;
     }
     .filter .sidebar__filter .color .color__title{
         font-size: 20px;
@@ -432,14 +493,6 @@ export default {
         border-radius: 50%;
         margin: 7px 13px 7px 0;
         background: #C211A7;
-    }
-    .filter .sidebar__filter .gender{
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 5px;
-        border-bottom: 1px solid #B5B0A1;
     }
     .filter .sidebar__filter .gender .gender__title{
         font-size: 20px;
@@ -460,15 +513,6 @@ export default {
         height: 24px;
         width: 24px;
     }
-    .filter .sidebar__filter .size{
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 5px;
-        border-bottom: 1px solid #B5B0A1;
-        margin-bottom: 16px;
-    }
     .filter .sidebar__filter .size .size__title{
         font-size: 20px;
     }
@@ -476,11 +520,12 @@ export default {
         color: #898989;
     }
     .filter .sidebar__filter .size__input{
+        margin-top: 10px;
         width: 100%;
-        border: 1px solid #B5B0A1;
         border-radius: 8px;
         outline: none;
         padding: 7px 10px;
+        border: 1px solid #B5B0A1;
     }
     .filter .sidebar__filter .size__boxes{
         display: flex;
@@ -497,14 +542,6 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-    .filter .sidebar__filter .season{
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 5px;
-        border-bottom: 1px solid #B5B0A1;
     }
     .filter .sidebar__filter .season .season__title{
         font-size: 20px;
@@ -527,14 +564,7 @@ export default {
     }
     .filter .sidebar__filter .filter{
         background: #131E3D;
-        border-radius: 5px;
         color: #FFF;
-        width: 160px;
-        height: 45px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 16px 0;
         cursor: pointer;
     }
     .filter .sidebar__filter .filter:hover{
@@ -542,14 +572,7 @@ export default {
     }
     .filter .sidebar__filter .reset{
         background: rgba(238, 73, 39, 0.6);
-        border-radius: 5px;
         color: #FFF;
-        width: 160px;
-        height: 45px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 16px 0;
         cursor: pointer;
     }
     .filter .sidebar__filter .reset:hover{
@@ -561,33 +584,34 @@ export default {
     .filter .all__products .products__menu ul{
         display: flex;
         align-items: center;
-        padding-bottom: 10px;
     }
     .filter .all__products .products__menu ul li{
         border-bottom: 1px solid rgba(137, 137, 137, 0.5);
         color: #898989;
         cursor: pointer;
     }
-    .filter .all__products .products__menu ul :nth-child(2){
-        color: #0052FF;
-        border-bottom: 1px solid #0052FF;
-    }
-    .filter .all__products .products__menu ul li:hover{
-        color: #0052FF;
-        border-bottom: 1px solid #0052FF;
-    }
-    .filter .all__products .products__menu ul *{
-        margin-right: 2rem;
-    }
     .filter .products{
         width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
     }
     .filter .products .cart__box.shadow-xl{
         margin-top: 12px;
         margin-bottom: 12px;
+    }
+    .filter__buttons{
+        justify-content: space-between;
+    }
+    .filter__buttons button{
+        width: 48%;
+        height: 45px;
+        border-radius: 5px;
+        margin: 16px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    label{
+        line-height: 1;
     }
 
     @media (min-width: 769px) and (max-width: 1025px){
@@ -643,9 +667,6 @@ export default {
         .filter__buttons{
             display: flex;
         }
-        .filter__buttons button{
-            margin: 16px 1rem 16px 0 !important;
-        }
         .grid-cols-4 {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -655,6 +676,33 @@ export default {
         .filter .all__products .products__menu ul *{
             margin-right: 0;
             font-size: 14px;
+        }
+        .filter__title{
+            font-size: 22px;
+        }
+        .filter__buttons button{
+            font-size: 14px;
+        }
+        .md14{
+            font-size: 16px !important;
+        }
+        label{
+            font-size: 14px !important;
+        }
+        input{
+            font-size: 14px !important;
+        }
+        input[type=radio]{
+            width: 14px;
+            height: 14px;
+        }
+        input[type=radio]:before {
+            width: 14px;
+            height: 14px;
+        }
+        input[type=radio]:checked:after {
+            width: 8px;
+            height: 8px;
         }
     }
 
@@ -677,9 +725,6 @@ export default {
         .filter__buttons{
             display: flex;
         }
-        .filter__buttons button{
-            margin: 16px 1rem 16px 0 !important;
-        }
         .grid-cols-4 {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -692,7 +737,36 @@ export default {
             font-size: 18px;
         }
         .filter__title{
-            font-size: 32px;
+            font-size: 22px;
+        }
+        .filter .all__products .products__menu ul *{
+            font-size: 16px;
+            margin-top: 12px;
+        }
+        .filter__buttons button{
+            font-size: 14px;
+            height: 35px;
+        }
+        .md14{
+            font-size: 14px !important;
+        }
+        label{
+            font-size: 14px !important;
+        }
+        input{
+            font-size: 14px !important;
+        }
+        input[type=radio]{
+            width: 14px;
+            height: 14px;
+        }
+        input[type=radio]:before {
+            width: 14px;
+            height: 14px;
+        }
+        input[type=radio]:checked:after {
+            width: 8px;
+            height: 8px;
         }
     }
 

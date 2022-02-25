@@ -3,10 +3,10 @@
         <Navbar />
         <second-navbar />
         <location-navbar :name="'Базовая рубашка'" />
-        <div class="container mx-auto px-4 xl:px-12 md:px-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4">
             <div class="payment__title">Мои платежи</div>
         </div>
-        <div class="container mx-auto px-4 xl:px-12 md:px-12 mb-12">
+        <div class="container mx-auto px-4 xl:px-12 md:px-4 mb-12">
             <table style="width:100%">
                 <tr>
                     <th>ID заказа</th>
@@ -148,6 +148,21 @@ export default {
         font-size: 17px;
         line-height: 18px;
       }
+      .payment__title{
+        font-size: 22px;
+      }
+      input[type=radio]{
+            width: 14px;
+            height: 14px;
+        }
+        input[type=radio]:before {
+            width: 14px;
+            height: 14px;
+        }
+        input[type=radio]:checked:after {
+            width: 8px;
+            height: 8px;
+        }
     }
 
     @media only screen and (max-width: 415px){
@@ -158,13 +173,25 @@ export default {
             font-size: 12px !important;
         }
         .payment__title{
-            font-size: 32px;
+            font-size: 22px;
             margin-bottom: 1rem;
         }
         table tr th{
-          font-size: 14px;
+          font-size: 10px;
           line-height: 16px;
-          padding: 1rem 0;
+          padding: 4px 0;
+        }
+        input[type=radio]{
+            width: 14px;
+            height: 14px;
+        }
+        input[type=radio]:before {
+            width: 14px;
+            height: 14px;
+        }
+        input[type=radio]:checked:after {
+            width: 8px;
+            height: 8px;
         }
     }
 
